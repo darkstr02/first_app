@@ -1,0 +1,9 @@
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\PrototipoOT.exe.config
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\PrototipoOT.exe
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\PrototipoOT.pdb
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.csprojResolveAssemblyReference.cache
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.Form1.resources
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.Properties.Resources.resources
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.csproj.GenerateResource.Cache
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.exe
+c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.pdb
