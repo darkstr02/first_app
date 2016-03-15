@@ -10,3 +10,6 @@ c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmOrdenTrabajo.resources
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.Reportes.resources
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmBuscar.resources
+C:\Users\Francisco\Documents\Visual Studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmFiltrar.resources
+C:\Users\Francisco\Documents\Visual Studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\CheckBoxComboBox.dll
+C:\Users\Francisco\Documents\Visual Studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\CheckBoxComboBox.pdb

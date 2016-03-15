@@ -74,5 +74,17 @@ namespace PrototipoOT
             frmBuscar frm = new frmBuscar();
             frm.ShowDialog();
         }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            frmFiltrar frm = new frmFiltrar();
+            frm.ShowDialog();
+        }
+
+        private void filtrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFiltrar frm = new frmFiltrar();
+            frm.ShowDialog();
+        }
     }
 }

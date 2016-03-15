@@ -132,6 +132,12 @@
   <ItemGroup>
     <None Include="images\filter2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CheckBoxComboBox\CheckBoxComboBox\CheckBoxComboBox.csproj">
+      <Project>{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}</Project>
+      <Name>CheckBoxComboBox</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

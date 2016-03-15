@@ -16,5 +16,16 @@ namespace PrototipoOT
         {
             InitializeComponent();
         }
+
+        private void frmFiltrar_Load(object sender, EventArgs e)
+        {
+            checkBoxComboBox1.Items.Add("Item1");
+            checkBoxComboBox1.Items.Add("Item2");
+        }
+
+        private void checkBoxComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

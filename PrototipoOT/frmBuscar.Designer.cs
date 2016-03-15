@@ -166,7 +166,8 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(267, 153);
+            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox1.Location = new System.Drawing.Point(267, 149);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(83, 17);
             this.checkBox1.TabIndex = 14;
@@ -179,7 +180,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 41);
             this.button1.TabIndex = 15;
-            this.button1.Text = "button1";
+            this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -188,7 +189,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 41);
             this.button2.TabIndex = 16;
-            this.button2.Text = "button2";
+            this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // frmBuscar
