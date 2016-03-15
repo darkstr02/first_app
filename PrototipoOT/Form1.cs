@@ -86,5 +86,17 @@ namespace PrototipoOT
             frmFiltrar frm = new frmFiltrar();
             frm.ShowDialog();
         }
+
+        private void administrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdministrarUsuarios frm = new frmAdministrarUsuarios();
+            frm.ShowDialog();
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCambioContrasena frm = new frmCambioContrasena();
+            frm.ShowDialog();
+        }
     }
 }

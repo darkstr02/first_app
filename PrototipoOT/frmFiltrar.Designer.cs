@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            PresentationControls.CheckBoxProperties checkBoxProperties3 = new PresentationControls.CheckBoxProperties();
-            PresentationControls.CheckBoxProperties checkBoxProperties4 = new PresentationControls.CheckBoxProperties();
             PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
+            PresentationControls.CheckBoxProperties checkBoxProperties2 = new PresentationControls.CheckBoxProperties();
+            PresentationControls.CheckBoxProperties checkBoxProperties3 = new PresentationControls.CheckBoxProperties();
             this.checkBoxComboBox1 = new PresentationControls.CheckBoxComboBox();
             this.checkBoxComboBox2 = new PresentationControls.CheckBoxComboBox();
             this.checkBoxComboBox3 = new PresentationControls.CheckBoxComboBox();
@@ -50,8 +50,8 @@
             // 
             // checkBoxComboBox1
             // 
-            checkBoxProperties3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxComboBox1.CheckBoxProperties = checkBoxProperties3;
+            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBoxComboBox1.CheckBoxProperties = checkBoxProperties1;
             this.checkBoxComboBox1.DisplayMemberSingleItem = "";
             this.checkBoxComboBox1.FormattingEnabled = true;
             this.checkBoxComboBox1.Location = new System.Drawing.Point(113, 81);
@@ -62,8 +62,8 @@
             // 
             // checkBoxComboBox2
             // 
-            checkBoxProperties4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxComboBox2.CheckBoxProperties = checkBoxProperties4;
+            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBoxComboBox2.CheckBoxProperties = checkBoxProperties2;
             this.checkBoxComboBox2.DisplayMemberSingleItem = "";
             this.checkBoxComboBox2.FormattingEnabled = true;
             this.checkBoxComboBox2.Location = new System.Drawing.Point(113, 108);
@@ -73,8 +73,8 @@
             // 
             // checkBoxComboBox3
             // 
-            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxComboBox3.CheckBoxProperties = checkBoxProperties1;
+            checkBoxProperties3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBoxComboBox3.CheckBoxProperties = checkBoxProperties3;
             this.checkBoxComboBox3.DisplayMemberSingleItem = "";
             this.checkBoxComboBox3.FormattingEnabled = true;
             this.checkBoxComboBox3.Location = new System.Drawing.Point(113, 135);
@@ -205,6 +205,7 @@
             this.Controls.Add(this.checkBoxComboBox3);
             this.Controls.Add(this.checkBoxComboBox2);
             this.Controls.Add(this.checkBoxComboBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFiltrar";

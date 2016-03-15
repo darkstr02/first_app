@@ -50,11 +50,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAdministrarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministrarUsuarios.Designer.cs">
+      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBuscar.Designer.cs">
       <DependentUpon>frmBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambioContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambioContrasena.Designer.cs">
+      <DependentUpon>frmCambioContrasena.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFiltrar.cs">
       <SubType>Form</SubType>
@@ -79,8 +91,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAdministrarUsuarios.resx">
+      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscar.resx">
       <DependentUpon>frmBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambioContrasena.resx">
+      <DependentUpon>frmCambioContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFiltrar.resx">
       <DependentUpon>frmFiltrar.cs</DependentUpon>

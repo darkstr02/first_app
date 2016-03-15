@@ -13,3 +13,5 @@ C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT
 C:\Users\Francisco\Documents\Visual Studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmFiltrar.resources
 C:\Users\Francisco\Documents\Visual Studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\CheckBoxComboBox.dll
 C:\Users\Francisco\Documents\Visual Studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\CheckBoxComboBox.pdb
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmAdministrarUsuarios.resources
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmCambioContrasena.resources
