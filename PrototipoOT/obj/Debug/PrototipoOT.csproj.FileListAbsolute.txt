@@ -7,3 +7,6 @@ c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT
 c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.csproj.GenerateResource.Cache
 c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.exe
 c:\users\francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.pdb
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmOrdenTrabajo.resources
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.Reportes.resources
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmBuscar.resources
