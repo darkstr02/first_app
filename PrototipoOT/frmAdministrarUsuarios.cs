@@ -16,5 +16,17 @@ namespace PrototipoOT
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmNuevoUsuario frm = new frmNuevoUsuario();
+            frm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmModificarUsuariocs frm = new frmModificarUsuariocs();
+            frm.ShowDialog();
+        }
     }
 }

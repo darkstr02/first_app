@@ -74,6 +74,18 @@
     <Compile Include="frmFiltrar.Designer.cs">
       <DependentUpon>frmFiltrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarUsuariocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarUsuariocs.Designer.cs">
+      <DependentUpon>frmModificarUsuariocs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoUsuario.Designer.cs">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOrdenTrabajo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFiltrar.resx">
       <DependentUpon>frmFiltrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarUsuariocs.resx">
+      <DependentUpon>frmModificarUsuariocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoUsuario.resx">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrdenTrabajo.resx">
       <DependentUpon>frmOrdenTrabajo.cs</DependentUpon>
