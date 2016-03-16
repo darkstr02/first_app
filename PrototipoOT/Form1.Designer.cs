@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.borrarRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.órdenesDeTrabajoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,13 +47,13 @@
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.administrarResponsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.administrarResponsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -76,17 +75,11 @@
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.borrarRegistrosToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // borrarRegistrosToolStripMenuItem
-            // 
-            this.borrarRegistrosToolStripMenuItem.Name = "borrarRegistrosToolStripMenuItem";
-            this.borrarRegistrosToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.borrarRegistrosToolStripMenuItem.Text = "Borrar Registros";
+            this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -162,14 +155,14 @@
             // administrarUsuariosToolStripMenuItem
             // 
             this.administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
-            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios...";
             this.administrarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.administrarUsuariosToolStripMenuItem_Click);
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
-            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
             this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
@@ -220,6 +213,13 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(641, 329);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // administrarResponsablesToolStripMenuItem
+            // 
+            this.administrarResponsablesToolStripMenuItem.Name = "administrarResponsablesToolStripMenuItem";
+            this.administrarResponsablesToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.administrarResponsablesToolStripMenuItem.Text = "Administrar Responsables...";
+            this.administrarResponsablesToolStripMenuItem.Click += new System.EventHandler(this.administrarResponsablesToolStripMenuItem_Click);
             // 
             // toolStripButton1
             // 
@@ -297,13 +297,6 @@
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // administrarResponsablesToolStripMenuItem
-            // 
-            this.administrarResponsablesToolStripMenuItem.Name = "administrarResponsablesToolStripMenuItem";
-            this.administrarResponsablesToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.administrarResponsablesToolStripMenuItem.Text = "Administrar Responsables...";
-            this.administrarResponsablesToolStripMenuItem.Click += new System.EventHandler(this.administrarResponsablesToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,7 +333,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripMenuItem borrarRegistrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaToolStripMenuItem;

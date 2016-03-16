@@ -104,5 +104,10 @@ namespace PrototipoOT
             frmAdministrarResponsables frm = new frmAdministrarResponsables();
             frm.ShowDialog();
         }
+
+        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
