@@ -1,6 +1,6 @@
 ﻿namespace PrototipoOT
 {
-    partial class frmNuevoUsuario
+    partial class frmNuevoResponsable
     {
         /// <summary>
         /// Required designer variable.
@@ -44,103 +44,103 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(109, 73);
+            this.textBox5.Location = new System.Drawing.Point(109, 68);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(380, 20);
-            this.textBox5.TabIndex = 37;
+            this.textBox5.TabIndex = 25;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 76);
+            this.label5.Location = new System.Drawing.Point(53, 71);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 36;
+            this.label5.TabIndex = 24;
             this.label5.Text = "Dirección:";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(109, 101);
+            this.textBox4.Location = new System.Drawing.Point(109, 96);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(380, 20);
-            this.textBox4.TabIndex = 35;
+            this.textBox4.TabIndex = 22;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(109, 47);
+            this.textBox3.Location = new System.Drawing.Point(109, 42);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(380, 20);
-            this.textBox3.TabIndex = 34;
+            this.textBox3.TabIndex = 21;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(351, 21);
+            this.textBox2.Location = new System.Drawing.Point(351, 16);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(138, 20);
-            this.textBox2.TabIndex = 33;
+            this.textBox2.TabIndex = 20;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 21);
+            this.textBox1.Location = new System.Drawing.Point(109, 16);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(138, 20);
-            this.textBox1.TabIndex = 32;
+            this.textBox1.TabIndex = 19;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(283, 138);
+            this.button2.Location = new System.Drawing.Point(283, 133);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 41);
-            this.button2.TabIndex = 31;
+            this.button2.TabIndex = 18;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(160, 138);
+            this.button1.Location = new System.Drawing.Point(160, 133);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 41);
-            this.button1.TabIndex = 30;
+            this.button1.TabIndex = 17;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 106);
+            this.label4.Location = new System.Drawing.Point(56, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 29;
+            this.label4.TabIndex = 16;
             this.label4.Text = "Teléfono:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 50);
+            this.label3.Location = new System.Drawing.Point(61, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 28;
+            this.label3.TabIndex = 15;
             this.label3.Text = "Nombre:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 25);
+            this.label2.Location = new System.Drawing.Point(256, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
-            this.label2.TabIndex = 27;
+            this.label2.TabIndex = 14;
             this.label2.Text = "Apellido Materno:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 25);
+            this.label1.Location = new System.Drawing.Point(21, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 26;
+            this.label1.TabIndex = 13;
             this.label1.Text = "Apellido Paterno:";
             // 
-            // frmNuevoUsuario
+            // frmNuevoResponsable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,12 +157,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNuevoUsuario";
+            this.Name = "frmNuevoResponsable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nuevo Usuario";
+            this.Text = "frmNuevoResponsable";
+            this.Load += new System.EventHandler(this.frmNuevoResponsable_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,6 +182,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-
     }
 }

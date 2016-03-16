@@ -98,5 +98,11 @@ namespace PrototipoOT
             frmCambioContrasena frm = new frmCambioContrasena();
             frm.ShowDialog();
         }
+
+        private void administrarResponsablesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdministrarResponsables frm = new frmAdministrarResponsables();
+            frm.ShowDialog();
+        }
     }
 }

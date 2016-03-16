@@ -54,6 +54,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.administrarResponsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -152,6 +153,7 @@
             // 
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrarUsuariosToolStripMenuItem,
+            this.administrarResponsablesToolStripMenuItem,
             this.cambiarContraseñaToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
@@ -295,6 +297,13 @@
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
+            // administrarResponsablesToolStripMenuItem
+            // 
+            this.administrarResponsablesToolStripMenuItem.Name = "administrarResponsablesToolStripMenuItem";
+            this.administrarResponsablesToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.administrarResponsablesToolStripMenuItem.Text = "Administrar Responsables...";
+            this.administrarResponsablesToolStripMenuItem.Click += new System.EventHandler(this.administrarResponsablesToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +353,7 @@
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administrarResponsablesToolStripMenuItem;
     }
 }
 
