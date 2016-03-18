@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -36,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +53,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
+            this.sistemaOTDataSet1 = new PrototipoOT.SistemaOTDataSet();
+            this.sistemaOTDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -109,14 +122,30 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sERVICIOSBindingSource, "descripcion", true));
+            this.comboBox1.DataSource = this.sERVICIOSBindingSource;
+            this.comboBox1.DisplayMember = "descripcion";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(87, 113);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
             // 
+            // sERVICIOSBindingSource
+            // 
+            this.sERVICIOSBindingSource.DataMember = "SERVICIOS";
+            this.sERVICIOSBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboBox2
             // 
+            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.aREASBindingSource, "descripcion", true));
+            this.comboBox2.DataSource = this.aREASBindingSource;
+            this.comboBox2.DisplayMember = "descripcion";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(255, 113);
             this.comboBox2.Name = "comboBox2";
@@ -245,13 +274,36 @@
             this.radioButton2.Text = "Sí";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // sERVICIOSTableAdapter
+            // 
+            this.sERVICIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // sistemaOTDataSet1
+            // 
+            this.sistemaOTDataSet1.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sistemaOTDataSet1BindingSource
+            // 
+            this.sistemaOTDataSet1BindingSource.DataSource = this.sistemaOTDataSet1;
+            this.sistemaOTDataSet1BindingSource.Position = 0;
+            // 
+            // aREASBindingSource
+            // 
+            this.aREASBindingSource.DataMember = "AREAS";
+            this.aREASBindingSource.DataSource = this.sistemaOTDataSet1BindingSource;
+            // 
+            // aREASTableAdapter
+            // 
+            this.aREASTableAdapter.ClearBeforeFill = true;
+            // 
             // frmOrdenTrabajo
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(472, 397);
+            this.ClientSize = new System.Drawing.Size(472, 405);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label9);
@@ -281,6 +333,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Órden de Trabajo";
             this.Load += new System.EventHandler(this.frmOrdenTrabajo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +367,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private SistemaOTDataSet sistemaOTDataSet;
+        private System.Windows.Forms.BindingSource sERVICIOSBindingSource;
+        private SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter sERVICIOSTableAdapter;
+        private System.Windows.Forms.BindingSource sistemaOTDataSet1BindingSource;
+        private SistemaOTDataSet sistemaOTDataSet1;
+        private System.Windows.Forms.BindingSource aREASBindingSource;
+        private SistemaOTDataSetTableAdapters.AREASTableAdapter aREASTableAdapter;
     }
 }

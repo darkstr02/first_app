@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,22 +42,39 @@
             this.filtrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarResponsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.administrarResponsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oRDENESDETRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
+            this.idordenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.solicitanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idservicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idareaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idresponsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entregadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechainicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaentregadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oRDENESDETRABAJOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -84,7 +102,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // órdenesDeTrabajoToolStripMenuItem
@@ -159,6 +177,13 @@
             this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios...";
             this.administrarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.administrarUsuariosToolStripMenuItem_Click);
             // 
+            // administrarResponsablesToolStripMenuItem
+            // 
+            this.administrarResponsablesToolStripMenuItem.Name = "administrarResponsablesToolStripMenuItem";
+            this.administrarResponsablesToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.administrarResponsablesToolStripMenuItem.Text = "Administrar Responsables...";
+            this.administrarResponsablesToolStripMenuItem.Click += new System.EventHandler(this.administrarResponsablesToolStripMenuItem_Click);
+            // 
             // cambiarContraseñaToolStripMenuItem
             // 
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
@@ -202,24 +227,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(641, 63);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 90);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(641, 329);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // administrarResponsablesToolStripMenuItem
-            // 
-            this.administrarResponsablesToolStripMenuItem.Name = "administrarResponsablesToolStripMenuItem";
-            this.administrarResponsablesToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.administrarResponsablesToolStripMenuItem.Text = "Administrar Responsables...";
-            this.administrarResponsablesToolStripMenuItem.Click += new System.EventHandler(this.administrarResponsablesToolStripMenuItem_Click);
             // 
             // toolStripButton1
             // 
@@ -297,6 +304,109 @@
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idordenDataGridViewTextBoxColumn,
+            this.solicitanteDataGridViewTextBoxColumn,
+            this.idservicioDataGridViewTextBoxColumn,
+            this.idareaDataGridViewTextBoxColumn,
+            this.idresponsableDataGridViewTextBoxColumn,
+            this.entregadoDataGridViewCheckBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.observacionesDataGridViewTextBoxColumn,
+            this.fechainicioDataGridViewTextBoxColumn,
+            this.fechaentregadoDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.oRDENESDETRABAJOBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 90);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(641, 329);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sistemaOTDataSetBindingSource
+            // 
+            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource.Position = 0;
+            // 
+            // oRDENESDETRABAJOBindingSource
+            // 
+            this.oRDENESDETRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
+            this.oRDENESDETRABAJOBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // oRDENES_DE_TRABAJOTableAdapter
+            // 
+            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
+            // 
+            // idordenDataGridViewTextBoxColumn
+            // 
+            this.idordenDataGridViewTextBoxColumn.DataPropertyName = "id_orden";
+            this.idordenDataGridViewTextBoxColumn.HeaderText = "id_orden";
+            this.idordenDataGridViewTextBoxColumn.Name = "idordenDataGridViewTextBoxColumn";
+            // 
+            // solicitanteDataGridViewTextBoxColumn
+            // 
+            this.solicitanteDataGridViewTextBoxColumn.DataPropertyName = "solicitante";
+            this.solicitanteDataGridViewTextBoxColumn.HeaderText = "solicitante";
+            this.solicitanteDataGridViewTextBoxColumn.Name = "solicitanteDataGridViewTextBoxColumn";
+            // 
+            // idservicioDataGridViewTextBoxColumn
+            // 
+            this.idservicioDataGridViewTextBoxColumn.DataPropertyName = "id_servicio";
+            this.idservicioDataGridViewTextBoxColumn.HeaderText = "id_servicio";
+            this.idservicioDataGridViewTextBoxColumn.Name = "idservicioDataGridViewTextBoxColumn";
+            // 
+            // idareaDataGridViewTextBoxColumn
+            // 
+            this.idareaDataGridViewTextBoxColumn.DataPropertyName = "id_area";
+            this.idareaDataGridViewTextBoxColumn.HeaderText = "id_area";
+            this.idareaDataGridViewTextBoxColumn.Name = "idareaDataGridViewTextBoxColumn";
+            // 
+            // idresponsableDataGridViewTextBoxColumn
+            // 
+            this.idresponsableDataGridViewTextBoxColumn.DataPropertyName = "id_responsable";
+            this.idresponsableDataGridViewTextBoxColumn.HeaderText = "id_responsable";
+            this.idresponsableDataGridViewTextBoxColumn.Name = "idresponsableDataGridViewTextBoxColumn";
+            // 
+            // entregadoDataGridViewCheckBoxColumn
+            // 
+            this.entregadoDataGridViewCheckBoxColumn.DataPropertyName = "entregado";
+            this.entregadoDataGridViewCheckBoxColumn.HeaderText = "entregado";
+            this.entregadoDataGridViewCheckBoxColumn.Name = "entregadoDataGridViewCheckBoxColumn";
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            // 
+            // observacionesDataGridViewTextBoxColumn
+            // 
+            this.observacionesDataGridViewTextBoxColumn.DataPropertyName = "observaciones";
+            this.observacionesDataGridViewTextBoxColumn.HeaderText = "observaciones";
+            this.observacionesDataGridViewTextBoxColumn.Name = "observacionesDataGridViewTextBoxColumn";
+            // 
+            // fechainicioDataGridViewTextBoxColumn
+            // 
+            this.fechainicioDataGridViewTextBoxColumn.DataPropertyName = "fecha_inicio";
+            this.fechainicioDataGridViewTextBoxColumn.HeaderText = "fecha_inicio";
+            this.fechainicioDataGridViewTextBoxColumn.Name = "fechainicioDataGridViewTextBoxColumn";
+            // 
+            // fechaentregadoDataGridViewTextBoxColumn
+            // 
+            this.fechaentregadoDataGridViewTextBoxColumn.DataPropertyName = "fecha_entregado";
+            this.fechaentregadoDataGridViewTextBoxColumn.HeaderText = "fecha_entregado";
+            this.fechaentregadoDataGridViewTextBoxColumn.Name = "fechaentregadoDataGridViewTextBoxColumn";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,11 +419,15 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Órdenes de Trabajo IPN";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oRDENESDETRABAJOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,6 +460,20 @@
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarResponsablesToolStripMenuItem;
+        private System.Windows.Forms.BindingSource sistemaOTDataSetBindingSource;
+        private SistemaOTDataSet sistemaOTDataSet;
+        private System.Windows.Forms.BindingSource oRDENESDETRABAJOBindingSource;
+        private SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter oRDENES_DE_TRABAJOTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idordenDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn solicitanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idservicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idareaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idresponsableDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn entregadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observacionesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechainicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaentregadoDataGridViewTextBoxColumn;
     }
 }
 
