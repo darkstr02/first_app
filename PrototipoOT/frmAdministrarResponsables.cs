@@ -28,5 +28,12 @@ namespace PrototipoOT
             frmNuevoResponsable frm = new frmNuevoResponsable("Modificar");
             frm.ShowDialog();
         }
+
+        private void frmAdministrarResponsables_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_responsables' Puede moverla o quitarla según sea necesario.
+            this.vw_responsablesTableAdapter.Fill(this.sistemaOTDataSet.vw_responsables);
+
+        }
     }
 }

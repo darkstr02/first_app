@@ -28,24 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cUENTASDEUSUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.cUENTAS_DE_USUARIOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter();
+            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vwcuentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_cuentasTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_cuentasTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoPatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoMatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direcciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teléfonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDeCuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.últimoAccesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUENTASDEUSUARIOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwcuentasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.apellidoPatDataGridViewTextBoxColumn,
+            this.apellidoMatDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.direcciónDataGridViewTextBoxColumn,
+            this.teléfonoDataGridViewTextBoxColumn,
+            this.estadoDataGridViewTextBoxColumn,
+            this.tipoDeCuentaDataGridViewTextBoxColumn,
+            this.últimoAccesoDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.vwcuentasBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(276, 295);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // cUENTASDEUSUARIOBindingSource
+            // 
+            this.cUENTASDEUSUARIOBindingSource.DataMember = "CUENTAS_DE_USUARIO";
+            this.cUENTASDEUSUARIOBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -105,6 +147,78 @@
             this.button5.Text = "Cancelar";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // cUENTAS_DE_USUARIOTableAdapter
+            // 
+            this.cUENTAS_DE_USUARIOTableAdapter.ClearBeforeFill = true;
+            // 
+            // sistemaOTDataSetBindingSource
+            // 
+            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource.Position = 0;
+            // 
+            // vwcuentasBindingSource
+            // 
+            this.vwcuentasBindingSource.DataMember = "vw_cuentas";
+            this.vwcuentasBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // vw_cuentasTableAdapter
+            // 
+            this.vw_cuentasTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // apellidoPatDataGridViewTextBoxColumn
+            // 
+            this.apellidoPatDataGridViewTextBoxColumn.DataPropertyName = "Apellido Pat_";
+            this.apellidoPatDataGridViewTextBoxColumn.HeaderText = "Apellido Pat_";
+            this.apellidoPatDataGridViewTextBoxColumn.Name = "apellidoPatDataGridViewTextBoxColumn";
+            // 
+            // apellidoMatDataGridViewTextBoxColumn
+            // 
+            this.apellidoMatDataGridViewTextBoxColumn.DataPropertyName = "Apellido Mat_";
+            this.apellidoMatDataGridViewTextBoxColumn.HeaderText = "Apellido Mat_";
+            this.apellidoMatDataGridViewTextBoxColumn.Name = "apellidoMatDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // direcciónDataGridViewTextBoxColumn
+            // 
+            this.direcciónDataGridViewTextBoxColumn.DataPropertyName = "Dirección";
+            this.direcciónDataGridViewTextBoxColumn.HeaderText = "Dirección";
+            this.direcciónDataGridViewTextBoxColumn.Name = "direcciónDataGridViewTextBoxColumn";
+            // 
+            // teléfonoDataGridViewTextBoxColumn
+            // 
+            this.teléfonoDataGridViewTextBoxColumn.DataPropertyName = "Teléfono";
+            this.teléfonoDataGridViewTextBoxColumn.HeaderText = "Teléfono";
+            this.teléfonoDataGridViewTextBoxColumn.Name = "teléfonoDataGridViewTextBoxColumn";
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            // 
+            // tipoDeCuentaDataGridViewTextBoxColumn
+            // 
+            this.tipoDeCuentaDataGridViewTextBoxColumn.DataPropertyName = "Tipo de Cuenta";
+            this.tipoDeCuentaDataGridViewTextBoxColumn.HeaderText = "Tipo de Cuenta";
+            this.tipoDeCuentaDataGridViewTextBoxColumn.Name = "tipoDeCuentaDataGridViewTextBoxColumn";
+            // 
+            // últimoAccesoDataGridViewTextBoxColumn
+            // 
+            this.últimoAccesoDataGridViewTextBoxColumn.DataPropertyName = "Último Acceso";
+            this.últimoAccesoDataGridViewTextBoxColumn.HeaderText = "Último Acceso";
+            this.últimoAccesoDataGridViewTextBoxColumn.Name = "últimoAccesoDataGridViewTextBoxColumn";
+            // 
             // frmAdministrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,8 +234,13 @@
             this.Name = "frmAdministrarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrar cuentas de usuario...";
+            this.Load += new System.EventHandler(this.frmAdministrarUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUENTASDEUSUARIOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwcuentasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -135,5 +254,20 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private SistemaOTDataSet sistemaOTDataSet;
+        private System.Windows.Forms.BindingSource cUENTASDEUSUARIOBindingSource;
+        private SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter cUENTAS_DE_USUARIOTableAdapter;
+        private System.Windows.Forms.BindingSource sistemaOTDataSetBindingSource;
+        private System.Windows.Forms.BindingSource vwcuentasBindingSource;
+        private SistemaOTDataSetTableAdapters.vw_cuentasTableAdapter vw_cuentasTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoPatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoMatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direcciónDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teléfonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeCuentaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn últimoAccesoDataGridViewTextBoxColumn;
     }
 }

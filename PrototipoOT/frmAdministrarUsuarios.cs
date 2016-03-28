@@ -28,5 +28,14 @@ namespace PrototipoOT
             frmModificarUsuariocs frm = new frmModificarUsuariocs();
             frm.ShowDialog();
         }
+
+        private void frmAdministrarUsuarios_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_cuentas' Puede moverla o quitarla según sea necesario.
+            this.vw_cuentasTableAdapter.Fill(this.sistemaOTDataSet.vw_cuentas);
+            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.CUENTAS_DE_USUARIO' Puede moverla o quitarla según sea necesario.
+            this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
+
+        }
     }
 }
