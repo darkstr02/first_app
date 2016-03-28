@@ -19,6 +19,7 @@ namespace PrototipoOT
 
         private void frmFiltrar_Load(object sender, EventArgs e)
         {
+            //Llenar CheckBox ComboBoxes aquí!!
             checkBoxComboBox1.Items.Add("Item1");
             checkBoxComboBox1.Items.Add("Item2");
         }

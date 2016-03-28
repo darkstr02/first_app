@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +46,19 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
+            this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
+            this.rESPONSABLESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rESPONSABLESTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -141,27 +155,36 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.sERVICIOSBindingSource;
+            this.comboBox1.DisplayMember = "descripcion";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(77, 109);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 11;
+            this.comboBox1.ValueMember = "id_servicio";
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.aREASBindingSource;
+            this.comboBox2.DisplayMember = "descripcion";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(288, 109);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(147, 21);
             this.comboBox2.TabIndex = 12;
+            this.comboBox2.ValueMember = "id_area";
             // 
             // comboBox3
             // 
+            this.comboBox3.DataSource = this.rESPONSABLESBindingSource;
+            this.comboBox3.DisplayMember = "nombre";
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(77, 149);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 13;
+            this.comboBox3.ValueMember = "id_responsable";
             // 
             // checkBox1
             // 
@@ -192,6 +215,43 @@
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sistemaOTDataSetBindingSource
+            // 
+            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource.Position = 0;
+            // 
+            // sERVICIOSBindingSource
+            // 
+            this.sERVICIOSBindingSource.DataMember = "SERVICIOS";
+            this.sERVICIOSBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // sERVICIOSTableAdapter
+            // 
+            this.sERVICIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // aREASBindingSource
+            // 
+            this.aREASBindingSource.DataMember = "AREAS";
+            this.aREASBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // aREASTableAdapter
+            // 
+            this.aREASTableAdapter.ClearBeforeFill = true;
+            // 
+            // rESPONSABLESBindingSource
+            // 
+            this.rESPONSABLESBindingSource.DataMember = "RESPONSABLES";
+            this.rESPONSABLESBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // rESPONSABLESTableAdapter
+            // 
+            this.rESPONSABLESTableAdapter.ClearBeforeFill = true;
+            // 
             // frmBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,6 +280,12 @@
             this.Name = "frmBuscar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar";
+            this.Load += new System.EventHandler(this.frmBuscar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +310,13 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource sistemaOTDataSetBindingSource;
+        private SistemaOTDataSet sistemaOTDataSet;
+        private System.Windows.Forms.BindingSource sERVICIOSBindingSource;
+        private SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter sERVICIOSTableAdapter;
+        private System.Windows.Forms.BindingSource aREASBindingSource;
+        private SistemaOTDataSetTableAdapters.AREASTableAdapter aREASTableAdapter;
+        private System.Windows.Forms.BindingSource rESPONSABLESBindingSource;
+        private SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter rESPONSABLESTableAdapter;
     }
 }
