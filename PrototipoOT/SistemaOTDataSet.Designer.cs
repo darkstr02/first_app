@@ -38,6 +38,16 @@ namespace PrototipoOT {
         
         private SERVICIOSDataTable tableSERVICIOS;
         
+        private vw_ordenesDataTable tablevw_ordenes;
+        
+        private global::System.Data.DataRelation relationFK_CUENTAS_DE_USUARIO_CAT_CUENTAS;
+        
+        private global::System.Data.DataRelation relationFK_ORDENES_DE_TRABAJO_AREAS;
+        
+        private global::System.Data.DataRelation relationFK_ORDENES_DE_TRABAJO_RESPONSABLES;
+        
+        private global::System.Data.DataRelation relationFK_ORDENES_DE_TRABAJO_SERVICIOS;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -86,6 +96,9 @@ namespace PrototipoOT {
                 }
                 if ((ds.Tables["SERVICIOS"] != null)) {
                     base.Tables.Add(new SERVICIOSDataTable(ds.Tables["SERVICIOS"]));
+                }
+                if ((ds.Tables["vw_ordenes"] != null)) {
+                    base.Tables.Add(new vw_ordenesDataTable(ds.Tables["vw_ordenes"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -177,6 +190,16 @@ namespace PrototipoOT {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public vw_ordenesDataTable vw_ordenes {
+            get {
+                return this.tablevw_ordenes;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -263,6 +286,9 @@ namespace PrototipoOT {
                 if ((ds.Tables["SERVICIOS"] != null)) {
                     base.Tables.Add(new SERVICIOSDataTable(ds.Tables["SERVICIOS"]));
                 }
+                if ((ds.Tables["vw_ordenes"] != null)) {
+                    base.Tables.Add(new vw_ordenesDataTable(ds.Tables["vw_ordenes"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -338,6 +364,16 @@ namespace PrototipoOT {
                     this.tableSERVICIOS.InitVars();
                 }
             }
+            this.tablevw_ordenes = ((vw_ordenesDataTable)(base.Tables["vw_ordenes"]));
+            if ((initTable == true)) {
+                if ((this.tablevw_ordenes != null)) {
+                    this.tablevw_ordenes.InitVars();
+                }
+            }
+            this.relationFK_CUENTAS_DE_USUARIO_CAT_CUENTAS = this.Relations["FK_CUENTAS_DE_USUARIO_CAT_CUENTAS"];
+            this.relationFK_ORDENES_DE_TRABAJO_AREAS = this.Relations["FK_ORDENES_DE_TRABAJO_AREAS"];
+            this.relationFK_ORDENES_DE_TRABAJO_RESPONSABLES = this.Relations["FK_ORDENES_DE_TRABAJO_RESPONSABLES"];
+            this.relationFK_ORDENES_DE_TRABAJO_SERVICIOS = this.Relations["FK_ORDENES_DE_TRABAJO_SERVICIOS"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +398,24 @@ namespace PrototipoOT {
             base.Tables.Add(this.tableRESPONSABLES);
             this.tableSERVICIOS = new SERVICIOSDataTable();
             base.Tables.Add(this.tableSERVICIOS);
+            this.tablevw_ordenes = new vw_ordenesDataTable();
+            base.Tables.Add(this.tablevw_ordenes);
+            this.relationFK_CUENTAS_DE_USUARIO_CAT_CUENTAS = new global::System.Data.DataRelation("FK_CUENTAS_DE_USUARIO_CAT_CUENTAS", new global::System.Data.DataColumn[] {
+                        this.tableCAT_CUENTAS.id_cat_cuentaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCUENTAS_DE_USUARIO.id_cat_cuentaColumn}, false);
+            this.Relations.Add(this.relationFK_CUENTAS_DE_USUARIO_CAT_CUENTAS);
+            this.relationFK_ORDENES_DE_TRABAJO_AREAS = new global::System.Data.DataRelation("FK_ORDENES_DE_TRABAJO_AREAS", new global::System.Data.DataColumn[] {
+                        this.tableAREAS.id_areaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableORDENES_DE_TRABAJO.id_areaColumn}, false);
+            this.Relations.Add(this.relationFK_ORDENES_DE_TRABAJO_AREAS);
+            this.relationFK_ORDENES_DE_TRABAJO_RESPONSABLES = new global::System.Data.DataRelation("FK_ORDENES_DE_TRABAJO_RESPONSABLES", new global::System.Data.DataColumn[] {
+                        this.tableRESPONSABLES.id_responsableColumn}, new global::System.Data.DataColumn[] {
+                        this.tableORDENES_DE_TRABAJO.id_responsableColumn}, false);
+            this.Relations.Add(this.relationFK_ORDENES_DE_TRABAJO_RESPONSABLES);
+            this.relationFK_ORDENES_DE_TRABAJO_SERVICIOS = new global::System.Data.DataRelation("FK_ORDENES_DE_TRABAJO_SERVICIOS", new global::System.Data.DataColumn[] {
+                        this.tableSERVICIOS.id_servicioColumn}, new global::System.Data.DataColumn[] {
+                        this.tableORDENES_DE_TRABAJO.id_servicioColumn}, false);
+            this.Relations.Add(this.relationFK_ORDENES_DE_TRABAJO_SERVICIOS);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -403,6 +457,12 @@ namespace PrototipoOT {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeSERVICIOS() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializevw_ordenes() {
             return false;
         }
         
@@ -481,6 +541,9 @@ namespace PrototipoOT {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SERVICIOSRowChangeEventHandler(object sender, SERVICIOSRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void vw_ordenesRowChangeEventHandler(object sender, vw_ordenesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1187,7 +1250,7 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CUENTAS_DE_USUARIORow AddCUENTAS_DE_USUARIORow(int id_cuenta, string apellido_pat, string apellido_mat, string nombre, string direccion, string telefono, int estado, string passwd, int id_cat_cuenta, System.DateTime ultimo_acceso) {
+            public CUENTAS_DE_USUARIORow AddCUENTAS_DE_USUARIORow(int id_cuenta, string apellido_pat, string apellido_mat, string nombre, string direccion, string telefono, int estado, string passwd, CAT_CUENTASRow parentCAT_CUENTASRowByFK_CUENTAS_DE_USUARIO_CAT_CUENTAS, System.DateTime ultimo_acceso) {
                 CUENTAS_DE_USUARIORow rowCUENTAS_DE_USUARIORow = ((CUENTAS_DE_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_cuenta,
@@ -1198,8 +1261,11 @@ namespace PrototipoOT {
                         telefono,
                         estado,
                         passwd,
-                        id_cat_cuenta,
+                        null,
                         ultimo_acceso};
+                if ((parentCAT_CUENTASRowByFK_CUENTAS_DE_USUARIO_CAT_CUENTAS != null)) {
+                    columnValuesArray[8] = parentCAT_CUENTASRowByFK_CUENTAS_DE_USUARIO_CAT_CUENTAS[0];
+                }
                 rowCUENTAS_DE_USUARIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCUENTAS_DE_USUARIORow);
                 return rowCUENTAS_DE_USUARIORow;
@@ -1838,19 +1904,28 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string id_orden, string solicitante, int id_servicio, int id_area, int id_responsable, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado) {
+            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string id_orden, string solicitante, SERVICIOSRow parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS, AREASRow parentAREASRowByFK_ORDENES_DE_TRABAJO_AREAS, RESPONSABLESRow parentRESPONSABLESRowByFK_ORDENES_DE_TRABAJO_RESPONSABLES, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado) {
                 ORDENES_DE_TRABAJORow rowORDENES_DE_TRABAJORow = ((ORDENES_DE_TRABAJORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_orden,
                         solicitante,
-                        id_servicio,
-                        id_area,
-                        id_responsable,
+                        null,
+                        null,
+                        null,
                         entregado,
                         descripcion,
                         observaciones,
                         fecha_inicio,
                         fecha_entregado};
+                if ((parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS != null)) {
+                    columnValuesArray[2] = parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS[0];
+                }
+                if ((parentAREASRowByFK_ORDENES_DE_TRABAJO_AREAS != null)) {
+                    columnValuesArray[3] = parentAREASRowByFK_ORDENES_DE_TRABAJO_AREAS[0];
+                }
+                if ((parentRESPONSABLESRowByFK_ORDENES_DE_TRABAJO_RESPONSABLES != null)) {
+                    columnValuesArray[4] = parentRESPONSABLESRowByFK_ORDENES_DE_TRABAJO_RESPONSABLES[0];
+                }
                 rowORDENES_DE_TRABAJORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowORDENES_DE_TRABAJORow);
                 return rowORDENES_DE_TRABAJORow;
@@ -2651,6 +2726,404 @@ namespace PrototipoOT {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class vw_ordenesDataTable : global::System.Data.TypedTableBase<vw_ordenesRow> {
+            
+            private global::System.Data.DataColumn columnConsecutivo;
+            
+            private global::System.Data.DataColumn columnSolicitante;
+            
+            private global::System.Data.DataColumn columnÁrea;
+            
+            private global::System.Data.DataColumn columnServicio;
+            
+            private global::System.Data.DataColumn columnResponsable;
+            
+            private global::System.Data.DataColumn columnDescripcion;
+            
+            private global::System.Data.DataColumn columnFecha_de_Inicio;
+            
+            private global::System.Data.DataColumn columnEntregado;
+            
+            private global::System.Data.DataColumn columnFecha_de_Entrega;
+            
+            private global::System.Data.DataColumn columnObservaciones;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public vw_ordenesDataTable() {
+                this.TableName = "vw_ordenes";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal vw_ordenesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected vw_ordenesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ConsecutivoColumn {
+                get {
+                    return this.columnConsecutivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SolicitanteColumn {
+                get {
+                    return this.columnSolicitante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ÁreaColumn {
+                get {
+                    return this.columnÁrea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ServicioColumn {
+                get {
+                    return this.columnServicio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ResponsableColumn {
+                get {
+                    return this.columnResponsable;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DescripcionColumn {
+                get {
+                    return this.columnDescripcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_de_InicioColumn {
+                get {
+                    return this.columnFecha_de_Inicio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EntregadoColumn {
+                get {
+                    return this.columnEntregado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_de_EntregaColumn {
+                get {
+                    return this.columnFecha_de_Entrega;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ObservacionesColumn {
+                get {
+                    return this.columnObservaciones;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public vw_ordenesRow this[int index] {
+                get {
+                    return ((vw_ordenesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event vw_ordenesRowChangeEventHandler vw_ordenesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event vw_ordenesRowChangeEventHandler vw_ordenesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event vw_ordenesRowChangeEventHandler vw_ordenesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event vw_ordenesRowChangeEventHandler vw_ordenesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addvw_ordenesRow(vw_ordenesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public vw_ordenesRow Addvw_ordenesRow(string Consecutivo, string Solicitante, string Área, string Servicio, string Responsable, string Descripcion, System.DateTime Fecha_de_Inicio, bool Entregado, System.DateTime Fecha_de_Entrega, string Observaciones) {
+                vw_ordenesRow rowvw_ordenesRow = ((vw_ordenesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Consecutivo,
+                        Solicitante,
+                        Área,
+                        Servicio,
+                        Responsable,
+                        Descripcion,
+                        Fecha_de_Inicio,
+                        Entregado,
+                        Fecha_de_Entrega,
+                        Observaciones};
+                rowvw_ordenesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvw_ordenesRow);
+                return rowvw_ordenesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public vw_ordenesRow FindByConsecutivo(string Consecutivo) {
+                return ((vw_ordenesRow)(this.Rows.Find(new object[] {
+                            Consecutivo})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                vw_ordenesDataTable cln = ((vw_ordenesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new vw_ordenesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnConsecutivo = base.Columns["Consecutivo"];
+                this.columnSolicitante = base.Columns["Solicitante"];
+                this.columnÁrea = base.Columns["Área"];
+                this.columnServicio = base.Columns["Servicio"];
+                this.columnResponsable = base.Columns["Responsable"];
+                this.columnDescripcion = base.Columns["Descripcion"];
+                this.columnFecha_de_Inicio = base.Columns["Fecha de Inicio"];
+                this.columnEntregado = base.Columns["Entregado"];
+                this.columnFecha_de_Entrega = base.Columns["Fecha de Entrega"];
+                this.columnObservaciones = base.Columns["Observaciones"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnConsecutivo = new global::System.Data.DataColumn("Consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsecutivo);
+                this.columnSolicitante = new global::System.Data.DataColumn("Solicitante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSolicitante);
+                this.columnÁrea = new global::System.Data.DataColumn("Área", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnÁrea);
+                this.columnServicio = new global::System.Data.DataColumn("Servicio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnServicio);
+                this.columnResponsable = new global::System.Data.DataColumn("Responsable", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnResponsable);
+                this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescripcion);
+                this.columnFecha_de_Inicio = new global::System.Data.DataColumn("Fecha de Inicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_de_Inicio);
+                this.columnEntregado = new global::System.Data.DataColumn("Entregado", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEntregado);
+                this.columnFecha_de_Entrega = new global::System.Data.DataColumn("Fecha de Entrega", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_de_Entrega);
+                this.columnObservaciones = new global::System.Data.DataColumn("Observaciones", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnObservaciones);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnConsecutivo}, true));
+                this.columnConsecutivo.AllowDBNull = false;
+                this.columnConsecutivo.Unique = true;
+                this.columnConsecutivo.MaxLength = 10;
+                this.columnSolicitante.AllowDBNull = false;
+                this.columnSolicitante.MaxLength = 100;
+                this.columnÁrea.AllowDBNull = false;
+                this.columnÁrea.MaxLength = 30;
+                this.columnServicio.AllowDBNull = false;
+                this.columnServicio.MaxLength = 30;
+                this.columnResponsable.ReadOnly = true;
+                this.columnResponsable.MaxLength = 60;
+                this.columnDescripcion.AllowDBNull = false;
+                this.columnDescripcion.MaxLength = 300;
+                this.columnFecha_de_Inicio.AllowDBNull = false;
+                this.columnEntregado.AllowDBNull = false;
+                this.columnObservaciones.MaxLength = 300;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public vw_ordenesRow Newvw_ordenesRow() {
+                return ((vw_ordenesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new vw_ordenesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(vw_ordenesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.vw_ordenesRowChanged != null)) {
+                    this.vw_ordenesRowChanged(this, new vw_ordenesRowChangeEvent(((vw_ordenesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.vw_ordenesRowChanging != null)) {
+                    this.vw_ordenesRowChanging(this, new vw_ordenesRowChangeEvent(((vw_ordenesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.vw_ordenesRowDeleted != null)) {
+                    this.vw_ordenesRowDeleted(this, new vw_ordenesRowChangeEvent(((vw_ordenesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.vw_ordenesRowDeleting != null)) {
+                    this.vw_ordenesRowDeleting(this, new vw_ordenesRowChangeEvent(((vw_ordenesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removevw_ordenesRow(vw_ordenesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                SistemaOTDataSet ds = new SistemaOTDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "vw_ordenesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AREASRow : global::System.Data.DataRow {
@@ -2683,6 +3156,17 @@ namespace PrototipoOT {
                 }
                 set {
                     this[this.tableAREAS.descripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ORDENES_DE_TRABAJORow[] GetORDENES_DE_TRABAJORows() {
+                if ((this.Table.ChildRelations["FK_ORDENES_DE_TRABAJO_AREAS"] == null)) {
+                    return new ORDENES_DE_TRABAJORow[0];
+                }
+                else {
+                    return ((ORDENES_DE_TRABAJORow[])(base.GetChildRows(this.Table.ChildRelations["FK_ORDENES_DE_TRABAJO_AREAS"])));
                 }
             }
         }
@@ -2720,6 +3204,17 @@ namespace PrototipoOT {
                 }
                 set {
                     this[this.tableCAT_CUENTAS.descripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CUENTAS_DE_USUARIORow[] GetCUENTAS_DE_USUARIORows() {
+                if ((this.Table.ChildRelations["FK_CUENTAS_DE_USUARIO_CAT_CUENTAS"] == null)) {
+                    return new CUENTAS_DE_USUARIORow[0];
+                }
+                else {
+                    return ((CUENTAS_DE_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK_CUENTAS_DE_USUARIO_CAT_CUENTAS"])));
                 }
             }
         }
@@ -2855,6 +3350,17 @@ namespace PrototipoOT {
                 }
                 set {
                     this[this.tableCUENTAS_DE_USUARIO.ultimo_accesoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CAT_CUENTASRow CAT_CUENTASRow {
+                get {
+                    return ((CAT_CUENTASRow)(this.GetParentRow(this.Table.ParentRelations["FK_CUENTAS_DE_USUARIO_CAT_CUENTAS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CUENTAS_DE_USUARIO_CAT_CUENTAS"]);
                 }
             }
             
@@ -3064,6 +3570,39 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AREASRow AREASRow {
+                get {
+                    return ((AREASRow)(this.GetParentRow(this.Table.ParentRelations["FK_ORDENES_DE_TRABAJO_AREAS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ORDENES_DE_TRABAJO_AREAS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RESPONSABLESRow RESPONSABLESRow {
+                get {
+                    return ((RESPONSABLESRow)(this.GetParentRow(this.Table.ParentRelations["FK_ORDENES_DE_TRABAJO_RESPONSABLES"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ORDENES_DE_TRABAJO_RESPONSABLES"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SERVICIOSRow SERVICIOSRow {
+                get {
+                    return ((SERVICIOSRow)(this.GetParentRow(this.Table.ParentRelations["FK_ORDENES_DE_TRABAJO_SERVICIOS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ORDENES_DE_TRABAJO_SERVICIOS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isid_responsableNull() {
                 return this.IsNull(this.tableORDENES_DE_TRABAJO.id_responsableColumn);
             }
@@ -3223,6 +3762,17 @@ namespace PrototipoOT {
             public void SettelefonoNull() {
                 this[this.tableRESPONSABLES.telefonoColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ORDENES_DE_TRABAJORow[] GetORDENES_DE_TRABAJORows() {
+                if ((this.Table.ChildRelations["FK_ORDENES_DE_TRABAJO_RESPONSABLES"] == null)) {
+                    return new ORDENES_DE_TRABAJORow[0];
+                }
+                else {
+                    return ((ORDENES_DE_TRABAJORow[])(base.GetChildRows(this.Table.ChildRelations["FK_ORDENES_DE_TRABAJO_RESPONSABLES"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3259,6 +3809,193 @@ namespace PrototipoOT {
                 set {
                     this[this.tableSERVICIOS.descripcionColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ORDENES_DE_TRABAJORow[] GetORDENES_DE_TRABAJORows() {
+                if ((this.Table.ChildRelations["FK_ORDENES_DE_TRABAJO_SERVICIOS"] == null)) {
+                    return new ORDENES_DE_TRABAJORow[0];
+                }
+                else {
+                    return ((ORDENES_DE_TRABAJORow[])(base.GetChildRows(this.Table.ChildRelations["FK_ORDENES_DE_TRABAJO_SERVICIOS"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class vw_ordenesRow : global::System.Data.DataRow {
+            
+            private vw_ordenesDataTable tablevw_ordenes;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal vw_ordenesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablevw_ordenes = ((vw_ordenesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Consecutivo {
+                get {
+                    return ((string)(this[this.tablevw_ordenes.ConsecutivoColumn]));
+                }
+                set {
+                    this[this.tablevw_ordenes.ConsecutivoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Solicitante {
+                get {
+                    return ((string)(this[this.tablevw_ordenes.SolicitanteColumn]));
+                }
+                set {
+                    this[this.tablevw_ordenes.SolicitanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Área {
+                get {
+                    return ((string)(this[this.tablevw_ordenes.ÁreaColumn]));
+                }
+                set {
+                    this[this.tablevw_ordenes.ÁreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Servicio {
+                get {
+                    return ((string)(this[this.tablevw_ordenes.ServicioColumn]));
+                }
+                set {
+                    this[this.tablevw_ordenes.ServicioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Responsable {
+                get {
+                    try {
+                        return ((string)(this[this.tablevw_ordenes.ResponsableColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Responsable\' de la tabla \'vw_ordenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_ordenes.ResponsableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Descripcion {
+                get {
+                    return ((string)(this[this.tablevw_ordenes.DescripcionColumn]));
+                }
+                set {
+                    this[this.tablevw_ordenes.DescripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_de_Inicio {
+                get {
+                    return ((global::System.DateTime)(this[this.tablevw_ordenes.Fecha_de_InicioColumn]));
+                }
+                set {
+                    this[this.tablevw_ordenes.Fecha_de_InicioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Entregado {
+                get {
+                    return ((bool)(this[this.tablevw_ordenes.EntregadoColumn]));
+                }
+                set {
+                    this[this.tablevw_ordenes.EntregadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_de_Entrega {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablevw_ordenes.Fecha_de_EntregaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha de Entrega\' de la tabla \'vw_ordenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_ordenes.Fecha_de_EntregaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Observaciones {
+                get {
+                    try {
+                        return ((string)(this[this.tablevw_ordenes.ObservacionesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Observaciones\' de la tabla \'vw_ordenes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevw_ordenes.ObservacionesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsResponsableNull() {
+                return this.IsNull(this.tablevw_ordenes.ResponsableColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetResponsableNull() {
+                this[this.tablevw_ordenes.ResponsableColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFecha_de_EntregaNull() {
+                return this.IsNull(this.tablevw_ordenes.Fecha_de_EntregaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFecha_de_EntregaNull() {
+                this[this.tablevw_ordenes.Fecha_de_EntregaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsObservacionesNull() {
+                return this.IsNull(this.tablevw_ordenes.ObservacionesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetObservacionesNull() {
+                this[this.tablevw_ordenes.ObservacionesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3486,6 +4223,40 @@ namespace PrototipoOT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SERVICIOSRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class vw_ordenesRowChangeEvent : global::System.EventArgs {
+            
+            private vw_ordenesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public vw_ordenesRowChangeEvent(vw_ordenesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public vw_ordenesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4130,7 +4901,7 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id_cuenta, apellido_pat, apellido_mat, nombre, direccion, telefono, estado" +
-                ", passwd, id_cat_cuenta, ultimo_acceso FROM dbo.CUENTAS_DE_USUARIO";
+                ", passwd, id_cat_cuenta, ultimo_acceso, id_estado FROM CUENTAS_DE_USUARIO";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5282,6 +6053,183 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class vw_ordenesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public vw_ordenesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "vw_ordenes";
+            tableMapping.ColumnMappings.Add("Consecutivo", "Consecutivo");
+            tableMapping.ColumnMappings.Add("Solicitante", "Solicitante");
+            tableMapping.ColumnMappings.Add("Área", "Área");
+            tableMapping.ColumnMappings.Add("Servicio", "Servicio");
+            tableMapping.ColumnMappings.Add("Responsable", "Responsable");
+            tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
+            tableMapping.ColumnMappings.Add("Fecha de Inicio", "Fecha de Inicio");
+            tableMapping.ColumnMappings.Add("Entregado", "Entregado");
+            tableMapping.ColumnMappings.Add("Fecha de Entrega", "Fecha de Entrega");
+            tableMapping.ColumnMappings.Add("Observaciones", "Observaciones");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::PrototipoOT.Properties.Settings.Default.SistemaOTConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Consecutivo, Solicitante, Área, Servicio, Responsable, Descripcion, [Fecha" +
+                " de Inicio], Entregado, [Fecha de Entrega], Observaciones FROM dbo.vw_ordenes";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(SistemaOTDataSet.vw_ordenesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual SistemaOTDataSet.vw_ordenesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            SistemaOTDataSet.vw_ordenesDataTable dataTable = new SistemaOTDataSet.vw_ordenesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5530,6 +6478,24 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._rESPONSABLESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.RESPONSABLES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rESPONSABLESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._sERVICIOSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SERVICIOS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._sERVICIOSTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._cUENTAS_DE_USUARIOTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.CUENTAS_DE_USUARIO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -5554,24 +6520,6 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._oRDENES_DE_TRABAJOTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._rESPONSABLESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RESPONSABLES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rESPONSABLESTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._sERVICIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SERVICIOS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._sERVICIOSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5601,6 +6549,22 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._rESPONSABLESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.RESPONSABLES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rESPONSABLESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._sERVICIOSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SERVICIOS.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._sERVICIOSTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._cUENTAS_DE_USUARIOTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.CUENTAS_DE_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -5625,22 +6589,6 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._rESPONSABLESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RESPONSABLES.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rESPONSABLESTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._sERVICIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SERVICIOS.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._sERVICIOSTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -5651,22 +6599,6 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(SistemaOTDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._sERVICIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SERVICIOS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._sERVICIOSTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._rESPONSABLESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RESPONSABLES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rESPONSABLESTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._oRDENES_DE_TRABAJOTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ORDENES_DE_TRABAJO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5688,6 +6620,22 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._cUENTAS_DE_USUARIOTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._sERVICIOSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SERVICIOS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._sERVICIOSTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._rESPONSABLESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.RESPONSABLES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rESPONSABLESTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
