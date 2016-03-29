@@ -58,7 +58,7 @@ namespace PrototipoOT
 
                 for (int x = 1; x < columnas.Count; x++)
                 {
-                    //Construyendo cadena de consulta;
+                    //Construyendo cadena de Inserción;
                     stringColumns += columnas[x] + ((x < columnas.Count - 1) ? "," : ") ");
                     stringValues += "@" + columnas[x] + ((x < columnas.Count - 1) ? "," : ")");
 
@@ -68,26 +68,48 @@ namespace PrototipoOT
 
                 cmd.CommandText = stringColumns + stringValues;
 
-     
-
-
-
-
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
             
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = conn;
+            //cmd.CommandType = CommandType.Text;
+            //cmd.Connection = conn;
             //cmd.Parameters.AddWithValue("@Name", txtName.Text);
             //cmd.Parameters.AddWithValue("@PhoneNo", txtPhone.Text);
             //cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
-            conn.Open();
-            cmd.ExecuteNonQuery();
+            //conn.Open();
+            //cmd.ExecuteNonQuery();
 
             return 0;
         }
 
-        public int updateData()
+        public int updateData(String tabla, String[] valores, String id)
         {
+            List<String> columnas = QueryColumns(tabla);
+            using (SqlConnection connection = new SqlConnection(obtenerString()))
+            {
+                String stringColumns = "UPDATE @Tabla SET ";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = connection;
+
+                for (int x = 1; x < columnas.Count; x++)
+                {
+                    //Construyendo cadena de Modificación;
+                    stringColumns += columnas[x] + "=" + "@" + columnas[x] + ((x < columnas.Count - 1) ? "," : " ");
+
+                    //Parametrizando la modificación
+                    cmd.Parameters.AddWithValue("@" + columnas[x], valores[x - 1]);
+                }
+
+                cmd.CommandText = stringColumns + "WHERE " + columnas[0] + "='" + id +"'";
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+
             return 0;
         }
 
@@ -95,6 +117,12 @@ namespace PrototipoOT
         {
             return 0;
         }
+
+        //Nombre de la Funcion: QueryColumns
+        //Parámetros:
+        //  tabla - String.- Una cadena con el nombre de la tabla a consultar.
+        //Devuelve:
+        //  Un List<String> listando las columnas de la tabla.
 
         private List<String> QueryColumns(String tabla)
         {
