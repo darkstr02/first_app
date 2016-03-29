@@ -19,9 +19,11 @@ namespace PrototipoOT
 
         private void frmFiltrar_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.SERVICIOS' Puede moverla o quitarla según sea necesario.
+            this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
             //Llenar CheckBox ComboBoxes aquí!!
-            checkBoxComboBox1.Items.Add("Item1");
-            checkBoxComboBox1.Items.Add("Item2");
+            //checkBoxComboBox1.Items.Add("Item1");
+            //checkBoxComboBox1.Items.Add("Item2");
         }
 
         private void checkBoxComboBox1_SelectedIndexChanged(object sender, EventArgs e)

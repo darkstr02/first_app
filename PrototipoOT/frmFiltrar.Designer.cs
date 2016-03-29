@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
             PresentationControls.CheckBoxProperties checkBoxProperties2 = new PresentationControls.CheckBoxProperties();
             PresentationControls.CheckBoxProperties checkBoxProperties3 = new PresentationControls.CheckBoxProperties();
-            this.checkBoxComboBox1 = new PresentationControls.CheckBoxComboBox();
-            this.checkBoxComboBox2 = new PresentationControls.CheckBoxComboBox();
-            this.checkBoxComboBox3 = new PresentationControls.CheckBoxComboBox();
+            this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,42 +45,24 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
+            this.checkBoxComboBox3 = new PresentationControls.CheckBoxComboBox();
+            this.checkBoxComboBox2 = new PresentationControls.CheckBoxComboBox();
+            this.checkBoxComboBox1 = new PresentationControls.CheckBoxComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // checkBoxComboBox1
+            // sERVICIOSBindingSource
             // 
-            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxComboBox1.CheckBoxProperties = checkBoxProperties1;
-            this.checkBoxComboBox1.DisplayMemberSingleItem = "";
-            this.checkBoxComboBox1.FormattingEnabled = true;
-            this.checkBoxComboBox1.Location = new System.Drawing.Point(113, 81);
-            this.checkBoxComboBox1.Name = "checkBoxComboBox1";
-            this.checkBoxComboBox1.Size = new System.Drawing.Size(168, 21);
-            this.checkBoxComboBox1.TabIndex = 0;
-            this.checkBoxComboBox1.SelectedIndexChanged += new System.EventHandler(this.checkBoxComboBox1_SelectedIndexChanged);
+            this.sERVICIOSBindingSource.DataMember = "SERVICIOS";
+            this.sERVICIOSBindingSource.DataSource = this.sistemaOTDataSet;
             // 
-            // checkBoxComboBox2
+            // sistemaOTDataSet
             // 
-            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxComboBox2.CheckBoxProperties = checkBoxProperties2;
-            this.checkBoxComboBox2.DisplayMemberSingleItem = "";
-            this.checkBoxComboBox2.FormattingEnabled = true;
-            this.checkBoxComboBox2.Location = new System.Drawing.Point(113, 108);
-            this.checkBoxComboBox2.Name = "checkBoxComboBox2";
-            this.checkBoxComboBox2.Size = new System.Drawing.Size(168, 21);
-            this.checkBoxComboBox2.TabIndex = 1;
-            // 
-            // checkBoxComboBox3
-            // 
-            checkBoxProperties3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxComboBox3.CheckBoxProperties = checkBoxProperties3;
-            this.checkBoxComboBox3.DisplayMemberSingleItem = "";
-            this.checkBoxComboBox3.FormattingEnabled = true;
-            this.checkBoxComboBox3.Location = new System.Drawing.Point(113, 135);
-            this.checkBoxComboBox3.Name = "checkBoxComboBox3";
-            this.checkBoxComboBox3.Size = new System.Drawing.Size(168, 21);
-            this.checkBoxComboBox3.TabIndex = 2;
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -190,6 +172,47 @@
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // sERVICIOSTableAdapter
+            // 
+            this.sERVICIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // checkBoxComboBox3
+            // 
+            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBoxComboBox3.CheckBoxProperties = checkBoxProperties1;
+            this.checkBoxComboBox3.DisplayMemberSingleItem = "";
+            this.checkBoxComboBox3.FormattingEnabled = true;
+            this.checkBoxComboBox3.Location = new System.Drawing.Point(113, 135);
+            this.checkBoxComboBox3.Name = "checkBoxComboBox3";
+            this.checkBoxComboBox3.Size = new System.Drawing.Size(168, 21);
+            this.checkBoxComboBox3.TabIndex = 2;
+            // 
+            // checkBoxComboBox2
+            // 
+            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBoxComboBox2.CheckBoxProperties = checkBoxProperties2;
+            this.checkBoxComboBox2.DisplayMemberSingleItem = "";
+            this.checkBoxComboBox2.FormattingEnabled = true;
+            this.checkBoxComboBox2.Location = new System.Drawing.Point(113, 108);
+            this.checkBoxComboBox2.Name = "checkBoxComboBox2";
+            this.checkBoxComboBox2.Size = new System.Drawing.Size(168, 21);
+            this.checkBoxComboBox2.TabIndex = 1;
+            // 
+            // checkBoxComboBox1
+            // 
+            checkBoxProperties3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBoxComboBox1.CheckBoxProperties = checkBoxProperties3;
+            this.checkBoxComboBox1.DataSource = this.sERVICIOSBindingSource;
+            this.checkBoxComboBox1.DisplayMember = "descripcion";
+            this.checkBoxComboBox1.DisplayMemberSingleItem = "descripcion";
+            this.checkBoxComboBox1.FormattingEnabled = true;
+            this.checkBoxComboBox1.Location = new System.Drawing.Point(113, 81);
+            this.checkBoxComboBox1.Name = "checkBoxComboBox1";
+            this.checkBoxComboBox1.Size = new System.Drawing.Size(168, 21);
+            this.checkBoxComboBox1.TabIndex = 0;
+            this.checkBoxComboBox1.ValueMember = "id_servicio";
+            this.checkBoxComboBox1.SelectedIndexChanged += new System.EventHandler(this.checkBoxComboBox1_SelectedIndexChanged);
+            // 
             // frmFiltrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,6 +235,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filtrar órdenes de trabajo";
             this.Load += new System.EventHandler(this.frmFiltrar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -235,5 +260,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private SistemaOTDataSet sistemaOTDataSet;
+        private System.Windows.Forms.BindingSource sERVICIOSBindingSource;
+        private SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter sERVICIOSTableAdapter;
     }
 }

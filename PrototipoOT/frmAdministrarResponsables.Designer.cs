@@ -36,9 +36,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.vwresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_responsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_responsablesTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoPatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoMatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,10 +43,13 @@
             this.direcciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teléfonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vwresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.vw_responsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_responsablesTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwresponsablesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button5
@@ -112,6 +112,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -125,64 +127,74 @@
             this.dataGridView1.DataSource = this.vwresponsablesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 10);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(276, 295);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // sistemaOTDataSet
-            // 
-            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
-            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vwresponsablesBindingSource
-            // 
-            this.vwresponsablesBindingSource.DataMember = "vw_responsables";
-            this.vwresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
-            // 
-            // vw_responsablesTableAdapter
-            // 
-            this.vw_responsablesTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // apellidoPatDataGridViewTextBoxColumn
             // 
             this.apellidoPatDataGridViewTextBoxColumn.DataPropertyName = "Apellido Pat_";
             this.apellidoPatDataGridViewTextBoxColumn.HeaderText = "Apellido Pat_";
             this.apellidoPatDataGridViewTextBoxColumn.Name = "apellidoPatDataGridViewTextBoxColumn";
+            this.apellidoPatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // apellidoMatDataGridViewTextBoxColumn
             // 
             this.apellidoMatDataGridViewTextBoxColumn.DataPropertyName = "Apellido Mat_";
             this.apellidoMatDataGridViewTextBoxColumn.HeaderText = "Apellido Mat_";
             this.apellidoMatDataGridViewTextBoxColumn.Name = "apellidoMatDataGridViewTextBoxColumn";
+            this.apellidoMatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // direcciónDataGridViewTextBoxColumn
             // 
             this.direcciónDataGridViewTextBoxColumn.DataPropertyName = "Dirección";
             this.direcciónDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direcciónDataGridViewTextBoxColumn.Name = "direcciónDataGridViewTextBoxColumn";
+            this.direcciónDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // teléfonoDataGridViewTextBoxColumn
             // 
             this.teléfonoDataGridViewTextBoxColumn.DataPropertyName = "Teléfono";
             this.teléfonoDataGridViewTextBoxColumn.HeaderText = "Teléfono";
             this.teléfonoDataGridViewTextBoxColumn.Name = "teléfonoDataGridViewTextBoxColumn";
+            this.teléfonoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
             this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
             this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vwresponsablesBindingSource
+            // 
+            this.vwresponsablesBindingSource.DataMember = "vw_responsables";
+            this.vwresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vw_responsablesTableAdapter
+            // 
+            this.vw_responsablesTableAdapter.ClearBeforeFill = true;
             // 
             // frmAdministrarResponsables
             // 
@@ -202,8 +214,8 @@
             this.Load += new System.EventHandler(this.frmAdministrarResponsables_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwresponsablesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
