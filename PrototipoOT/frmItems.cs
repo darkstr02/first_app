@@ -34,6 +34,10 @@ namespace PrototipoOT
             param[0] = txtServicio.Text;
 
             bd.insertData("SERVICIOS",param);
+
+            
+
+            
         }
 
 

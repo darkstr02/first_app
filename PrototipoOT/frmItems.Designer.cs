@@ -34,18 +34,19 @@
             this.cmdAñadirServicio = new System.Windows.Forms.Button();
             this.cmdAñadirArea = new System.Windows.Forms.Button();
             this.lbServicios = new System.Windows.Forms.ListBox();
+            this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.lbAreas = new System.Windows.Forms.ListBox();
+            this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.cmdCancelar = new System.Windows.Forms.Button();
-            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
-            this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
             this.cmdBorrarServicio = new System.Windows.Forms.Button();
             this.cmdBorrarArea = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
+            this.tableAdapterManager = new PrototipoOT.SistemaOTDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +94,16 @@
             this.lbServicios.TabIndex = 4;
             this.lbServicios.ValueMember = "id_servicio";
             // 
+            // sERVICIOSBindingSource
+            // 
+            this.sERVICIOSBindingSource.DataMember = "SERVICIOS";
+            this.sERVICIOSBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // lbAreas
             // 
             this.lbAreas.DataSource = this.aREASBindingSource;
@@ -103,6 +114,11 @@
             this.lbAreas.Size = new System.Drawing.Size(120, 95);
             this.lbAreas.TabIndex = 5;
             this.lbAreas.ValueMember = "id_area";
+            // 
+            // aREASBindingSource
+            // 
+            this.aREASBindingSource.DataMember = "AREAS";
+            this.aREASBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // cmdAceptar
             // 
@@ -122,24 +138,9 @@
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = true;
             // 
-            // sistemaOTDataSet
-            // 
-            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
-            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sERVICIOSBindingSource
-            // 
-            this.sERVICIOSBindingSource.DataMember = "SERVICIOS";
-            this.sERVICIOSBindingSource.DataSource = this.sistemaOTDataSet;
-            // 
             // sERVICIOSTableAdapter
             // 
             this.sERVICIOSTableAdapter.ClearBeforeFill = true;
-            // 
-            // aREASBindingSource
-            // 
-            this.aREASBindingSource.DataMember = "AREAS";
-            this.aREASBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // aREASTableAdapter
             // 
@@ -163,11 +164,24 @@
             this.cmdBorrarArea.Text = "Borrar";
             this.cmdBorrarArea.UseVisualStyleBackColor = true;
             // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AREASTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CAT_CUENTASTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.CUENTAS_DE_USUARIOTableAdapter = null;
+            this.tableAdapterManager.ESTADOSTableAdapter = null;
+            this.tableAdapterManager.ORDENES_DE_TRABAJOTableAdapter = null;
+            this.tableAdapterManager.RESPONSABLESTableAdapter = null;
+            this.tableAdapterManager.SERVICIOSTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = PrototipoOT.SistemaOTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // frmItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 294);
+            this.ClientSize = new System.Drawing.Size(407, 357);
             this.Controls.Add(this.cmdBorrarArea);
             this.Controls.Add(this.cmdBorrarServicio);
             this.Controls.Add(this.cmdCancelar);
@@ -184,8 +198,8 @@
             this.Name = "frmItems";
             this.Text = "Añadir o eliminar items...";
             this.Load += new System.EventHandler(this.frmItems_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,6 +223,7 @@
         private SistemaOTDataSetTableAdapters.AREASTableAdapter aREASTableAdapter;
         private System.Windows.Forms.Button cmdBorrarServicio;
         private System.Windows.Forms.Button cmdBorrarArea;
+        private SistemaOTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
 
     }
 }
