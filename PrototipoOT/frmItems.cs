@@ -33,11 +33,13 @@ namespace PrototipoOT
             string[] param = new string[1];
             param[0] = txtServicio.Text;
 
-            bd.insertData("SERVICIOS",param);
+            //bd.insertData("SERVICIOS",param);
 
-            
+            DataRow nuevo = this.sistemaOTDataSet.SERVICIOS.NewRow();
+            nuevo["descripcion"] = param[0];
+            this.sistemaOTDataSet.SERVICIOS.Rows.Add(nuevo);
 
-            
+            this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);       
         }
 
 

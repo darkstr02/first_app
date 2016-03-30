@@ -726,10 +726,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AREASRow AddAREASRow(int id_area, string descripcion) {
+            public AREASRow AddAREASRow(string descripcion) {
                 AREASRow rowAREASRow = ((AREASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_area,
+                        null,
                         descripcion};
                 rowAREASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAREASRow);
@@ -764,6 +764,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnid_area);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
+                this.columnid_area.AutoIncrement = true;
+                this.columnid_area.AutoIncrementSeed = 1;
                 this.columnid_area.AllowDBNull = false;
                 this.columndescripcion.AllowDBNull = false;
                 this.columndescripcion.MaxLength = 30;
@@ -990,10 +992,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CAT_CUENTASRow AddCAT_CUENTASRow(int id_cat_cuenta, string descripcion) {
+            public CAT_CUENTASRow AddCAT_CUENTASRow(string descripcion) {
                 CAT_CUENTASRow rowCAT_CUENTASRow = ((CAT_CUENTASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_cat_cuenta,
+                        null,
                         descripcion};
                 rowCAT_CUENTASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCAT_CUENTASRow);
@@ -1028,6 +1030,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnid_cat_cuenta);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
+                this.columnid_cat_cuenta.AutoIncrement = true;
+                this.columnid_cat_cuenta.AutoIncrementSeed = 1;
                 this.columnid_cat_cuenta.AllowDBNull = false;
                 this.columndescripcion.AllowDBNull = false;
                 this.columndescripcion.MaxLength = 30;
@@ -1334,10 +1338,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CUENTAS_DE_USUARIORow AddCUENTAS_DE_USUARIORow(int id_cuenta, string apellido_pat, string apellido_mat, string nombre, string direccion, string telefono, string passwd, CAT_CUENTASRow parentCAT_CUENTASRowByFK_CUENTAS_DE_USUARIO_CAT_CUENTAS, System.DateTime ultimo_acceso, ESTADOSRow parentESTADOSRowByFK_CUENTAS_DE_USUARIO_ESTADOS) {
+            public CUENTAS_DE_USUARIORow AddCUENTAS_DE_USUARIORow(string apellido_pat, string apellido_mat, string nombre, string direccion, string telefono, string passwd, CAT_CUENTASRow parentCAT_CUENTASRowByFK_CUENTAS_DE_USUARIO_CAT_CUENTAS, System.DateTime ultimo_acceso, ESTADOSRow parentESTADOSRowByFK_CUENTAS_DE_USUARIO_ESTADOS) {
                 CUENTAS_DE_USUARIORow rowCUENTAS_DE_USUARIORow = ((CUENTAS_DE_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_cuenta,
+                        null,
                         apellido_pat,
                         apellido_mat,
                         nombre,
@@ -1419,6 +1423,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnid_estado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_cuenta}, true));
+                this.columnid_cuenta.AutoIncrement = true;
+                this.columnid_cuenta.AutoIncrementSeed = 1;
                 this.columnid_cuenta.AllowDBNull = false;
                 this.columnid_cuenta.Unique = true;
                 this.columnapellido_pat.AllowDBNull = false;
@@ -1657,10 +1663,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ESTADOSRow AddESTADOSRow(int id_estado, string descripcion) {
+            public ESTADOSRow AddESTADOSRow(string descripcion) {
                 ESTADOSRow rowESTADOSRow = ((ESTADOSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_estado,
+                        null,
                         descripcion};
                 rowESTADOSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowESTADOSRow);
@@ -1695,6 +1701,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnid_estado);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
+                this.columnid_estado.AutoIncrement = true;
+                this.columnid_estado.AutoIncrementSeed = 1;
                 this.columnid_estado.AllowDBNull = false;
                 this.columndescripcion.AllowDBNull = false;
                 this.columndescripcion.MaxLength = 30;
@@ -2001,10 +2009,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string id_orden, string solicitante, SERVICIOSRow parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS, AREASRow parentAREASRowByFK_ORDENES_DE_TRABAJO_AREAS, RESPONSABLESRow parentRESPONSABLESRowByFK_ORDENES_DE_TRABAJO_RESPONSABLES, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado) {
+            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string solicitante, SERVICIOSRow parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS, AREASRow parentAREASRowByFK_ORDENES_DE_TRABAJO_AREAS, RESPONSABLESRow parentRESPONSABLESRowByFK_ORDENES_DE_TRABAJO_RESPONSABLES, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado) {
                 ORDENES_DE_TRABAJORow rowORDENES_DE_TRABAJORow = ((ORDENES_DE_TRABAJORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_orden,
+                        null,
                         solicitante,
                         null,
                         null,
@@ -2060,7 +2068,7 @@ namespace PrototipoOT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnid_orden = new global::System.Data.DataColumn("id_orden", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_orden = new global::System.Data.DataColumn("id_orden", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_orden);
                 this.columnsolicitante = new global::System.Data.DataColumn("solicitante", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsolicitante);
@@ -2080,8 +2088,9 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnfecha_inicio);
                 this.columnfecha_entregado = new global::System.Data.DataColumn("fecha_entregado", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_entregado);
+                this.columnid_orden.AutoIncrement = true;
+                this.columnid_orden.AutoIncrementSeed = 1;
                 this.columnid_orden.AllowDBNull = false;
-                this.columnid_orden.MaxLength = 10;
                 this.columnsolicitante.AllowDBNull = false;
                 this.columnsolicitante.MaxLength = 100;
                 this.columnid_servicio.AllowDBNull = false;
@@ -2364,10 +2373,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RESPONSABLESRow AddRESPONSABLESRow(int id_responsable, string apellido_pat, string apellido_mat, string nombre, string direccion, string telefono, ESTADOSRow parentESTADOSRowByFK_RESPONSABLES_ESTADOS) {
+            public RESPONSABLESRow AddRESPONSABLESRow(string apellido_pat, string apellido_mat, string nombre, string direccion, string telefono, ESTADOSRow parentESTADOSRowByFK_RESPONSABLES_ESTADOS) {
                 RESPONSABLESRow rowRESPONSABLESRow = ((RESPONSABLESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_responsable,
+                        null,
                         apellido_pat,
                         apellido_mat,
                         nombre,
@@ -2434,6 +2443,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnid_estado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_responsable}, true));
+                this.columnid_responsable.AutoIncrement = true;
+                this.columnid_responsable.AutoIncrementSeed = 1;
                 this.columnid_responsable.AllowDBNull = false;
                 this.columnid_responsable.Unique = true;
                 this.columnapellido_pat.AllowDBNull = false;
@@ -2668,10 +2679,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SERVICIOSRow AddSERVICIOSRow(int id_servicio, string descripcion) {
+            public SERVICIOSRow AddSERVICIOSRow(string descripcion) {
                 SERVICIOSRow rowSERVICIOSRow = ((SERVICIOSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_servicio,
+                        null,
                         descripcion};
                 rowSERVICIOSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSERVICIOSRow);
@@ -2706,6 +2717,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnid_servicio);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
+                this.columnid_servicio.AutoIncrement = true;
+                this.columnid_servicio.AutoIncrementSeed = 1;
                 this.columnid_servicio.AllowDBNull = false;
                 this.columndescripcion.AllowDBNull = false;
                 this.columndescripcion.MaxLength = 30;
@@ -4320,9 +4333,9 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string id_orden {
+            public int id_orden {
                 get {
-                    return ((string)(this[this.tableORDENES_DE_TRABAJO.id_ordenColumn]));
+                    return ((int)(this[this.tableORDENES_DE_TRABAJO.id_ordenColumn]));
                 }
                 set {
                     this[this.tableORDENES_DE_TRABAJO.id_ordenColumn] = value;
