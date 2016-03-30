@@ -12,7 +12,7 @@ namespace PrototipoOT
 {
     public class BaseDeDatos
     {
-        private SqlConnection conn;
+        //private SqlConnection conn;
 
         public static string obtenerString()
         {
@@ -24,21 +24,6 @@ namespace PrototipoOT
 
         }
 
-        public int cerrarBD()
-        {
-            try
-            {
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to close data source: " + ex.ToString());
-                return 1;
-            }
-
-            return 0;
-
-        }
 
 
         ///ABC
@@ -49,7 +34,7 @@ namespace PrototipoOT
             List<String> columnas = QueryColumns(tabla);
             using (SqlConnection connection = new SqlConnection(obtenerString()))
             {
-                String stringColumns = "INSERT INTO @Tabla (";
+                String stringColumns = "INSERT INTO "+ tabla +" (";
                 String stringValues =  "VALUES (";
 
                 SqlCommand cmd = new SqlCommand();
@@ -67,8 +52,9 @@ namespace PrototipoOT
                 }
 
                 cmd.CommandText = stringColumns + stringValues;
+                
 
-                conn.Open();
+                connection.Open();
                 cmd.ExecuteNonQuery();
             }
             
@@ -105,7 +91,7 @@ namespace PrototipoOT
 
                 cmd.CommandText = stringColumns + "WHERE " + columnas[0] + "='" + id +"'";
 
-                conn.Open();
+                connection.Open();
                 cmd.ExecuteNonQuery();
             }
 
@@ -139,8 +125,12 @@ namespace PrototipoOT
                 {
                     while (reader.Read())
                     {
-                        returnArray.Add(String.Format("{0}",reader["descripcion"]));
+                        returnArray.Add(String.Format("{0}", reader["COLUMN_NAME"]));
                     }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
                 }
                 finally
                 {

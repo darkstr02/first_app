@@ -81,6 +81,12 @@
     <Compile Include="frmFiltrar.Designer.cs">
       <DependentUpon>frmFiltrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItems.Designer.cs">
+      <DependentUpon>frmItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificarUsuariocs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFiltrar.resx">
       <DependentUpon>frmFiltrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItems.resx">
+      <DependentUpon>frmItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarUsuariocs.resx">
       <DependentUpon>frmModificarUsuariocs.cs</DependentUpon>

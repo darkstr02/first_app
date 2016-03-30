@@ -44,5 +44,11 @@ namespace PrototipoOT
             }
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmItems frm = new frmItems();
+            frm.ShowDialog();
+        }
     }
 }

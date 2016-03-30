@@ -40,6 +40,9 @@
             this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet1 = new PrototipoOT.SistemaOTDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,15 +57,12 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
-            this.sistemaOTDataSet1 = new PrototipoOT.SistemaOTDataSet();
-            this.sistemaOTDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -152,6 +152,21 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 8;
             // 
+            // aREASBindingSource
+            // 
+            this.aREASBindingSource.DataMember = "AREAS";
+            this.aREASBindingSource.DataSource = this.sistemaOTDataSet1BindingSource;
+            // 
+            // sistemaOTDataSet1BindingSource
+            // 
+            this.sistemaOTDataSet1BindingSource.DataSource = this.sistemaOTDataSet1;
+            this.sistemaOTDataSet1BindingSource.Position = 0;
+            // 
+            // sistemaOTDataSet1
+            // 
+            this.sistemaOTDataSet1.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -240,6 +255,7 @@
             this.button3.TabIndex = 18;
             this.button3.Text = "Items...";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label9
             // 
@@ -277,21 +293,6 @@
             // sERVICIOSTableAdapter
             // 
             this.sERVICIOSTableAdapter.ClearBeforeFill = true;
-            // 
-            // sistemaOTDataSet1
-            // 
-            this.sistemaOTDataSet1.DataSetName = "SistemaOTDataSet";
-            this.sistemaOTDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sistemaOTDataSet1BindingSource
-            // 
-            this.sistemaOTDataSet1BindingSource.DataSource = this.sistemaOTDataSet1;
-            this.sistemaOTDataSet1BindingSource.Position = 0;
-            // 
-            // aREASBindingSource
-            // 
-            this.aREASBindingSource.DataMember = "AREAS";
-            this.aREASBindingSource.DataSource = this.sistemaOTDataSet1BindingSource;
             // 
             // aREASTableAdapter
             // 
@@ -335,9 +336,9 @@
             this.Load += new System.EventHandler(this.frmOrdenTrabajo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
