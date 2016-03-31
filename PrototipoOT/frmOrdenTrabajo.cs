@@ -48,7 +48,11 @@ namespace PrototipoOT
         private void button3_Click(object sender, EventArgs e)
         {
             frmItems frm = new frmItems();
-            frm.ShowDialog();
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
+                this.aREASTableAdapter.Fill(this.sistemaOTDataSet1.AREAS);
+            }
         }
     }
 }

@@ -45,6 +45,8 @@
             this.cmdBorrarServicio = new System.Windows.Forms.Button();
             this.cmdBorrarArea = new System.Windows.Forms.Button();
             this.tableAdapterManager = new PrototipoOT.SistemaOTDataSetTableAdapters.TableAdapterManager();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
@@ -59,7 +61,7 @@
             // 
             // txtArea
             // 
-            this.txtArea.Location = new System.Drawing.Point(244, 22);
+            this.txtArea.Location = new System.Drawing.Point(243, 22);
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(100, 20);
             this.txtArea.TabIndex = 1;
@@ -129,6 +131,7 @@
             this.cmdAceptar.TabIndex = 6;
             this.cmdAceptar.Text = "Aceptar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
+            this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // cmdCancelar
             // 
@@ -138,6 +141,7 @@
             this.cmdCancelar.TabIndex = 7;
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = true;
+            this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // sERVICIOSTableAdapter
             // 
@@ -180,11 +184,31 @@
             this.tableAdapterManager.SERVICIOSTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PrototipoOT.SistemaOTDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(70, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Servicio:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(243, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Área:";
+            // 
             // frmItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 357);
+            this.ClientSize = new System.Drawing.Size(392, 335);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdBorrarArea);
             this.Controls.Add(this.cmdBorrarServicio);
             this.Controls.Add(this.cmdCancelar);
@@ -200,6 +224,7 @@
             this.MinimizeBox = false;
             this.Name = "frmItems";
             this.Text = "Añadir o eliminar items...";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmItems_FormClosing);
             this.Load += new System.EventHandler(this.frmItems_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
@@ -227,6 +252,8 @@
         private System.Windows.Forms.Button cmdBorrarServicio;
         private System.Windows.Forms.Button cmdBorrarArea;
         private SistemaOTDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
 
     }
 }

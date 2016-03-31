@@ -39,7 +39,8 @@ namespace PrototipoOT
             nuevo["descripcion"] = param[0];
             this.sistemaOTDataSet.SERVICIOS.Rows.Add(nuevo);
 
-            this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);       
+            this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);
+            //PENDIENTE LA VALIDACION (NOMBRES IGUALES)
         }
 
         private void cmdAñadirArea_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace PrototipoOT
             nuevo["descripcion"] = area;
             this.sistemaOTDataSet.AREAS.Rows.Add(nuevo);
             this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
+            //PENDIENTE LA VALIDACION (NOMBRES IGUALES)
         }
 
         private void cmdBorrarServicio_Click(object sender, EventArgs e)
@@ -59,7 +61,10 @@ namespace PrototipoOT
             DataRow[] resultado = this.sistemaOTDataSet.SERVICIOS.Select("descripcion = '" + borrarString+"'");
             DataRow viejo = resultado[0];
             viejo.Delete();
-            this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS); 
+            //this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS); 
+
+            //PENDIENTE LA VALIDACION
+            
         }
 
         private void cmdBorrarArea_Click(object sender, EventArgs e)
@@ -69,7 +74,30 @@ namespace PrototipoOT
             DataRow[] resultado = this.sistemaOTDataSet.AREAS.Select("descripcion = '" + borrarString + "'");
             DataRow viejo = resultado[0];
             viejo.Delete();
-            this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS); 
+            //this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
+
+            //PENDIENTE LA VALIDACION
+        }
+
+        private void frmItems_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+        }
+
+        private void cmdAceptar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);
+            this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
+            this.Close();
+        }
+
+        private void cmdCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.sistemaOTDataSet.SERVICIOS.RejectChanges();
+            this.sistemaOTDataSet.AREAS.RejectChanges();
+            this.Close();
         }
 
 
