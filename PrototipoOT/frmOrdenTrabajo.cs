@@ -29,6 +29,8 @@ namespace PrototipoOT
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.SERVICIOS' Puede moverla o quitarla según sea necesario.
             this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
 
+            //
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -57,6 +59,13 @@ namespace PrototipoOT
                 this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
                 this.aREASTableAdapter.Fill(this.sistemaOTDataSet1.AREAS);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //this.DialogResult = DialogResult.OK;
+
+
         }
     }
 }

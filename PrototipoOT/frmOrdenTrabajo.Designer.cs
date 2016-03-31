@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtConsecutivo = new System.Windows.Forms.TextBox();
+            this.txtSolicitante = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbServicio = new System.Windows.Forms.ComboBox();
             this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbArea = new System.Windows.Forms.ComboBox();
             this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet1 = new PrototipoOT.SistemaOTDataSet();
@@ -51,62 +51,62 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbResponsable = new System.Windows.Forms.ComboBox();
+            this.vwnombreresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rESPONSABLESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button3 = new System.Windows.Forms.Button();
+            this.cmdItems = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbEntregadoNo = new System.Windows.Forms.RadioButton();
+            this.rbEntregadoSi = new System.Windows.Forms.RadioButton();
             this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
             this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
             this.rESPONSABLESTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter();
-            this.vwnombreresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vw_nombreresponsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(87, 28);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(192, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpFecha.Location = new System.Drawing.Point(87, 28);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(192, 20);
+            this.dtpFecha.TabIndex = 0;
             // 
-            // textBox1
+            // txtConsecutivo
             // 
-            this.textBox1.Location = new System.Drawing.Point(349, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(84, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtConsecutivo.Location = new System.Drawing.Point(349, 29);
+            this.txtConsecutivo.Name = "txtConsecutivo";
+            this.txtConsecutivo.Size = new System.Drawing.Size(84, 20);
+            this.txtConsecutivo.TabIndex = 1;
             // 
-            // textBox2
+            // txtSolicitante
             // 
-            this.textBox2.Location = new System.Drawing.Point(87, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(346, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtSolicitante.Location = new System.Drawing.Point(87, 72);
+            this.txtSolicitante.Name = "txtSolicitante";
+            this.txtSolicitante.Size = new System.Drawing.Size(346, 20);
+            this.txtSolicitante.TabIndex = 2;
             // 
-            // textBox3
+            // txtDescripcion
             // 
-            this.textBox3.Location = new System.Drawing.Point(87, 152);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(346, 60);
-            this.textBox3.TabIndex = 3;
+            this.txtDescripcion.Location = new System.Drawing.Point(87, 152);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(346, 60);
+            this.txtDescripcion.TabIndex = 3;
             // 
-            // textBox4
+            // txtObservaciones
             // 
-            this.textBox4.Location = new System.Drawing.Point(87, 260);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(346, 68);
-            this.textBox4.TabIndex = 4;
+            this.txtObservaciones.Location = new System.Drawing.Point(87, 260);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(346, 68);
+            this.txtObservaciones.TabIndex = 4;
             // 
             // button1
             // 
@@ -116,6 +116,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -126,16 +127,16 @@
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbServicio
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sERVICIOSBindingSource, "descripcion", true));
-            this.comboBox1.DataSource = this.sERVICIOSBindingSource;
-            this.comboBox1.DisplayMember = "descripcion";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(87, 113);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbServicio.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sERVICIOSBindingSource, "descripcion", true));
+            this.cbServicio.DataSource = this.sERVICIOSBindingSource;
+            this.cbServicio.DisplayMember = "descripcion";
+            this.cbServicio.FormattingEnabled = true;
+            this.cbServicio.Location = new System.Drawing.Point(87, 113);
+            this.cbServicio.Name = "cbServicio";
+            this.cbServicio.Size = new System.Drawing.Size(121, 21);
+            this.cbServicio.TabIndex = 7;
             // 
             // sERVICIOSBindingSource
             // 
@@ -147,16 +148,16 @@
             this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
             this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // comboBox2
+            // cbArea
             // 
-            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.aREASBindingSource, "descripcion", true));
-            this.comboBox2.DataSource = this.aREASBindingSource;
-            this.comboBox2.DisplayMember = "descripcion";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(255, 113);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 8;
+            this.cbArea.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.aREASBindingSource, "descripcion", true));
+            this.cbArea.DataSource = this.aREASBindingSource;
+            this.cbArea.DisplayMember = "descripcion";
+            this.cbArea.FormattingEnabled = true;
+            this.cbArea.Location = new System.Drawing.Point(255, 113);
+            this.cbArea.Name = "cbArea";
+            this.cbArea.Size = new System.Drawing.Size(121, 21);
+            this.cbArea.TabIndex = 8;
             // 
             // aREASBindingSource
             // 
@@ -245,31 +246,36 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Observaciones:";
             // 
-            // comboBox3
+            // cbResponsable
             // 
-            this.comboBox3.DataSource = this.vwnombreresponsablesBindingSource;
-            this.comboBox3.DisplayMember = "Responsable";
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(87, 223);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(162, 21);
-            this.comboBox3.TabIndex = 17;
-            this.comboBox3.ValueMember = "id_responsable";
+            this.cbResponsable.DataSource = this.vwnombreresponsablesBindingSource;
+            this.cbResponsable.DisplayMember = "Responsable";
+            this.cbResponsable.FormattingEnabled = true;
+            this.cbResponsable.Location = new System.Drawing.Point(87, 223);
+            this.cbResponsable.Name = "cbResponsable";
+            this.cbResponsable.Size = new System.Drawing.Size(162, 21);
+            this.cbResponsable.TabIndex = 17;
+            this.cbResponsable.ValueMember = "id_responsable";
+            // 
+            // vwnombreresponsablesBindingSource
+            // 
+            this.vwnombreresponsablesBindingSource.DataMember = "vw_nombreresponsables";
+            this.vwnombreresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // rESPONSABLESBindingSource
             // 
             this.rESPONSABLESBindingSource.DataMember = "RESPONSABLES";
             this.rESPONSABLESBindingSource.DataSource = this.sistemaOTDataSet;
             // 
-            // button3
+            // cmdItems
             // 
-            this.button3.Location = new System.Drawing.Point(382, 113);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Items...";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.cmdItems.Location = new System.Drawing.Point(382, 113);
+            this.cmdItems.Name = "cmdItems";
+            this.cmdItems.Size = new System.Drawing.Size(51, 23);
+            this.cmdItems.TabIndex = 18;
+            this.cmdItems.Text = "Items...";
+            this.cmdItems.UseVisualStyleBackColor = true;
+            this.cmdItems.Click += new System.EventHandler(this.button3_Click);
             // 
             // label9
             // 
@@ -280,29 +286,29 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Entregado:";
             // 
-            // radioButton1
+            // rbEntregadoNo
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(320, 222);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(39, 17);
-            this.radioButton1.TabIndex = 20;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "No";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbEntregadoNo.AutoSize = true;
+            this.rbEntregadoNo.Checked = true;
+            this.rbEntregadoNo.Location = new System.Drawing.Point(320, 222);
+            this.rbEntregadoNo.Name = "rbEntregadoNo";
+            this.rbEntregadoNo.Size = new System.Drawing.Size(39, 17);
+            this.rbEntregadoNo.TabIndex = 20;
+            this.rbEntregadoNo.TabStop = true;
+            this.rbEntregadoNo.Text = "No";
+            this.rbEntregadoNo.UseVisualStyleBackColor = true;
+            this.rbEntregadoNo.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // rbEntregadoSi
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(397, 223);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(36, 17);
-            this.radioButton2.TabIndex = 21;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Sí";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbEntregadoSi.AutoSize = true;
+            this.rbEntregadoSi.Location = new System.Drawing.Point(397, 223);
+            this.rbEntregadoSi.Name = "rbEntregadoSi";
+            this.rbEntregadoSi.Size = new System.Drawing.Size(36, 17);
+            this.rbEntregadoSi.TabIndex = 21;
+            this.rbEntregadoSi.TabStop = true;
+            this.rbEntregadoSi.Text = "Sí";
+            this.rbEntregadoSi.UseVisualStyleBackColor = true;
             // 
             // sERVICIOSTableAdapter
             // 
@@ -316,11 +322,6 @@
             // 
             this.rESPONSABLESTableAdapter.ClearBeforeFill = true;
             // 
-            // vwnombreresponsablesBindingSource
-            // 
-            this.vwnombreresponsablesBindingSource.DataMember = "vw_nombreresponsables";
-            this.vwnombreresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
-            // 
             // vw_nombreresponsablesTableAdapter
             // 
             this.vw_nombreresponsablesTableAdapter.ClearBeforeFill = true;
@@ -332,11 +333,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(472, 405);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbEntregadoSi);
+            this.Controls.Add(this.rbEntregadoNo);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cmdItems);
+            this.Controls.Add(this.cbResponsable);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -345,15 +346,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbArea);
+            this.Controls.Add(this.cbServicio);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txtObservaciones);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.txtSolicitante);
+            this.Controls.Add(this.txtConsecutivo);
+            this.Controls.Add(this.dtpFecha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -366,8 +367,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,15 +376,15 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.TextBox txtConsecutivo;
+        private System.Windows.Forms.TextBox txtSolicitante;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbServicio;
+        private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -392,11 +393,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cbResponsable;
+        private System.Windows.Forms.Button cmdItems;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbEntregadoNo;
+        private System.Windows.Forms.RadioButton rbEntregadoSi;
         private SistemaOTDataSet sistemaOTDataSet;
         private System.Windows.Forms.BindingSource sERVICIOSBindingSource;
         private SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter sERVICIOSTableAdapter;
