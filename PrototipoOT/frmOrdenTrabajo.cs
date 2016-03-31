@@ -64,7 +64,9 @@ namespace PrototipoOT
         private void button1_Click(object sender, EventArgs e)
         {
             //this.DialogResult = DialogResult.OK;
-
+            DataRow nuevo = this.sistemaOTDataSet.vw_ordenes.NewRow();
+            nuevo["Consecutivo"] = txtConsecutivo.Text;
+            nuevo[""]
 
         }
     }

@@ -3115,7 +3115,7 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public vw_ordenesRow Addvw_ordenesRow(string Solicitante, string Área, string Servicio, string Responsable, string Descripcion, System.DateTime Fecha_de_Inicio, bool Entregado, System.DateTime Fecha_de_Entrega, string Observaciones, string ID, string consecutivo) {
+            public vw_ordenesRow Addvw_ordenesRow(string Solicitante, string Área, string Servicio, string Responsable, string Descripcion, System.DateTime Fecha_de_Inicio, bool Entregado, System.DateTime Fecha_de_Entrega, string Observaciones, string consecutivo) {
                 vw_ordenesRow rowvw_ordenesRow = ((vw_ordenesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Solicitante,
@@ -3127,7 +3127,7 @@ namespace PrototipoOT {
                         Entregado,
                         Fecha_de_Entrega,
                         Observaciones,
-                        ID,
+                        null,
                         consecutivo};
                 rowvw_ordenesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvw_ordenesRow);
@@ -3136,7 +3136,7 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public vw_ordenesRow FindByID(string ID) {
+            public vw_ordenesRow FindByID(int ID) {
                 return ((vw_ordenesRow)(this.Rows.Find(new object[] {
                             ID})));
             }
@@ -3192,7 +3192,7 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnFecha_de_Entrega);
                 this.columnObservaciones = new global::System.Data.DataColumn("Observaciones", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnObservaciones);
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
                 this.columnconsecutivo = new global::System.Data.DataColumn("consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnconsecutivo);
@@ -3211,9 +3211,10 @@ namespace PrototipoOT {
                 this.columnFecha_de_Inicio.AllowDBNull = false;
                 this.columnEntregado.AllowDBNull = false;
                 this.columnObservaciones.MaxLength = 300;
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = 1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
-                this.columnID.MaxLength = 10;
                 this.columnconsecutivo.MaxLength = 5;
             }
             
@@ -5252,9 +5253,9 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ID {
+            public int ID {
                 get {
-                    return ((string)(this[this.tablevw_ordenes.IDColumn]));
+                    return ((int)(this[this.tablevw_ordenes.IDColumn]));
                 }
                 set {
                     this[this.tablevw_ordenes.IDColumn] = value;
