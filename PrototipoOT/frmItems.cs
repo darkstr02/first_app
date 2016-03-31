@@ -39,7 +39,7 @@ namespace PrototipoOT
             nuevo["descripcion"] = param[0];
             this.sistemaOTDataSet.SERVICIOS.Rows.Add(nuevo);
 
-            this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);
+            //this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);
             //PENDIENTE LA VALIDACION (NOMBRES IGUALES)
         }
 
@@ -50,7 +50,7 @@ namespace PrototipoOT
             DataRow nuevo = this.sistemaOTDataSet.AREAS.NewRow();
             nuevo["descripcion"] = area;
             this.sistemaOTDataSet.AREAS.Rows.Add(nuevo);
-            this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
+            //this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
             //PENDIENTE LA VALIDACION (NOMBRES IGUALES)
         }
 

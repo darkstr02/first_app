@@ -223,6 +223,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmItems";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Añadir o eliminar items...";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmItems_FormClosing);
             this.Load += new System.EventHandler(this.frmItems_Load);

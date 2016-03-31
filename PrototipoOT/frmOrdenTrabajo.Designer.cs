@@ -52,17 +52,23 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.rESPONSABLESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
             this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
+            this.rESPONSABLESTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter();
+            this.vwnombreresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_nombreresponsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -241,11 +247,19 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.DataSource = this.vwnombreresponsablesBindingSource;
+            this.comboBox3.DisplayMember = "Responsable";
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(87, 223);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(162, 21);
             this.comboBox3.TabIndex = 17;
+            this.comboBox3.ValueMember = "id_responsable";
+            // 
+            // rESPONSABLESBindingSource
+            // 
+            this.rESPONSABLESBindingSource.DataMember = "RESPONSABLES";
+            this.rESPONSABLESBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // button3
             // 
@@ -298,6 +312,19 @@
             // 
             this.aREASTableAdapter.ClearBeforeFill = true;
             // 
+            // rESPONSABLESTableAdapter
+            // 
+            this.rESPONSABLESTableAdapter.ClearBeforeFill = true;
+            // 
+            // vwnombreresponsablesBindingSource
+            // 
+            this.vwnombreresponsablesBindingSource.DataMember = "vw_nombreresponsables";
+            this.vwnombreresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // vw_nombreresponsablesTableAdapter
+            // 
+            this.vw_nombreresponsablesTableAdapter.ClearBeforeFill = true;
+            // 
             // frmOrdenTrabajo
             // 
             this.AcceptButton = this.button1;
@@ -339,6 +366,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,5 +404,9 @@
         private SistemaOTDataSet sistemaOTDataSet1;
         private System.Windows.Forms.BindingSource aREASBindingSource;
         private SistemaOTDataSetTableAdapters.AREASTableAdapter aREASTableAdapter;
+        private System.Windows.Forms.BindingSource rESPONSABLESBindingSource;
+        private SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter rESPONSABLESTableAdapter;
+        private System.Windows.Forms.BindingSource vwnombreresponsablesBindingSource;
+        private SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter vw_nombreresponsablesTableAdapter;
     }
 }
