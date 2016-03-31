@@ -1904,8 +1904,6 @@ namespace PrototipoOT {
             
             private global::System.Data.DataColumn columnfecha_entregado;
             
-            private global::System.Data.DataColumn columnconsecutivo;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ORDENES_DE_TRABAJODataTable() {
@@ -2021,14 +2019,6 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn consecutivoColumn {
-                get {
-                    return this.columnconsecutivo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2064,7 +2054,7 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string solicitante, SERVICIOSRow parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS, AREASRow parentAREASRowByFK_ORDENES_DE_TRABAJO_AREAS, RESPONSABLESRow parentRESPONSABLESRowByFK_ORDENES_DE_TRABAJO_RESPONSABLES, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado, string consecutivo) {
+            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string solicitante, SERVICIOSRow parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS, AREASRow parentAREASRowByFK_ORDENES_DE_TRABAJO_AREAS, RESPONSABLESRow parentRESPONSABLESRowByFK_ORDENES_DE_TRABAJO_RESPONSABLES, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado) {
                 ORDENES_DE_TRABAJORow rowORDENES_DE_TRABAJORow = ((ORDENES_DE_TRABAJORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2076,8 +2066,7 @@ namespace PrototipoOT {
                         descripcion,
                         observaciones,
                         fecha_inicio,
-                        fecha_entregado,
-                        consecutivo};
+                        fecha_entregado};
                 if ((parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS != null)) {
                     columnValuesArray[2] = parentSERVICIOSRowByFK_ORDENES_DE_TRABAJO_SERVICIOS[0];
                 }
@@ -2126,7 +2115,6 @@ namespace PrototipoOT {
                 this.columnobservaciones = base.Columns["observaciones"];
                 this.columnfecha_inicio = base.Columns["fecha_inicio"];
                 this.columnfecha_entregado = base.Columns["fecha_entregado"];
-                this.columnconsecutivo = base.Columns["consecutivo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2152,8 +2140,6 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnfecha_inicio);
                 this.columnfecha_entregado = new global::System.Data.DataColumn("fecha_entregado", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_entregado);
-                this.columnconsecutivo = new global::System.Data.DataColumn("consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnconsecutivo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_orden}, true));
                 this.columnid_orden.AutoIncrement = true;
@@ -2169,7 +2155,6 @@ namespace PrototipoOT {
                 this.columndescripcion.MaxLength = 10;
                 this.columnobservaciones.MaxLength = 10;
                 this.columnfecha_inicio.AllowDBNull = false;
-                this.columnconsecutivo.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2935,8 +2920,6 @@ namespace PrototipoOT {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class vw_ordenesDataTable : global::System.Data.TypedTableBase<vw_ordenesRow> {
             
-            private global::System.Data.DataColumn columnConsecutivo;
-            
             private global::System.Data.DataColumn columnSolicitante;
             
             private global::System.Data.DataColumn columnÁrea;
@@ -2986,14 +2969,6 @@ namespace PrototipoOT {
             protected vw_ordenesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ConsecutivoColumn {
-                get {
-                    return this.columnConsecutivo;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3105,10 +3080,9 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public vw_ordenesRow Addvw_ordenesRow(string Consecutivo, string Solicitante, string Área, string Servicio, string Responsable, string Descripcion, System.DateTime Fecha_de_Inicio, bool Entregado, System.DateTime Fecha_de_Entrega, string Observaciones) {
+            public vw_ordenesRow Addvw_ordenesRow(string Solicitante, string Área, string Servicio, string Responsable, string Descripcion, System.DateTime Fecha_de_Inicio, bool Entregado, System.DateTime Fecha_de_Entrega, string Observaciones) {
                 vw_ordenesRow rowvw_ordenesRow = ((vw_ordenesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Consecutivo,
                         Solicitante,
                         Área,
                         Servicio,
@@ -3121,13 +3095,6 @@ namespace PrototipoOT {
                 rowvw_ordenesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvw_ordenesRow);
                 return rowvw_ordenesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public vw_ordenesRow FindByConsecutivo(string Consecutivo) {
-                return ((vw_ordenesRow)(this.Rows.Find(new object[] {
-                            Consecutivo})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3147,7 +3114,6 @@ namespace PrototipoOT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnConsecutivo = base.Columns["Consecutivo"];
                 this.columnSolicitante = base.Columns["Solicitante"];
                 this.columnÁrea = base.Columns["Área"];
                 this.columnServicio = base.Columns["Servicio"];
@@ -3162,8 +3128,6 @@ namespace PrototipoOT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnConsecutivo = new global::System.Data.DataColumn("Consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsecutivo);
                 this.columnSolicitante = new global::System.Data.DataColumn("Solicitante", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSolicitante);
                 this.columnÁrea = new global::System.Data.DataColumn("Área", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3182,11 +3146,6 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnFecha_de_Entrega);
                 this.columnObservaciones = new global::System.Data.DataColumn("Observaciones", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnObservaciones);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnConsecutivo}, true));
-                this.columnConsecutivo.AllowDBNull = false;
-                this.columnConsecutivo.Unique = true;
-                this.columnConsecutivo.MaxLength = 10;
                 this.columnSolicitante.AllowDBNull = false;
                 this.columnSolicitante.MaxLength = 100;
                 this.columnÁrea.AllowDBNull = false;
@@ -4815,22 +4774,6 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string consecutivo {
-                get {
-                    try {
-                        return ((string)(this[this.tableORDENES_DE_TRABAJO.consecutivoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'consecutivo\' de la tabla \'ORDENES_DE_TRABAJO\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableORDENES_DE_TRABAJO.consecutivoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AREASRow AREASRow {
                 get {
                     return ((AREASRow)(this.GetParentRow(this.Table.ParentRelations["FK_ORDENES_DE_TRABAJO_AREAS"])));
@@ -4896,18 +4839,6 @@ namespace PrototipoOT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setfecha_entregadoNull() {
                 this[this.tableORDENES_DE_TRABAJO.fecha_entregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsconsecutivoNull() {
-                return this.IsNull(this.tableORDENES_DE_TRABAJO.consecutivoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetconsecutivoNull() {
-                this[this.tableORDENES_DE_TRABAJO.consecutivoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5119,17 +5050,6 @@ namespace PrototipoOT {
             internal vw_ordenesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tablevw_ordenes = ((vw_ordenesDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Consecutivo {
-                get {
-                    return ((string)(this[this.tablevw_ordenes.ConsecutivoColumn]));
-                }
-                set {
-                    this[this.tablevw_ordenes.ConsecutivoColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7447,11 +7367,10 @@ SELECT id_cuenta, apellido_pat, apellido_mat, nombre, direccion, telefono, passw
             tableMapping.ColumnMappings.Add("observaciones", "observaciones");
             tableMapping.ColumnMappings.Add("fecha_inicio", "fecha_inicio");
             tableMapping.ColumnMappings.Add("fecha_entregado", "fecha_entregado");
-            tableMapping.ColumnMappings.Add("consecutivo", "consecutivo");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [ORDENES_DE_TRABAJO] WHERE (([id_orden] = @Original_id_orden) AND ([solicitante] = @Original_solicitante) AND ([id_servicio] = @Original_id_servicio) AND ([id_area] = @Original_id_area) AND ([id_responsable] = @Original_id_responsable) AND ([entregado] = @Original_entregado) AND ([descripcion] = @Original_descripcion) AND ((@IsNull_observaciones = 1 AND [observaciones] IS NULL) OR ([observaciones] = @Original_observaciones)) AND ([fecha_inicio] = @Original_fecha_inicio) AND ((@IsNull_fecha_entregado = 1 AND [fecha_entregado] IS NULL) OR ([fecha_entregado] = @Original_fecha_entregado)) AND ((@IsNull_consecutivo = 1 AND [consecutivo] IS NULL) OR ([consecutivo] = @Original_consecutivo)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [ORDENES_DE_TRABAJO] WHERE (([id_orden] = @Original_id_orden) AND ([solicitante] = @Original_solicitante) AND ([id_servicio] = @Original_id_servicio) AND ([id_area] = @Original_id_area) AND ([id_responsable] = @Original_id_responsable) AND ([entregado] = @Original_entregado) AND ([descripcion] = @Original_descripcion) AND ((@IsNull_observaciones = 1 AND [observaciones] IS NULL) OR ([observaciones] = @Original_observaciones)) AND ([fecha_inicio] = @Original_fecha_inicio) AND ((@IsNull_fecha_entregado = 1 AND [fecha_entregado] IS NULL) OR ([fecha_entregado] = @Original_fecha_entregado)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_orden", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_orden", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_solicitante", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "solicitante", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7465,12 +7384,10 @@ SELECT id_cuenta, apellido_pat, apellido_mat, nombre, direccion, telefono, passw
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_inicio", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_inicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha_entregado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_entregado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_entregado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_entregado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_consecutivo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "consecutivo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "consecutivo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [ORDENES_DE_TRABAJO] ([id_orden], [solicitante], [id_servicio], [id_area], [id_responsable], [entregado], [descripcion], [observaciones], [fecha_inicio], [fecha_entregado], [consecutivo]) VALUES (@id_orden, @solicitante, @id_servicio, @id_area, @id_responsable, @entregado, @descripcion, @observaciones, @fecha_inicio, @fecha_entregado, @consecutivo);
-SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, descripcion, observaciones, fecha_inicio, fecha_entregado, consecutivo FROM ORDENES_DE_TRABAJO WHERE (id_orden = @id_orden)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [ORDENES_DE_TRABAJO] ([id_orden], [solicitante], [id_servicio], [id_area], [id_responsable], [entregado], [descripcion], [observaciones], [fecha_inicio], [fecha_entregado]) VALUES (@id_orden, @solicitante, @id_servicio, @id_area, @id_responsable, @entregado, @descripcion, @observaciones, @fecha_inicio, @fecha_entregado);
+SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, descripcion, observaciones, fecha_inicio, fecha_entregado FROM ORDENES_DE_TRABAJO WHERE (id_orden = @id_orden)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_orden", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_orden", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@solicitante", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "solicitante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7482,11 +7399,10 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@observaciones", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "observaciones", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_inicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_entregado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "consecutivo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [ORDENES_DE_TRABAJO] SET [id_orden] = @id_orden, [solicitante] = @solicitante, [id_servicio] = @id_servicio, [id_area] = @id_area, [id_responsable] = @id_responsable, [entregado] = @entregado, [descripcion] = @descripcion, [observaciones] = @observaciones, [fecha_inicio] = @fecha_inicio, [fecha_entregado] = @fecha_entregado, [consecutivo] = @consecutivo WHERE (([id_orden] = @Original_id_orden) AND ([solicitante] = @Original_solicitante) AND ([id_servicio] = @Original_id_servicio) AND ([id_area] = @Original_id_area) AND ([id_responsable] = @Original_id_responsable) AND ([entregado] = @Original_entregado) AND ([descripcion] = @Original_descripcion) AND ((@IsNull_observaciones = 1 AND [observaciones] IS NULL) OR ([observaciones] = @Original_observaciones)) AND ([fecha_inicio] = @Original_fecha_inicio) AND ((@IsNull_fecha_entregado = 1 AND [fecha_entregado] IS NULL) OR ([fecha_entregado] = @Original_fecha_entregado)) AND ((@IsNull_consecutivo = 1 AND [consecutivo] IS NULL) OR ([consecutivo] = @Original_consecutivo)));
-SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, descripcion, observaciones, fecha_inicio, fecha_entregado, consecutivo FROM ORDENES_DE_TRABAJO WHERE (id_orden = @id_orden)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [ORDENES_DE_TRABAJO] SET [id_orden] = @id_orden, [solicitante] = @solicitante, [id_servicio] = @id_servicio, [id_area] = @id_area, [id_responsable] = @id_responsable, [entregado] = @entregado, [descripcion] = @descripcion, [observaciones] = @observaciones, [fecha_inicio] = @fecha_inicio, [fecha_entregado] = @fecha_entregado WHERE (([id_orden] = @Original_id_orden) AND ([solicitante] = @Original_solicitante) AND ([id_servicio] = @Original_id_servicio) AND ([id_area] = @Original_id_area) AND ([id_responsable] = @Original_id_responsable) AND ([entregado] = @Original_entregado) AND ([descripcion] = @Original_descripcion) AND ((@IsNull_observaciones = 1 AND [observaciones] IS NULL) OR ([observaciones] = @Original_observaciones)) AND ([fecha_inicio] = @Original_fecha_inicio) AND ((@IsNull_fecha_entregado = 1 AND [fecha_entregado] IS NULL) OR ([fecha_entregado] = @Original_fecha_entregado)));
+SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, descripcion, observaciones, fecha_inicio, fecha_entregado FROM ORDENES_DE_TRABAJO WHERE (id_orden = @id_orden)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_orden", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_orden", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@solicitante", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "solicitante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7498,7 +7414,6 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@observaciones", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "observaciones", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_inicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_entregado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "consecutivo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_orden", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_orden", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_solicitante", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "solicitante", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_servicio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7511,8 +7426,6 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_inicio", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_inicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fecha_entregado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_entregado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_entregado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_entregado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_consecutivo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "consecutivo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "consecutivo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7529,8 +7442,7 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, de" +
-                "scripcion, observaciones, fecha_inicio, fecha_entregado, consecutivo FROM ORDENE" +
-                "S_DE_TRABAJO";
+                "scripcion, observaciones, fecha_inicio, fecha_entregado FROM ORDENES_DE_TRABAJO";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7591,7 +7503,7 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_id_orden, string Original_solicitante, int Original_id_servicio, int Original_id_area, int Original_id_responsable, bool Original_entregado, string Original_descripcion, string Original_observaciones, System.DateTime Original_fecha_inicio, global::System.Nullable<global::System.DateTime> Original_fecha_entregado, string Original_consecutivo) {
+        public virtual int Delete(string Original_id_orden, string Original_solicitante, int Original_id_servicio, int Original_id_area, int Original_id_responsable, bool Original_entregado, string Original_descripcion, string Original_observaciones, System.DateTime Original_fecha_inicio, global::System.Nullable<global::System.DateTime> Original_fecha_entregado) {
             if ((Original_id_orden == null)) {
                 throw new global::System.ArgumentNullException("Original_id_orden");
             }
@@ -7631,14 +7543,6 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_consecutivo == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_consecutivo));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7659,7 +7563,7 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_orden, string solicitante, int id_servicio, int id_area, int id_responsable, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, global::System.Nullable<global::System.DateTime> fecha_entregado, string consecutivo) {
+        public virtual int Insert(string id_orden, string solicitante, int id_servicio, int id_area, int id_responsable, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, global::System.Nullable<global::System.DateTime> fecha_entregado) {
             if ((id_orden == null)) {
                 throw new global::System.ArgumentNullException("id_orden");
             }
@@ -7695,12 +7599,6 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((consecutivo == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(consecutivo));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7732,7 +7630,6 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
                     string observaciones, 
                     System.DateTime fecha_inicio, 
                     global::System.Nullable<global::System.DateTime> fecha_entregado, 
-                    string consecutivo, 
                     string Original_id_orden, 
                     string Original_solicitante, 
                     int Original_id_servicio, 
@@ -7742,8 +7639,7 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
                     string Original_descripcion, 
                     string Original_observaciones, 
                     System.DateTime Original_fecha_inicio, 
-                    global::System.Nullable<global::System.DateTime> Original_fecha_entregado, 
-                    string Original_consecutivo) {
+                    global::System.Nullable<global::System.DateTime> Original_fecha_entregado) {
             if ((id_orden == null)) {
                 throw new global::System.ArgumentNullException("id_orden");
             }
@@ -7779,58 +7675,44 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((consecutivo == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(consecutivo));
-            }
             if ((Original_id_orden == null)) {
                 throw new global::System.ArgumentNullException("Original_id_orden");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_id_orden));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_id_orden));
             }
             if ((Original_solicitante == null)) {
                 throw new global::System.ArgumentNullException("Original_solicitante");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_solicitante));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_solicitante));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_id_servicio));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_id_area));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_id_responsable));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_entregado));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_id_servicio));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_id_area));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_id_responsable));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(Original_entregado));
             if ((Original_descripcion == null)) {
                 throw new global::System.ArgumentNullException("Original_descripcion");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_descripcion));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_descripcion));
             }
             if ((Original_observaciones == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_observaciones));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_observaciones));
             }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_fecha_inicio));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_fecha_inicio));
             if ((Original_fecha_entregado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_fecha_entregado.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_fecha_entregado.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Original_consecutivo == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_consecutivo));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7862,7 +7744,6 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
                     string observaciones, 
                     System.DateTime fecha_inicio, 
                     global::System.Nullable<global::System.DateTime> fecha_entregado, 
-                    string consecutivo, 
                     string Original_id_orden, 
                     string Original_solicitante, 
                     int Original_id_servicio, 
@@ -7872,9 +7753,8 @@ SELECT id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, d
                     string Original_descripcion, 
                     string Original_observaciones, 
                     System.DateTime Original_fecha_inicio, 
-                    global::System.Nullable<global::System.DateTime> Original_fecha_entregado, 
-                    string Original_consecutivo) {
-            return this.Update(Original_id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, descripcion, observaciones, fecha_inicio, fecha_entregado, consecutivo, Original_id_orden, Original_solicitante, Original_id_servicio, Original_id_area, Original_id_responsable, Original_entregado, Original_descripcion, Original_observaciones, Original_fecha_inicio, Original_fecha_entregado, Original_consecutivo);
+                    global::System.Nullable<global::System.DateTime> Original_fecha_entregado) {
+            return this.Update(Original_id_orden, solicitante, id_servicio, id_area, id_responsable, entregado, descripcion, observaciones, fecha_inicio, fecha_entregado, Original_id_orden, Original_solicitante, Original_id_servicio, Original_id_area, Original_id_responsable, Original_entregado, Original_descripcion, Original_observaciones, Original_fecha_inicio, Original_fecha_entregado);
         }
     }
     
@@ -8792,7 +8672,6 @@ SELECT id_servicio, descripcion FROM SERVICIOS WHERE (id_servicio = @id_servicio
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "vw_ordenes";
-            tableMapping.ColumnMappings.Add("Consecutivo", "Consecutivo");
             tableMapping.ColumnMappings.Add("Solicitante", "Solicitante");
             tableMapping.ColumnMappings.Add("Área", "Área");
             tableMapping.ColumnMappings.Add("Servicio", "Servicio");
@@ -8818,8 +8697,8 @@ SELECT id_servicio, descripcion FROM SERVICIOS WHERE (id_servicio = @id_servicio
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Consecutivo, Solicitante, Área, Servicio, Responsable, Descripcion, [Fecha" +
-                " de Inicio], Entregado, [Fecha de Entrega], Observaciones FROM dbo.vw_ordenes";
+            this._commandCollection[0].CommandText = "SELECT solicitante, Área, Servicio, Responsable, descripcion, [Fecha de Inicio], " +
+                "entregado, [Fecha de Entrega], observaciones FROM vw_ordenes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
