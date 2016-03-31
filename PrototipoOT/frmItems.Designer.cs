@@ -82,6 +82,7 @@
             this.cmdAñadirArea.TabIndex = 3;
             this.cmdAñadirArea.Text = "Añadir";
             this.cmdAñadirArea.UseVisualStyleBackColor = true;
+            this.cmdAñadirArea.Click += new System.EventHandler(this.cmdAñadirArea_Click);
             // 
             // lbServicios
             // 
@@ -154,6 +155,7 @@
             this.cmdBorrarServicio.TabIndex = 8;
             this.cmdBorrarServicio.Text = "Borrar";
             this.cmdBorrarServicio.UseVisualStyleBackColor = true;
+            this.cmdBorrarServicio.Click += new System.EventHandler(this.cmdBorrarServicio_Click);
             // 
             // cmdBorrarArea
             // 
@@ -163,6 +165,7 @@
             this.cmdBorrarArea.TabIndex = 9;
             this.cmdBorrarArea.Text = "Borrar";
             this.cmdBorrarArea.UseVisualStyleBackColor = true;
+            this.cmdBorrarArea.Click += new System.EventHandler(this.cmdBorrarArea_Click);
             // 
             // tableAdapterManager
             // 

@@ -42,6 +42,36 @@ namespace PrototipoOT
             this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);       
         }
 
+        private void cmdAñadirArea_Click(object sender, EventArgs e)
+        {
+            string area = txtArea.Text;
+
+            DataRow nuevo = this.sistemaOTDataSet.AREAS.NewRow();
+            nuevo["descripcion"] = area;
+            this.sistemaOTDataSet.AREAS.Rows.Add(nuevo);
+            this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
+        }
+
+        private void cmdBorrarServicio_Click(object sender, EventArgs e)
+        {
+            DataRowView borrar = (DataRowView) lbServicios.SelectedItem;
+            string borrarString = borrar.Row["descripcion"].ToString();
+            DataRow[] resultado = this.sistemaOTDataSet.SERVICIOS.Select("descripcion = '" + borrarString+"'");
+            DataRow viejo = resultado[0];
+            viejo.Delete();
+            this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS); 
+        }
+
+        private void cmdBorrarArea_Click(object sender, EventArgs e)
+        {
+            DataRowView borrar = (DataRowView)lbAreas.SelectedItem;
+            string borrarString = borrar.Row["descripcion"].ToString();
+            DataRow[] resultado = this.sistemaOTDataSet.AREAS.Select("descripcion = '" + borrarString + "'");
+            DataRow viejo = resultado[0];
+            viejo.Delete();
+            this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS); 
+        }
+
 
     }
 }
