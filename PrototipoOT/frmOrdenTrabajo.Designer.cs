@@ -129,6 +129,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbServicio
             // 
@@ -346,7 +347,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(472, 556);
+            this.ClientSize = new System.Drawing.Size(472, 395);
             this.Controls.Add(this.rbEntregadoSi);
             this.Controls.Add(this.rbEntregadoNo);
             this.Controls.Add(this.label9);

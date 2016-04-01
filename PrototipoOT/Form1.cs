@@ -43,14 +43,21 @@ namespace PrototipoOT
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar");
+
+            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+            int index = (int) indexDataRow["ID"];
+
+            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
             if (frm.ShowDialog() == DialogResult.OK)
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 
         private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar");
+            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+            int index = (int)indexDataRow["ID"];
+
+            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
             if (frm.ShowDialog() == DialogResult.OK)
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
