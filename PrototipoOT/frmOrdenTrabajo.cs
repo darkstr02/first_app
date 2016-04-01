@@ -38,12 +38,49 @@ namespace PrototipoOT
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.SERVICIOS' Puede moverla o quitarla según sea necesario.
             this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
 
+            //Si el formulación está en modo "Modificación"
             if (indice != 0)
+            {
                 modifyRow = this.sistemaOTDataSet.ORDENES_DE_TRABAJO.Select("id_orden =" + indice)[0];
 
-            //Llenar controles con datos de la columna seleccionada;
+                //Llenar controles con datos de la columna seleccionada;
+                dtpFecha.Value = (DateTime)modifyRow["fecha_inicio"];
+                txtConsecutivo.Text = (string)modifyRow["consecutivo"];
+                txtSolicitante.Text = (string)modifyRow["solicitante"];
 
+                //NOTA: Crear una función estática para hacer esta operación <<<<<<<<<<<<<>>>>>>>>>>>>>>
+                foreach (DataRowView drv in cbServicio.Items)
+                {
+                    if (drv.Row[0] == modifyRow["id_servicio"])
+                    {
+                        cbServicio.SelectedItem = drv;
+                        break;
+                    }
+                }
 
+                foreach (DataRowView drv in cbArea.Items)
+                {
+                    if (drv.Row[0] == modifyRow["id_area"])
+                    {
+                        cbServicio.SelectedItem = drv;
+                        break;
+                    }
+                }
+
+                foreach (DataRowView drv in cbResponsable.Items)
+                {
+                    if (drv.Row[0] == modifyRow["id_responsable"])
+                    {
+                        cbServicio.SelectedItem = drv;
+                        break;
+                    }
+                }
+
+                rbEntregadoSi.Checked = (bool)modifyRow["entregado"];
+                txtDescripcion.Text = (string)modifyRow["descripcion"];
+                if (modifyRow["observaciones"] != DBNull.Value)
+                    txtObservaciones.Text = (string)modifyRow["observaciones"];
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -77,7 +114,7 @@ namespace PrototipoOT
         private void button1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            if (titulo == "Insertar") insertarOrden();
+            if (titulo.Equals("Nueva")) insertarOrden();
             else modificarOrden();
             this.Close();
         }
