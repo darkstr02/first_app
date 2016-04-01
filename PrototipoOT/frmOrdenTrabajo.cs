@@ -20,6 +20,8 @@ namespace PrototipoOT
 
         private void frmOrdenTrabajo_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.ORDENES_DE_TRABAJO' Puede moverla o quitarla según sea necesario.
+            this.oRDENES_DE_TRABAJOTableAdapter.Fill(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_nombreresponsables' Puede moverla o quitarla según sea necesario.
             this.vw_nombreresponsablesTableAdapter.Fill(this.sistemaOTDataSet.vw_nombreresponsables);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.RESPONSABLES' Puede moverla o quitarla según sea necesario.
@@ -63,11 +65,33 @@ namespace PrototipoOT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //this.DialogResult = DialogResult.OK;
-            DataRow nuevo = this.sistemaOTDataSet.vw_ordenes.NewRow();
-            nuevo["Consecutivo"] = txtConsecutivo.Text;
-            nuevo[""]
+            this.DialogResult = DialogResult.OK;
+            DataRow nuevo = this.sistemaOTDataSet.ORDENES_DE_TRABAJO.NewRow();
 
+            nuevo["consecutivo"] = txtConsecutivo.Text;
+            nuevo["solicitante"] = txtSolicitante.Text;
+
+            DataRowView serv = (DataRowView) cbServicio.SelectedItem;
+            DataRowView area = (DataRowView) cbArea.SelectedItem;
+            DataRowView resp = (DataRowView)cbResponsable.SelectedItem;
+
+            nuevo["id_servicio"] = serv.Row[0];
+            nuevo["id_area"] = area.Row[0];
+            nuevo["id_responsable"] = resp.Row[0];
+
+            nuevo["entregado"] = rbEntregadoSi.Checked;
+            nuevo["descripcion"] = txtDescripcion.Text;
+            nuevo["observaciones"] = txtObservaciones.Text;
+            nuevo["fecha_inicio"] = dtpFecha.Value;
+
+            if (rbEntregadoSi.Checked)
+                nuevo["fecha_entregado"] = DateTime.Now;
+            else
+                nuevo["fecha_entregado"] = System.DBNull.Value;
+
+            this.sistemaOTDataSet.ORDENES_DE_TRABAJO.Rows.Add(nuevo);
+            this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+            this.Close();
         }
     }
 }

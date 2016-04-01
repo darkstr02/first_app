@@ -62,6 +62,8 @@
             this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
             this.rESPONSABLESTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter();
             this.vw_nombreresponsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter();
+            this.oRDENES_DE_TRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
@@ -69,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oRDENES_DE_TRABAJOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFecha
@@ -137,6 +140,7 @@
             this.cbServicio.Name = "cbServicio";
             this.cbServicio.Size = new System.Drawing.Size(121, 21);
             this.cbServicio.TabIndex = 7;
+            this.cbServicio.ValueMember = "id_servicio";
             // 
             // sERVICIOSBindingSource
             // 
@@ -158,6 +162,7 @@
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(121, 21);
             this.cbArea.TabIndex = 8;
+            this.cbArea.ValueMember = "id_area";
             // 
             // aREASBindingSource
             // 
@@ -326,13 +331,22 @@
             // 
             this.vw_nombreresponsablesTableAdapter.ClearBeforeFill = true;
             // 
+            // oRDENES_DE_TRABAJOBindingSource
+            // 
+            this.oRDENES_DE_TRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
+            this.oRDENES_DE_TRABAJOBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // oRDENES_DE_TRABAJOTableAdapter
+            // 
+            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
+            // 
             // frmOrdenTrabajo
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(472, 405);
+            this.ClientSize = new System.Drawing.Size(472, 556);
             this.Controls.Add(this.rbEntregadoSi);
             this.Controls.Add(this.rbEntregadoNo);
             this.Controls.Add(this.label9);
@@ -369,6 +383,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oRDENES_DE_TRABAJOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,5 +424,7 @@
         private SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter rESPONSABLESTableAdapter;
         private System.Windows.Forms.BindingSource vwnombreresponsablesBindingSource;
         private SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter vw_nombreresponsablesTableAdapter;
+        private System.Windows.Forms.BindingSource oRDENES_DE_TRABAJOBindingSource;
+        private SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter oRDENES_DE_TRABAJOTableAdapter;
     }
 }

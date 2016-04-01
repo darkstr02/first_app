@@ -30,25 +30,29 @@ namespace PrototipoOT
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Nueva");
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 
         private void nuevaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Nueva");
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar");
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 
         private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar");
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
