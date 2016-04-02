@@ -55,7 +55,15 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.consecutivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.oRDENESDETRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
+            this.sistemaOTDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vwordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_ordenesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.solicitanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.áreaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.servicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,21 +73,14 @@
             this.entregadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaDeEntregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vwordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.oRDENESDETRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
-            this.sistemaOTDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_ordenesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDENESDETRABAJOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -321,7 +322,8 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.consecutivoDataGridViewTextBoxColumn,
+            this.iDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
             this.solicitanteDataGridViewTextBoxColumn,
             this.áreaDataGridViewTextBoxColumn,
             this.servicioDataGridViewTextBoxColumn,
@@ -340,17 +342,57 @@
             this.dataGridView1.Size = new System.Drawing.Size(641, 329);
             this.dataGridView1.TabIndex = 2;
             // 
-            // consecutivoDataGridViewTextBoxColumn
+            // sistemaOTDataSetBindingSource
             // 
-            this.consecutivoDataGridViewTextBoxColumn.DataPropertyName = "Consecutivo";
-            this.consecutivoDataGridViewTextBoxColumn.HeaderText = "Consecutivo";
-            this.consecutivoDataGridViewTextBoxColumn.Name = "consecutivoDataGridViewTextBoxColumn";
-            this.consecutivoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource.Position = 0;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // oRDENESDETRABAJOBindingSource
+            // 
+            this.oRDENESDETRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
+            this.oRDENESDETRABAJOBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // oRDENES_DE_TRABAJOTableAdapter
+            // 
+            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
+            // 
+            // sistemaOTDataSetBindingSource1
+            // 
+            this.sistemaOTDataSetBindingSource1.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource1.Position = 0;
+            // 
+            // vwordenesBindingSource
+            // 
+            this.vwordenesBindingSource.DataMember = "vw_ordenes";
+            this.vwordenesBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // vw_ordenesTableAdapter
+            // 
+            this.vw_ordenesTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "consecutivo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "consecutivo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // solicitanteDataGridViewTextBoxColumn
             // 
-            this.solicitanteDataGridViewTextBoxColumn.DataPropertyName = "Solicitante";
-            this.solicitanteDataGridViewTextBoxColumn.HeaderText = "Solicitante";
+            this.solicitanteDataGridViewTextBoxColumn.DataPropertyName = "solicitante";
+            this.solicitanteDataGridViewTextBoxColumn.HeaderText = "solicitante";
             this.solicitanteDataGridViewTextBoxColumn.Name = "solicitanteDataGridViewTextBoxColumn";
             this.solicitanteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -377,8 +419,8 @@
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -391,8 +433,8 @@
             // 
             // entregadoDataGridViewCheckBoxColumn
             // 
-            this.entregadoDataGridViewCheckBoxColumn.DataPropertyName = "Entregado";
-            this.entregadoDataGridViewCheckBoxColumn.HeaderText = "Entregado";
+            this.entregadoDataGridViewCheckBoxColumn.DataPropertyName = "entregado";
+            this.entregadoDataGridViewCheckBoxColumn.HeaderText = "entregado";
             this.entregadoDataGridViewCheckBoxColumn.Name = "entregadoDataGridViewCheckBoxColumn";
             this.entregadoDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
@@ -405,43 +447,10 @@
             // 
             // observacionesDataGridViewTextBoxColumn
             // 
-            this.observacionesDataGridViewTextBoxColumn.DataPropertyName = "Observaciones";
-            this.observacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones";
+            this.observacionesDataGridViewTextBoxColumn.DataPropertyName = "observaciones";
+            this.observacionesDataGridViewTextBoxColumn.HeaderText = "observaciones";
             this.observacionesDataGridViewTextBoxColumn.Name = "observacionesDataGridViewTextBoxColumn";
             this.observacionesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vwordenesBindingSource
-            // 
-            this.vwordenesBindingSource.DataMember = "vw_ordenes";
-            this.vwordenesBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
-            // 
-            // sistemaOTDataSetBindingSource
-            // 
-            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
-            this.sistemaOTDataSetBindingSource.Position = 0;
-            // 
-            // sistemaOTDataSet
-            // 
-            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
-            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // oRDENESDETRABAJOBindingSource
-            // 
-            this.oRDENESDETRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
-            this.oRDENESDETRABAJOBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
-            // 
-            // oRDENES_DE_TRABAJOTableAdapter
-            // 
-            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
-            // 
-            // sistemaOTDataSetBindingSource1
-            // 
-            this.sistemaOTDataSetBindingSource1.DataSource = this.sistemaOTDataSet;
-            this.sistemaOTDataSetBindingSource1.Position = 0;
-            // 
-            // vw_ordenesTableAdapter
-            // 
-            this.vw_ordenesTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -461,11 +470,11 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDENESDETRABAJOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,9 +512,11 @@
         private System.Windows.Forms.BindingSource oRDENESDETRABAJOBindingSource;
         private SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter oRDENES_DE_TRABAJOTableAdapter;
         private System.Windows.Forms.BindingSource sistemaOTDataSetBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource vwordenesBindingSource;
         private SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter vw_ordenesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn solicitanteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn áreaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn servicioDataGridViewTextBoxColumn;
