@@ -127,9 +127,18 @@ namespace PrototipoOT
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
-            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.ORDENES_DE_TRABAJO' Puede moverla o quitarla según sea necesario.
-           // this.oRDENES_DE_TRABAJOTableAdapter.Fill(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
 
+
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+            int index = Int32.Parse(indexDataRow["ID"].ToString());
+
+            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
+            if (frm.ShowDialog() == DialogResult.OK)
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
     }
 }

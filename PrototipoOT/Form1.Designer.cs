@@ -341,6 +341,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(641, 329);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // sistemaOTDataSetBindingSource
             // 
@@ -512,7 +513,7 @@
         private System.Windows.Forms.BindingSource oRDENESDETRABAJOBindingSource;
         private SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter oRDENES_DE_TRABAJOTableAdapter;
         private System.Windows.Forms.BindingSource sistemaOTDataSetBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource vwordenesBindingSource;
         private SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter vw_ordenesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
