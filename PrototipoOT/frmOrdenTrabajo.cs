@@ -81,6 +81,14 @@ namespace PrototipoOT
                 if (modifyRow["observaciones"] != DBNull.Value)
                     txtObservaciones.Text = (string)modifyRow["observaciones"];
             }
+            else
+            {
+
+                //Borrar Selección Default del ComboBox Responsables
+                cbResponsable.SelectedItem = null;
+
+
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
