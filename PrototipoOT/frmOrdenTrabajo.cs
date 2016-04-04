@@ -51,7 +51,7 @@ namespace PrototipoOT
                 //NOTA: Crear una función estática para hacer esta operación <<<<<<<<<<<<<>>>>>>>>>>>>>>
                 foreach (DataRowView drv in cbServicio.Items)
                 {
-                    if (drv.Row[0] == modifyRow["id_servicio"])
+                    if ((int) drv.Row[0] == (int) modifyRow["id_servicio"])
                     {
                         cbServicio.SelectedItem = drv;
                         break;
@@ -60,19 +60,27 @@ namespace PrototipoOT
 
                 foreach (DataRowView drv in cbArea.Items)
                 {
-                    if (drv.Row[0] == modifyRow["id_area"])
+                    if ((int)drv.Row[0] == (int)modifyRow["id_area"])
                     {
                         cbServicio.SelectedItem = drv;
                         break;
                     }
                 }
 
-                foreach (DataRowView drv in cbResponsable.Items)
+                if ((string) modifyRow["id_responsable"].ToString() == "")
                 {
-                    if (drv.Row[0] == modifyRow["id_responsable"])
+                    cbResponsable.SelectedItem = null;
+                }
+                else
+                {
+
+                    foreach (DataRowView drv in cbResponsable.Items)
                     {
-                        cbServicio.SelectedItem = drv;
-                        break;
+                        if ((int)drv.Row[0] == (int)modifyRow["id_responsable"])
+                        {
+                            cbResponsable.SelectedItem = drv;
+                            break;
+                        }
                     }
                 }
 
@@ -145,7 +153,7 @@ namespace PrototipoOT
 
             nuevo["id_servicio"] = serv.Row[0];
             nuevo["id_area"] = area.Row[0];
-            nuevo["id_responsable"] = resp.Row[0];
+            nuevo["id_responsable"] = (resp != null) ? resp.Row[0] : DBNull.Value;
 
             nuevo["entregado"] = rbEntregadoSi.Checked;
             nuevo["descripcion"] = txtDescripcion.Text;
