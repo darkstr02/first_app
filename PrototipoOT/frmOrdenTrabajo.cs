@@ -62,7 +62,7 @@ namespace PrototipoOT
                 {
                     if ((int)drv.Row[0] == (int)modifyRow["id_area"])
                     {
-                        cbServicio.SelectedItem = drv;
+                        cbArea.SelectedItem = drv;
                         break;
                     }
                 }
