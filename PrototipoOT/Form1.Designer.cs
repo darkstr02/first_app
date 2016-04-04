@@ -55,13 +55,6 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.oRDENESDETRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
-            this.sistemaOTDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.vwordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_ordenesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.solicitanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,14 +66,21 @@
             this.entregadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaDeEntregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vwordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.oRDENESDETRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
+            this.sistemaOTDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_ordenesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDENESDETRABAJOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -273,6 +273,7 @@
             this.toolStripButton3.Text = "Borrar";
             this.toolStripButton3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
             // 
@@ -342,39 +343,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(641, 329);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // sistemaOTDataSetBindingSource
-            // 
-            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
-            this.sistemaOTDataSetBindingSource.Position = 0;
-            // 
-            // sistemaOTDataSet
-            // 
-            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
-            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // oRDENESDETRABAJOBindingSource
-            // 
-            this.oRDENESDETRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
-            this.oRDENESDETRABAJOBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
-            // 
-            // oRDENES_DE_TRABAJOTableAdapter
-            // 
-            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
-            // 
-            // sistemaOTDataSetBindingSource1
-            // 
-            this.sistemaOTDataSetBindingSource1.DataSource = this.sistemaOTDataSet;
-            this.sistemaOTDataSetBindingSource1.Position = 0;
-            // 
-            // vwordenesBindingSource
-            // 
-            this.vwordenesBindingSource.DataMember = "vw_ordenes";
-            this.vwordenesBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
-            // 
-            // vw_ordenesTableAdapter
-            // 
-            this.vw_ordenesTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -453,6 +421,39 @@
             this.observacionesDataGridViewTextBoxColumn.Name = "observacionesDataGridViewTextBoxColumn";
             this.observacionesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // vwordenesBindingSource
+            // 
+            this.vwordenesBindingSource.DataMember = "vw_ordenes";
+            this.vwordenesBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // sistemaOTDataSetBindingSource
+            // 
+            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource.Position = 0;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // oRDENESDETRABAJOBindingSource
+            // 
+            this.oRDENESDETRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
+            this.oRDENESDETRABAJOBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // oRDENES_DE_TRABAJOTableAdapter
+            // 
+            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
+            // 
+            // sistemaOTDataSetBindingSource1
+            // 
+            this.sistemaOTDataSetBindingSource1.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource1.Position = 0;
+            // 
+            // vw_ordenesTableAdapter
+            // 
+            this.vw_ordenesTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,11 +472,11 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDENESDETRABAJOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwordenesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

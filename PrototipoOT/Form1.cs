@@ -128,6 +128,8 @@ namespace PrototipoOT
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
 
+            this.oRDENES_DE_TRABAJOTableAdapter.Fill(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+
 
         }
 
@@ -139,6 +141,31 @@ namespace PrototipoOT
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
             if (frm.ShowDialog() == DialogResult.OK)
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+            int index = Int32.Parse(indexDataRow["ID"].ToString());
+            DataRow selectedRow = null;
+
+            foreach (DataRow dr in sistemaOTDataSet.ORDENES_DE_TRABAJO)
+            {
+                if ((int)dr[0] == (int)index)
+                {
+                    selectedRow = dr;
+                    break;
+                }
+            }
+
+            if (MessageBox.Show("¿Está seguro que desea borrar este registro?","Confirmación de Borrado",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                selectedRow.Delete();
+
+                this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+            }
+            
         }
     }
 }
