@@ -29,13 +29,17 @@ namespace PrototipoOT
             //Llenar CheckBox ComboBoxes aquí!!
 
             foreach (DataRow dr in this.sistemaOTDataSet.SERVICIOS)
-                cbServicio.Items.Add(dr[1].ToString());
+                cbServicio.Items.Add(new ComboBoxCheckBoxItem(dr, "descripcion", "id_servicio"));         
 
             foreach (DataRow dr in this.sistemaOTDataSet.AREAS)
-                cbArea.Items.Add(dr[1].ToString());
+                cbArea.Items.Add(new ComboBoxCheckBoxItem(dr, "descripcion", "id_area"));
 
             foreach (DataRow dr in this.sistemaOTDataSet.vw_nombreresponsables)
-                cbResponsable.Items.Add(dr[1].ToString());
+                cbResponsable.Items.Add(new ComboBoxCheckBoxItem(dr, "Responsable", "id_responsable"));
+
+            cbServicio.ValueMember = "id_servicio";
+            cbArea.ValueMember = "id_area";
+            cbResponsable.ValueMember = "id_responsable";
         }
 
         private void checkBoxComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,6 +51,48 @@ namespace PrototipoOT
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+
+
+        private class ComboBoxCheckBoxItem
+        {
+            public DataRow element;
+            public String DisplayObject;
+            public String ValueObject;
+
+            public ComboBoxCheckBoxItem(DataRow dr)
+            {
+                element = dr;
+            }
+
+            public ComboBoxCheckBoxItem(DataRow dr, String dspObject, String valObject)
+            {
+                element = dr;
+                DisplayObject = dspObject;
+                ValueObject = valObject;
+            }
+
+            public override String ToString()
+            {
+                if (DisplayObject == null) throw new Exception("DisplayObject property was not set.");
+
+                return element[DisplayObject].ToString();
+            }
+
+            public override bool Equals(object obj)
+            {
+                if (obj.GetType() == typeof(ComboBoxCheckBoxItem))
+                    return Equals(((ComboBoxCheckBoxItem)obj).element, this.element);
+                else return base.Equals(obj);
+            }
+
+            public override int GetHashCode()
+            {
+                return base.GetHashCode();
+            }
+            //public 
+
         }
     }
 }
