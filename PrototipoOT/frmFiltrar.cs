@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PresentationControls;
 
 namespace PrototipoOT
 {
@@ -37,9 +38,9 @@ namespace PrototipoOT
             foreach (DataRow dr in this.sistemaOTDataSet.vw_nombreresponsables)
                 cbResponsable.Items.Add(new ComboBoxCheckBoxItem(dr, "Responsable", "id_responsable"));
 
-            cbServicio.ValueMember = "id_servicio";
-            cbArea.ValueMember = "id_area";
-            cbResponsable.ValueMember = "id_responsable";
+            //cbServicio.ValueMember = "id_servicio";
+            //cbArea.ValueMember = "id_area";
+            //cbResponsable.ValueMember = "id_responsable";
         }
 
         private void checkBoxComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,6 +51,27 @@ namespace PrototipoOT
         private void button1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+
+            List<string> serv = new List<string>();
+            List<string> area = new List<string>();
+            List<string> resp = new List<string>();
+
+            foreach (CheckBoxComboBoxItem cbcbi in cbServicio.CheckBoxItems)
+                if(cbcbi.Checked) serv.Add(cbcbi.Text);
+
+            foreach (CheckBoxComboBoxItem cbcbi in cbArea.CheckBoxItems)
+                if (cbcbi.Checked) area.Add(cbcbi.Text);
+
+            foreach (CheckBoxComboBoxItem cbcbi in cbResponsable.CheckBoxItems)
+                if (cbcbi.Checked) resp.Add(cbcbi.Text);
+
+            Form1.filtroServicio = serv;
+            Form1.filtroArea = area;
+            Form1.filtroResponsable = resp;
+
+            Form1.filtro_fechainicio = dtpFechaInicio.Value;
+            Form1.filtro_fechafin = dtpFechaFinal.Value;
+
             this.Close();
         }
 
