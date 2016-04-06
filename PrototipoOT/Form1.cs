@@ -20,6 +20,8 @@ namespace PrototipoOT
         public static DateTime filtro_fechainicio;
         public static DateTime filtro_fechafin;
 
+
+
         public Form1()
         {
             InitializeComponent();
@@ -27,44 +29,75 @@ namespace PrototipoOT
 
         private string filtroString()
         {
-            string cadenaServicio = "";
-            string cadenaArea = "";
-            string cadenaResponsable = "";
+            //string cadenaServicio = "";
+            //string cadenaArea = "";
+            //string cadenaResponsable = "";
+            int paramIndx = 0;
+            List<string>[] coleccion = { filtroServicio, filtroArea, filtroResponsable };
+            List<string> cadenas = new List<string>();
+            string[] parametros = { "Servicio", "Área", "Responsable" };
 
-            //Servicio
-            if (filtroServicio.Count != 0)
-            {
-                cadenaServicio += (filtroServicio.Count > 1) ? "(" : "";
-                for (int x = 0; x < filtroServicio.Count; x++)
+            foreach (List<string> list in coleccion)
+            {   
+                string cadena = "";
+                if (list.Count != 0)
                 {
-                    cadenaServicio += "Servicio = '" + filtroServicio[x] + "'";
-                    cadenaServicio += (x != filtroServicio.Count - 1) ? " OR " : ((filtroServicio.Count > 1) ? ")" : "");
+                    cadena += (list.Count > 1) ? "(" : "";
+                    for (int x = 0; x < list.Count; x++)
+                    {
+                        cadena += parametros[paramIndx]+ " = '" + list[x] + "'";
+                        cadena += (x != list.Count - 1) ? " OR " : ((list.Count > 1) ? ")" : "");
+                    }
+                    cadenas.Add(cadena);
                 }
+
+                paramIndx++;
             }
 
-            //Area
-            if (filtroArea.Count != 0)
+            ////Servicio
+            //if (filtroServicio.Count != 0)
+            //{
+            //    cadenaServicio += (filtroServicio.Count > 1) ? "(" : "";
+            //    for (int x = 0; x < filtroServicio.Count; x++)
+            //    {
+            //        cadenaServicio += "Servicio = '" + filtroServicio[x] + "'";
+            //        cadenaServicio += (x != filtroServicio.Count - 1) ? " OR " : ((filtroServicio.Count > 1) ? ")" : "");
+            //    }
+            //}
+
+            ////Area
+            //if (filtroArea.Count != 0)
+            //{
+            //    cadenaArea += (filtroArea.Count > 1) ? "(" : "";
+            //    for (int x = 0; x < filtroArea.Count; x++)
+            //    {
+            //        cadenaArea += "Área = '" + filtroArea[x] + "'";
+            //        cadenaArea += (x != filtroArea.Count - 1) ? " OR " : ((filtroArea.Count > 1) ? ") " : "");
+            //    }
+            //}
+
+            ////Responsable
+            //if (filtroResponsable.Count != 0)
+            //{
+            //    cadenaResponsable += (filtroResponsable.Count > 1) ? "(" : "";
+            //    for (int x = 0; x < filtroResponsable.Count; x++)
+            //    {
+            //        cadenaResponsable += "Área = '" + filtroResponsable[x] + "'";
+            //        cadenaResponsable += (x != filtroResponsable.Count - 1) ? " OR " : ((filtroResponsable.Count > 1) ? ") " : " ");
+            //    }
+            //}
+
+            string resultado = "";
+
+            string last = cadenas[cadenas.Count-1];
+            foreach(string str in cadenas)
             {
-                cadenaArea += (filtroArea.Count > 1) ? "(" : "";
-                for (int x = 0; x < filtroArea.Count; x++)
-                {
-                    cadenaArea += "Área = '" + filtroArea[x] + "'";
-                    cadenaArea += (x != filtroArea.Count - 1) ? " OR " : ((filtroArea.Count > 1) ? ") " : "");
-                }
+                resultado += str;
+                if(str != last)
+                    resultado += " AND ";
             }
 
-            //Responsable
-            if (filtroResponsable.Count != 0)
-            {
-                cadenaResponsable += (filtroResponsable.Count > 1) ? "(" : "";
-                for (int x = 0; x < filtroResponsable.Count; x++)
-                {
-                    cadenaResponsable += "Área = '" + filtroResponsable[x] + "'";
-                    cadenaResponsable += (x != filtroResponsable.Count - 1) ? " OR " : ((filtroResponsable.Count > 1) ? ") " : " ");
-                }
-            }
-
-            return ((cadenaServicio.Equals("")) ? cadenaServicio : "") + ((filtroArea.Count != 0 && !cadenaServicio.Equals("")) ? " AND " : " ") + cadenaArea + ((filtroResponsable.Count != 0) ? " AND " : "") + cadenaResponsable;
+            return resultado;
         }
 
         private void órdenesDeTrabajoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,8 +181,13 @@ namespace PrototipoOT
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                this.vwordenesBindingSource.Filter = filtroString();
+                if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0)
+                    this.vwordenesBindingSource.Filter = filtroString();
+                else
+                    this.vwordenesBindingSource.Filter = "";
+                    
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+                
             }
         }
 
