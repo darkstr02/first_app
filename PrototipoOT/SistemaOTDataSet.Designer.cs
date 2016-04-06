@@ -4097,10 +4097,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(int id_orden, string consecutivo, string solicitante, int id_servicio, int id_area, int id_responsable, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado) {
+            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string consecutivo, string solicitante, int id_servicio, int id_area, int id_responsable, bool entregado, string descripcion, string observaciones, System.DateTime fecha_inicio, System.DateTime fecha_entregado) {
                 ORDENES_DE_TRABAJORow rowORDENES_DE_TRABAJORow = ((ORDENES_DE_TRABAJORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_orden,
+                        null,
                         consecutivo,
                         solicitante,
                         id_servicio,
@@ -4180,6 +4180,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnfecha_entregado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_orden}, true));
+                this.columnid_orden.AutoIncrement = true;
+                this.columnid_orden.AutoIncrementSeed = 1;
                 this.columnid_orden.AllowDBNull = false;
                 this.columnid_orden.Unique = true;
                 this.columnconsecutivo.MaxLength = 5;

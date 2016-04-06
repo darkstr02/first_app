@@ -29,9 +29,7 @@ namespace PrototipoOT
 
         private string filtroString()
         {
-            //string cadenaServicio = "";
-            //string cadenaArea = "";
-            //string cadenaResponsable = "";
+
             int paramIndx = 0;
             List<string>[] coleccion = { filtroServicio, filtroArea, filtroResponsable };
             List<string> cadenas = new List<string>();
@@ -52,40 +50,7 @@ namespace PrototipoOT
                 }
 
                 paramIndx++;
-            }
-
-            ////Servicio
-            //if (filtroServicio.Count != 0)
-            //{
-            //    cadenaServicio += (filtroServicio.Count > 1) ? "(" : "";
-            //    for (int x = 0; x < filtroServicio.Count; x++)
-            //    {
-            //        cadenaServicio += "Servicio = '" + filtroServicio[x] + "'";
-            //        cadenaServicio += (x != filtroServicio.Count - 1) ? " OR " : ((filtroServicio.Count > 1) ? ")" : "");
-            //    }
-            //}
-
-            ////Area
-            //if (filtroArea.Count != 0)
-            //{
-            //    cadenaArea += (filtroArea.Count > 1) ? "(" : "";
-            //    for (int x = 0; x < filtroArea.Count; x++)
-            //    {
-            //        cadenaArea += "Área = '" + filtroArea[x] + "'";
-            //        cadenaArea += (x != filtroArea.Count - 1) ? " OR " : ((filtroArea.Count > 1) ? ") " : "");
-            //    }
-            //}
-
-            ////Responsable
-            //if (filtroResponsable.Count != 0)
-            //{
-            //    cadenaResponsable += (filtroResponsable.Count > 1) ? "(" : "";
-            //    for (int x = 0; x < filtroResponsable.Count; x++)
-            //    {
-            //        cadenaResponsable += "Área = '" + filtroResponsable[x] + "'";
-            //        cadenaResponsable += (x != filtroResponsable.Count - 1) ? " OR " : ((filtroResponsable.Count > 1) ? ") " : " ");
-            //    }
-            //}
+            }       
 
             string resultado = "";
 
@@ -186,8 +151,7 @@ namespace PrototipoOT
                 else
                     this.vwordenesBindingSource.Filter = "";
                     
-                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
-                
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);         
             }
         }
 
@@ -216,21 +180,12 @@ namespace PrototipoOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            
-
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
 
             this.oRDENES_DE_TRABAJOTableAdapter.Fill(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
-
-
-            //Esto es para filtrar el datagridview!!
-            this.vwordenesBindingSource.Filter = "Área = 'Administración' OR Área = 'Cómputo' AND Responsable = 'Benjamín Castañeda'";
-
-
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
