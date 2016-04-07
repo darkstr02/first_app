@@ -19,7 +19,7 @@ namespace PrototipoOT
         public static List<string> filtroResponsable;
         public static DateTime filtro_fechainicio;
         public static DateTime filtro_fechafin;
-
+        public static CheckState chkstatus;
 
 
         public Form1()
@@ -34,7 +34,12 @@ namespace PrototipoOT
             List<string>[] coleccion = { filtroServicio, filtroArea, filtroResponsable };
             List<string> cadenas = new List<string>();
             string[] parametros = { "Servicio", "Área", "Responsable" };
+            string resultado = "";
 
+
+            if (chkstatus != CheckState.Indeterminate)
+                cadenas.Add( "entregado = " + ((chkstatus == CheckState.Checked) ? "TRUE " : "FALSE "));
+            
             foreach (List<string> list in coleccion)
             {   
                 string cadena = "";
@@ -50,9 +55,9 @@ namespace PrototipoOT
                 }
 
                 paramIndx++;
-            }       
+            }
 
-            string resultado = "";
+ 
 
             string last = cadenas[cadenas.Count-1];
             foreach(string str in cadenas)
@@ -61,6 +66,8 @@ namespace PrototipoOT
                 if(str != last)
                     resultado += " AND ";
             }
+
+           
 
             return resultado;
         }
@@ -146,7 +153,7 @@ namespace PrototipoOT
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0)
+                if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0 || chkstatus != CheckState.Indeterminate)
                     this.vwordenesBindingSource.Filter = filtroString();
                 else
                     this.vwordenesBindingSource.Filter = "";

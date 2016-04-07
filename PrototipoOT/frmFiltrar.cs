@@ -72,6 +72,8 @@ namespace PrototipoOT
             Form1.filtro_fechainicio = dtpFechaInicio.Value;
             Form1.filtro_fechafin = dtpFechaFinal.Value;
 
+            Form1.chkstatus = chkEntregado.CheckState;
+
             this.Close();
         }
 

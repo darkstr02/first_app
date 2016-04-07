@@ -152,6 +152,8 @@
             // 
             this.chkEntregado.AutoSize = true;
             this.chkEntregado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkEntregado.Checked = true;
+            this.chkEntregado.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.chkEntregado.Location = new System.Drawing.Point(141, 171);
             this.chkEntregado.Name = "chkEntregado";
             this.chkEntregado.Size = new System.Drawing.Size(83, 17);
