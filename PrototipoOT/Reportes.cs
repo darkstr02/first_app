@@ -30,7 +30,7 @@ namespace PrototipoOT
 
         private void button4_Click(object sender, EventArgs e)
         {
-            frmReportViewer rv = new frmReportViewer(2,1,1);
+            frmReportViewer rv = new frmReportViewer(2, "Antonio", 1,1);
             rv.ShowDialog();
         }
     }

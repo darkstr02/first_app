@@ -32,25 +32,25 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmdResponsable = new System.Windows.Forms.Button();
+            this.cmbArea = new System.Windows.Forms.Button();
+            this.cmdServicio = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbResponsable = new System.Windows.Forms.ComboBox();
             this.rESPONSABLESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbArea = new System.Windows.Forms.ComboBox();
             this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbServicio = new System.Windows.Forms.ComboBox();
             this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cmdAceptar = new System.Windows.Forms.Button();
+            this.cmdCancelar = new System.Windows.Forms.Button();
+            this.chkEntregado = new System.Windows.Forms.CheckBox();
             this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
             this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
             this.rESPONSABLESTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter();
@@ -66,8 +66,8 @@
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpFechaFinal);
+            this.groupBox1.Controls.Add(this.dtpFechaInicio);
             this.groupBox1.Location = new System.Drawing.Point(35, 18);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(293, 128);
@@ -93,31 +93,31 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Desde:";
             // 
-            // dateTimePicker2
+            // dtpFechaFinal
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(69, 81);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dtpFechaFinal.Location = new System.Drawing.Point(69, 81);
+            this.dtpFechaFinal.Name = "dtpFechaFinal";
+            this.dtpFechaFinal.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaFinal.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpFechaInicio
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(68, 36);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(68, 36);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaInicio.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.cmdResponsable);
+            this.groupBox2.Controls.Add(this.cmbArea);
+            this.groupBox2.Controls.Add(this.cmdServicio);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbResponsable);
+            this.groupBox2.Controls.Add(this.cbArea);
+            this.groupBox2.Controls.Add(this.cbServicio);
             this.groupBox2.Location = new System.Drawing.Point(35, 152);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(293, 134);
@@ -125,32 +125,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros";
             // 
-            // button3
+            // cmdResponsable
             // 
-            this.button3.Location = new System.Drawing.Point(220, 92);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "L";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cmdResponsable.Location = new System.Drawing.Point(220, 92);
+            this.cmdResponsable.Name = "cmdResponsable";
+            this.cmdResponsable.Size = new System.Drawing.Size(36, 23);
+            this.cmdResponsable.TabIndex = 8;
+            this.cmdResponsable.Text = "L";
+            this.cmdResponsable.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // cmbArea
             // 
-            this.button2.Location = new System.Drawing.Point(220, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "L";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cmbArea.Location = new System.Drawing.Point(220, 54);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(36, 23);
+            this.cmbArea.TabIndex = 7;
+            this.cmbArea.Text = "L";
+            this.cmbArea.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // cmdServicio
             // 
-            this.button1.Location = new System.Drawing.Point(220, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "L";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cmdServicio.Location = new System.Drawing.Point(220, 20);
+            this.cmdServicio.Name = "cmdServicio";
+            this.cmdServicio.Size = new System.Drawing.Size(36, 23);
+            this.cmdServicio.TabIndex = 6;
+            this.cmdServicio.Text = "L";
+            this.cmdServicio.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -179,16 +179,16 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Servicio:";
             // 
-            // comboBox3
+            // cbResponsable
             // 
-            this.comboBox3.DataSource = this.rESPONSABLESBindingSource;
-            this.comboBox3.DisplayMember = "nombre";
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(82, 94);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 2;
-            this.comboBox3.ValueMember = "id_responsable";
+            this.cbResponsable.DataSource = this.rESPONSABLESBindingSource;
+            this.cbResponsable.DisplayMember = "nombre";
+            this.cbResponsable.FormattingEnabled = true;
+            this.cbResponsable.Location = new System.Drawing.Point(82, 94);
+            this.cbResponsable.Name = "cbResponsable";
+            this.cbResponsable.Size = new System.Drawing.Size(121, 21);
+            this.cbResponsable.TabIndex = 2;
+            this.cbResponsable.ValueMember = "id_responsable";
             // 
             // rESPONSABLESBindingSource
             // 
@@ -200,67 +200,67 @@
             this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
             this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // comboBox2
+            // cbArea
             // 
-            this.comboBox2.DataSource = this.aREASBindingSource;
-            this.comboBox2.DisplayMember = "descripcion";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(82, 56);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
-            this.comboBox2.ValueMember = "id_area";
+            this.cbArea.DataSource = this.aREASBindingSource;
+            this.cbArea.DisplayMember = "descripcion";
+            this.cbArea.FormattingEnabled = true;
+            this.cbArea.Location = new System.Drawing.Point(82, 56);
+            this.cbArea.Name = "cbArea";
+            this.cbArea.Size = new System.Drawing.Size(121, 21);
+            this.cbArea.TabIndex = 1;
+            this.cbArea.ValueMember = "id_area";
             // 
             // aREASBindingSource
             // 
             this.aREASBindingSource.DataMember = "AREAS";
             this.aREASBindingSource.DataSource = this.sistemaOTDataSet;
             // 
-            // comboBox1
+            // cbServicio
             // 
-            this.comboBox1.DataSource = this.sERVICIOSBindingSource;
-            this.comboBox1.DisplayMember = "descripcion";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(82, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.ValueMember = "id_servicio";
+            this.cbServicio.DataSource = this.sERVICIOSBindingSource;
+            this.cbServicio.DisplayMember = "descripcion";
+            this.cbServicio.FormattingEnabled = true;
+            this.cbServicio.Location = new System.Drawing.Point(82, 20);
+            this.cbServicio.Name = "cbServicio";
+            this.cbServicio.Size = new System.Drawing.Size(121, 21);
+            this.cbServicio.TabIndex = 0;
+            this.cbServicio.ValueMember = "id_servicio";
             // 
             // sERVICIOSBindingSource
             // 
             this.sERVICIOSBindingSource.DataMember = "SERVICIOS";
             this.sERVICIOSBindingSource.DataSource = this.sistemaOTDataSet;
             // 
-            // button4
+            // cmdAceptar
             // 
-            this.button4.Location = new System.Drawing.Point(83, 331);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 41);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Aceptar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.cmdAceptar.Location = new System.Drawing.Point(83, 331);
+            this.cmdAceptar.Name = "cmdAceptar";
+            this.cmdAceptar.Size = new System.Drawing.Size(81, 41);
+            this.cmdAceptar.TabIndex = 2;
+            this.cmdAceptar.Text = "Aceptar";
+            this.cmdAceptar.UseVisualStyleBackColor = true;
+            this.cmdAceptar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // cmdCancelar
             // 
-            this.button5.Location = new System.Drawing.Point(203, 331);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(81, 41);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.cmdCancelar.Location = new System.Drawing.Point(203, 331);
+            this.cmdCancelar.Name = "cmdCancelar";
+            this.cmdCancelar.Size = new System.Drawing.Size(81, 41);
+            this.cmdCancelar.TabIndex = 3;
+            this.cmdCancelar.Text = "Cancelar";
+            this.cmdCancelar.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkEntregado
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(139, 292);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Entregados";
-            this.checkBox1.ThreeState = true;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkEntregado.AutoSize = true;
+            this.chkEntregado.Location = new System.Drawing.Point(139, 292);
+            this.chkEntregado.Name = "chkEntregado";
+            this.chkEntregado.Size = new System.Drawing.Size(80, 17);
+            this.chkEntregado.TabIndex = 4;
+            this.chkEntregado.Text = "Entregados";
+            this.chkEntregado.ThreeState = true;
+            this.chkEntregado.UseVisualStyleBackColor = true;
             // 
             // sERVICIOSTableAdapter
             // 
@@ -279,9 +279,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 387);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.chkEntregado);
+            this.Controls.Add(this.cmdCancelar);
+            this.Controls.Add(this.cmdAceptar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -310,20 +310,20 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinal;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cbResponsable;
+        private System.Windows.Forms.ComboBox cbArea;
+        private System.Windows.Forms.ComboBox cbServicio;
+        private System.Windows.Forms.Button cmdResponsable;
+        private System.Windows.Forms.Button cmbArea;
+        private System.Windows.Forms.Button cmdServicio;
+        private System.Windows.Forms.Button cmdAceptar;
+        private System.Windows.Forms.Button cmdCancelar;
+        private System.Windows.Forms.CheckBox chkEntregado;
         private SistemaOTDataSet sistemaOTDataSet;
         private System.Windows.Forms.BindingSource sERVICIOSBindingSource;
         private SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter sERVICIOSTableAdapter;
