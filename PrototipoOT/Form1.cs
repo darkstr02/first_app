@@ -21,6 +21,10 @@ namespace PrototipoOT
         public static DateTime filtro_fechafin;
         public static CheckState chkstatus;
 
+        public static string findConsecutive;
+        public static int dtgIndex;
+        public static List<string> findOthers;
+
 
         public Form1()
         {
@@ -132,19 +136,45 @@ namespace PrototipoOT
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             frmBuscar frm = new frmBuscar();
-            frm.ShowDialog();
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // 0 is the column index
+                    if (row.Cells[1].Value.ToString().Equals(findConsecutive))
+                    {
+                        row.Selected = true;
+                        dtgIndex = row.Index;
+                        return;
+                    }
+                }
+                dataGridView1.Rows[dtgIndex].Selected = false;
+                MessageBox.Show("El registro no existe");
+                dtgIndex = -1;
+            }
+               
+
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBuscar frm = new frmBuscar();
-            frm.ShowDialog();
+            frm.ShowDialog(this);
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             frmFiltrar frm = new frmFiltrar();
-            frm.ShowDialog();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0 || chkstatus != CheckState.Indeterminate)
+                    this.vwordenesBindingSource.Filter = filtroString();
+                else
+                    this.vwordenesBindingSource.Filter = "";
+
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+            }
         }
 
         private void filtrarToolStripMenuItem_Click(object sender, EventArgs e)
