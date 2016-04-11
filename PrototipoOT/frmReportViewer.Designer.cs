@@ -29,10 +29,61 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.ORDENES_DE_TRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSetReportes = new PrototipoOT.DataSetReportes();
+            this.ORDENES_DE_TRABAJOTableAdapter = new PrototipoOT.DataSetReportesTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.ORDENES_DE_TRABAJOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetReportes)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.ORDENES_DE_TRABAJOBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PrototipoOT.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(718, 312);
+            this.reportViewer1.TabIndex = 0;
+            // 
+            // ORDENES_DE_TRABAJOBindingSource
+            // 
+            this.ORDENES_DE_TRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
+            this.ORDENES_DE_TRABAJOBindingSource.DataSource = this.DataSetReportes;
+            // 
+            // DataSetReportes
+            // 
+            this.DataSetReportes.DataSetName = "DataSetReportes";
+            this.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ORDENES_DE_TRABAJOTableAdapter
+            // 
+            this.ORDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
+            // 
+            // frmReportViewer
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(718, 312);
+            this.Controls.Add(this.reportViewer1);
+            this.Name = "frmReportViewer";
             this.Text = "frmReportViewer";
+            this.Load += new System.EventHandler(this.frmReportViewer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ORDENES_DE_TRABAJOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetReportes)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource ORDENES_DE_TRABAJOBindingSource;
+        private DataSetReportes DataSetReportes;
+        private DataSetReportesTableAdapters.ORDENES_DE_TRABAJOTableAdapter ORDENES_DE_TRABAJOTableAdapter;
     }
 }

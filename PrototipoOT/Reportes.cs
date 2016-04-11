@@ -27,5 +27,11 @@ namespace PrototipoOT
             this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmReportViewer rv = new frmReportViewer(2,1,1);
+            rv.ShowDialog();
+        }
     }
 }

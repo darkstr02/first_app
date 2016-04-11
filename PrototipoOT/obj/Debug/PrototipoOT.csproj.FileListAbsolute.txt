@@ -20,3 +20,6 @@ C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmAdministrarResponsables.resources
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmNuevoResponsable.resources
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmItems.resources
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmReportViewer.resources
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\RdlCompile.cache
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\RdlCompile.compiled

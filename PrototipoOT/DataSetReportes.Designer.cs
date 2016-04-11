@@ -1301,9 +1301,7 @@ namespace PrototipoOT {
             
             private global::System.Data.DataColumn columnResponsable;
             
-            private global::System.Data.DataColumn columnFecha_de_Inicio;
-            
-            private global::System.Data.DataColumn columnFecha_de_Entrega;
+            private global::System.Data.DataColumn columnFecha;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1412,17 +1410,9 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_de_InicioColumn {
+            public global::System.Data.DataColumn FechaColumn {
                 get {
-                    return this.columnFecha_de_Inicio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Fecha_de_EntregaColumn {
-                get {
-                    return this.columnFecha_de_Entrega;
+                    return this.columnFecha;
                 }
             }
             
@@ -1463,7 +1453,7 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string consecutivo, string solicitante, bool entregado, string descripcion, string observaciones, int ID, string Área, string Servicio, string Responsable, System.DateTime Fecha_de_Inicio, System.DateTime Fecha_de_Entrega) {
+            public ORDENES_DE_TRABAJORow AddORDENES_DE_TRABAJORow(string consecutivo, string solicitante, bool entregado, string descripcion, string observaciones, int ID, string Área, string Servicio, string Responsable, System.DateTime Fecha) {
                 ORDENES_DE_TRABAJORow rowORDENES_DE_TRABAJORow = ((ORDENES_DE_TRABAJORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         consecutivo,
@@ -1475,8 +1465,7 @@ namespace PrototipoOT {
                         Área,
                         Servicio,
                         Responsable,
-                        Fecha_de_Inicio,
-                        Fecha_de_Entrega};
+                        Fecha};
                 rowORDENES_DE_TRABAJORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowORDENES_DE_TRABAJORow);
                 return rowORDENES_DE_TRABAJORow;
@@ -1515,8 +1504,7 @@ namespace PrototipoOT {
                 this.columnÁrea = base.Columns["Área"];
                 this.columnServicio = base.Columns["Servicio"];
                 this.columnResponsable = base.Columns["Responsable"];
-                this.columnFecha_de_Inicio = base.Columns["Fecha de Inicio"];
-                this.columnFecha_de_Entrega = base.Columns["Fecha de Entrega"];
+                this.columnFecha = base.Columns["Fecha"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1540,10 +1528,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnServicio);
                 this.columnResponsable = new global::System.Data.DataColumn("Responsable", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnResponsable);
-                this.columnFecha_de_Inicio = new global::System.Data.DataColumn("Fecha de Inicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_de_Inicio);
-                this.columnFecha_de_Entrega = new global::System.Data.DataColumn("Fecha de Entrega", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_de_Entrega);
+                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnconsecutivo.MaxLength = 5;
@@ -1561,7 +1547,7 @@ namespace PrototipoOT {
                 this.columnServicio.MaxLength = 30;
                 this.columnResponsable.ReadOnly = true;
                 this.columnResponsable.MaxLength = 61;
-                this.columnFecha_de_Inicio.AllowDBNull = false;
+                this.columnFecha.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2019,29 +2005,12 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha_de_Inicio {
+            public System.DateTime Fecha {
                 get {
-                    return ((global::System.DateTime)(this[this.tableORDENES_DE_TRABAJO.Fecha_de_InicioColumn]));
+                    return ((global::System.DateTime)(this[this.tableORDENES_DE_TRABAJO.FechaColumn]));
                 }
                 set {
-                    this[this.tableORDENES_DE_TRABAJO.Fecha_de_InicioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha_de_Entrega {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableORDENES_DE_TRABAJO.Fecha_de_EntregaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha de Entrega\' de la tabla \'ORDENES_DE_TRABAJO\' es DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableORDENES_DE_TRABAJO.Fecha_de_EntregaColumn] = value;
+                    this[this.tableORDENES_DE_TRABAJO.FechaColumn] = value;
                 }
             }
             
@@ -2079,18 +2048,6 @@ namespace PrototipoOT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetResponsableNull() {
                 this[this.tableORDENES_DE_TRABAJO.ResponsableColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFecha_de_EntregaNull() {
-                return this.IsNull(this.tableORDENES_DE_TRABAJO.Fecha_de_EntregaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFecha_de_EntregaNull() {
-                this[this.tableORDENES_DE_TRABAJO.Fecha_de_EntregaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3460,8 +3417,7 @@ SELECT id_responsable, apellido_pat, apellido_mat, nombre, direccion, telefono, 
             tableMapping.ColumnMappings.Add("Área", "Área");
             tableMapping.ColumnMappings.Add("Servicio", "Servicio");
             tableMapping.ColumnMappings.Add("Responsable", "Responsable");
-            tableMapping.ColumnMappings.Add("Fecha de Inicio", "Fecha de Inicio");
-            tableMapping.ColumnMappings.Add("Fecha de Entrega", "Fecha de Entrega");
+            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3480,7 +3436,7 @@ SELECT id_responsable, apellido_pat, apellido_mat, nombre, direccion, telefono, 
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, AREAS.descripcion AS Área, 
                          SERVICIOS.descripcion AS Servicio, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, ORDENES_DE_TRABAJO.descripcion, 
-                         ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], 
+                         ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
                          RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
@@ -3534,9 +3490,9 @@ AREAS.id_area = @id_area AND SERVICIOS.id_servicio = @id_servicio";
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, 
-                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], 
-                         ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], ORDENES_DE_TRABAJO.observaciones
+            this._commandCollection[4].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+                         ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
 FROM            ORDENES_DE_TRABAJO INNER JOIN
                          RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN

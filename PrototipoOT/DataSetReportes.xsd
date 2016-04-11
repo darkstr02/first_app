@@ -182,12 +182,12 @@ SELECT id_responsable, apellido_pat, apellido_mat, nombre, direccion, telefono, 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ORDENES_DE_TRABAJOTableAdapter" GeneratorDataComponentClassName="ORDENES_DE_TRABAJOTableAdapter" Name="ORDENES_DE_TRABAJO" UserDataComponentName="ORDENES_DE_TRABAJOTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, AREAS.descripcion AS Área, 
                          SERVICIOS.descripcion AS Servicio, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, ORDENES_DE_TRABAJO.descripcion, 
-                         ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], 
+                         ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
                          RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
@@ -208,8 +208,7 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
               <Mapping SourceColumn="Área" DataSetColumn="Área" />
               <Mapping SourceColumn="Servicio" DataSetColumn="Servicio" />
               <Mapping SourceColumn="Responsable" DataSetColumn="Responsable" />
-              <Mapping SourceColumn="Fecha de Inicio" DataSetColumn="Fecha de Inicio" />
-              <Mapping SourceColumn="Fecha de Entrega" DataSetColumn="Fecha de Entrega" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAreas_DobleFiltro" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAreas_DobleFiltro" GeneratorSourceName="FillByAreas_DobleFiltro" GetMethodModifier="Public" GetMethodName="GetDataByAreas_DobleFiltro" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAreas_DobleFiltro" UserSourceName="FillByAreas_DobleFiltro">
@@ -275,9 +274,9 @@ AREAS.id_area = @id_area AND SERVICIOS.id_servicio = @id_servicio</CommandText>
               <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByResponsables_Areas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByResponsables_Areas" GeneratorSourceName="FillByResponsables_Areas" GetMethodModifier="Public" GetMethodName="GetDataByResponsables_Areas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByResponsables_Areas" UserSourceName="FillByResponsables_Areas">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, 
-                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], 
-                         ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], ORDENES_DE_TRABAJO.observaciones
+                    <CommandText>SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+                         ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
 FROM            ORDENES_DE_TRABAJO INNER JOIN
                          RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
@@ -520,8 +519,7 @@ WHERE        (SERVICIOS.id_servicio = @id_servicio) AND (RESPONSABLES.id_respons
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Fecha_x0020_de_x0020_Inicio" msprop:Generator_ColumnVarNameInTable="columnFecha_de_Inicio" msprop:Generator_ColumnPropNameInRow="Fecha_de_Inicio" msprop:Generator_ColumnPropNameInTable="Fecha_de_InicioColumn" msprop:Generator_UserColumnName="Fecha de Inicio" type="xs:dateTime" />
-              <xs:element name="Fecha_x0020_de_x0020_Entrega" msprop:Generator_ColumnVarNameInTable="columnFecha_de_Entrega" msprop:Generator_ColumnPropNameInRow="Fecha_de_Entrega" msprop:Generator_ColumnPropNameInTable="Fecha_de_EntregaColumn" msprop:Generator_UserColumnName="Fecha de Entrega" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
