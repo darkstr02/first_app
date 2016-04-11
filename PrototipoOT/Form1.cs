@@ -23,7 +23,6 @@ namespace PrototipoOT
 
         public static string findConsecutive;
         public static int dtgIndex;
-        public static List<string> findOthers;
 
 
         public Form1()
