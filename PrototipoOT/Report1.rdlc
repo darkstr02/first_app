@@ -652,36 +652,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox21">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Responsable:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>2.16641cm</Top>
-        <Left>1.34938cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="rpResponsable">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -697,10 +667,40 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>rpResponsable</rd:DefaultName>
-        <Top>2.16641cm</Top>
-        <Left>4.17724cm</Left>
+        <Top>2.17178cm</Top>
+        <Left>3.95521cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.59021cm</Width>
+        <Width>5.53954cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Responsable:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>2.17178cm</Top>
+        <Left>1.34938cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -716,7 +716,7 @@
     <Height>4.36458in</Height>
     <Style />
   </Body>
-  <Width>10.13318in</Width>
+  <Width>10.13319in</Width>
   <Page>
     <PageHeader>
       <Height>3.54005cm</Height>

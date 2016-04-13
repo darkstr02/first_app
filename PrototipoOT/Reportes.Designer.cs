@@ -36,13 +36,13 @@
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmdResponsable = new System.Windows.Forms.Button();
+            this.chkEntregado = new System.Windows.Forms.CheckBox();
             this.cmbArea = new System.Windows.Forms.Button();
             this.cmdServicio = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbResponsable = new System.Windows.Forms.ComboBox();
-            this.rESPONSABLESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -50,16 +50,21 @@
             this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.cmdCancelar = new System.Windows.Forms.Button();
-            this.chkEntregado = new System.Windows.Forms.CheckBox();
             this.sERVICIOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter();
             this.aREASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.AREASTableAdapter();
-            this.rESPONSABLESTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radResponsable = new System.Windows.Forms.RadioButton();
+            this.radArea = new System.Windows.Forms.RadioButton();
+            this.radServicio = new System.Windows.Forms.RadioButton();
+            this.vwnombreresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_nombreresponsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -70,7 +75,7 @@
             this.groupBox1.Controls.Add(this.dtpFechaInicio);
             this.groupBox1.Location = new System.Drawing.Point(35, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(293, 128);
+            this.groupBox1.Size = new System.Drawing.Size(362, 128);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fecha";
@@ -110,6 +115,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cmdResponsable);
+            this.groupBox2.Controls.Add(this.chkEntregado);
             this.groupBox2.Controls.Add(this.cmbArea);
             this.groupBox2.Controls.Add(this.cmdServicio);
             this.groupBox2.Controls.Add(this.label5);
@@ -118,30 +124,43 @@
             this.groupBox2.Controls.Add(this.cbResponsable);
             this.groupBox2.Controls.Add(this.cbArea);
             this.groupBox2.Controls.Add(this.cbServicio);
-            this.groupBox2.Location = new System.Drawing.Point(35, 152);
+            this.groupBox2.Location = new System.Drawing.Point(129, 152);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(293, 134);
+            this.groupBox2.Size = new System.Drawing.Size(268, 143);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros";
             // 
             // cmdResponsable
             // 
-            this.cmdResponsable.Location = new System.Drawing.Point(220, 92);
+            this.cmdResponsable.Location = new System.Drawing.Point(220, 90);
             this.cmdResponsable.Name = "cmdResponsable";
             this.cmdResponsable.Size = new System.Drawing.Size(36, 23);
             this.cmdResponsable.TabIndex = 8;
             this.cmdResponsable.Text = "L";
             this.cmdResponsable.UseVisualStyleBackColor = true;
+            this.cmdResponsable.Click += new System.EventHandler(this.cmdResponsable_Click);
+            // 
+            // chkEntregado
+            // 
+            this.chkEntregado.AutoSize = true;
+            this.chkEntregado.Location = new System.Drawing.Point(95, 121);
+            this.chkEntregado.Name = "chkEntregado";
+            this.chkEntregado.Size = new System.Drawing.Size(80, 17);
+            this.chkEntregado.TabIndex = 4;
+            this.chkEntregado.Text = "Entregados";
+            this.chkEntregado.ThreeState = true;
+            this.chkEntregado.UseVisualStyleBackColor = true;
             // 
             // cmbArea
             // 
-            this.cmbArea.Location = new System.Drawing.Point(220, 54);
+            this.cmbArea.Location = new System.Drawing.Point(220, 55);
             this.cmbArea.Name = "cmbArea";
             this.cmbArea.Size = new System.Drawing.Size(36, 23);
             this.cmbArea.TabIndex = 7;
             this.cmbArea.Text = "L";
             this.cmbArea.UseVisualStyleBackColor = true;
+            this.cmbArea.Click += new System.EventHandler(this.cmbArea_Click);
             // 
             // cmdServicio
             // 
@@ -151,11 +170,12 @@
             this.cmdServicio.TabIndex = 6;
             this.cmdServicio.Text = "L";
             this.cmdServicio.UseVisualStyleBackColor = true;
+            this.cmdServicio.Click += new System.EventHandler(this.cmdServicio_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 97);
+            this.label5.Location = new System.Drawing.Point(5, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 5;
@@ -164,7 +184,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 57);
+            this.label4.Location = new System.Drawing.Point(44, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 4;
@@ -173,7 +193,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 22);
+            this.label3.Location = new System.Drawing.Point(28, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 3;
@@ -181,19 +201,14 @@
             // 
             // cbResponsable
             // 
-            this.cbResponsable.DataSource = this.rESPONSABLESBindingSource;
-            this.cbResponsable.DisplayMember = "nombre";
+            this.cbResponsable.DataSource = this.vwnombreresponsablesBindingSource;
+            this.cbResponsable.DisplayMember = "Responsable";
             this.cbResponsable.FormattingEnabled = true;
-            this.cbResponsable.Location = new System.Drawing.Point(82, 94);
+            this.cbResponsable.Location = new System.Drawing.Point(82, 91);
             this.cbResponsable.Name = "cbResponsable";
             this.cbResponsable.Size = new System.Drawing.Size(121, 21);
             this.cbResponsable.TabIndex = 2;
             this.cbResponsable.ValueMember = "id_responsable";
-            // 
-            // rESPONSABLESBindingSource
-            // 
-            this.rESPONSABLESBindingSource.DataMember = "RESPONSABLES";
-            this.rESPONSABLESBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // sistemaOTDataSet
             // 
@@ -221,7 +236,7 @@
             this.cbServicio.DataSource = this.sERVICIOSBindingSource;
             this.cbServicio.DisplayMember = "descripcion";
             this.cbServicio.FormattingEnabled = true;
-            this.cbServicio.Location = new System.Drawing.Point(82, 20);
+            this.cbServicio.Location = new System.Drawing.Point(82, 21);
             this.cbServicio.Name = "cbServicio";
             this.cbServicio.Size = new System.Drawing.Size(121, 21);
             this.cbServicio.TabIndex = 0;
@@ -234,7 +249,7 @@
             // 
             // cmdAceptar
             // 
-            this.cmdAceptar.Location = new System.Drawing.Point(83, 331);
+            this.cmdAceptar.Location = new System.Drawing.Point(113, 317);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(81, 41);
             this.cmdAceptar.TabIndex = 2;
@@ -244,23 +259,13 @@
             // 
             // cmdCancelar
             // 
-            this.cmdCancelar.Location = new System.Drawing.Point(203, 331);
+            this.cmdCancelar.Location = new System.Drawing.Point(233, 317);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(81, 41);
             this.cmdCancelar.TabIndex = 3;
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = true;
-            // 
-            // chkEntregado
-            // 
-            this.chkEntregado.AutoSize = true;
-            this.chkEntregado.Location = new System.Drawing.Point(139, 292);
-            this.chkEntregado.Name = "chkEntregado";
-            this.chkEntregado.Size = new System.Drawing.Size(80, 17);
-            this.chkEntregado.TabIndex = 4;
-            this.chkEntregado.Text = "Entregados";
-            this.chkEntregado.ThreeState = true;
-            this.chkEntregado.UseVisualStyleBackColor = true;
+            this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // sERVICIOSTableAdapter
             // 
@@ -270,16 +275,66 @@
             // 
             this.aREASTableAdapter.ClearBeforeFill = true;
             // 
-            // rESPONSABLESTableAdapter
+            // groupBox3
             // 
-            this.rESPONSABLESTableAdapter.ClearBeforeFill = true;
+            this.groupBox3.Controls.Add(this.radResponsable);
+            this.groupBox3.Controls.Add(this.radArea);
+            this.groupBox3.Controls.Add(this.radServicio);
+            this.groupBox3.Location = new System.Drawing.Point(35, 153);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(93, 142);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Reporte por:";
+            // 
+            // radResponsable
+            // 
+            this.radResponsable.AutoSize = true;
+            this.radResponsable.Location = new System.Drawing.Point(6, 93);
+            this.radResponsable.Name = "radResponsable";
+            this.radResponsable.Size = new System.Drawing.Size(87, 17);
+            this.radResponsable.TabIndex = 14;
+            this.radResponsable.TabStop = true;
+            this.radResponsable.Text = "Responsable";
+            this.radResponsable.UseVisualStyleBackColor = true;
+            // 
+            // radArea
+            // 
+            this.radArea.AutoSize = true;
+            this.radArea.Location = new System.Drawing.Point(6, 58);
+            this.radArea.Name = "radArea";
+            this.radArea.Size = new System.Drawing.Size(47, 17);
+            this.radArea.TabIndex = 13;
+            this.radArea.TabStop = true;
+            this.radArea.Text = "Área";
+            this.radArea.UseVisualStyleBackColor = true;
+            // 
+            // radServicio
+            // 
+            this.radServicio.AutoSize = true;
+            this.radServicio.Location = new System.Drawing.Point(6, 23);
+            this.radServicio.Name = "radServicio";
+            this.radServicio.Size = new System.Drawing.Size(63, 17);
+            this.radServicio.TabIndex = 12;
+            this.radServicio.TabStop = true;
+            this.radServicio.Text = "Servicio";
+            this.radServicio.UseVisualStyleBackColor = true;
+            // 
+            // vwnombreresponsablesBindingSource
+            // 
+            this.vwnombreresponsablesBindingSource.DataMember = "vw_nombreresponsables";
+            this.vwnombreresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // vw_nombreresponsablesTableAdapter
+            // 
+            this.vw_nombreresponsablesTableAdapter.ClearBeforeFill = true;
             // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 387);
-            this.Controls.Add(this.chkEntregado);
+            this.ClientSize = new System.Drawing.Size(424, 387);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdAceptar);
             this.Controls.Add(this.groupBox2);
@@ -295,12 +350,13 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -329,7 +385,11 @@
         private SistemaOTDataSetTableAdapters.SERVICIOSTableAdapter sERVICIOSTableAdapter;
         private System.Windows.Forms.BindingSource aREASBindingSource;
         private SistemaOTDataSetTableAdapters.AREASTableAdapter aREASTableAdapter;
-        private System.Windows.Forms.BindingSource rESPONSABLESBindingSource;
-        private SistemaOTDataSetTableAdapters.RESPONSABLESTableAdapter rESPONSABLESTableAdapter;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton radResponsable;
+        private System.Windows.Forms.RadioButton radArea;
+        private System.Windows.Forms.RadioButton radServicio;
+        private System.Windows.Forms.BindingSource vwnombreresponsablesBindingSource;
+        private SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter vw_nombreresponsablesTableAdapter;
     }
 }
