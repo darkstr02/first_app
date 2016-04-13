@@ -20,9 +20,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
         <Top>0.41437cm</Top>
-        <Left>8.84102cm</Left>
+        <Left>9.47602cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.70688cm</Width>
+        <Width>8.77063cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -43,10 +43,10 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.8175cm</Width>
+              <Width>3.20681cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.76458cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>5cm</Width>
@@ -643,7 +643,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.33687cm</Top>
         <Height>1.2cm</Height>
-        <Width>24.38891cm</Width>
+        <Width>25.0428cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -681,11 +681,41 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="rpParametro">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!rpParametro.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>rpParametro</rd:DefaultName>
+        <Top>1.20481cm</Top>
+        <Left>3.85974cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.58479cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>9.60193in</Width>
+  <Width>9.85937in</Width>
   <Page>
     <PageHeader>
       <Height>2.97243cm</Height>
@@ -709,8 +739,8 @@
           <Source>Embedded</Source>
           <Value>CECLosMochis_logo</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.36159cm</Top>
-          <Left>17.80609cm</Left>
+          <Top>0.67909cm</Top>
+          <Left>20.34134cm</Left>
           <Height>2.14658cm</Height>
           <Width>4.70146cm</Width>
           <ZIndex>1</ZIndex>
@@ -739,9 +769,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
           <Top>0.79057cm</Top>
-          <Left>6.74906cm</Left>
+          <Left>7.38406cm</Left>
           <Height>0.70583cm</Height>
-          <Width>10cm</Width>
+          <Width>10.86259cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -771,9 +801,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
           <Top>1.67279cm</Top>
-          <Left>7.13176cm</Left>
+          <Left>7.76676cm</Left>
           <Height>0.6cm</Height>
-          <Width>9.1675cm</Width>
+          <Width>10.47989cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -792,8 +822,8 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>

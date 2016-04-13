@@ -3549,55 +3549,52 @@ WHERE        (RESPONSABLES.id_responsable = @id_responsable)";
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, AREAS.descripcion AS Área, 
-                         RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, ORDENES_DE_TRABAJO.descripcion, 
-                         ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], 
+            this._commandCollection[9].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
-                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
-WHERE        (SERVICIOS.id_servicio = @id_servicio) AND (AREAS.id_area = @id_area)";
+WHERE        (SERVICIOS.id_servicio = @id_servicio) AND AREAS.id_area =@id_area";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, AREAS.descripcion AS Área, 
-                         RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, ORDENES_DE_TRABAJO.descripcion, 
-                         ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], 
+            this._commandCollection[10].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
-                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
-WHERE        (SERVICIOS.id_servicio = @id_servicio) AND (RESPONSABLES.id_responsable = @id_responsable) AND (AREAS.id_area = @id_area)";
+WHERE        (SERVICIOS.id_servicio = @id_servicio) AND RESPONSABLES.id_responsable = @id_responsable AND
+AREAS.id_area = @id_area";
             this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[11].Connection = this.Connection;
-            this._commandCollection[11].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, AREAS.descripcion AS Área, 
-                         RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, ORDENES_DE_TRABAJO.descripcion, 
-                         ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], 
+            this._commandCollection[11].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
-                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
-WHERE        (SERVICIOS.id_servicio = @id_servicio) AND (RESPONSABLES.id_responsable = @id_responsable)";
+WHERE        (SERVICIOS.id_servicio = @id_servicio) AND RESPONSABLES.id_responsable = @id_responsable";
             this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[12].Connection = this.Connection;
-            this._commandCollection[12].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, AREAS.descripcion AS Área, 
-                         RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, ORDENES_DE_TRABAJO.descripcion, 
-                         ORDENES_DE_TRABAJO.fecha_inicio AS [Fecha de Inicio], ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.fecha_entregado AS [Fecha de Entrega], 
+            this._commandCollection[12].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
-                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (SERVICIOS.id_servicio = @id_servicio)";

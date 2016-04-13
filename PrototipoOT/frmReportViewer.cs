@@ -123,7 +123,7 @@ namespace PrototipoOT
 
                 case Reporte.Servicios_DobleFiltro:
                 {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_area, id_responsable );
+                    this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, id_area);
                     break;
                 }
             }
