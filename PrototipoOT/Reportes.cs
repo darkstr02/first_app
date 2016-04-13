@@ -49,7 +49,7 @@ namespace PrototipoOT
             }
             else if (radArea.Checked)
             {
-                if (cbResponsable.SelectedItem != null || cbServicio.SelectedItem != null)
+                if (cbResponsable.SelectedItem != null && cbServicio.SelectedItem != null)
                     rp = Reporte.Areas_DobleFiltro;
                 else if (cbResponsable.SelectedItem != null)
                     rp = Reporte.Areas_Responsables;
@@ -62,7 +62,7 @@ namespace PrototipoOT
             else
             {
 
-                if (cbResponsable.SelectedItem != null || cbArea.SelectedItem != null)
+                if (cbResponsable.SelectedItem != null && cbArea.SelectedItem != null)
                     rp = Reporte.Servicios_DobleFiltro;
                 else if (cbResponsable.SelectedItem != null)
                     rp = Reporte.Servicios_Responsables;

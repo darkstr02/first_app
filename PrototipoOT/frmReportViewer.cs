@@ -41,7 +41,7 @@ namespace PrototipoOT
             else
                 reportViewer1.LocalReport.ReportEmbeddedResource = "PrototipoOT.Report3.rdlc";
 
-
+            this.DataSetReportes.EnforceConstraints = false;
             this.ORDENES_DE_TRABAJOTableAdapter.Fill(this.DataSetReportes.ORDENES_DE_TRABAJO);
 
 
@@ -78,7 +78,9 @@ namespace PrototipoOT
                     // Areas
                 case Reporte.Areas_Todos:
                 {
+
                     this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area);
+                    //this.DataSetReportes.EnforceConstraints = true;
                     break;
                 }
 
