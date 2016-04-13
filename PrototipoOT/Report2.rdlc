@@ -2,6 +2,37 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>REPORTE DE ÓRDENES DE TRABAJO</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox20</rd:DefaultName>
+        <Top>0.62604cm</Top>
+        <Left>8.84102cm</Left>
+        <Height>0.6cm</Height>
+        <Width>6.70688cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
@@ -113,7 +144,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Área</Value>
+                              <Value>Responsable</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -387,14 +418,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Área">
+                    <Textbox Name="Responsable">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Área.Value</Value>
+                              <Value>=Fields!Responsable.Value</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -404,7 +435,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Área</rd:DefaultName>
+                      <rd:DefaultName>Responsable</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#e5e5e5</Color>
@@ -610,48 +641,17 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>3.09563cm</Top>
-        <Left>1.34939cm</Left>
+        <Top>1.94cm</Top>
+        <Left>0.50838cm</Left>
         <Height>1.2cm</Height>
         <Width>24.38891cm</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox20">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>REPORTE DE ÓRDENES DE TRABAJO</Value>
-                <Style>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>1.19282cm</Top>
-        <Left>7.85495cm</Left>
-        <Height>0.6cm</Height>
-        <Width>6.70688cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -659,7 +659,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Responsable:</Value>
+                <Value>Área:</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -667,8 +667,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>2.17178cm</Top>
-        <Left>1.34938cm</Left>
+        <Top>1.23417cm</Top>
+        <Left>0.50838cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -697,10 +697,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>rpParametro</rd:DefaultName>
-        <Top>2.17178cm</Top>
-        <Left>4.60058cm</Left>
+        <Top>1.19889cm</Top>
+        <Left>3.67453cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.27812cm</Width>
+        <Width>3.82292cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -713,13 +713,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>4.36458in</Height>
+    <Height>2.61458in</Height>
     <Style />
   </Body>
-  <Width>10.13319in</Width>
+  <Width>9.9375in</Width>
   <Page>
     <PageHeader>
-      <Height>3.54005cm</Height>
+      <Height>2.97243cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -727,8 +727,7 @@
           <Source>Embedded</Source>
           <Value>logoipn1</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.39688cm</Top>
-          <Left>1.34938cm</Left>
+          <Left>1.15375cm</Left>
           <Height>2.97243cm</Height>
           <Width>3.93417cm</Width>
           <Style>
@@ -741,8 +740,8 @@
           <Source>Embedded</Source>
           <Value>CECLosMochis_logo</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.75847cm</Top>
-          <Left>17.40641cm</Left>
+          <Top>0.36159cm</Top>
+          <Left>17.21078cm</Left>
           <Height>2.14658cm</Height>
           <Width>4.70146cm</Width>
           <ZIndex>1</ZIndex>
@@ -770,8 +769,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>1.18745cm</Top>
-          <Left>6.34938cm</Left>
+          <Top>0.79057cm</Top>
+          <Left>6.15375cm</Left>
           <Height>0.70583cm</Height>
           <Width>10cm</Width>
           <ZIndex>2</ZIndex>
@@ -802,8 +801,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>2.06967cm</Top>
-          <Left>6.73208cm</Left>
+          <Top>1.67279cm</Top>
+          <Left>6.53645cm</Left>
           <Height>0.6cm</Height>
           <Width>9.1675cm</Width>
           <ZIndex>3</ZIndex>
@@ -840,7 +839,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>827e9d28-0799-4cfa-8af0-2d140819ed51</rd:DataSourceID>
+      <rd:DataSourceID>f419930a-3095-41bf-b12a-4ae05d8e42ab</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -905,13 +904,6 @@
     <ReportParameter Name="rpParametro">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>DataSet1</DataSetName>
-          <ValueField>solicitante</ValueField>
-          <LabelField>solicitante</LabelField>
-        </DataSetReference>
-      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <EmbeddedImages>
@@ -1631,5 +1623,5 @@ ttZWe+gSmcsbyDeEIzoqcp6fj5c3XYiqkCBFxo27DxogqbfZ9GlJTHlOhQRGlrHjx++eNtkkVVYbbYBw
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>d244727d-bedb-46e8-bc48-5c7233194713</rd:ReportID>
+  <rd:ReportID>7188eec0-7360-4318-8bee-1291c9a5eb3f</rd:ReportID>
 </Report>

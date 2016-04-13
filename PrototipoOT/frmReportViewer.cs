@@ -33,10 +33,19 @@ namespace PrototipoOT
         private void frmReportViewer_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'DataSetReportes.ORDENES_DE_TRABAJO' Puede moverla o quitarla según sea necesario.
+
+            if ((int)reporte >= (int)Reporte.Responsables_Todos && (int)reporte <= (int)Reporte.Responsables_DobleFiltro)
+                reportViewer1.LocalReport.ReportEmbeddedResource = "PrototipoOT.Report1.rdlc";
+            else if ((int)reporte >= (int)Reporte.Areas_Todos && (int)reporte <= (int)Reporte.Areas_DobleFiltro)
+                reportViewer1.LocalReport.ReportEmbeddedResource = "PrototipoOT.Report2.rdlc";
+            else
+                reportViewer1.LocalReport.ReportEmbeddedResource = "PrototipoOT.Report3.rdlc";
+
+
             this.ORDENES_DE_TRABAJOTableAdapter.Fill(this.DataSetReportes.ORDENES_DE_TRABAJO);
 
 
-            ReportParameter p1 = new ReportParameter("rpResponsable", nombre_responsable);
+            ReportParameter p1 = new ReportParameter("rpParametro", nombre_responsable);
 
 
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { p1 });
