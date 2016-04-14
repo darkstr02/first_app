@@ -18,9 +18,11 @@ namespace PrototipoOT
         int id_servicio;
         string nombre_responsable;
         Reporte reporte;
+        CheckState entregado;
+        string fecha_ini;
+        string fecha_fin;
 
-
-        public frmReportViewer(Reporte rp, int resp, string nombre_resp, int area, int serv)
+        public frmReportViewer(Reporte rp, int resp, string nombre_resp, int area, int serv, CheckState chkSt, string fecha_inicio, string fecha_f)
         {
             InitializeComponent();
             id_responsable = resp;
@@ -28,6 +30,9 @@ namespace PrototipoOT
             id_servicio = serv;
             nombre_responsable = nombre_resp;
             reporte = rp;
+            entregado = chkSt;
+            fecha_ini = fecha_inicio;
+            fecha_fin = fecha_f;
         }
 
         private void frmReportViewer_Load(object sender, EventArgs e)

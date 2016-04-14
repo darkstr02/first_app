@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbResponsable = new System.Windows.Forms.ComboBox();
+            this.vwnombreresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.aREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -56,15 +57,14 @@
             this.radResponsable = new System.Windows.Forms.RadioButton();
             this.radArea = new System.Windows.Forms.RadioButton();
             this.radServicio = new System.Windows.Forms.RadioButton();
-            this.vwnombreresponsablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vw_nombreresponsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -144,6 +144,8 @@
             // chkEntregado
             // 
             this.chkEntregado.AutoSize = true;
+            this.chkEntregado.Checked = true;
+            this.chkEntregado.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.chkEntregado.Location = new System.Drawing.Point(95, 121);
             this.chkEntregado.Name = "chkEntregado";
             this.chkEntregado.Size = new System.Drawing.Size(80, 17);
@@ -209,6 +211,11 @@
             this.cbResponsable.Size = new System.Drawing.Size(121, 21);
             this.cbResponsable.TabIndex = 2;
             this.cbResponsable.ValueMember = "id_responsable";
+            // 
+            // vwnombreresponsablesBindingSource
+            // 
+            this.vwnombreresponsablesBindingSource.DataMember = "vw_nombreresponsables";
+            this.vwnombreresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // sistemaOTDataSet
             // 
@@ -320,11 +327,6 @@
             this.radServicio.Text = "Servicio";
             this.radServicio.UseVisualStyleBackColor = true;
             // 
-            // vwnombreresponsablesBindingSource
-            // 
-            this.vwnombreresponsablesBindingSource.DataMember = "vw_nombreresponsables";
-            this.vwnombreresponsablesBindingSource.DataSource = this.sistemaOTDataSet;
-            // 
             // vw_nombreresponsablesTableAdapter
             // 
             this.vw_nombreresponsablesTableAdapter.ClearBeforeFill = true;
@@ -350,12 +352,12 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -57,7 +57,6 @@ namespace PrototipoOT
                     rp = Reporte.Areas_Servicios;
                 else
                     rp = Reporte.Areas_Todos;
-
             }
             else
             {
@@ -80,10 +79,13 @@ namespace PrototipoOT
 
                 rv = new frmReportViewer(rp, 
                     (cbResponsable.SelectedValue != null) ? (int)cbResponsable.SelectedValue : 0, 
-                    ((radResponsable.Checked) ? cbResponsable.Text : ((radArea.Checked) ? cbArea.Text : cbServicio.Text)), 
-                     
+                    ((radResponsable.Checked) ? cbResponsable.Text : ((radArea.Checked) ? cbArea.Text : cbServicio.Text)),                    
                     (cbArea.SelectedValue != null) ? (int)cbArea.SelectedValue : 0, 
-                    (cbServicio.SelectedValue != null) ? (int)cbServicio.SelectedValue : 0);
+                    (cbServicio.SelectedValue != null) ? (int)cbServicio.SelectedValue : 0,
+                    chkEntregado.CheckState,
+                    dtpFechaInicio.Value.ToString(),
+                    dtpFechaFinal.Value.ToString()
+                    );
                 rv.ShowDialog();
             }
             else
