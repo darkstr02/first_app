@@ -56,91 +56,122 @@ namespace PrototipoOT
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { p1 });
 
 
-            if (entregado == CheckState.Indeterminate)
-            {
-                switch (reporte)
-                {   //Responsables
-                    case Reporte.Responsables_Todos:
-                        {
+          
+            switch (reporte)
+            {   //Responsables
+                case Reporte.Responsables_Todos:
+                    {
+                        if (entregado == CheckState.Indeterminate) 
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_TodosEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    case Reporte.Responsables_Areas:
-                        {
+                case Reporte.Responsables_Areas:
+                    {
+                        if (entregado == CheckState.Indeterminate) 
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Areas(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_area, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_AreasEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_area, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    case Reporte.Responsables_Servicios:
-                        {
+                case Reporte.Responsables_Servicios:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Servicios(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_servicio, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_ServiciosEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_servicio, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    case Reporte.Responsables_DobleFiltro:
-                        {
+                case Reporte.Responsables_DobleFiltro:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_servicio, id_area, fecha_ini, fecha_fin);
-                            break;
-                        }
-                    // Areas
-                    case Reporte.Areas_Todos:
-                        {
-
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_DobleFiltroEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_servicio, id_area, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
+                // Areas
+                case Reporte.Areas_Todos:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, fecha_ini, fecha_fin);
-                            //this.DataSetReportes.EnforceConstraints = true;
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_TodosEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        //this.DataSetReportes.EnforceConstraints = true;
+                        break;
+                    }
 
-                    case Reporte.Areas_Responsables:
-                        {
+                case Reporte.Areas_Responsables:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Responsables(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_ResponsablesEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    case Reporte.Areas_Servicios:
-                        {
+                case Reporte.Areas_Servicios:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Servicios(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_servicio, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_ServiciosEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_servicio, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    case Reporte.Areas_DobleFiltro:
-                        {
+                case Reporte.Areas_DobleFiltro:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable, id_servicio, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_DobleFiltroEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable, id_servicio, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    // Servicios
-                    case Reporte.Servicios_Todos:
-                        {
+                // Servicios
+                case Reporte.Servicios_Todos:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_TodosEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
 
-                    case Reporte.Servicios_Responsables:
-                        {
+                        break;
+                    }
+
+                case Reporte.Servicios_Responsables:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Responsables(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_ResponsablesEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    case Reporte.Servicios_Areas:
-                        {
+                case Reporte.Servicios_Areas:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Areas(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_area, fecha_ini, fecha_fin);
-                            break;
-                        }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_AreasEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_area, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
 
-                    case Reporte.Servicios_DobleFiltro:
-                        {
+                case Reporte.Servicios_DobleFiltro:
+                    {
+                        if (entregado == CheckState.Indeterminate)
                             this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, id_area, fecha_ini, fecha_fin);
-                            break;
-                        }
-                }
+                        else
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_DobleFiltroEntr(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, id_area, fecha_ini, fecha_fin, (entregado == CheckState.Checked));
+                        break;
+                    }
             }
-            else
-            {
+            
 
-
-            }
 
 
 

@@ -3431,7 +3431,7 @@ SELECT id_responsable, apellido_pat, apellido_mat, nombre, direccion, telefono, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[13];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[26];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, AREAS.descripcion AS Área, 
@@ -3445,7 +3445,23 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, 
+            this._commandCollection[1].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (AREAS.id_area = @id_area) AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin AND entregado = @entregado";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, 
                          RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, 
                          ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3454,44 +3470,31 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (AREAS.id_area = @id_area) AND (RESPONSABLES.id_responsable = @id_responsable) AND (SERVICIOS.id_servicio = @id_servicio) AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
-                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
-                         ORDENES_DE_TRABAJO.observaciones
-FROM            ORDENES_DE_TRABAJO INNER JOIN
-                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
-                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
-                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
-WHERE        (AREAS.id_area = @id_area) AND RESPONSABLES.id_responsable = @id_responsable AND
-ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
-                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
-                         ORDENES_DE_TRABAJO.observaciones
+            this._commandCollection[3].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, 
+                         RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, 
+                         ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
                          RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
-WHERE        (AREAS.id_area = @id_area) AND SERVICIOS.id_servicio = @id_servicio AND
-ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
+WHERE        (AREAS.id_area = @id_area) AND (RESPONSABLES.id_responsable = @id_responsable) AND (SERVICIOS.id_servicio = @id_servicio) AND 
+                         (ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio) AND (ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin) AND 
+                         (ORDENES_DE_TRABAJO.entregado = @entregado)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
@@ -3501,15 +3504,98 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
                          SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
-WHERE        (AREAS.id_area = @id_area) AND
+WHERE        (AREAS.id_area = @id_area) AND RESPONSABLES.id_responsable = @id_responsable AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+            this._commandCollection[5].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (AREAS.id_area = @id_area) AND RESPONSABLES.id_responsable = @id_responsable AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin AND entregado = @entregado";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (AREAS.id_area = @id_area) AND SERVICIOS.id_servicio = @id_servicio AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (AREAS.id_area = @id_area) AND SERVICIOS.id_servicio = @id_servicio AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin AND entregado = @entregado";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (AREAS.id_area = @id_area) AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         SERVICIOS.descripcion AS Servicio, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (AREAS.id_area = @id_area) AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[10].Connection = this.Connection;
+            this._commandCollection[10].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
                          ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3518,14 +3604,32 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND (AREAS.id_area = @id_area) AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[11].Connection = this.Connection;
+            this._commandCollection[11].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+                         ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND (AREAS.id_area = @id_area) AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[12].Connection = this.Connection;
+            this._commandCollection[12].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
                          ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3534,15 +3638,34 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND SERVICIOS.id_servicio = @id_servicio AND AREAS.id_area = @id_area AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+            this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[13].Connection = this.Connection;
+            this._commandCollection[13].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+                         ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND SERVICIOS.id_servicio = @id_servicio AND AREAS.id_area = @id_area AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[13].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[14].Connection = this.Connection;
+            this._commandCollection[14].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
                          ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3551,14 +3674,32 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND SERVICIOS.id_servicio = @id_servicio AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+            this._commandCollection[14].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[15] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[15].Connection = this.Connection;
+            this._commandCollection[15].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+                         ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND SERVICIOS.id_servicio = @id_servicio AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[15].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[15].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[15].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[15].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[15].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[15].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[16] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[16].Connection = this.Connection;
+            this._commandCollection[16].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
                          ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3567,13 +3708,29 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+            this._commandCollection[16].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[16].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[16].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[16].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[17] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[17].Connection = this.Connection;
+            this._commandCollection[17].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, AREAS.descripcion AS Área, SERVICIOS.descripcion AS Servicio, 
+                         ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones, ORDENES_DE_TRABAJO.solicitante
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ISNULL(ORDENES_DE_TRABAJO.id_responsable, 0) = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (RESPONSABLES.id_responsable = @id_responsable) AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin AND entregado = @entregado";
+            this._commandCollection[17].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[17].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[18].Connection = this.Connection;
+            this._commandCollection[18].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
                          AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3582,14 +3739,32 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (SERVICIOS.id_servicio = @id_servicio) AND AREAS.id_area =@id_area AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+            this._commandCollection[18].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[18].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[19] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[19].Connection = this.Connection;
+            this._commandCollection[19].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (SERVICIOS.id_servicio = @id_servicio) AND AREAS.id_area =@id_area AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[19].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[19].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[20] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[20].Connection = this.Connection;
+            this._commandCollection[20].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
                          AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3599,15 +3774,35 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
 WHERE        (SERVICIOS.id_servicio = @id_servicio) AND RESPONSABLES.id_responsable = @id_responsable AND
 AREAS.id_area = @id_area AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[11].Connection = this.Connection;
-            this._commandCollection[11].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+            this._commandCollection[20].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[20].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[21] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[21].Connection = this.Connection;
+            this._commandCollection[21].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (SERVICIOS.id_servicio = @id_servicio) AND RESPONSABLES.id_responsable = @id_responsable AND
+AREAS.id_area = @id_area AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[21].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_area", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[21].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[22] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[22].Connection = this.Connection;
+            this._commandCollection[22].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
                          AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3616,14 +3811,32 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (SERVICIOS.id_servicio = @id_servicio) AND RESPONSABLES.id_responsable = @id_responsable AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[12].Connection = this.Connection;
-            this._commandCollection[12].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+            this._commandCollection[22].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[22].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[23] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[23].Connection = this.Connection;
+            this._commandCollection[23].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (SERVICIOS.id_servicio = @id_servicio) AND RESPONSABLES.id_responsable = @id_responsable AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[23].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_responsable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_responsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[23].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[24] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[24].Connection = this.Connection;
+            this._commandCollection[24].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
                          AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
                          ORDENES_DE_TRABAJO.observaciones
 FROM            ORDENES_DE_TRABAJO INNER JOIN
@@ -3632,10 +3845,27 @@ FROM            ORDENES_DE_TRABAJO INNER JOIN
                          AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
 WHERE        (SERVICIOS.id_servicio = @id_servicio) AND
 ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin";
-            this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[24].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[24].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[24].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[24].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[25] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[25].Connection = this.Connection;
+            this._commandCollection[25].CommandText = @"SELECT        ORDENES_DE_TRABAJO.id_orden AS ID, ORDENES_DE_TRABAJO.consecutivo, ORDENES_DE_TRABAJO.solicitante, RESPONSABLES.nombre + ' ' + RESPONSABLES.apellido_pat AS Responsable, 
+                         AREAS.descripcion AS Área, ORDENES_DE_TRABAJO.descripcion, ORDENES_DE_TRABAJO.fecha_inicio AS Fecha, ORDENES_DE_TRABAJO.entregado, 
+                         ORDENES_DE_TRABAJO.observaciones
+FROM            ORDENES_DE_TRABAJO INNER JOIN
+                         RESPONSABLES ON ORDENES_DE_TRABAJO.id_responsable = RESPONSABLES.id_responsable INNER JOIN
+                         SERVICIOS ON ORDENES_DE_TRABAJO.id_servicio = SERVICIOS.id_servicio INNER JOIN
+                         AREAS ON ORDENES_DE_TRABAJO.id_area = AREAS.id_area
+WHERE        (SERVICIOS.id_servicio = @id_servicio) AND
+ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_inicio <= @fecha_fin
+AND entregado = @entregado";
+            this._commandCollection[25].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[25].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_servicio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_servicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[25].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_inicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[25].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[25].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@entregado", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "entregado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3666,8 +3896,60 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAreas_DobleFiltro(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin) {
+        public virtual int FillBy(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataBy(int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAreas_DobleFiltro(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_servicio));
@@ -3695,7 +3977,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_DobleFiltro(int id_area, int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_servicio));
@@ -3720,8 +4002,64 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAreas_DobleFiltroEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[5].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_DobleFiltroEntr(int id_area, int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[5].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAreas_Responsables(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, int id_responsable, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             if ((fecha_inicio == null)) {
@@ -3748,7 +4086,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_Responsables(int id_area, int id_responsable, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             if ((fecha_inicio == null)) {
@@ -3772,8 +4110,62 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAreas_ResponsablesEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, int id_responsable, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_ResponsablesEntr(int id_area, int id_responsable, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAreas_Servicios(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, int id_servicio, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
             if ((fecha_inicio == null)) {
@@ -3800,7 +4192,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_Servicios(int id_area, int id_servicio, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
             if ((fecha_inicio == null)) {
@@ -3824,8 +4216,62 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAreas_ServiciosEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_ServiciosEntr(int id_area, int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAreas_Todos(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[8];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             if ((fecha_inicio == null)) {
                 throw new global::System.ArgumentNullException("fecha_inicio");
@@ -3851,7 +4297,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_Todos(int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[8];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
             if ((fecha_inicio == null)) {
                 throw new global::System.ArgumentNullException("fecha_inicio");
@@ -3874,8 +4320,60 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAreas_TodosEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByAreas_TodosEntr(int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByResponsables_Areas(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[10];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
             if ((fecha_inicio == null)) {
@@ -3902,7 +4400,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_Areas(int id_responsable, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[10];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
             if ((fecha_inicio == null)) {
@@ -3926,8 +4424,62 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByResponsables_AreasEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[11];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_AreasEntr(int id_responsable, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[11];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByResponsables_DobleFiltro(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, int id_servicio, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[12];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
@@ -3955,7 +4507,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_DobleFiltro(int id_responsable, int id_servicio, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[12];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
@@ -3980,8 +4532,64 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByResponsables_DobleFiltroEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, int id_servicio, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[13];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[5].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_DobleFiltroEntr(int id_responsable, int id_servicio, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[13];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[5].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByResponsables_Servicios(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[14];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
             if ((fecha_inicio == null)) {
@@ -4008,7 +4616,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_Servicios(int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[14];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
             if ((fecha_inicio == null)) {
@@ -4032,8 +4640,62 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByResponsables_ServiciosEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[15];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_ServiciosEntr(int id_responsable, int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[15];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByResponsables_Todos(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand = this.CommandCollection[16];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             if ((fecha_inicio == null)) {
                 throw new global::System.ArgumentNullException("fecha_inicio");
@@ -4059,7 +4721,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_Todos(int id_responsable, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand = this.CommandCollection[16];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
             if ((fecha_inicio == null)) {
                 throw new global::System.ArgumentNullException("fecha_inicio");
@@ -4082,8 +4744,60 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByResponsables_TodosEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_responsable, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[17];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByResponsables_TodosEntr(int id_responsable, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[17];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_responsable));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByServicios_Areas(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand = this.CommandCollection[18];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
             if ((fecha_inicio == null)) {
@@ -4110,7 +4824,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_Areas(int id_servicio, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand = this.CommandCollection[18];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
             if ((fecha_inicio == null)) {
@@ -4134,8 +4848,62 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByServicios_AreasEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[19];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_AreasEntr(int id_servicio, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[19];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByServicios_DobleFiltro(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, int id_responsable, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand = this.CommandCollection[20];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
@@ -4163,7 +4931,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_DobleFiltro(int id_servicio, int id_responsable, int id_area, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand = this.CommandCollection[20];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
@@ -4188,8 +4956,64 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByServicios_DobleFiltroEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, int id_responsable, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[21];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[5].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_DobleFiltroEntr(int id_servicio, int id_responsable, int id_area, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[21];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(id_area));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[5].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByServicios_Responsables(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, int id_responsable, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[11];
+            this.Adapter.SelectCommand = this.CommandCollection[22];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             if ((fecha_inicio == null)) {
@@ -4216,7 +5040,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_Responsables(int id_servicio, int id_responsable, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[11];
+            this.Adapter.SelectCommand = this.CommandCollection[22];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
             if ((fecha_inicio == null)) {
@@ -4240,8 +5064,62 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByServicios_ResponsablesEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, int id_responsable, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[23];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_ResponsablesEntr(int id_servicio, int id_responsable, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[23];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_responsable));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(entregado));
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByServicios_Todos(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[12];
+            this.Adapter.SelectCommand = this.CommandCollection[24];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             if ((fecha_inicio == null)) {
                 throw new global::System.ArgumentNullException("fecha_inicio");
@@ -4267,7 +5145,7 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_Todos(int id_servicio, string fecha_inicio, string fecha_fin) {
-            this.Adapter.SelectCommand = this.CommandCollection[12];
+            this.Adapter.SelectCommand = this.CommandCollection[24];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
             if ((fecha_inicio == null)) {
                 throw new global::System.ArgumentNullException("fecha_inicio");
@@ -4281,6 +5159,58 @@ ORDENES_DE_TRABAJO.fecha_inicio >= @fecha_inicio AND ORDENES_DE_TRABAJO.fecha_in
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
             }
+            DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByServicios_TodosEntr(DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable, int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[25];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetReportes.ORDENES_DE_TRABAJODataTable GetDataByServicios_TodosEntr(int id_servicio, string fecha_inicio, string fecha_fin, bool entregado) {
+            this.Adapter.SelectCommand = this.CommandCollection[25];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_servicio));
+            if ((fecha_inicio == null)) {
+                throw new global::System.ArgumentNullException("fecha_inicio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fecha_inicio));
+            }
+            if ((fecha_fin == null)) {
+                throw new global::System.ArgumentNullException("fecha_fin");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecha_fin));
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((bool)(entregado));
             DataSetReportes.ORDENES_DE_TRABAJODataTable dataTable = new DataSetReportes.ORDENES_DE_TRABAJODataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
