@@ -55,82 +55,91 @@ namespace PrototipoOT
 
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { p1 });
 
-            switch (reporte)
-            {   //Responsables
-                case Reporte.Responsables_Todos:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable);
-                    break;
-                }
 
-                case Reporte.Responsables_Areas:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Areas(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable,id_area);
-                    break;
-                }
+            if (entregado == CheckState.Indeterminate)
+            {
+                switch (reporte)
+                {   //Responsables
+                    case Reporte.Responsables_Todos:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                case Reporte.Responsables_Servicios:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Servicios(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable,id_servicio);
-                    break;
-                }
+                    case Reporte.Responsables_Areas:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Areas(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_area, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                case Reporte.Responsables_DobleFiltro:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable,id_servicio,id_area);
-                    break;
-                }
+                    case Reporte.Responsables_Servicios:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_Servicios(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_servicio, fecha_ini, fecha_fin);
+                            break;
+                        }
+
+                    case Reporte.Responsables_DobleFiltro:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByResponsables_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_responsable, id_servicio, id_area, fecha_ini, fecha_fin);
+                            break;
+                        }
                     // Areas
-                case Reporte.Areas_Todos:
-                {
+                    case Reporte.Areas_Todos:
+                        {
 
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area);
-                    //this.DataSetReportes.EnforceConstraints = true;
-                    break;
-                }
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, fecha_ini, fecha_fin);
+                            //this.DataSetReportes.EnforceConstraints = true;
+                            break;
+                        }
 
-                case Reporte.Areas_Responsables:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Responsables(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable);
-                    break;
-                }
+                    case Reporte.Areas_Responsables:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Responsables(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                case Reporte.Areas_Servicios:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Servicios(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_servicio);
-                    break;
-                }
+                    case Reporte.Areas_Servicios:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_Servicios(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_servicio, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                case Reporte.Areas_DobleFiltro:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable, id_servicio);
-                    break;
-                }
+                    case Reporte.Areas_DobleFiltro:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByAreas_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_area, id_responsable, id_servicio, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                // Servicios
-                case Reporte.Servicios_Todos:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio);
-                    break;
-                }
+                    // Servicios
+                    case Reporte.Servicios_Todos:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Todos(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                case Reporte.Servicios_Responsables:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Responsables(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable);
-                    break;
-                }
+                    case Reporte.Servicios_Responsables:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Responsables(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                case Reporte.Servicios_Areas:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Areas(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_area);
-                    break;
-                }
+                    case Reporte.Servicios_Areas:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_Areas(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_area, fecha_ini, fecha_fin);
+                            break;
+                        }
 
-                case Reporte.Servicios_DobleFiltro:
-                {
-                    this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, id_area);
-                    break;
+                    case Reporte.Servicios_DobleFiltro:
+                        {
+                            this.ORDENES_DE_TRABAJOTableAdapter.FillByServicios_DobleFiltro(this.DataSetReportes.ORDENES_DE_TRABAJO, id_servicio, id_responsable, id_area, fecha_ini, fecha_fin);
+                            break;
+                        }
                 }
+            }
+            else
+            {
+
+
             }
 
 
