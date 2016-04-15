@@ -72,11 +72,8 @@ namespace PrototipoOT
 
             }
 
-
-
             if ((radResponsable.Checked && cbResponsable.SelectedItem != null) || (radArea.Checked && cbArea.SelectedItem != null) || (radServicio.Checked && cbServicio.SelectedItem != null))
             {
-
                 rv = new frmReportViewer(rp, 
                     (cbResponsable.SelectedValue != null) ? (int)cbResponsable.SelectedValue : 0, 
                     ((radResponsable.Checked) ? cbResponsable.Text : ((radArea.Checked) ? cbArea.Text : cbServicio.Text)),                    
@@ -91,14 +88,13 @@ namespace PrototipoOT
             else
             {
                 MessageBox.Show("Error");
-            }
-
-            
+            }      
         }
 
         private void cmdCancelar_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void cmdServicio_Click(object sender, EventArgs e)
