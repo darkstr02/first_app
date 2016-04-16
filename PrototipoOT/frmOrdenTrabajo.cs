@@ -129,6 +129,7 @@ namespace PrototipoOT
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int returnValue;
     
 
             //Validaciones (A agrupar en una clase aparte)
@@ -142,10 +143,30 @@ namespace PrototipoOT
                 MessageBox.Show("No puede establecer una fecha a futuro como fecha de inicio!");
                 return;
             }
+            else if (txtConsecutivo.Text.Trim() == String.Empty)
+            {
+                MessageBox.Show("Introduzca un consecutivo!");
+                txtConsecutivo.Text = "";
+                return;
+            }
+            else if (txtSolicitante.Text.Trim() == String.Empty)
+            {
+                MessageBox.Show("Introduzca un solicitante!");
+                txtConsecutivo.Text = "";
+                return;
+            }
+            else if (txtDescripcion.Text.Trim() == String.Empty)
+            {
+                MessageBox.Show("Introduzca una descripción!");
+                txtConsecutivo.Text = "";
+                return;
+            }
 
 
-            if (titulo.Equals("Nueva")) insertarOrden();
-            else modificarOrden();
+            if (titulo.Equals("Nueva")) returnValue = insertarOrden();
+            else returnValue = modificarOrden();
+
+            if (returnValue != 0) return;
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -156,11 +177,11 @@ namespace PrototipoOT
             this.Close();
         }
 
-        private void insertarOrden()
+        private int insertarOrden()
         {
             DataRow nuevo = this.sistemaOTDataSet.ORDENES_DE_TRABAJO.NewRow();
 
-            nuevo["consecutivo"] = txtConsecutivo.Text;
+            nuevo["consecutivo"] = txtConsecutivo.Text.ToUpper();
             nuevo["solicitante"] = txtSolicitante.Text;
 
             DataRowView serv = (DataRowView)cbServicio.SelectedItem;
@@ -181,11 +202,20 @@ namespace PrototipoOT
             else
                 nuevo["fecha_entregado"] = System.DBNull.Value;
 
-            this.sistemaOTDataSet.ORDENES_DE_TRABAJO.Rows.Add(nuevo);
-            this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+            try
+            {
+                this.sistemaOTDataSet.ORDENES_DE_TRABAJO.Rows.Add(nuevo);
+                this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Consecutivo ya existe!");
+                return -1;
+            }
         }
 
-        private void modificarOrden()
+        private int modificarOrden()
         {
             modifyRow["consecutivo"] = txtConsecutivo.Text.ToUpper();
             modifyRow["solicitante"] = txtSolicitante.Text;
@@ -208,7 +238,11 @@ namespace PrototipoOT
             else
                 modifyRow["fecha_entregado"] = System.DBNull.Value;
 
+
             this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+            return 0;
+            
+
         }
     }
 }

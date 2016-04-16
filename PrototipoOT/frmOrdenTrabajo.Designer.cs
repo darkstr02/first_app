@@ -84,7 +84,7 @@
             // txtConsecutivo
             // 
             this.txtConsecutivo.Location = new System.Drawing.Point(349, 29);
-            this.txtConsecutivo.MaxLength = 6;
+            this.txtConsecutivo.MaxLength = 7;
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.Size = new System.Drawing.Size(84, 20);
             this.txtConsecutivo.TabIndex = 1;
@@ -102,7 +102,7 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(346, 60);
-            this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.TabIndex = 6;
             // 
             // txtObservaciones
             // 
@@ -110,14 +110,14 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(346, 68);
-            this.txtObservaciones.TabIndex = 4;
+            this.txtObservaciones.TabIndex = 10;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(137, 344);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 41);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 11;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -127,21 +127,20 @@
             this.button2.Location = new System.Drawing.Point(269, 344);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 41);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 12;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbServicio
             // 
-            this.cbServicio.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sERVICIOSBindingSource, "descripcion", true));
             this.cbServicio.DataSource = this.sERVICIOSBindingSource;
             this.cbServicio.DisplayMember = "descripcion";
             this.cbServicio.FormattingEnabled = true;
             this.cbServicio.Location = new System.Drawing.Point(87, 113);
             this.cbServicio.Name = "cbServicio";
             this.cbServicio.Size = new System.Drawing.Size(121, 21);
-            this.cbServicio.TabIndex = 7;
+            this.cbServicio.TabIndex = 3;
             this.cbServicio.ValueMember = "id_servicio";
             // 
             // sERVICIOSBindingSource
@@ -156,14 +155,13 @@
             // 
             // cbArea
             // 
-            this.cbArea.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.aREASBindingSource, "descripcion", true));
             this.cbArea.DataSource = this.aREASBindingSource;
             this.cbArea.DisplayMember = "descripcion";
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(255, 113);
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(121, 21);
-            this.cbArea.TabIndex = 8;
+            this.cbArea.TabIndex = 4;
             this.cbArea.ValueMember = "id_area";
             // 
             // aREASBindingSource
@@ -261,7 +259,7 @@
             this.cbResponsable.Location = new System.Drawing.Point(87, 223);
             this.cbResponsable.Name = "cbResponsable";
             this.cbResponsable.Size = new System.Drawing.Size(162, 21);
-            this.cbResponsable.TabIndex = 17;
+            this.cbResponsable.TabIndex = 7;
             this.cbResponsable.ValueMember = "id_responsable";
             // 
             // vwnombreresponsablesBindingSource
@@ -279,7 +277,7 @@
             this.cmdItems.Location = new System.Drawing.Point(382, 113);
             this.cmdItems.Name = "cmdItems";
             this.cmdItems.Size = new System.Drawing.Size(51, 23);
-            this.cmdItems.TabIndex = 18;
+            this.cmdItems.TabIndex = 5;
             this.cmdItems.Text = "Items...";
             this.cmdItems.UseVisualStyleBackColor = true;
             this.cmdItems.Click += new System.EventHandler(this.button3_Click);
@@ -300,7 +298,7 @@
             this.rbEntregadoNo.Location = new System.Drawing.Point(320, 222);
             this.rbEntregadoNo.Name = "rbEntregadoNo";
             this.rbEntregadoNo.Size = new System.Drawing.Size(39, 17);
-            this.rbEntregadoNo.TabIndex = 20;
+            this.rbEntregadoNo.TabIndex = 8;
             this.rbEntregadoNo.TabStop = true;
             this.rbEntregadoNo.Text = "No";
             this.rbEntregadoNo.UseVisualStyleBackColor = true;
@@ -312,7 +310,7 @@
             this.rbEntregadoSi.Location = new System.Drawing.Point(397, 223);
             this.rbEntregadoSi.Name = "rbEntregadoSi";
             this.rbEntregadoSi.Size = new System.Drawing.Size(36, 17);
-            this.rbEntregadoSi.TabIndex = 21;
+            this.rbEntregadoSi.TabIndex = 9;
             this.rbEntregadoSi.TabStop = true;
             this.rbEntregadoSi.Text = "Sí";
             this.rbEntregadoSi.UseVisualStyleBackColor = true;
@@ -348,6 +346,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(472, 395);
             this.Controls.Add(this.rbEntregadoSi);
             this.Controls.Add(this.rbEntregadoNo);

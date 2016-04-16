@@ -28,6 +28,7 @@ namespace PrototipoOT
         public Form1()
         {
             InitializeComponent();
+            this.sistemaOTDataSet.EnforceConstraints = false;
         }
 
         private string filtroString()
@@ -103,7 +104,6 @@ namespace PrototipoOT
         {
             try
             {
-
                 DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
                 int index = Int32.Parse(indexDataRow["ID"].ToString());
 
@@ -113,7 +113,10 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No existen registros de ordenes de trabajo");
+                if(ex.HResult == -2146232022)
+                    MessageBox.Show("Consecutivo ya existe");
+                else    
+                    MessageBox.Show("No existen registros de ordenes de trabajo");
             }
         }
 
@@ -162,7 +165,9 @@ namespace PrototipoOT
                         return;
                     }
                 }
-                dataGridView1.Rows[dtgIndex].Selected = false;
+                
+                if(dtgIndex != -1)
+                    dataGridView1.Rows[dtgIndex].Selected = false;
                 MessageBox.Show("El registro no existe");
                 dtgIndex = -1;
             }
@@ -241,12 +246,29 @@ namespace PrototipoOT
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
-            int index = Int32.Parse(indexDataRow["ID"].ToString());
+            //DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+            //int index = Int32.Parse(indexDataRow["ID"].ToString());
 
-            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
-            if (frm.ShowDialog() == DialogResult.OK)
-                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+            //frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //    this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+
+            try
+            {
+                DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+                int index = Int32.Parse(indexDataRow["ID"].ToString());
+
+                frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
+                if (frm.ShowDialog() == DialogResult.OK)
+                    this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+            }
+            catch (Exception ex)
+            {
+                if (ex.HResult == -2146232022)
+                    MessageBox.Show("Consecutivo ya existe");
+                else
+                    MessageBox.Show("No existen registros de ordenes de trabajo");
+            }
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -279,7 +301,7 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No existen registros de Órdenes de Trabajo.");
+                MessageBox.Show("No ha seleccionado un registro o no existen registros de Órdenes de Trabajo.");
             }
             
         }

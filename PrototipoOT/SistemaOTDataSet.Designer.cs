@@ -4180,11 +4180,14 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnfecha_entregado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_orden}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnconsecutivo}, false));
                 this.columnid_orden.AutoIncrement = true;
                 this.columnid_orden.AutoIncrementSeed = 1;
                 this.columnid_orden.AllowDBNull = false;
                 this.columnid_orden.Unique = true;
-                this.columnconsecutivo.MaxLength = 5;
+                this.columnconsecutivo.Unique = true;
+                this.columnconsecutivo.MaxLength = 7;
                 this.columnsolicitante.AllowDBNull = false;
                 this.columnsolicitante.MaxLength = 100;
                 this.columnid_servicio.AllowDBNull = false;

@@ -30,7 +30,7 @@ namespace PrototipoOT
 
         private void cmdBuscarConsecutivo_Click(object sender, EventArgs e)
         {
-            Form1.findConsecutive = txtConsecutivo.Text;
+            Form1.findConsecutive = txtConsecutivo.Text.ToUpper();
             this.DialogResult = DialogResult.OK;
         }
     }

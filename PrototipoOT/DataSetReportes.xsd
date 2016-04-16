@@ -769,7 +769,7 @@ AND entregado = @entregado</CommandText>
   <xs:element name="DataSetReportes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetReportes" msprop:Generator_UserDSName="DataSetReportes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AREAS" msprop:Generator_TableClassName="AREASDataTable" msprop:Generator_TableVarName="tableAREAS" msprop:Generator_RowChangedName="AREASRowChanged" msprop:Generator_TablePropName="AREAS" msprop:Generator_RowDeletingName="AREASRowDeleting" msprop:Generator_RowChangingName="AREASRowChanging" msprop:Generator_RowEvHandlerName="AREASRowChangeEventHandler" msprop:Generator_RowDeletedName="AREASRowDeleted" msprop:Generator_RowClassName="AREASRow" msprop:Generator_UserTableName="AREAS" msprop:Generator_RowEvArgName="AREASRowChangeEvent">
+        <xs:element name="AREAS" msprop:Generator_TableClassName="AREASDataTable" msprop:Generator_TableVarName="tableAREAS" msprop:Generator_TablePropName="AREAS" msprop:Generator_RowDeletingName="AREASRowDeleting" msprop:Generator_RowChangingName="AREASRowChanging" msprop:Generator_RowEvHandlerName="AREASRowChangeEventHandler" msprop:Generator_RowDeletedName="AREASRowDeleted" msprop:Generator_UserTableName="AREAS" msprop:Generator_RowChangedName="AREASRowChanged" msprop:Generator_RowEvArgName="AREASRowChangeEvent" msprop:Generator_RowClassName="AREASRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_area" msprop:Generator_ColumnVarNameInTable="columnid_area" msprop:Generator_ColumnPropNameInRow="id_area" msprop:Generator_ColumnPropNameInTable="id_areaColumn" msprop:Generator_UserColumnName="id_area" type="xs:int" />
@@ -783,7 +783,7 @@ AND entregado = @entregado</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SERVICIOS" msprop:Generator_TableClassName="SERVICIOSDataTable" msprop:Generator_TableVarName="tableSERVICIOS" msprop:Generator_RowChangedName="SERVICIOSRowChanged" msprop:Generator_TablePropName="SERVICIOS" msprop:Generator_RowDeletingName="SERVICIOSRowDeleting" msprop:Generator_RowChangingName="SERVICIOSRowChanging" msprop:Generator_RowEvHandlerName="SERVICIOSRowChangeEventHandler" msprop:Generator_RowDeletedName="SERVICIOSRowDeleted" msprop:Generator_RowClassName="SERVICIOSRow" msprop:Generator_UserTableName="SERVICIOS" msprop:Generator_RowEvArgName="SERVICIOSRowChangeEvent">
+        <xs:element name="SERVICIOS" msprop:Generator_TableClassName="SERVICIOSDataTable" msprop:Generator_TableVarName="tableSERVICIOS" msprop:Generator_TablePropName="SERVICIOS" msprop:Generator_RowDeletingName="SERVICIOSRowDeleting" msprop:Generator_RowChangingName="SERVICIOSRowChanging" msprop:Generator_RowEvHandlerName="SERVICIOSRowChangeEventHandler" msprop:Generator_RowDeletedName="SERVICIOSRowDeleted" msprop:Generator_UserTableName="SERVICIOS" msprop:Generator_RowChangedName="SERVICIOSRowChanged" msprop:Generator_RowEvArgName="SERVICIOSRowChangeEvent" msprop:Generator_RowClassName="SERVICIOSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_servicio" msprop:Generator_ColumnVarNameInTable="columnid_servicio" msprop:Generator_ColumnPropNameInRow="id_servicio" msprop:Generator_ColumnPropNameInTable="id_servicioColumn" msprop:Generator_UserColumnName="id_servicio" type="xs:int" />
@@ -797,7 +797,7 @@ AND entregado = @entregado</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RESPONSABLES" msprop:Generator_TableClassName="RESPONSABLESDataTable" msprop:Generator_TableVarName="tableRESPONSABLES" msprop:Generator_RowChangedName="RESPONSABLESRowChanged" msprop:Generator_TablePropName="RESPONSABLES" msprop:Generator_RowDeletingName="RESPONSABLESRowDeleting" msprop:Generator_RowChangingName="RESPONSABLESRowChanging" msprop:Generator_RowEvHandlerName="RESPONSABLESRowChangeEventHandler" msprop:Generator_RowDeletedName="RESPONSABLESRowDeleted" msprop:Generator_RowClassName="RESPONSABLESRow" msprop:Generator_UserTableName="RESPONSABLES" msprop:Generator_RowEvArgName="RESPONSABLESRowChangeEvent">
+        <xs:element name="RESPONSABLES" msprop:Generator_TableClassName="RESPONSABLESDataTable" msprop:Generator_TableVarName="tableRESPONSABLES" msprop:Generator_TablePropName="RESPONSABLES" msprop:Generator_RowDeletingName="RESPONSABLESRowDeleting" msprop:Generator_RowChangingName="RESPONSABLESRowChanging" msprop:Generator_RowEvHandlerName="RESPONSABLESRowChangeEventHandler" msprop:Generator_RowDeletedName="RESPONSABLESRowDeleted" msprop:Generator_UserTableName="RESPONSABLES" msprop:Generator_RowChangedName="RESPONSABLESRowChanged" msprop:Generator_RowEvArgName="RESPONSABLESRowChangeEvent" msprop:Generator_RowClassName="RESPONSABLESRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_responsable" msprop:Generator_ColumnVarNameInTable="columnid_responsable" msprop:Generator_ColumnPropNameInRow="id_responsable" msprop:Generator_ColumnPropNameInTable="id_responsableColumn" msprop:Generator_UserColumnName="id_responsable" type="xs:int" />
@@ -840,13 +840,13 @@ AND entregado = @entregado</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ORDENES_DE_TRABAJO" msprop:Generator_TableClassName="ORDENES_DE_TRABAJODataTable" msprop:Generator_TableVarName="tableORDENES_DE_TRABAJO" msprop:Generator_RowChangedName="ORDENES_DE_TRABAJORowChanged" msprop:Generator_TablePropName="ORDENES_DE_TRABAJO" msprop:Generator_RowDeletingName="ORDENES_DE_TRABAJORowDeleting" msprop:Generator_RowChangingName="ORDENES_DE_TRABAJORowChanging" msprop:Generator_RowEvHandlerName="ORDENES_DE_TRABAJORowChangeEventHandler" msprop:Generator_RowDeletedName="ORDENES_DE_TRABAJORowDeleted" msprop:Generator_RowClassName="ORDENES_DE_TRABAJORow" msprop:Generator_UserTableName="ORDENES_DE_TRABAJO" msprop:Generator_RowEvArgName="ORDENES_DE_TRABAJORowChangeEvent">
+        <xs:element name="ORDENES_DE_TRABAJO" msprop:Generator_TableClassName="ORDENES_DE_TRABAJODataTable" msprop:Generator_TableVarName="tableORDENES_DE_TRABAJO" msprop:Generator_TablePropName="ORDENES_DE_TRABAJO" msprop:Generator_RowDeletingName="ORDENES_DE_TRABAJORowDeleting" msprop:Generator_RowChangingName="ORDENES_DE_TRABAJORowChanging" msprop:Generator_RowEvHandlerName="ORDENES_DE_TRABAJORowChangeEventHandler" msprop:Generator_RowDeletedName="ORDENES_DE_TRABAJORowDeleted" msprop:Generator_UserTableName="ORDENES_DE_TRABAJO" msprop:Generator_RowChangedName="ORDENES_DE_TRABAJORowChanged" msprop:Generator_RowEvArgName="ORDENES_DE_TRABAJORowChangeEvent" msprop:Generator_RowClassName="ORDENES_DE_TRABAJORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="consecutivo" msprop:Generator_ColumnVarNameInTable="columnconsecutivo" msprop:Generator_ColumnPropNameInRow="consecutivo" msprop:Generator_ColumnPropNameInTable="consecutivoColumn" msprop:Generator_UserColumnName="consecutivo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="5" />
+                    <xs:maxLength value="7" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -915,6 +915,10 @@ AND entregado = @entregado</CommandText>
     <xs:unique name="ORDENES_DE_TRABAJO_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ORDENES_DE_TRABAJO" />
       <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:ORDENES_DE_TRABAJO" />
+      <xs:field xpath="mstns:consecutivo" />
     </xs:unique>
   </xs:element>
 </xs:schema>

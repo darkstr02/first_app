@@ -1532,7 +1532,10 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnFecha);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
-                this.columnconsecutivo.MaxLength = 5;
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnconsecutivo}, false));
+                this.columnconsecutivo.Unique = true;
+                this.columnconsecutivo.MaxLength = 7;
                 this.columnsolicitante.AllowDBNull = false;
                 this.columnsolicitante.MaxLength = 100;
                 this.columnentregado.AllowDBNull = false;

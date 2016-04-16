@@ -301,7 +301,6 @@
             this.radResponsable.Name = "radResponsable";
             this.radResponsable.Size = new System.Drawing.Size(87, 17);
             this.radResponsable.TabIndex = 14;
-            this.radResponsable.TabStop = true;
             this.radResponsable.Text = "Responsable";
             this.radResponsable.UseVisualStyleBackColor = true;
             // 
@@ -312,13 +311,13 @@
             this.radArea.Name = "radArea";
             this.radArea.Size = new System.Drawing.Size(47, 17);
             this.radArea.TabIndex = 13;
-            this.radArea.TabStop = true;
             this.radArea.Text = "Área";
             this.radArea.UseVisualStyleBackColor = true;
             // 
             // radServicio
             // 
             this.radServicio.AutoSize = true;
+            this.radServicio.Checked = true;
             this.radServicio.Location = new System.Drawing.Point(6, 23);
             this.radServicio.Name = "radServicio";
             this.radServicio.Size = new System.Drawing.Size(63, 17);
