@@ -129,9 +129,25 @@ namespace PrototipoOT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+    
+
+            //Validaciones (A agrupar en una clase aparte)
+            if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)
+            {
+                MessageBox.Show("Esta Orden de Trabajo no puede marcarse como entregada sin asignar un responsable");
+                return;
+            }
+            else if (dtpFecha.Value > DateTime.Now)
+            {
+                MessageBox.Show("No puede establecer una fecha a futuro como fecha de inicio!");
+                return;
+            }
+
+
             if (titulo.Equals("Nueva")) insertarOrden();
             else modificarOrden();
+
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
@@ -171,7 +187,7 @@ namespace PrototipoOT
 
         private void modificarOrden()
         {
-            modifyRow["consecutivo"] = txtConsecutivo.Text;
+            modifyRow["consecutivo"] = txtConsecutivo.Text.ToUpper();
             modifyRow["solicitante"] = txtSolicitante.Text;
 
             DataRowView serv = (DataRowView)cbServicio.SelectedItem;
@@ -180,7 +196,7 @@ namespace PrototipoOT
 
             modifyRow["id_servicio"] = serv.Row[0];
             modifyRow["id_area"] = area.Row[0];
-            modifyRow["id_responsable"] = resp.Row[0];
+            modifyRow["id_responsable"] = (resp != null) ? resp.Row[0] : DBNull.Value;
 
             modifyRow["entregado"] = rbEntregadoSi.Checked;
             modifyRow["descripcion"] = txtDescripcion.Text;

@@ -84,6 +84,7 @@
             // txtConsecutivo
             // 
             this.txtConsecutivo.Location = new System.Drawing.Point(349, 29);
+            this.txtConsecutivo.MaxLength = 6;
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.Size = new System.Drawing.Size(84, 20);
             this.txtConsecutivo.TabIndex = 1;

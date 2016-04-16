@@ -101,23 +101,38 @@ namespace PrototipoOT
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            try
+            {
 
-            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
-            int index = Int32.Parse(indexDataRow["ID"].ToString());
+                DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+                int index = Int32.Parse(indexDataRow["ID"].ToString());
 
-            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
-            if (frm.ShowDialog() == DialogResult.OK)
-                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+                frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
+                if (frm.ShowDialog() == DialogResult.OK)
+                    this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No existen registros de ordenes de trabajo");
+            }
         }
 
         private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
-            int index = Int32.Parse(indexDataRow["ID"].ToString());
+            try
+            {
+                DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+                int index = Int32.Parse(indexDataRow["ID"].ToString());
 
-            frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
-            if (frm.ShowDialog() == DialogResult.OK)
-                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+                frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
+                if (frm.ShowDialog() == DialogResult.OK)
+                    this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+            }
+            catch (Exception ex)
+            {
+                 MessageBox.Show("No existen registros de ordenes de trabajo");
+            }
+            
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -236,27 +251,42 @@ namespace PrototipoOT
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
-            int index = Int32.Parse(indexDataRow["ID"].ToString());
             DataRow selectedRow = null;
-
-            foreach (DataRow dr in sistemaOTDataSet.ORDENES_DE_TRABAJO)
+            try
             {
-                if ((int)dr[0] == (int)index)
+                DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+                int index = Int32.Parse(indexDataRow["ID"].ToString());
+                
+
+                this.oRDENES_DE_TRABAJOTableAdapter.Fill(sistemaOTDataSet.ORDENES_DE_TRABAJO);
+
+                foreach (DataRow dr in sistemaOTDataSet.ORDENES_DE_TRABAJO)
                 {
-                    selectedRow = dr;
-                    break;
+                    if ((int)dr[0] == (int)index)
+                    {
+                        selectedRow = dr;
+                        break;
+                    }
+                }
+
+                if (MessageBox.Show("¿Está seguro que desea borrar este registro?","Confirmación de Borrado",MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    selectedRow.Delete();
+
+                    this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+                    this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
                 }
             }
-
-            if (MessageBox.Show("¿Está seguro que desea borrar este registro?","Confirmación de Borrado",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            catch (Exception ex)
             {
-                selectedRow.Delete();
-
-                this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
-                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+                MessageBox.Show("No existen registros de Órdenes de Trabajo.");
             }
             
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
