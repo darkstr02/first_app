@@ -114,7 +114,7 @@
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(102, 20);
             this.dtpFechaInicio.TabIndex = 8;
-            this.dtpFechaInicio.Value = new System.DateTime(2016, 3, 15, 0, 0, 0, 0);
+            this.dtpFechaInicio.Value = new System.DateTime(2016, 4, 16, 0, 0, 0, 0);
             // 
             // groupBox1
             // 
@@ -146,7 +146,7 @@
             this.dtpFechaFinal.Name = "dtpFechaFinal";
             this.dtpFechaFinal.Size = new System.Drawing.Size(102, 20);
             this.dtpFechaFinal.TabIndex = 10;
-            this.dtpFechaFinal.Value = new System.DateTime(2016, 3, 15, 0, 0, 0, 0);
+            this.dtpFechaFinal.Value = new System.DateTime(2016, 4, 16, 12, 49, 9, 0);
             // 
             // chkEntregado
             // 

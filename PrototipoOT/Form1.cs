@@ -40,7 +40,7 @@ namespace PrototipoOT
             string[] parametros = { "Servicio", "Área", "Responsable" };
             string resultado = "";
 
-            cadenas.Add("(Fecha de Inicio >= #" + filtro_fechainicio.ToString("yyyy-MM-dd") + "# AND Fecha de Inicio <= #" + filtro_fechafin.ToString("yyyy-MM-dd") + "#)");
+            cadenas.Add("(Fecha_Inicio >= #" + filtro_fechainicio.ToString("yyyy-MM-dd") + "# AND Fecha_Inicio <= #" + filtro_fechafin.ToString("yyyy-MM-dd") + "#)");
 
             if (chkstatus != CheckState.Indeterminate)
                 cadenas.Add( "entregado = " + ((chkstatus == CheckState.Checked) ? "TRUE " : "FALSE "));
@@ -256,8 +256,7 @@ namespace PrototipoOT
         {
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
-            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
-            this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+
 
             this.oRDENES_DE_TRABAJOTableAdapter.Fill(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
         }

@@ -55,17 +55,6 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.solicitanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.áreaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.servicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.responsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDeInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entregadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fechaDeEntregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.observacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vwordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
@@ -73,6 +62,17 @@
             this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
             this.sistemaOTDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vw_ordenesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.consecutivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.solicitanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.áreaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entregadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fechaEntregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -108,7 +108,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -325,15 +325,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn1,
+            this.consecutivoDataGridViewTextBoxColumn,
             this.solicitanteDataGridViewTextBoxColumn,
             this.áreaDataGridViewTextBoxColumn,
             this.servicioDataGridViewTextBoxColumn,
             this.responsableDataGridViewTextBoxColumn,
             this.descripcionDataGridViewTextBoxColumn,
-            this.fechaDeInicioDataGridViewTextBoxColumn,
+            this.fechaInicioDataGridViewTextBoxColumn,
             this.entregadoDataGridViewCheckBoxColumn,
-            this.fechaDeEntregaDataGridViewTextBoxColumn,
+            this.fechaEntregaDataGridViewTextBoxColumn,
             this.observacionesDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.vwordenesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(0, 90);
@@ -344,83 +344,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(641, 329);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "consecutivo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "consecutivo";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // solicitanteDataGridViewTextBoxColumn
-            // 
-            this.solicitanteDataGridViewTextBoxColumn.DataPropertyName = "solicitante";
-            this.solicitanteDataGridViewTextBoxColumn.HeaderText = "solicitante";
-            this.solicitanteDataGridViewTextBoxColumn.Name = "solicitanteDataGridViewTextBoxColumn";
-            this.solicitanteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // áreaDataGridViewTextBoxColumn
-            // 
-            this.áreaDataGridViewTextBoxColumn.DataPropertyName = "Área";
-            this.áreaDataGridViewTextBoxColumn.HeaderText = "Área";
-            this.áreaDataGridViewTextBoxColumn.Name = "áreaDataGridViewTextBoxColumn";
-            this.áreaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // servicioDataGridViewTextBoxColumn
-            // 
-            this.servicioDataGridViewTextBoxColumn.DataPropertyName = "Servicio";
-            this.servicioDataGridViewTextBoxColumn.HeaderText = "Servicio";
-            this.servicioDataGridViewTextBoxColumn.Name = "servicioDataGridViewTextBoxColumn";
-            this.servicioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // responsableDataGridViewTextBoxColumn
-            // 
-            this.responsableDataGridViewTextBoxColumn.DataPropertyName = "Responsable";
-            this.responsableDataGridViewTextBoxColumn.HeaderText = "Responsable";
-            this.responsableDataGridViewTextBoxColumn.Name = "responsableDataGridViewTextBoxColumn";
-            this.responsableDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaDeInicioDataGridViewTextBoxColumn
-            // 
-            this.fechaDeInicioDataGridViewTextBoxColumn.DataPropertyName = "Fecha de Inicio";
-            this.fechaDeInicioDataGridViewTextBoxColumn.HeaderText = "Fecha de Inicio";
-            this.fechaDeInicioDataGridViewTextBoxColumn.Name = "fechaDeInicioDataGridViewTextBoxColumn";
-            this.fechaDeInicioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // entregadoDataGridViewCheckBoxColumn
-            // 
-            this.entregadoDataGridViewCheckBoxColumn.DataPropertyName = "entregado";
-            this.entregadoDataGridViewCheckBoxColumn.HeaderText = "entregado";
-            this.entregadoDataGridViewCheckBoxColumn.Name = "entregadoDataGridViewCheckBoxColumn";
-            this.entregadoDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // fechaDeEntregaDataGridViewTextBoxColumn
-            // 
-            this.fechaDeEntregaDataGridViewTextBoxColumn.DataPropertyName = "Fecha de Entrega";
-            this.fechaDeEntregaDataGridViewTextBoxColumn.HeaderText = "Fecha de Entrega";
-            this.fechaDeEntregaDataGridViewTextBoxColumn.Name = "fechaDeEntregaDataGridViewTextBoxColumn";
-            this.fechaDeEntregaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // observacionesDataGridViewTextBoxColumn
-            // 
-            this.observacionesDataGridViewTextBoxColumn.DataPropertyName = "observaciones";
-            this.observacionesDataGridViewTextBoxColumn.HeaderText = "observaciones";
-            this.observacionesDataGridViewTextBoxColumn.Name = "observacionesDataGridViewTextBoxColumn";
-            this.observacionesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // vwordenesBindingSource
             // 
@@ -454,6 +377,83 @@
             // vw_ordenesTableAdapter
             // 
             this.vw_ordenesTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // consecutivoDataGridViewTextBoxColumn
+            // 
+            this.consecutivoDataGridViewTextBoxColumn.DataPropertyName = "consecutivo";
+            this.consecutivoDataGridViewTextBoxColumn.HeaderText = "Consecutivo";
+            this.consecutivoDataGridViewTextBoxColumn.Name = "consecutivoDataGridViewTextBoxColumn";
+            this.consecutivoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // solicitanteDataGridViewTextBoxColumn
+            // 
+            this.solicitanteDataGridViewTextBoxColumn.DataPropertyName = "solicitante";
+            this.solicitanteDataGridViewTextBoxColumn.HeaderText = "Solicitante";
+            this.solicitanteDataGridViewTextBoxColumn.Name = "solicitanteDataGridViewTextBoxColumn";
+            this.solicitanteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // áreaDataGridViewTextBoxColumn
+            // 
+            this.áreaDataGridViewTextBoxColumn.DataPropertyName = "Área";
+            this.áreaDataGridViewTextBoxColumn.HeaderText = "Área";
+            this.áreaDataGridViewTextBoxColumn.Name = "áreaDataGridViewTextBoxColumn";
+            this.áreaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // servicioDataGridViewTextBoxColumn
+            // 
+            this.servicioDataGridViewTextBoxColumn.DataPropertyName = "Servicio";
+            this.servicioDataGridViewTextBoxColumn.HeaderText = "Servicio";
+            this.servicioDataGridViewTextBoxColumn.Name = "servicioDataGridViewTextBoxColumn";
+            this.servicioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // responsableDataGridViewTextBoxColumn
+            // 
+            this.responsableDataGridViewTextBoxColumn.DataPropertyName = "Responsable";
+            this.responsableDataGridViewTextBoxColumn.HeaderText = "Responsable";
+            this.responsableDataGridViewTextBoxColumn.Name = "responsableDataGridViewTextBoxColumn";
+            this.responsableDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaInicioDataGridViewTextBoxColumn
+            // 
+            this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Inicio";
+            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "Fecha de Inicio";
+            this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
+            this.fechaInicioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // entregadoDataGridViewCheckBoxColumn
+            // 
+            this.entregadoDataGridViewCheckBoxColumn.DataPropertyName = "entregado";
+            this.entregadoDataGridViewCheckBoxColumn.HeaderText = "Entregado";
+            this.entregadoDataGridViewCheckBoxColumn.Name = "entregadoDataGridViewCheckBoxColumn";
+            this.entregadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // fechaEntregaDataGridViewTextBoxColumn
+            // 
+            this.fechaEntregaDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Entrega";
+            this.fechaEntregaDataGridViewTextBoxColumn.HeaderText = "Fecha de Entrega";
+            this.fechaEntregaDataGridViewTextBoxColumn.Name = "fechaEntregaDataGridViewTextBoxColumn";
+            this.fechaEntregaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // observacionesDataGridViewTextBoxColumn
+            // 
+            this.observacionesDataGridViewTextBoxColumn.DataPropertyName = "observaciones";
+            this.observacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones";
+            this.observacionesDataGridViewTextBoxColumn.Name = "observacionesDataGridViewTextBoxColumn";
+            this.observacionesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form1
             // 
@@ -518,16 +518,18 @@
         //private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource vwordenesBindingSource;
         private SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter vw_ordenesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeInicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeEntregaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn solicitanteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn áreaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn servicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn responsableDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeInicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn entregadoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeEntregaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaEntregaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn observacionesDataGridViewTextBoxColumn;
     }
 }
