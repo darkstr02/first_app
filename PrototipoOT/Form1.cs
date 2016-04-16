@@ -40,10 +40,12 @@ namespace PrototipoOT
             string[] parametros = { "Servicio", "Área", "Responsable" };
             string resultado = "";
 
+            cadenas.Add("(Fecha de Inicio >= #" + filtro_fechainicio.ToString("yyyy-MM-dd") + "# AND Fecha de Inicio <= #" + filtro_fechafin.ToString("yyyy-MM-dd") + "#)");
 
             if (chkstatus != CheckState.Indeterminate)
                 cadenas.Add( "entregado = " + ((chkstatus == CheckState.Checked) ? "TRUE " : "FALSE "));
             
+
             foreach (List<string> list in coleccion)
             {   
                 string cadena = "";
@@ -70,7 +72,6 @@ namespace PrototipoOT
                 if(str != last)
                     resultado += " AND ";
             }
-
            
 
             return resultado;
@@ -178,7 +179,24 @@ namespace PrototipoOT
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBuscar frm = new frmBuscar();
-            frm.ShowDialog(this);
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // 0 is the column index
+                    if (row.Cells[1].Value.ToString().Equals(findConsecutive))
+                    {
+                        row.Selected = true;
+                        dtgIndex = row.Index;
+                        return;
+                    }
+                }
+
+                if (dtgIndex != -1)
+                    dataGridView1.Rows[dtgIndex].Selected = false;
+                MessageBox.Show("El registro no existe");
+                dtgIndex = -1;
+            }
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
@@ -187,10 +205,10 @@ namespace PrototipoOT
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0 || chkstatus != CheckState.Indeterminate)
+               // if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0 || chkstatus != CheckState.Indeterminate)
                     this.vwordenesBindingSource.Filter = filtroString();
-                else
-                    this.vwordenesBindingSource.Filter = "";
+                    //else
+                    //    this.vwordenesBindingSource.Filter = "";
 
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
             }
@@ -202,10 +220,10 @@ namespace PrototipoOT
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0 || chkstatus != CheckState.Indeterminate)
+                //if (filtroServicio.Count != 0 || filtroArea.Count != 0 || filtroResponsable.Count != 0 || chkstatus != CheckState.Indeterminate)
                     this.vwordenesBindingSource.Filter = filtroString();
-                else
-                    this.vwordenesBindingSource.Filter = "";
+                //else
+                //    this.vwordenesBindingSource.Filter = "";
                     
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);         
             }
