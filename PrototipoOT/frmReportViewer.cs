@@ -51,9 +51,11 @@ namespace PrototipoOT
 
 
             ReportParameter p1 = new ReportParameter("rpParametro", nombre_responsable);
+            ReportParameter p2 = new ReportParameter("rpFecha_Inicio", fecha_ini);
+            ReportParameter p3 = new ReportParameter("rpFecha_Fin", fecha_fin);
 
 
-            this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { p1 });
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { p1, p2, p3 });
 
 
           
