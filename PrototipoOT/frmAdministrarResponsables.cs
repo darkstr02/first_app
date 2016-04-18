@@ -19,8 +19,10 @@ namespace PrototipoOT
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             frmNuevoResponsable frm = new frmNuevoResponsable("Nuevo");
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+                this.vw_responsablesTableAdapter.Fill(this.sistemaOTDataSet.vw_responsables);           
         }
 
         private void button2_Click(object sender, EventArgs e)
