@@ -11,6 +11,7 @@
               <TextRun>
                 <Value>REPORTE DE ÓRDENES DE TRABAJO</Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -19,8 +20,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>0.41437cm</Top>
-        <Left>9.47602cm</Left>
+        <Top>0.24032cm</Top>
+        <Left>8.80745cm</Left>
         <Height>0.6cm</Height>
         <Width>8.77063cm</Width>
         <Style>
@@ -641,7 +642,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.33687cm</Top>
+        <Top>3.09563cm</Top>
+        <Left>2.61939cm</Left>
         <Height>1.2cm</Height>
         <Width>25.0428cm</Width>
         <ZIndex>1</ZIndex>
@@ -666,8 +668,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox23</rd:DefaultName>
-        <Top>1.20481cm</Top>
-        <Left>0.60537cm</Left>
+        <Top>2.17178cm</Top>
+        <Left>2.61939cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -696,8 +698,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>rpParametro</rd:DefaultName>
-        <Top>1.20481cm</Top>
-        <Left>3.85974cm</Left>
+        <Top>2.17178cm</Top>
+        <Left>5.87058cm</Left>
         <Height>0.6cm</Height>
         <Width>3.58479cm</Width>
         <ZIndex>3</ZIndex>
@@ -712,13 +714,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>4.36458in</Height>
     <Style />
   </Body>
-  <Width>9.85937in</Width>
+  <Width>11.18527in</Width>
   <Page>
     <PageHeader>
-      <Height>2.97243cm</Height>
+      <Height>3.54005cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -726,9 +728,10 @@
           <Source>Embedded</Source>
           <Value>logoipn1</Value>
           <Sizing>FitProportional</Sizing>
-          <Left>1.74906cm</Left>
+          <Top>0.28381cm</Top>
+          <Left>2.55605cm</Left>
           <Height>2.97243cm</Height>
-          <Width>3.93417cm</Width>
+          <Width>3.7225cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -739,8 +742,8 @@
           <Source>Embedded</Source>
           <Value>CECLosMochis_logo</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.67909cm</Top>
-          <Left>20.34134cm</Left>
+          <Top>0.6454cm</Top>
+          <Left>19.88308cm</Left>
           <Height>2.14658cm</Height>
           <Width>4.70146cm</Width>
           <ZIndex>1</ZIndex>
@@ -759,7 +762,7 @@
                 <TextRun>
                   <Value>INSTITUTO POLITÉCNICO NACIONAL</Value>
                   <Style>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>20pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -768,10 +771,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>0.79057cm</Top>
-          <Left>7.38406cm</Left>
+          <Top>1.07438cm</Top>
+          <Left>5.65105cm</Left>
           <Height>0.70583cm</Height>
-          <Width>10.86259cm</Width>
+          <Width>13.701cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -792,7 +795,7 @@
                 <TextRun>
                   <Value>CENTRO DE EDUCACIÓN CONTINUA UNIDAD LOS MOCHIS</Value>
                   <Style>
-                    <FontSize>9pt</FontSize>
+                    <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -800,10 +803,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>1.67279cm</Top>
-          <Left>7.76676cm</Left>
+          <Top>2.19198cm</Top>
+          <Left>6.39802cm</Left>
           <Height>0.6cm</Height>
-          <Width>10.47989cm</Width>
+          <Width>15.38206cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>

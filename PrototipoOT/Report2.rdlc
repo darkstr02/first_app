@@ -11,6 +11,7 @@
               <TextRun>
                 <Value>REPORTE DE ÓRDENES DE TRABAJO</Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -19,10 +20,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>0.62604cm</Top>
-        <Left>8.84102cm</Left>
+        <Top>0.24032cm</Top>
+        <Left>8.80745cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.70688cm</Width>
+        <Width>9.35271cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -641,8 +642,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.94cm</Top>
-        <Left>0.50838cm</Left>
+        <Top>3.09563cm</Top>
+        <Left>2.61939cm</Left>
         <Height>1.2cm</Height>
         <Width>24.38891cm</Width>
         <ZIndex>1</ZIndex>
@@ -667,8 +668,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.23417cm</Top>
-        <Left>0.50838cm</Left>
+        <Top>2.17178cm</Top>
+        <Left>2.61939cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -697,8 +698,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>rpParametro</rd:DefaultName>
-        <Top>1.19889cm</Top>
-        <Left>3.67453cm</Left>
+        <Top>2.17178cm</Top>
+        <Left>5.87058cm</Left>
         <Height>0.6cm</Height>
         <Width>3.82292cm</Width>
         <ZIndex>3</ZIndex>
@@ -713,13 +714,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.61458in</Height>
+    <Height>4.36458in</Height>
     <Style />
   </Body>
-  <Width>9.9375in</Width>
+  <Width>11.18527in</Width>
   <Page>
     <PageHeader>
-      <Height>2.97243cm</Height>
+      <Height>3.54005cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -727,9 +728,10 @@
           <Source>Embedded</Source>
           <Value>logoipn1</Value>
           <Sizing>FitProportional</Sizing>
-          <Left>1.15375cm</Left>
+          <Top>0.39123cm</Top>
+          <Left>2.55605cm</Left>
           <Height>2.97243cm</Height>
-          <Width>3.93417cm</Width>
+          <Width>3.7225cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -740,8 +742,8 @@
           <Source>Embedded</Source>
           <Value>CECLosMochis_logo</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.36159cm</Top>
-          <Left>17.21078cm</Left>
+          <Top>0.75282cm</Top>
+          <Left>19.88308cm</Left>
           <Height>2.14658cm</Height>
           <Width>4.70146cm</Width>
           <ZIndex>1</ZIndex>
@@ -760,7 +762,7 @@
                 <TextRun>
                   <Value>INSTITUTO POLITÉCNICO NACIONAL</Value>
                   <Style>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>20pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -769,10 +771,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>0.79057cm</Top>
-          <Left>6.15375cm</Left>
+          <Top>1.1818cm</Top>
+          <Left>5.65105cm</Left>
           <Height>0.70583cm</Height>
-          <Width>10cm</Width>
+          <Width>13.701cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -793,7 +795,7 @@
                 <TextRun>
                   <Value>CENTRO DE EDUCACIÓN CONTINUA UNIDAD LOS MOCHIS</Value>
                   <Style>
-                    <FontSize>9pt</FontSize>
+                    <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -801,10 +803,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>1.67279cm</Top>
-          <Left>6.53645cm</Left>
+          <Top>2.2994cm</Top>
+          <Left>6.39802cm</Left>
           <Height>0.6cm</Height>
-          <Width>9.1675cm</Width>
+          <Width>15.38206cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -823,8 +825,8 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>
