@@ -243,8 +243,9 @@ namespace PrototipoOT
 
         private void administrarResponsablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAdministrarResponsables frm = new frmAdministrarResponsables();
-            frm.ShowDialog();
+            frmNuevoResponsable frm = new frmNuevoResponsable();
+            if(frm.ShowDialog() == DialogResult.OK)
+                this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes); 
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
