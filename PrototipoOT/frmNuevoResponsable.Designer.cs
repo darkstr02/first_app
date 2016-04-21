@@ -434,7 +434,7 @@
             this.MinimizeBox = false;
             this.Name = "frmNuevoResponsable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmNuevoResponsable";
+            this.Text = "Administrar Responsables...";
             this.Load += new System.EventHandler(this.frmNuevoResponsable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
