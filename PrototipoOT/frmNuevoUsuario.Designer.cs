@@ -74,6 +74,10 @@
             this.cATCUENTASBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cAT_CUENTASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CAT_CUENTASTableAdapter();
             this.BindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.txtConfContrasena = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -118,7 +122,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(550, 164);
+            this.button2.Location = new System.Drawing.Point(543, 209);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 41);
             this.button2.TabIndex = 31;
@@ -127,7 +131,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(427, 164);
+            this.button1.Location = new System.Drawing.Point(420, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 41);
             this.button1.TabIndex = 30;
@@ -453,11 +457,50 @@
             this.BindingNavigatorSaveItem.Text = "Guardar datos";
             this.BindingNavigatorSaveItem.Click += new System.EventHandler(this.BindingNavigatorSaveItem_Click);
             // 
+            // txtContrasena
+            // 
+            this.txtContrasena.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "passwd", true));
+            this.txtContrasena.Location = new System.Drawing.Point(389, 155);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
+            this.txtContrasena.Size = new System.Drawing.Size(294, 20);
+            this.txtContrasena.TabIndex = 46;
+            // 
+            // txtConfContrasena
+            // 
+            this.txtConfContrasena.Location = new System.Drawing.Point(389, 185);
+            this.txtConfContrasena.Name = "txtConfContrasena";
+            this.txtConfContrasena.PasswordChar = '*';
+            this.txtConfContrasena.Size = new System.Drawing.Size(294, 20);
+            this.txtConfContrasena.TabIndex = 47;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(322, 158);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "Contraseña:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(277, 188);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(111, 13);
+            this.label8.TabIndex = 49;
+            this.label8.Text = "Confirmar Contraseña:";
+            // 
             // frmNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 271);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtConfContrasena);
+            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.dataGridView1);
@@ -542,6 +585,10 @@
         private System.Windows.Forms.BindingSource cATCUENTASBindingSource;
         private SistemaOTDataSetTableAdapters.CAT_CUENTASTableAdapter cAT_CUENTASTableAdapter;
         private System.Windows.Forms.ToolStripButton BindingNavigatorSaveItem;
+        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.TextBox txtConfContrasena;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
 
     }
 }

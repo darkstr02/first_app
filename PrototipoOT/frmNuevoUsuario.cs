@@ -30,9 +30,12 @@ namespace PrototipoOT
 
         private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.bindingSource1.EndEdit();
-            this.cUENTAS_DE_USUARIOTableAdapter.Update(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
+            if (txtContrasena.Text == txtConfContrasena.Text)
+            {
+                this.Validate();
+                this.bindingSource1.EndEdit();
+                this.cUENTAS_DE_USUARIOTableAdapter.Update(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
+            }
         }
     }
 }
