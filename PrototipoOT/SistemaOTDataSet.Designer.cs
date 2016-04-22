@@ -3702,10 +3702,10 @@ namespace PrototipoOT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CUENTAS_DE_USUARIORow AddCUENTAS_DE_USUARIORow(int id_cuenta, string nombre, string e_mail, string direccion, string telefono, ESTADOSRow parentESTADOSRowByFK_CUENTAS_DE_USUARIO_ESTADOS, string passwd, CAT_CUENTASRow parentCAT_CUENTASRowByFK_CUENTAS_DE_USUARIO_CAT_CUENTAS, System.DateTime ultimo_acceso) {
+            public CUENTAS_DE_USUARIORow AddCUENTAS_DE_USUARIORow(string nombre, string e_mail, string direccion, string telefono, ESTADOSRow parentESTADOSRowByFK_CUENTAS_DE_USUARIO_ESTADOS, string passwd, CAT_CUENTASRow parentCAT_CUENTASRowByFK_CUENTAS_DE_USUARIO_CAT_CUENTAS, System.DateTime ultimo_acceso) {
                 CUENTAS_DE_USUARIORow rowCUENTAS_DE_USUARIORow = ((CUENTAS_DE_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_cuenta,
+                        null,
                         nombre,
                         e_mail,
                         direccion,
@@ -3783,6 +3783,8 @@ namespace PrototipoOT {
                 base.Columns.Add(this.columnultimo_acceso);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_cuenta}, true));
+                this.columnid_cuenta.AutoIncrement = true;
+                this.columnid_cuenta.AutoIncrementSeed = 1;
                 this.columnid_cuenta.AllowDBNull = false;
                 this.columnid_cuenta.Unique = true;
                 this.columnnombre.AllowDBNull = false;
@@ -3794,7 +3796,6 @@ namespace PrototipoOT {
                 this.columnpasswd.AllowDBNull = false;
                 this.columnpasswd.MaxLength = 100;
                 this.columnid_cat_cuenta.AllowDBNull = false;
-                this.columnultimo_acceso.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4145,7 +4146,6 @@ namespace PrototipoOT {
                 this.columnEstado.MaxLength = 30;
                 this.columnTipo_de_Cuenta.AllowDBNull = false;
                 this.columnTipo_de_Cuenta.MaxLength = 30;
-                this.columnÚltimo_Acceso.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5286,7 +5286,13 @@ namespace PrototipoOT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime ultimo_acceso {
                 get {
-                    return ((global::System.DateTime)(this[this.tableCUENTAS_DE_USUARIO.ultimo_accesoColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableCUENTAS_DE_USUARIO.ultimo_accesoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ultimo_acceso\' de la tabla \'CUENTAS_DE_USUARIO\' es DBNull" +
+                                ".", e);
+                    }
                 }
                 set {
                     this[this.tableCUENTAS_DE_USUARIO.ultimo_accesoColumn] = value;
@@ -5349,6 +5355,18 @@ namespace PrototipoOT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettelefonoNull() {
                 this[this.tableCUENTAS_DE_USUARIO.telefonoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isultimo_accesoNull() {
+                return this.IsNull(this.tableCUENTAS_DE_USUARIO.ultimo_accesoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setultimo_accesoNull() {
+                this[this.tableCUENTAS_DE_USUARIO.ultimo_accesoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5446,7 +5464,12 @@ namespace PrototipoOT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Último_Acceso {
                 get {
-                    return ((global::System.DateTime)(this[this.tablevw_cuentas.Último_AccesoColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tablevw_cuentas.Último_AccesoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Último Acceso\' de la tabla \'vw_cuentas\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevw_cuentas.Último_AccesoColumn] = value;
@@ -5475,6 +5498,18 @@ namespace PrototipoOT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTeléfonoNull() {
                 this[this.tablevw_cuentas.TeléfonoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsÚltimo_AccesoNull() {
+                return this.IsNull(this.tablevw_cuentas.Último_AccesoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetÚltimo_AccesoNull() {
+                this[this.tablevw_cuentas.Último_AccesoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8814,7 +8849,7 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_cuenta, string Original_nombre, string Original_e_mail, string Original_direccion, string Original_telefono, int Original_id_estado, string Original_passwd, int Original_id_cat_cuenta, System.DateTime Original_ultimo_acceso) {
+        public virtual int Delete(int Original_id_cuenta, string Original_nombre, string Original_e_mail, string Original_direccion, string Original_telefono, int Original_id_estado, string Original_passwd, int Original_id_cat_cuenta, global::System.Nullable<global::System.DateTime> Original_ultimo_acceso) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_cuenta));
             if ((Original_nombre == null)) {
                 throw new global::System.ArgumentNullException("Original_nombre");
@@ -8854,7 +8889,12 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_passwd));
             }
             this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_id_cat_cuenta));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_ultimo_acceso));
+            if ((Original_ultimo_acceso.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_ultimo_acceso.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8875,7 +8915,7 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int id_cuenta, string nombre, string e_mail, string direccion, string telefono, int id_estado, string passwd, int id_cat_cuenta, System.DateTime ultimo_acceso) {
+        public virtual int Insert(int id_cuenta, string nombre, string e_mail, string direccion, string telefono, int id_estado, string passwd, int id_cat_cuenta, global::System.Nullable<global::System.DateTime> ultimo_acceso) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_cuenta));
             if ((nombre == null)) {
                 throw new global::System.ArgumentNullException("nombre");
@@ -8909,7 +8949,12 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(passwd));
             }
             this.Adapter.InsertCommand.Parameters[7].Value = ((int)(id_cat_cuenta));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(ultimo_acceso));
+            if ((ultimo_acceso.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(ultimo_acceso.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8939,7 +8984,7 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                     int id_estado, 
                     string passwd, 
                     int id_cat_cuenta, 
-                    System.DateTime ultimo_acceso, 
+                    global::System.Nullable<global::System.DateTime> ultimo_acceso, 
                     int Original_id_cuenta, 
                     string Original_nombre, 
                     string Original_e_mail, 
@@ -8948,7 +8993,7 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                     int Original_id_estado, 
                     string Original_passwd, 
                     int Original_id_cat_cuenta, 
-                    System.DateTime Original_ultimo_acceso) {
+                    global::System.Nullable<global::System.DateTime> Original_ultimo_acceso) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_cuenta));
             if ((nombre == null)) {
                 throw new global::System.ArgumentNullException("nombre");
@@ -8982,7 +9027,12 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(passwd));
             }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(id_cat_cuenta));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(ultimo_acceso));
+            if ((ultimo_acceso.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(ultimo_acceso.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_id_cuenta));
             if ((Original_nombre == null)) {
                 throw new global::System.ArgumentNullException("Original_nombre");
@@ -9022,7 +9072,12 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_passwd));
             }
             this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_id_cat_cuenta));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_ultimo_acceso));
+            if ((Original_ultimo_acceso.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_ultimo_acceso.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9051,7 +9106,7 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                     int id_estado, 
                     string passwd, 
                     int id_cat_cuenta, 
-                    System.DateTime ultimo_acceso, 
+                    global::System.Nullable<global::System.DateTime> ultimo_acceso, 
                     int Original_id_cuenta, 
                     string Original_nombre, 
                     string Original_e_mail, 
@@ -9060,7 +9115,7 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                     int Original_id_estado, 
                     string Original_passwd, 
                     int Original_id_cat_cuenta, 
-                    System.DateTime Original_ultimo_acceso) {
+                    global::System.Nullable<global::System.DateTime> Original_ultimo_acceso) {
             return this.Update(Original_id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat_cuenta, ultimo_acceso, Original_id_cuenta, Original_nombre, Original_e_mail, Original_direccion, Original_telefono, Original_id_estado, Original_passwd, Original_id_cat_cuenta, Original_ultimo_acceso);
         }
     }

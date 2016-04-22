@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevoUsuario));
             this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -38,8 +40,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.cUENTAS_DE_USUARIOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -53,13 +53,14 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.eSTADOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbPermisos = new System.Windows.Forms.ComboBox();
+            this.cATCUENTASBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,11 +70,10 @@
             this.passwdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idcatcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ultimoaccesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eSTADOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.eSTADOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ESTADOSTableAdapter();
-            this.cATCUENTASBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cAT_CUENTASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CAT_CUENTASTableAdapter();
-            this.BindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtConfContrasena = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,9 +82,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eSTADOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cATCUENTASBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDireccion
@@ -93,7 +93,17 @@
             this.txtDireccion.Location = new System.Drawing.Point(367, 95);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(380, 20);
-            this.txtDireccion.TabIndex = 37;
+            this.txtDireccion.TabIndex = 4;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "CUENTAS_DE_USUARIO";
+            this.bindingSource1.DataSource = this.sistemaOTDataSet;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -110,7 +120,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(593, 69);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(154, 20);
-            this.txtTelefono.TabIndex = 35;
+            this.txtTelefono.TabIndex = 3;
             // 
             // txtNombre
             // 
@@ -118,14 +128,14 @@
             this.txtNombre.Location = new System.Drawing.Point(367, 43);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(380, 20);
-            this.txtNombre.TabIndex = 34;
+            this.txtNombre.TabIndex = 1;
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(543, 209);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 41);
-            this.button2.TabIndex = 31;
+            this.button2.TabIndex = 10;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -134,9 +144,10 @@
             this.button1.Location = new System.Drawing.Point(420, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 41);
-            this.button1.TabIndex = 30;
+            this.button1.TabIndex = 9;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -155,16 +166,6 @@
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 28;
             this.label3.Text = "Nombre:";
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "CUENTAS_DE_USUARIO";
-            this.bindingSource1.DataSource = this.sistemaOTDataSet;
-            // 
-            // sistemaOTDataSet
-            // 
-            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
-            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cUENTAS_DE_USUARIOTableAdapter
             // 
@@ -285,6 +286,15 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // BindingNavigatorSaveItem
+            // 
+            this.BindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("BindingNavigatorSaveItem.Image")));
+            this.BindingNavigatorSaveItem.Name = "BindingNavigatorSaveItem";
+            this.BindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.BindingNavigatorSaveItem.Text = "Guardar datos";
+            this.BindingNavigatorSaveItem.Click += new System.EventHandler(this.BindingNavigatorSaveItem_Click);
+            // 
             // cbEstado
             // 
             this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource1, "id_estado", true));
@@ -294,8 +304,13 @@
             this.cbEstado.Location = new System.Drawing.Point(367, 121);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(167, 21);
-            this.cbEstado.TabIndex = 39;
+            this.cbEstado.TabIndex = 5;
             this.cbEstado.ValueMember = "id_estado";
+            // 
+            // eSTADOSBindingSource
+            // 
+            this.eSTADOSBindingSource.DataMember = "ESTADOS";
+            this.eSTADOSBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // cbPermisos
             // 
@@ -306,8 +321,13 @@
             this.cbPermisos.Location = new System.Drawing.Point(593, 121);
             this.cbPermisos.Name = "cbPermisos";
             this.cbPermisos.Size = new System.Drawing.Size(154, 21);
-            this.cbPermisos.TabIndex = 40;
+            this.cbPermisos.TabIndex = 6;
             this.cbPermisos.ValueMember = "id_cat_cuenta";
+            // 
+            // cATCUENTASBindingSource
+            // 
+            this.cATCUENTASBindingSource.DataMember = "CAT_CUENTAS";
+            this.cATCUENTASBindingSource.DataSource = this.sistemaOTDataSet;
             // 
             // label6
             // 
@@ -349,23 +369,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(271, 247);
             this.dataGridView1.TabIndex = 43;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "e_mail", true));
-            this.txtEmail.Location = new System.Drawing.Point(367, 69);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(162, 20);
-            this.txtEmail.TabIndex = 44;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(327, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "E-mail:";
             // 
             // idcuentaDataGridViewTextBoxColumn
             // 
@@ -430,32 +433,30 @@
             this.ultimoaccesoDataGridViewTextBoxColumn.Name = "ultimoaccesoDataGridViewTextBoxColumn";
             this.ultimoaccesoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // eSTADOSBindingSource
+            // txtEmail
             // 
-            this.eSTADOSBindingSource.DataMember = "ESTADOS";
-            this.eSTADOSBindingSource.DataSource = this.sistemaOTDataSet;
+            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "e_mail", true));
+            this.txtEmail.Location = new System.Drawing.Point(367, 69);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(162, 20);
+            this.txtEmail.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(327, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "E-mail:";
             // 
             // eSTADOSTableAdapter
             // 
             this.eSTADOSTableAdapter.ClearBeforeFill = true;
             // 
-            // cATCUENTASBindingSource
-            // 
-            this.cATCUENTASBindingSource.DataMember = "CAT_CUENTAS";
-            this.cATCUENTASBindingSource.DataSource = this.sistemaOTDataSet;
-            // 
             // cAT_CUENTASTableAdapter
             // 
             this.cAT_CUENTASTableAdapter.ClearBeforeFill = true;
-            // 
-            // BindingNavigatorSaveItem
-            // 
-            this.BindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("BindingNavigatorSaveItem.Image")));
-            this.BindingNavigatorSaveItem.Name = "BindingNavigatorSaveItem";
-            this.BindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.BindingNavigatorSaveItem.Text = "Guardar datos";
-            this.BindingNavigatorSaveItem.Click += new System.EventHandler(this.BindingNavigatorSaveItem_Click);
             // 
             // txtContrasena
             // 
@@ -464,7 +465,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(294, 20);
-            this.txtContrasena.TabIndex = 46;
+            this.txtContrasena.TabIndex = 7;
             // 
             // txtConfContrasena
             // 
@@ -472,7 +473,7 @@
             this.txtConfContrasena.Name = "txtConfContrasena";
             this.txtConfContrasena.PasswordChar = '*';
             this.txtConfContrasena.Size = new System.Drawing.Size(294, 20);
-            this.txtConfContrasena.TabIndex = 47;
+            this.txtConfContrasena.TabIndex = 8;
             // 
             // label2
             // 
@@ -529,9 +530,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eSTADOSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cATCUENTASBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
