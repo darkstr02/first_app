@@ -33,12 +33,12 @@
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtApPaterno = new System.Windows.Forms.TextBox();
+            this.txtApMaterno = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.eSTADOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -98,57 +98,57 @@
             this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
             this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // textBox1
+            // txtApPaterno
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "apellido_pat", true));
-            this.textBox1.Location = new System.Drawing.Point(98, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 20);
-            this.textBox1.TabIndex = 32;
+            this.txtApPaterno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "apellido_pat", true));
+            this.txtApPaterno.Location = new System.Drawing.Point(98, 30);
+            this.txtApPaterno.Name = "txtApPaterno";
+            this.txtApPaterno.Size = new System.Drawing.Size(114, 20);
+            this.txtApPaterno.TabIndex = 32;
             // 
-            // textBox2
+            // txtApMaterno
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "apellido_mat", true));
-            this.textBox2.Location = new System.Drawing.Point(311, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(110, 20);
-            this.textBox2.TabIndex = 33;
+            this.txtApMaterno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "apellido_mat", true));
+            this.txtApMaterno.Location = new System.Drawing.Point(311, 31);
+            this.txtApMaterno.Name = "txtApMaterno";
+            this.txtApMaterno.Size = new System.Drawing.Size(110, 20);
+            this.txtApMaterno.TabIndex = 33;
             // 
-            // textBox3
+            // txtNombre
             // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nombre", true));
-            this.textBox3.Location = new System.Drawing.Point(98, 53);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(323, 20);
-            this.textBox3.TabIndex = 34;
+            this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nombre", true));
+            this.txtNombre.Location = new System.Drawing.Point(98, 53);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(323, 20);
+            this.txtNombre.TabIndex = 34;
             // 
-            // textBox4
+            // txtDireccion
             // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "direccion", true));
-            this.textBox4.Location = new System.Drawing.Point(98, 79);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(323, 20);
-            this.textBox4.TabIndex = 35;
+            this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "direccion", true));
+            this.txtDireccion.Location = new System.Drawing.Point(98, 79);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(323, 20);
+            this.txtDireccion.TabIndex = 35;
             // 
-            // textBox5
+            // txtTelefono
             // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "telefono", true));
-            this.textBox5.Location = new System.Drawing.Point(98, 105);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(136, 20);
-            this.textBox5.TabIndex = 36;
+            this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "telefono", true));
+            this.txtTelefono.Location = new System.Drawing.Point(98, 105);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(136, 20);
+            this.txtTelefono.TabIndex = 36;
             // 
-            // comboBox1
+            // cbEstado
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource1, "id_estado", true));
-            this.comboBox1.DataSource = this.eSTADOSBindingSource;
-            this.comboBox1.DisplayMember = "descripcion";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(287, 105);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(134, 21);
-            this.comboBox1.TabIndex = 37;
-            this.comboBox1.ValueMember = "id_estado";
+            this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource1, "id_estado", true));
+            this.cbEstado.DataSource = this.eSTADOSBindingSource;
+            this.cbEstado.DisplayMember = "descripcion";
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(287, 105);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(134, 21);
+            this.cbEstado.TabIndex = 37;
+            this.cbEstado.ValueMember = "id_estado";
             // 
             // eSTADOSBindingSource
             // 
@@ -368,49 +368,55 @@
             this.idresponsableDataGridViewTextBoxColumn.DataPropertyName = "id_responsable";
             this.idresponsableDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idresponsableDataGridViewTextBoxColumn.Name = "idresponsableDataGridViewTextBoxColumn";
+            this.idresponsableDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // apellidopatDataGridViewTextBoxColumn
             // 
             this.apellidopatDataGridViewTextBoxColumn.DataPropertyName = "apellido_pat";
             this.apellidopatDataGridViewTextBoxColumn.HeaderText = "Ap. Paterno";
             this.apellidopatDataGridViewTextBoxColumn.Name = "apellidopatDataGridViewTextBoxColumn";
+            this.apellidopatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // apellidomatDataGridViewTextBoxColumn
             // 
             this.apellidomatDataGridViewTextBoxColumn.DataPropertyName = "apellido_mat";
             this.apellidomatDataGridViewTextBoxColumn.HeaderText = "Ap. Materno";
             this.apellidomatDataGridViewTextBoxColumn.Name = "apellidomatDataGridViewTextBoxColumn";
+            this.apellidomatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre (s)";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
             this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
             this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // telefonoDataGridViewTextBoxColumn
             // 
             this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "telefono";
             this.telefonoDataGridViewTextBoxColumn.HeaderText = "Teléfono";
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtApPaterno);
+            this.groupBox1.Controls.Add(this.txtApMaterno);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbEstado);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(422, 28);
@@ -454,12 +460,12 @@
 
         private System.Windows.Forms.Button cmdAceptar;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtApPaterno;
+        private System.Windows.Forms.TextBox txtApMaterno;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

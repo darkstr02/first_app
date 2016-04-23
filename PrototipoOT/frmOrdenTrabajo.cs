@@ -234,7 +234,10 @@ namespace PrototipoOT
             modifyRow["fecha_inicio"] = dtpFecha.Value;
 
             if (rbEntregadoSi.Checked)
-                modifyRow["fecha_entregado"] = DateTime.Now;
+            {
+                if (modifyRow["fecha_entregado"] == System.DBNull.Value)
+                    modifyRow["fecha_entregado"] = DateTime.Now;
+            }
             else
                 modifyRow["fecha_entregado"] = System.DBNull.Value;
 

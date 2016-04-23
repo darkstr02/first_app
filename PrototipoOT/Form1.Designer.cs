@@ -55,13 +55,6 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vwordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
-            this.oRDENESDETRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
-            this.sistemaOTDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_ordenesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.consecutivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.solicitanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +66,13 @@
             this.entregadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaEntregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vwordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.oRDENESDETRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
+            this.sistemaOTDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_ordenesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_ordenesTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -108,7 +108,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -129,41 +129,42 @@
             // nuevaToolStripMenuItem
             // 
             this.nuevaToolStripMenuItem.Name = "nuevaToolStripMenuItem";
-            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevaToolStripMenuItem.Text = "Nueva";
             this.nuevaToolStripMenuItem.Click += new System.EventHandler(this.nuevaToolStripMenuItem_Click);
             // 
             // modificaciónToolStripMenuItem
             // 
             this.modificaciónToolStripMenuItem.Name = "modificaciónToolStripMenuItem";
-            this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modificaciónToolStripMenuItem.Text = "Modificación";
             this.modificaciónToolStripMenuItem.Click += new System.EventHandler(this.modificaciónToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.borrarToolStripMenuItem.Text = "Borrar";
+            this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reportesToolStripMenuItem.Text = "Reportes";
             this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.buscarToolStripMenuItem.Text = "Buscar";
             this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // filtrarToolStripMenuItem
             // 
             this.filtrarToolStripMenuItem.Name = "filtrarToolStripMenuItem";
-            this.filtrarToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.filtrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.filtrarToolStripMenuItem.Text = "Filtrar";
             this.filtrarToolStripMenuItem.Click += new System.EventHandler(this.filtrarToolStripMenuItem_Click);
             // 
@@ -345,39 +346,6 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
-            // vwordenesBindingSource
-            // 
-            this.vwordenesBindingSource.DataMember = "vw_ordenes";
-            this.vwordenesBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
-            // 
-            // sistemaOTDataSetBindingSource
-            // 
-            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
-            this.sistemaOTDataSetBindingSource.Position = 0;
-            // 
-            // sistemaOTDataSet
-            // 
-            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
-            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // oRDENESDETRABAJOBindingSource
-            // 
-            this.oRDENESDETRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
-            this.oRDENESDETRABAJOBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
-            // 
-            // oRDENES_DE_TRABAJOTableAdapter
-            // 
-            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
-            // 
-            // sistemaOTDataSetBindingSource1
-            // 
-            this.sistemaOTDataSetBindingSource1.DataSource = this.sistemaOTDataSet;
-            this.sistemaOTDataSetBindingSource1.Position = 0;
-            // 
-            // vw_ordenesTableAdapter
-            // 
-            this.vw_ordenesTableAdapter.ClearBeforeFill = true;
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -454,6 +422,39 @@
             this.observacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones";
             this.observacionesDataGridViewTextBoxColumn.Name = "observacionesDataGridViewTextBoxColumn";
             this.observacionesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vwordenesBindingSource
+            // 
+            this.vwordenesBindingSource.DataMember = "vw_ordenes";
+            this.vwordenesBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // sistemaOTDataSetBindingSource
+            // 
+            this.sistemaOTDataSetBindingSource.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource.Position = 0;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // oRDENESDETRABAJOBindingSource
+            // 
+            this.oRDENESDETRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
+            this.oRDENESDETRABAJOBindingSource.DataSource = this.sistemaOTDataSetBindingSource;
+            // 
+            // oRDENES_DE_TRABAJOTableAdapter
+            // 
+            this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
+            // 
+            // sistemaOTDataSetBindingSource1
+            // 
+            this.sistemaOTDataSetBindingSource1.DataSource = this.sistemaOTDataSet;
+            this.sistemaOTDataSetBindingSource1.Position = 0;
+            // 
+            // vw_ordenesTableAdapter
+            // 
+            this.vw_ordenesTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 

@@ -31,28 +31,61 @@ namespace PrototipoOT
 
         private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == txtConfContrasena.Text)
+            try
             {
+                MailAddress ma = new MailAddress(txtEmail.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("E-mail no válido");
+                return;
+            }
 
-                try
-                {
-                    MailAddress ma = new MailAddress(txtEmail.Text);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("E-mail no válido");
-                    return;
-                }
+            
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("Introduzca nombre");
+                return;
+            }
+            else if (txtDireccion.Text == "")
+            {
+                MessageBox.Show("Introduzca dirección");
+                return;
+            }
+            else if (txtTelefono.Text == "")
+            {
+                MessageBox.Show("Introduzca teléfono.");
+                return;
+            }
+            else if (cbEstado.Text == "")
+            {
+                MessageBox.Show("Especifique el estado de la cuenta.");
+                return;
+            }
+            else if (txtContrasena.Text == txtConfContrasena.Text)
+            {
+                MessageBox.Show("Escriba y confirme la contraseña de la cuenta.");
+                return;
+            }
+            else if (cbPermisos.Text == "")
+            {
+                MessageBox.Show("Especifique los permisos de la cuenta.");
+                return;
+            }
+
+
+
 
                 this.Validate();
                 this.bindingSource1.EndEdit();
                 this.cUENTAS_DE_USUARIOTableAdapter.Update(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.OK;
+            this.Close(); 
         }
     }
 }

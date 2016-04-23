@@ -231,7 +231,7 @@ namespace PrototipoOT
 
         private void administrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAdministrarUsuarios frm = new frmAdministrarUsuarios();
+            frmNuevoUsuario frm = new frmNuevoUsuario();
             frm.ShowDialog();
         }
 
@@ -327,6 +327,40 @@ namespace PrototipoOT
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataRow selectedRow = null;
+            try
+            {
+                DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
+                int index = Int32.Parse(indexDataRow["ID"].ToString());
+
+
+                this.oRDENES_DE_TRABAJOTableAdapter.Fill(sistemaOTDataSet.ORDENES_DE_TRABAJO);
+
+                foreach (DataRow dr in sistemaOTDataSet.ORDENES_DE_TRABAJO)
+                {
+                    if ((int)dr[0] == (int)index)
+                    {
+                        selectedRow = dr;
+                        break;
+                    }
+                }
+
+                if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    selectedRow.Delete();
+
+                    this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+                    this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No ha seleccionado un registro o no existen registros de Órdenes de Trabajo.");
+            }
         }
     }
 }
