@@ -13,7 +13,6 @@ namespace PrototipoOT
 {
     public partial class Form1 : Form
     {
-
         public static List<string> filtroServicio;
         public static List<string> filtroArea;
         public static List<string> filtroResponsable;
@@ -87,6 +86,7 @@ namespace PrototipoOT
 
         }
 
+        //NUEVA ORDEN TOOL STRIP
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Nueva");
@@ -95,6 +95,7 @@ namespace PrototipoOT
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 
+        //NUEVA ORDEN MENU STRIP
         private void nuevaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Nueva");
@@ -102,6 +103,7 @@ namespace PrototipoOT
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 
+        //MODIFICAR ORDEN TOOL STRIP
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             try
@@ -122,6 +124,7 @@ namespace PrototipoOT
             }
         }
 
+        //MODIFICAR ORDEN MENU STRIP
         private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -140,18 +143,22 @@ namespace PrototipoOT
             
         }
 
+        //REPORTES TOOL STRIP
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             Reportes frm = new Reportes();
             frm.ShowDialog();
         }
 
+        //REPORTES MENU STRIP
         private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Reportes frm = new Reportes();
             frm.ShowDialog();
         }
 
+
+        //BUSCAR TOOL STRIP
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             frmBuscar frm = new frmBuscar();
@@ -177,6 +184,7 @@ namespace PrototipoOT
 
         }
 
+        //BUSCAR MENU STRIP
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBuscar frm = new frmBuscar();
@@ -200,6 +208,7 @@ namespace PrototipoOT
             }
         }
 
+        //FILTRAR TOOL STRIP
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             frmFiltrar frm = new frmFiltrar();
@@ -215,6 +224,7 @@ namespace PrototipoOT
             }
         }
 
+        //FILTRAR MENU STRIP
         private void filtrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmFiltrar frm = new frmFiltrar();
@@ -232,7 +242,7 @@ namespace PrototipoOT
 
         private void administrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNuevoUsuario frm = new frmNuevoUsuario();
+            frmAdministrarUsuarios frm = new frmAdministrarUsuarios();
             frm.ShowDialog();
         }
 
@@ -290,6 +300,7 @@ namespace PrototipoOT
             }
         }
 
+        //BORRAR ORDEN TOOL STRIP
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             DataRow selectedRow = null;
@@ -330,6 +341,8 @@ namespace PrototipoOT
             this.Close();
         }
 
+
+        //BORRAR ORDEN MENU STRIP
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataRow selectedRow = null;

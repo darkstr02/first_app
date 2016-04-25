@@ -228,8 +228,6 @@ namespace PrototipoOT
 
             this.oRDENES_DE_TRABAJOTableAdapter.Update(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
             return 0;
-            
-
         }
 
 
@@ -262,7 +260,7 @@ namespace PrototipoOT
             {
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
-                dtpFecha.Select();
+                txtBox.Select();
 
                 // Set the ErrorProvider error with the text to display. 
                 ErrorProviderExtensions.SetErrorWithCount(errorProvider1, txtBox, errorMsg);
@@ -293,15 +291,9 @@ namespace PrototipoOT
             }           
         }
 
-
-
         private void frmOrdenTrabajo_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = false;
         }
-
-  
-
-
     }
 }

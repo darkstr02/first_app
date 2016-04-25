@@ -33,8 +33,6 @@ namespace PrototipoOT
             string[] param = new string[1];
             param[0] = txtServicio.Text;
 
-            //bd.insertData("SERVICIOS",param);
-
             DataRow nuevo = this.sistemaOTDataSet.SERVICIOS.NewRow();
             nuevo["descripcion"] = param[0];
 
@@ -45,15 +43,12 @@ namespace PrototipoOT
                 if (indx["descripcion"].ToString() == txtServicio.Text.Trim())
                 {
                     MessageBox.Show("Este servicio ya existe");
-                    txtArea.Clear();
+                    txtServicio.Clear();
                     return;
                 }
             }
             this.sistemaOTDataSet.SERVICIOS.Rows.Add(nuevo);
-            txtArea.Clear();
-
-            //this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS);
-            //PENDIENTE LA VALIDACION (NOMBRES IGUALES)
+            txtServicio.Clear();
         }
 
         private void cmdAñadirArea_Click(object sender, EventArgs e)
@@ -77,10 +72,6 @@ namespace PrototipoOT
 
             this.sistemaOTDataSet.AREAS.Rows.Add(nuevo);
             txtArea.Clear();
-
-
-            //this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
-            //PENDIENTE LA VALIDACION (NOMBRES IGUALES)
         }
 
         private void cmdBorrarServicio_Click(object sender, EventArgs e)

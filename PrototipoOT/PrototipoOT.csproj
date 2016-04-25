@@ -67,12 +67,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAdministrarUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdministrarUsuarios.Designer.cs">
-      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +103,11 @@
     <Compile Include="frmNuevoResponsable.Designer.cs">
       <DependentUpon>frmNuevoResponsable.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNuevoUsuario.cs">
+    <Compile Include="frmAdministrarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNuevoUsuario.Designer.cs">
-      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    <Compile Include="frmAdministrarUsuarios.Designer.cs">
+      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOrdenTrabajo.cs">
       <SubType>Form</SubType>
@@ -147,9 +141,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdministrarUsuarios.resx">
-      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscar.resx">
       <DependentUpon>frmBuscar.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,8 +159,8 @@
     <EmbeddedResource Include="frmNuevoResponsable.resx">
       <DependentUpon>frmNuevoResponsable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNuevoUsuario.resx">
-      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdministrarUsuarios.resx">
+      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrdenTrabajo.resx">
       <DependentUpon>frmOrdenTrabajo.cs</DependentUpon>
