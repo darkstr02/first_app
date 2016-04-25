@@ -22,9 +22,9 @@ namespace PrototipoOT
         private void frmItems_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.AREAS' Puede moverla o quitarla según sea necesario.
-            this.aREASTableAdapter.Fill(this.sistemaOTDataSet.AREAS);
+            this.aREASTableAdapter.FillBy(this.sistemaOTDataSet.AREAS);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.SERVICIOS' Puede moverla o quitarla según sea necesario.
-            this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
+            this.sERVICIOSTableAdapter.FillBy(this.sistemaOTDataSet.SERVICIOS);
             bd = new BaseDeDatos();
         }
 
@@ -99,7 +99,5 @@ namespace PrototipoOT
             this.sistemaOTDataSet.AREAS.RejectChanges();
             this.Close();
         }
-
-
     }
 }

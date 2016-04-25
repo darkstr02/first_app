@@ -6051,11 +6051,16 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id_area, descripcion FROM dbo.AREAS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        id_area, descripcion\r\nFROM            AREAS\r\nWHERE        (id_area " +
+                "<> 0)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6077,6 +6082,30 @@ namespace PrototipoOT.SistemaOTDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual SistemaOTDataSet.AREASDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            SistemaOTDataSet.AREASDataTable dataTable = new SistemaOTDataSet.AREASDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(SistemaOTDataSet.AREASDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual SistemaOTDataSet.AREASDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             SistemaOTDataSet.AREASDataTable dataTable = new SistemaOTDataSet.AREASDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -7327,7 +7356,8 @@ SELECT id_servicio, descripcion FROM SERVICIOS WHERE (id_servicio = @id_servicio
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT descripcion, id_servicio FROM SERVICIOS";
+            this._commandCollection[1].CommandText = "SELECT        descripcion, id_servicio\r\nFROM            SERVICIOS\r\nWHERE        (" +
+                "id_servicio <> 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         

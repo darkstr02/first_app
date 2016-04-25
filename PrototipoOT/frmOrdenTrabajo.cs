@@ -34,9 +34,9 @@ namespace PrototipoOT
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.RESPONSABLES' Puede moverla o quitarla según sea necesario.
             this.rESPONSABLESTableAdapter.Fill(this.sistemaOTDataSet.RESPONSABLES);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet1.AREAS' Puede moverla o quitarla según sea necesario.
-            this.aREASTableAdapter.Fill(this.sistemaOTDataSet1.AREAS);
+            this.aREASTableAdapter.FillBy(this.sistemaOTDataSet1.AREAS);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.SERVICIOS' Puede moverla o quitarla según sea necesario.
-            this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
+            this.sERVICIOSTableAdapter.FillBy(this.sistemaOTDataSet.SERVICIOS);
 
             //Si el formulación está en modo "Modificación"
             if (indice != 0)
