@@ -37,6 +37,18 @@ namespace PrototipoOT
 
             DataRow nuevo = this.sistemaOTDataSet.SERVICIOS.NewRow();
             nuevo["descripcion"] = param[0];
+
+            for (int x = 0; x < lbServicios.Items.Count; x++)
+            {
+                DataRow indx = ((DataRowView)lbServicios.Items[x]).Row;
+
+                if (indx["descripcion"].ToString() == txtServicio.Text.Trim())
+                {
+                    MessageBox.Show("Este servicio ya existe");
+                    txtArea.Clear();
+                    return;
+                }
+            }
             this.sistemaOTDataSet.SERVICIOS.Rows.Add(nuevo);
             txtArea.Clear();
 
@@ -50,8 +62,23 @@ namespace PrototipoOT
 
             DataRow nuevo = this.sistemaOTDataSet.AREAS.NewRow();
             nuevo["descripcion"] = area;
+
+            for (int x = 0; x < lbAreas.Items.Count; x++)
+            {
+                DataRow indx = ((DataRowView) lbAreas.Items[x]).Row;
+ 
+                if (indx["descripcion"].ToString() == txtArea.Text.Trim())
+                {
+                    MessageBox.Show("Esta área ya existe");
+                    txtArea.Clear();
+                    return;
+                }
+            }
+
             this.sistemaOTDataSet.AREAS.Rows.Add(nuevo);
             txtArea.Clear();
+
+
             //this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
             //PENDIENTE LA VALIDACION (NOMBRES IGUALES)
         }
