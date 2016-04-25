@@ -90,7 +90,8 @@ namespace PrototipoOT
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             frmOrdenTrabajo frm = new frmOrdenTrabajo("Nueva");
-            if (frm.ShowDialog() == DialogResult.OK)
+            //if (frm.ShowDialog() == DialogResult.OK || frm.ShowDialog() == DialogResult.Cancel)
+            frm.ShowDialog();
                 this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
         }
 

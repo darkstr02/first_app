@@ -122,8 +122,8 @@ namespace PrototipoOT
             frmItems frm = new frmItems();
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                this.sERVICIOSTableAdapter.Fill(this.sistemaOTDataSet.SERVICIOS);
-                this.aREASTableAdapter.Fill(this.sistemaOTDataSet1.AREAS);
+                this.sERVICIOSTableAdapter.FillBy(this.sistemaOTDataSet.SERVICIOS);
+                this.aREASTableAdapter.FillBy(this.sistemaOTDataSet1.AREAS);
             }
         }
 
