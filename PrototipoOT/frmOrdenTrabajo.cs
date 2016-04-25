@@ -130,46 +130,30 @@ namespace PrototipoOT
         private void button1_Click(object sender, EventArgs e)
         {
             int returnValue;
-    
 
-            //Validaciones (A agrupar en una clase aparte)
-            if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)
+            if (this.ValidateChildren())
             {
-                MessageBox.Show("Esta Orden de Trabajo no puede marcarse como entregada sin asignar un responsable");
+                if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)
+                {
+                    MessageBox.Show("Esta Orden de Trabajo no puede marcarse como entregada sin asignar un responsable");
+                    return;
+                }
+                
+                if (titulo.Equals("Nueva")) returnValue = insertarOrden();
+                else returnValue = modificarOrden();
+
+                if (returnValue != 0) return;
+                else MessageBox.Show("Operación realizada con éxito!");
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Faltan uno o más campor por llenar.");
                 return;
             }
-            else if (dtpFecha.Value > DateTime.Now)
-            {
-                MessageBox.Show("No puede establecer una fecha a futuro como fecha de inicio!");
-                return;
-            }
-            else if (txtConsecutivo.Text.Trim() == String.Empty)
-            {
-                MessageBox.Show("Introduzca un consecutivo!");
-                txtConsecutivo.Text = "";
-                return;
-            }
-            else if (txtSolicitante.Text.Trim() == String.Empty)
-            {
-                MessageBox.Show("Introduzca un solicitante!");
-                txtConsecutivo.Text = "";
-                return;
-            }
-            else if (txtDescripcion.Text.Trim() == String.Empty)
-            {
-                MessageBox.Show("Introduzca una descripción!");
-                txtConsecutivo.Text = "";
-                return;
-            }
-
-
-            if (titulo.Equals("Nueva")) returnValue = insertarOrden();
-            else returnValue = modificarOrden();
-
-            if (returnValue != 0) return;
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -247,5 +231,77 @@ namespace PrototipoOT
             
 
         }
+
+
+
+        //VALIDACIONES
+
+        //Evento Validating para el Campo "Fecha de Inicio";
+        private void dtpFecha_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (dtpFecha.Value > DateTime.Now)
+            {
+                // Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                dtpFecha.Select();
+
+                // Set the ErrorProvider error with the text to display. 
+                ErrorProviderExtensions.SetErrorWithCount(errorProvider1, dtpFecha, "No se puede establecer una fecha en el futuro como fecha de inicio");
+                //this.errorProvider1.SetError(dtpFecha, "No se puede establecer una fecha en el futuro como fecha de inicio");
+            }
+        }
+
+        //Evento Validating para TODOS los TextBoxs
+        private void Control_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg;
+            Control txtBox = (Control)sender;
+   
+            if (!validateString(txtBox.Text, out errorMsg))
+            {
+                // Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                dtpFecha.Select();
+
+                // Set the ErrorProvider error with the text to display. 
+                ErrorProviderExtensions.SetErrorWithCount(errorProvider1, txtBox, errorMsg);
+            }
+        }
+
+
+        private void Control_Validated(object sender, EventArgs e)
+        {
+            Control ctr = (Control) sender;
+            // If all conditions have been met, clear the ErrorProvider of errors.
+
+            ErrorProviderExtensions.SetErrorWithCount(errorProvider1, (Control) sender, "");
+        }
+
+
+        private bool validateString(string str, out string err)
+        {
+            if (str.Length != 0)
+            {
+                err = "";
+                return true;
+            }
+            else
+            {
+                err = "El campo está vacío";
+                return false;
+            }           
+        }
+
+
+
+        private void frmOrdenTrabajo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+        }
+
+  
+
+
     }
 }

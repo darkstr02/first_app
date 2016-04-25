@@ -64,6 +64,7 @@
             this.vw_nombreresponsablesTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter();
             this.oRDENES_DE_TRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oRDENES_DE_TRABAJOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aREASBindingSource)).BeginInit();
@@ -72,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDENES_DE_TRABAJOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFecha
@@ -80,6 +82,8 @@
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(192, 20);
             this.dtpFecha.TabIndex = 0;
+            this.dtpFecha.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFecha_Validating);
+            this.dtpFecha.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtConsecutivo
             // 
@@ -88,6 +92,8 @@
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.Size = new System.Drawing.Size(84, 20);
             this.txtConsecutivo.TabIndex = 1;
+            this.txtConsecutivo.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
+            this.txtConsecutivo.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtSolicitante
             // 
@@ -95,6 +101,8 @@
             this.txtSolicitante.Name = "txtSolicitante";
             this.txtSolicitante.Size = new System.Drawing.Size(346, 20);
             this.txtSolicitante.TabIndex = 2;
+            this.txtSolicitante.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
+            this.txtSolicitante.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtDescripcion
             // 
@@ -103,6 +111,8 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(346, 60);
             this.txtDescripcion.TabIndex = 6;
+            this.txtDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
+            this.txtDescripcion.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtObservaciones
             // 
@@ -124,6 +134,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(269, 344);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 41);
@@ -142,6 +153,8 @@
             this.cbServicio.Size = new System.Drawing.Size(121, 21);
             this.cbServicio.TabIndex = 3;
             this.cbServicio.ValueMember = "id_servicio";
+            this.cbServicio.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
+            this.cbServicio.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // sERVICIOSBindingSource
             // 
@@ -163,6 +176,8 @@
             this.cbArea.Size = new System.Drawing.Size(121, 21);
             this.cbArea.TabIndex = 4;
             this.cbArea.ValueMember = "id_area";
+            this.cbArea.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
+            this.cbArea.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // aREASBindingSource
             // 
@@ -340,6 +355,10 @@
             // 
             this.oRDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmOrdenTrabajo
             // 
             this.AcceptButton = this.button1;
@@ -376,6 +395,7 @@
             this.Name = "frmOrdenTrabajo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Órden de Trabajo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmOrdenTrabajo_FormClosing);
             this.Load += new System.EventHandler(this.frmOrdenTrabajo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sERVICIOSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
@@ -385,6 +405,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vwnombreresponsablesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rESPONSABLESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDENES_DE_TRABAJOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +448,6 @@
         private SistemaOTDataSetTableAdapters.vw_nombreresponsablesTableAdapter vw_nombreresponsablesTableAdapter;
         private System.Windows.Forms.BindingSource oRDENES_DE_TRABAJOBindingSource;
         private SistemaOTDataSetTableAdapters.ORDENES_DE_TRABAJOTableAdapter oRDENES_DE_TRABAJOTableAdapter;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
