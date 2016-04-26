@@ -78,7 +78,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -87,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cATCUENTASBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSource1
@@ -102,11 +100,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(666, 230);
+            this.button1.Location = new System.Drawing.Point(684, 230);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 41);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Aceptar";
+            this.button1.Text = "Cerrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -152,6 +150,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -163,11 +162,13 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -269,6 +270,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(271, 253);
             this.dataGridView1.TabIndex = 43;
             // 
@@ -389,6 +391,7 @@
             // txtConfContrasena
             // 
             this.txtConfContrasena.Location = new System.Drawing.Point(115, 153);
+            this.txtConfContrasena.MaxLength = 100;
             this.txtConfContrasena.Name = "txtConfContrasena";
             this.txtConfContrasena.PasswordChar = '*';
             this.txtConfContrasena.Size = new System.Drawing.Size(294, 20);
@@ -398,6 +401,7 @@
             // 
             this.txtContrasena.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "passwd", true));
             this.txtContrasena.Location = new System.Drawing.Point(115, 123);
+            this.txtContrasena.MaxLength = 100;
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(294, 20);
@@ -416,11 +420,10 @@
             // 
             this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "e_mail", true));
             this.txtEmail.Location = new System.Drawing.Point(93, 37);
+            this.txtEmail.MaxLength = 40;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(162, 20);
             this.txtEmail.TabIndex = 51;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.txtEmail.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // label7
             // 
@@ -445,38 +448,35 @@
             this.cbPermisos.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource1, "id_cat_cuenta", true));
             this.cbPermisos.DataSource = this.cATCUENTASBindingSource;
             this.cbPermisos.DisplayMember = "descripcion";
+            this.cbPermisos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPermisos.FormattingEnabled = true;
             this.cbPermisos.Location = new System.Drawing.Point(319, 89);
             this.cbPermisos.Name = "cbPermisos";
             this.cbPermisos.Size = new System.Drawing.Size(154, 21);
             this.cbPermisos.TabIndex = 55;
             this.cbPermisos.ValueMember = "id_cat_cuenta";
-            this.cbPermisos.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.cbPermisos.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // cbEstado
             // 
             this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource1, "id_estado", true));
             this.cbEstado.DataSource = this.eSTADOSBindingSource;
             this.cbEstado.DisplayMember = "descripcion";
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(93, 89);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(167, 21);
             this.cbEstado.TabIndex = 54;
             this.cbEstado.ValueMember = "id_estado";
-            this.cbEstado.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.cbEstado.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtDireccion
             // 
             this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "direccion", true));
             this.txtDireccion.Location = new System.Drawing.Point(93, 63);
+            this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(380, 20);
             this.txtDireccion.TabIndex = 53;
-            this.txtDireccion.VisibleChanged += new System.EventHandler(this.Control_Validated);
-            this.txtDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
             // 
             // label5
             // 
@@ -491,21 +491,19 @@
             // 
             this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "telefono", true));
             this.txtTelefono.Location = new System.Drawing.Point(319, 37);
+            this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(154, 20);
             this.txtTelefono.TabIndex = 52;
-            this.txtTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.txtTelefono.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtNombre
             // 
             this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nombre", true));
             this.txtNombre.Location = new System.Drawing.Point(93, 11);
+            this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(380, 20);
             this.txtNombre.TabIndex = 50;
-            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.txtNombre.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // label4
             // 
@@ -524,10 +522,6 @@
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 58;
             this.label3.Text = "Nombre:";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // frmAdministrarUsuarios
             // 
@@ -556,7 +550,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,7 +607,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
 
     }
 }

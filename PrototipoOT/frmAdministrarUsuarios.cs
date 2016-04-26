@@ -14,6 +14,9 @@ namespace PrototipoOT
 {
     public partial class frmAdministrarUsuarios : Form
     {
+
+        bool editing;
+
         public frmAdministrarUsuarios()
         {
             InitializeComponent();
@@ -28,20 +31,68 @@ namespace PrototipoOT
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.CUENTAS_DE_USUARIO' Puede moverla o quitarla según sea necesario.
             this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
 
+            editing = false;
+
         }
 
         private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            if (txtContrasena.Text != txtConfContrasena.Text)
+            string errorMsg = String.Empty;
+
+            if (txtContrasena.Text != txtConfContrasena.Text || (txtConfContrasena.Text == String.Empty && txtContrasena.Text == String.Empty))
             {
-                MessageBox.Show("Escriba y confirme la contraseña de la cuenta.");
-                return;
+                errorMsg = "Escriba y confirme la contraseña de la cuenta.";
+            }
+            else if (txtNombre.Text == "")
+            {
+                errorMsg = "Introduzca nombre";
+            }
+            else if (txtEmail.Text == "")
+            {
+                errorMsg = "Introduzca teléfono";
+            }
+            else if (!validateEmail(txtEmail.Text, out errorMsg))
+            {
+                errorMsg = "E-mail inválido";
+            }
+            else if (txtTelefono.Text == "")
+            {
+                errorMsg = "Introduzca teléfono";
+            }
+            else if (!validateTelephone(txtTelefono.Text, out errorMsg))
+            {
+                errorMsg = "Teléfono inválido";
+            }
+            else if (txtDireccion.Text == "")
+            {
+                errorMsg = "Introduzca dirección";
+            }
+            else if (cbEstado.Text == "")
+            {
+                errorMsg = "Especifique el estado de la cuenta";
+            }
+            else if (cbPermisos.Text == "")
+            {
+                errorMsg = "Especifique los permisos de la cuenta";
             }
 
-            this.Validate();
+            if (errorMsg != String.Empty)
+            {
+                MessageBox.Show(errorMsg);
+                return;
+            }
+                     
             this.bindingSource1.EndEdit();
             this.cUENTAS_DE_USUARIOTableAdapter.Update(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
             
+            txtNombre.Focus();
+            if (!bindingNavigatorMovePreviousItem.Enabled && editing)
+                bindingNavigatorMovePreviousItem.Enabled = true;
+            if (!bindingNavigatorMoveFirstItem.Enabled && editing)
+                bindingNavigatorMoveFirstItem.Enabled = true;
+            dataGridView1.Enabled = true;
+
+            MessageBox.Show("Registro actualizado con éxito.");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,52 +101,6 @@ namespace PrototipoOT
             this.Close(); 
         }
 
-
-
-        //VALIDACIONES
-
-        private void Control_Validating(object sender, CancelEventArgs e)
-        {
-            string errorMsg;
-            Control txtBox = (Control)sender;
-
-            if (!validateString(txtBox.Text, out errorMsg))
-            {
-                // Cancel the event and select the text to be corrected by the user.
-                e.Cancel = true;
-                txtBox.Select();
-
-                //Validate by type of control
-
-                // Set the ErrorProvider error with the text to display. 
-                ErrorProviderExtensions.SetErrorWithCount(errorProvider1, txtBox, errorMsg);
-            }
-            else 
-            {
-                if (txtBox.Name == "txtEmail")
-                {
-                    txtBox.Select();
-                    if(!validateEmail(txtBox.Text,out errorMsg))
-                        ErrorProviderExtensions.SetErrorWithCount(errorProvider1, txtBox, errorMsg);
-                }
-                else if (txtBox.Name == "txtTelefono")
-                {
-                    txtBox.Select();
-                    if (!validateTelephone(txtBox.Text, out errorMsg))
-                        ErrorProviderExtensions.SetErrorWithCount(errorProvider1, txtBox, errorMsg);
-                }
-
-            }
-        }
-
-
-        private void Control_Validated(object sender, EventArgs e)
-        {
-            Control ctr = (Control)sender;
-            // If all conditions have been met, clear the ErrorProvider of errors.
-
-            ErrorProviderExtensions.SetErrorWithCount(errorProvider1, (Control)sender, "");
-        }
 
         private bool validateString(string str, out string err)
         {
@@ -128,7 +133,9 @@ namespace PrototipoOT
 
         private bool validateTelephone(string str, out string err)
         {
-            bool value = Regex.Match(str, @"^(\+[0-9]{9})$").Success;
+            long result = 0;
+            //bool value = Regex.Match(str, @"^(\+[0-9]{9})$").Success;
+            bool value = Int64.TryParse(str, out result);
             err = (value) ? "" : "Teléfono inválido.";
             return value;
 
@@ -136,7 +143,24 @@ namespace PrototipoOT
 
         private void frmAdministrarUsuarios_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = false;
+            
         }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            bindingNavigatorMoveFirstItem.Enabled = false;
+            bindingNavigatorMovePreviousItem.Enabled = false;
+            dataGridView1.Enabled = false;
+            editing = true;
+        }
+
+
+
+
     }
 }

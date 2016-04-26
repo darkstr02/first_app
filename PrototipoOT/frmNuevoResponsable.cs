@@ -12,7 +12,7 @@ namespace PrototipoOT
 {
     public partial class frmNuevoResponsable : Form
     {
-        string titulo;
+        bool editing;
 
         public frmNuevoResponsable()
         {
@@ -33,7 +33,7 @@ namespace PrototipoOT
             //this.vw_responsablesTableAdapter.Fill(this.sistemaOTDataSet.vw_responsables);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.RESPONSABLES' Puede moverla o quitarla según sea necesario.
             //this.rESPONSABLESTableAdapter.Fill(this.sistemaOTDataSet.RESPONSABLES);
-
+            editing = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,7 +62,8 @@ namespace PrototipoOT
         {
             this.Validate();
 
-            //Validación;
+            string errorMsg = String.Empty;
+
             if (txtApPaterno.Text == "")
             {
                 MessageBox.Show("Introduzca apellido paterno");
@@ -75,29 +76,61 @@ namespace PrototipoOT
             }
             else if (txtNombre.Text == "")
             {
-                MessageBox.Show("Introduzca nombre");
-                return; 
-            }
-            else if (txtDireccion.Text == "")
-            {
-                MessageBox.Show("Introduzca dirección");
-                return;
+                errorMsg = "Introduzca nombre";
             }
             else if (txtTelefono.Text == "")
             {
-                MessageBox.Show("Introduzca teléfono");
-                return;
+                errorMsg = "Introduzca teléfono";
+            }
+            else if (!validateTelephone(txtTelefono.Text, out errorMsg))
+            {
+                errorMsg = "Teléfono inválido";
+            }
+            else if (txtDireccion.Text == "")
+            {
+                errorMsg = "Introduzca dirección";
             }
             else if (cbEstado.Text == "")
             {
-                MessageBox.Show("Especifique el estado del responsable");
+                errorMsg = "Especifique el estado de la cuenta";
+            }
+
+            if (errorMsg != String.Empty)
+            {
+                MessageBox.Show(errorMsg);
                 return;
             }
-            
-           
+      
 
             this.bindingSource1.EndEdit();
             this.rESPONSABLESTableAdapter.Update(this.sistemaOTDataSet.RESPONSABLES);
+
+            txtNombre.Focus();
+            if (!bindingNavigatorMovePreviousItem.Enabled && editing)
+                bindingNavigatorMovePreviousItem.Enabled = true;
+            if (!bindingNavigatorMoveFirstItem.Enabled && editing)
+                bindingNavigatorMoveFirstItem.Enabled = true;
+            dataGridView1.Enabled = true;
+
+            MessageBox.Show("Registro actualizado con éxito.");
+        }
+
+        private bool validateTelephone(string str, out string err)
+        {
+            long result = 0;
+            //bool value = Regex.Match(str, @"^(\+[0-9]{9})$").Success;
+            bool value = Int64.TryParse(str, out result);
+            err = (value) ? "" : "Teléfono inválido.";
+            return value;
+
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            bindingNavigatorMoveFirstItem.Enabled = false;
+            bindingNavigatorMovePreviousItem.Enabled = false;
+            dataGridView1.Enabled = false;
+            editing = true;
         }
     }
 }

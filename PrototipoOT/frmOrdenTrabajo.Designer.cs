@@ -98,6 +98,7 @@
             // txtSolicitante
             // 
             this.txtSolicitante.Location = new System.Drawing.Point(87, 72);
+            this.txtSolicitante.MaxLength = 100;
             this.txtSolicitante.Name = "txtSolicitante";
             this.txtSolicitante.Size = new System.Drawing.Size(346, 20);
             this.txtSolicitante.TabIndex = 2;
@@ -107,6 +108,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(87, 152);
+            this.txtDescripcion.MaxLength = 300;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(346, 60);
@@ -117,6 +119,7 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Location = new System.Drawing.Point(87, 260);
+            this.txtObservaciones.MaxLength = 300;
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(346, 68);
@@ -147,6 +150,7 @@
             // 
             this.cbServicio.DataSource = this.sERVICIOSBindingSource;
             this.cbServicio.DisplayMember = "descripcion";
+            this.cbServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbServicio.FormattingEnabled = true;
             this.cbServicio.Location = new System.Drawing.Point(87, 113);
             this.cbServicio.Name = "cbServicio";
@@ -170,6 +174,7 @@
             // 
             this.cbArea.DataSource = this.aREASBindingSource;
             this.cbArea.DisplayMember = "descripcion";
+            this.cbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(255, 113);
             this.cbArea.Name = "cbArea";

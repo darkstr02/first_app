@@ -104,6 +104,7 @@
             // 
             this.txtApPaterno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "apellido_pat", true));
             this.txtApPaterno.Location = new System.Drawing.Point(98, 30);
+            this.txtApPaterno.MaxLength = 30;
             this.txtApPaterno.Name = "txtApPaterno";
             this.txtApPaterno.Size = new System.Drawing.Size(114, 20);
             this.txtApPaterno.TabIndex = 32;
@@ -112,6 +113,7 @@
             // 
             this.txtApMaterno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "apellido_mat", true));
             this.txtApMaterno.Location = new System.Drawing.Point(311, 31);
+            this.txtApMaterno.MaxLength = 30;
             this.txtApMaterno.Name = "txtApMaterno";
             this.txtApMaterno.Size = new System.Drawing.Size(110, 20);
             this.txtApMaterno.TabIndex = 33;
@@ -120,6 +122,7 @@
             // 
             this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nombre", true));
             this.txtNombre.Location = new System.Drawing.Point(98, 53);
+            this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(323, 20);
             this.txtNombre.TabIndex = 34;
@@ -128,6 +131,7 @@
             // 
             this.txtDireccion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "direccion", true));
             this.txtDireccion.Location = new System.Drawing.Point(98, 79);
+            this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(323, 20);
             this.txtDireccion.TabIndex = 35;
@@ -136,6 +140,7 @@
             // 
             this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "telefono", true));
             this.txtTelefono.Location = new System.Drawing.Point(98, 105);
+            this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(136, 20);
             this.txtTelefono.TabIndex = 36;
@@ -145,6 +150,7 @@
             this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSource1, "id_estado", true));
             this.cbEstado.DataSource = this.eSTADOSBindingSource;
             this.cbEstado.DisplayMember = "descripcion";
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(287, 105);
             this.cbEstado.Name = "cbEstado";
@@ -258,6 +264,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -269,6 +276,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
