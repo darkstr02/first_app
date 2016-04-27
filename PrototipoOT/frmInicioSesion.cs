@@ -15,19 +15,25 @@ namespace PrototipoOT
         public frmInicioSesion()
         {
             InitializeComponent();
+            this.sistemaOTDataSet.EnforceConstraints = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.cUENTAS_DE_USUARIOTableAdapter.ExistsAccount(textBox1.Text, textBox2.Text) == 1)
+            if (this.cUENTAS_DE_USUARIOTableAdapter.ExistsAccount(txtNombre.Text, txtContraseña.Text) == 1)
             {
-                MessageBox.Show("Bienvenido/a, " + textBox1.Text);
+                int permiso = (int) this.cUENTAS_DE_USUARIOTableAdapter.FetchPermiso(txtNombre.Text);
+       
+                CredencialUsuario.SubscribirCuenta(txtNombre.Text, (permiso == 1) ? "Administrador" : "Registrado");
+                this.cUENTAS_DE_USUARIOTableAdapter.actualizarUltimoAcceso(DateTime.Now, txtNombre.Text);       
+
+                MessageBox.Show("Bienvenido/a, " + txtNombre.Text + ": " + CredencialUsuario.Permiso);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Nombre de Usuario o contraseña inválidos.");
+                MessageBox.Show("Combinación errónea de nombre de usuario y contraseña. Por favor, inténtelo de nuevo.");
             }
 
         }

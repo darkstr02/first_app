@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BaseDeDatos.cs" />
     <Compile Include="CodeFile1.cs" />
+    <Compile Include="CredencialUsuario.cs" />
     <Compile Include="DataSetReportes.cs">
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
       <SubType>Component</SubType>
