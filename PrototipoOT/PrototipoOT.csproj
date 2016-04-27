@@ -85,6 +85,12 @@
     <Compile Include="frmFiltrar.Designer.cs">
       <DependentUpon>frmFiltrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInicioSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicioSesion.Designer.cs">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFiltrar.resx">
       <DependentUpon>frmFiltrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicioSesion.resx">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmItems.resx">
       <DependentUpon>frmItems.cs</DependentUpon>
@@ -242,6 +251,9 @@
       <Project>{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}</Project>
       <Name>CheckBoxComboBox</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoipn %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
