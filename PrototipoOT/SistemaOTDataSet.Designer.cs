@@ -8814,12 +8814,19 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat_" +
                 "cuenta, ultimo_acceso FROM dbo.CUENTAS_DE_USUARIO";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            CUENTAS_DE_USUARIO\r\nWHERE       " +
+                " (nombre = @nombre) AND (passwd = @passwd)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@passwd", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9147,6 +9154,46 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
                     int Original_id_cat_cuenta, 
                     global::System.Nullable<global::System.DateTime> Original_ultimo_acceso) {
             return this.Update(Original_id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat_cuenta, ultimo_acceso, Original_id_cuenta, Original_nombre, Original_e_mail, Original_direccion, Original_telefono, Original_id_estado, Original_passwd, Original_id_cat_cuenta, Original_ultimo_acceso);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ExistsAccount(string nombre, string passwd) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((nombre == null)) {
+                throw new global::System.ArgumentNullException("nombre");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(nombre));
+            }
+            if ((passwd == null)) {
+                throw new global::System.ArgumentNullException("passwd");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(passwd));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -36,8 +37,13 @@
             this.cmdIniciarSesion = new System.Windows.Forms.Button();
             this.cmdCancelar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.cUENTAS_DE_USUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cUENTAS_DE_USUARIOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUENTAS_DE_USUARIOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -46,23 +52,23 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(199, 27);
+            this.groupBox1.Location = new System.Drawing.Point(199, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 132);
+            this.groupBox1.Size = new System.Drawing.Size(312, 138);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credenciales";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 58);
+            this.textBox2.Location = new System.Drawing.Point(111, 75);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(174, 20);
             this.textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 30);
+            this.textBox1.Location = new System.Drawing.Point(111, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 2;
@@ -70,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 61);
+            this.label2.Location = new System.Drawing.Point(41, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 1;
@@ -79,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 33);
+            this.label1.Location = new System.Drawing.Point(4, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 0;
@@ -115,13 +121,27 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cUENTAS_DE_USUARIOBindingSource
+            // 
+            this.cUENTAS_DE_USUARIOBindingSource.DataMember = "CUENTAS_DE_USUARIO";
+            this.cUENTAS_DE_USUARIOBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // cUENTAS_DE_USUARIOTableAdapter
+            // 
+            this.cUENTAS_DE_USUARIOTableAdapter.ClearBeforeFill = true;
+            // 
             // frmInicioSesion
             // 
             this.AcceptButton = this.cmdIniciarSesion;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancelar;
-            this.ClientSize = new System.Drawing.Size(542, 221);
+            this.ClientSize = new System.Drawing.Size(534, 224);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdIniciarSesion);
@@ -131,9 +151,12 @@
             this.Name = "frmInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inicio de Sesión";
+            this.Load += new System.EventHandler(this.frmInicioSesion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUENTAS_DE_USUARIOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,5 +171,8 @@
         private System.Windows.Forms.Button cmdIniciarSesion;
         private System.Windows.Forms.Button cmdCancelar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private SistemaOTDataSet sistemaOTDataSet;
+        private System.Windows.Forms.BindingSource cUENTAS_DE_USUARIOBindingSource;
+        private SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter cUENTAS_DE_USUARIOTableAdapter;
     }
 }
