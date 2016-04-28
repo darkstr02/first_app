@@ -24,7 +24,7 @@ namespace PrototipoOT
             {
                 int permiso = (int) this.cUENTAS_DE_USUARIOTableAdapter.FetchPermiso(txtNombre.Text);
        
-                CredencialUsuario.SubscribirCuenta(txtNombre.Text, (permiso == 1) ? "Administrador" : "Registrado");
+                CredencialUsuario.SubscribirCuenta(txtNombre.Text, (permiso == 1) ? "Administrador" : "Registrado", txtContraseña.Text);
                 this.cUENTAS_DE_USUARIOTableAdapter.actualizarUltimoAcceso(DateTime.Now, txtNombre.Text);       
 
                 MessageBox.Show("Bienvenido/a, " + txtNombre.Text + ": " + CredencialUsuario.Permiso);

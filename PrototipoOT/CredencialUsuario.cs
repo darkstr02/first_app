@@ -10,12 +10,13 @@ namespace PrototipoOT
     {
         public static string Nombre;
         public static string Permiso;
+        public static string Contrasena;
 
-        public static int SubscribirCuenta(string nombre, string permiso)
+        public static int SubscribirCuenta(string nombre, string permiso, string contra)
         {
             Nombre = nombre;
             Permiso = permiso;
-
+            Contrasena = contra;
             return 0;
         }
 

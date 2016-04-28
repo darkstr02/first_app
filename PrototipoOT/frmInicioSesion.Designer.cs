@@ -109,7 +109,7 @@
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(110, 44);
             this.cmdCancelar.TabIndex = 2;
-            this.cmdCancelar.Text = "Cancelar";
+            this.cmdCancelar.Text = "Salir";
             this.cmdCancelar.UseVisualStyleBackColor = true;
             // 
             // pictureBox1

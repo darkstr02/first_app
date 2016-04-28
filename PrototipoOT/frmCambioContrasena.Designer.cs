@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cmdAceptar = new System.Windows.Forms.Button();
+            this.cmdCancelar = new System.Windows.Forms.Button();
+            this.txtContraActual = new System.Windows.Forms.TextBox();
+            this.txtContraNueva = new System.Windows.Forms.TextBox();
+            this.txtConfContraNueva = new System.Windows.Forms.TextBox();
+            this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
+            this.cUENTAS_DE_USUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cUENTAS_DE_USUARIOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUENTAS_DE_USUARIOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,55 +71,74 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Confirmar Contraseña Nueva:";
             // 
-            // button1
+            // cmdAceptar
             // 
-            this.button1.Location = new System.Drawing.Point(115, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 41);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cmdAceptar.Location = new System.Drawing.Point(91, 124);
+            this.cmdAceptar.Name = "cmdAceptar";
+            this.cmdAceptar.Size = new System.Drawing.Size(81, 41);
+            this.cmdAceptar.TabIndex = 3;
+            this.cmdAceptar.Text = "Aceptar";
+            this.cmdAceptar.UseVisualStyleBackColor = true;
+            this.cmdAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // cmdCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(241, 150);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 41);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cmdCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdCancelar.Location = new System.Drawing.Point(217, 124);
+            this.cmdCancelar.Name = "cmdCancelar";
+            this.cmdCancelar.Size = new System.Drawing.Size(81, 41);
+            this.cmdCancelar.TabIndex = 4;
+            this.cmdCancelar.Text = "Cancelar";
+            this.cmdCancelar.UseVisualStyleBackColor = true;
+            this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
-            // textBox1
+            // txtContraActual
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtContraActual.Location = new System.Drawing.Point(155, 27);
+            this.txtContraActual.Name = "txtContraActual";
+            this.txtContraActual.Size = new System.Drawing.Size(195, 20);
+            this.txtContraActual.TabIndex = 5;
             // 
-            // textBox2
+            // txtContraNueva
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(195, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtContraNueva.Location = new System.Drawing.Point(155, 62);
+            this.txtContraNueva.Name = "txtContraNueva";
+            this.txtContraNueva.Size = new System.Drawing.Size(195, 20);
+            this.txtContraNueva.TabIndex = 6;
             // 
-            // textBox3
+            // txtConfContraNueva
             // 
-            this.textBox3.Location = new System.Drawing.Point(155, 98);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(195, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtConfContraNueva.Location = new System.Drawing.Point(155, 98);
+            this.txtConfContraNueva.Name = "txtConfContraNueva";
+            this.txtConfContraNueva.Size = new System.Drawing.Size(195, 20);
+            this.txtConfContraNueva.TabIndex = 7;
+            // 
+            // sistemaOTDataSet
+            // 
+            this.sistemaOTDataSet.DataSetName = "SistemaOTDataSet";
+            this.sistemaOTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cUENTAS_DE_USUARIOBindingSource
+            // 
+            this.cUENTAS_DE_USUARIOBindingSource.DataMember = "CUENTAS_DE_USUARIO";
+            this.cUENTAS_DE_USUARIOBindingSource.DataSource = this.sistemaOTDataSet;
+            // 
+            // cUENTAS_DE_USUARIOTableAdapter
+            // 
+            this.cUENTAS_DE_USUARIOTableAdapter.ClearBeforeFill = true;
             // 
             // frmCambioContrasena
             // 
+            this.AcceptButton = this.cmdAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 212);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.CancelButton = this.cmdCancelar;
+            this.ClientSize = new System.Drawing.Size(380, 182);
+            this.Controls.Add(this.txtConfContraNueva);
+            this.Controls.Add(this.txtContraNueva);
+            this.Controls.Add(this.txtContraActual);
+            this.Controls.Add(this.cmdCancelar);
+            this.Controls.Add(this.cmdAceptar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -123,6 +148,9 @@
             this.Name = "frmCambioContrasena";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambio de Contraseña";
+            this.Load += new System.EventHandler(this.frmCambioContrasena_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cUENTAS_DE_USUARIOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,10 +161,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button cmdAceptar;
+        private System.Windows.Forms.Button cmdCancelar;
+        private System.Windows.Forms.TextBox txtContraActual;
+        private System.Windows.Forms.TextBox txtContraNueva;
+        private System.Windows.Forms.TextBox txtConfContraNueva;
+        private SistemaOTDataSet sistemaOTDataSet;
+        private System.Windows.Forms.BindingSource cUENTAS_DE_USUARIOBindingSource;
+        private SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter cUENTAS_DE_USUARIOTableAdapter;
     }
 }
