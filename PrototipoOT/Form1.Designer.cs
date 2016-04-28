@@ -114,8 +114,9 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // órdenesDeTrabajoToolStripMenuItem
@@ -135,42 +136,48 @@
             // nuevaToolStripMenuItem
             // 
             this.nuevaToolStripMenuItem.Name = "nuevaToolStripMenuItem";
-            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.nuevaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.nuevaToolStripMenuItem.Text = "Nueva";
             this.nuevaToolStripMenuItem.Click += new System.EventHandler(this.nuevaToolStripMenuItem_Click);
             // 
             // modificaciónToolStripMenuItem
             // 
             this.modificaciónToolStripMenuItem.Name = "modificaciónToolStripMenuItem";
-            this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.modificaciónToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.modificaciónToolStripMenuItem.Text = "Modificación";
             this.modificaciónToolStripMenuItem.Click += new System.EventHandler(this.modificaciónToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.borrarToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.borrarToolStripMenuItem.Text = "Borrar";
             this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.reportesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.reportesToolStripMenuItem.Text = "Reportes";
             this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.buscarToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.buscarToolStripMenuItem.Text = "Buscar";
             this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // filtrarToolStripMenuItem
             // 
             this.filtrarToolStripMenuItem.Name = "filtrarToolStripMenuItem";
-            this.filtrarToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.filtrarToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.filtrarToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.filtrarToolStripMenuItem.Text = "Filtrar";
             this.filtrarToolStripMenuItem.Click += new System.EventHandler(this.filtrarToolStripMenuItem_Click);
             // 
@@ -187,21 +194,24 @@
             // administrarUsuariosToolStripMenuItem
             // 
             this.administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
-            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.administrarUsuariosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios...";
             this.administrarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.administrarUsuariosToolStripMenuItem_Click);
             // 
             // administrarResponsablesToolStripMenuItem
             // 
             this.administrarResponsablesToolStripMenuItem.Name = "administrarResponsablesToolStripMenuItem";
-            this.administrarResponsablesToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.administrarResponsablesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.administrarResponsablesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.administrarResponsablesToolStripMenuItem.Text = "Administrar Responsables...";
             this.administrarResponsablesToolStripMenuItem.Click += new System.EventHandler(this.administrarResponsablesToolStripMenuItem_Click);
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
-            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.cambiarContraseñaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
             this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
@@ -217,7 +227,8 @@
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.aToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aToolStripMenuItem.Text = "Ayuda";
             this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
@@ -506,6 +517,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

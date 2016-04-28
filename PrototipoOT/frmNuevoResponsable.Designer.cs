@@ -82,11 +82,12 @@
             // 
             // cmdAceptar
             // 
+            this.cmdAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdAceptar.Location = new System.Drawing.Point(775, 188);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(81, 41);
             this.cmdAceptar.TabIndex = 6;
-            this.cmdAceptar.Text = "Aceptar";
+            this.cmdAceptar.Text = "Cerrar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -444,6 +445,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdAceptar;
             this.ClientSize = new System.Drawing.Size(862, 243);
             this.Controls.Add(this.cmdAceptar);
             this.Controls.Add(this.groupBox1);
