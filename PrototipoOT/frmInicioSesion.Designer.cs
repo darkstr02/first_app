@@ -63,6 +63,7 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(111, 75);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(174, 20);
             this.txtContraseña.TabIndex = 3;
             // 

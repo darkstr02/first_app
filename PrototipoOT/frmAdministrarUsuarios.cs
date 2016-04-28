@@ -39,7 +39,15 @@ namespace PrototipoOT
         {
             string errorMsg = String.Empty;
 
-            if (txtContrasena.Text != txtConfContrasena.Text || (txtConfContrasena.Text == String.Empty && txtContrasena.Text == String.Empty))
+            if (this.cUENTAS_DE_USUARIOTableAdapter.ExistsAccountName(txtNombre.Text.Trim()) == 1 && editing == true)
+            {
+                errorMsg = "El nombre de usuario ya existe, favor de elegir otro.";
+            }
+            else if(cbEstado.Text == "BAJA" && txtNombre.Text.Trim() == CredencialUsuario.Nombre)
+            {
+                errorMsg = "Error: No puede dar de baja su propia cuenta mientras está en sesión.";
+            }
+            else if (txtContrasena.Text != txtConfContrasena.Text || (txtConfContrasena.Text == String.Empty && txtContrasena.Text == String.Empty))
             {
                 errorMsg = "Escriba y confirme la contraseña de la cuenta.";
             }
@@ -93,6 +101,7 @@ namespace PrototipoOT
             dataGridView1.Enabled = true;
 
             MessageBox.Show("Registro actualizado con éxito.");
+            editing = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -156,7 +165,28 @@ namespace PrototipoOT
             bindingNavigatorMoveFirstItem.Enabled = false;
             bindingNavigatorMovePreviousItem.Enabled = false;
             dataGridView1.Enabled = false;
+            txtConfContrasena.Clear();
             editing = true;
+        }
+
+        private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
+        {
+            txtConfContrasena.Clear();
+        }
+
+        private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
+        {
+            txtConfContrasena.Clear();
+        }
+
+        private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
+        {
+            txtConfContrasena.Clear();
+        }
+
+        private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
+        {
+            txtConfContrasena.Clear();
         }
 
 

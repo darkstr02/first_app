@@ -274,9 +274,16 @@ namespace PrototipoOT
 
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
-
-
             this.oRDENES_DE_TRABAJOTableAdapter.Fill(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
+
+            lbConectado.Text = CredencialUsuario.Nombre;
+            lbPermisos.Text = CredencialUsuario.Permiso;
+
+            if (CredencialUsuario.Permiso != "Administrador")
+            {
+                administrarUsuariosToolStripMenuItem.Enabled = false;
+            }
+
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
