@@ -91,6 +91,7 @@ namespace PrototipoOT
             }
                      
             this.bindingSource1.EndEdit();
+            this.sistemaOTDataSet.AcceptChanges();
             this.cUENTAS_DE_USUARIOTableAdapter.Update(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
             
             txtNombre.Focus();
@@ -99,6 +100,7 @@ namespace PrototipoOT
             if (!bindingNavigatorMoveFirstItem.Enabled && editing)
                 bindingNavigatorMoveFirstItem.Enabled = true;
             dataGridView1.Enabled = true;
+            
 
             MessageBox.Show("Registro actualizado con éxito.");
             editing = false;
