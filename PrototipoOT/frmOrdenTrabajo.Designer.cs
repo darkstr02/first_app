@@ -82,8 +82,6 @@
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(192, 20);
             this.dtpFecha.TabIndex = 0;
-            this.dtpFecha.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFecha_Validating);
-            this.dtpFecha.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtConsecutivo
             // 
@@ -92,8 +90,6 @@
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.Size = new System.Drawing.Size(84, 20);
             this.txtConsecutivo.TabIndex = 1;
-            this.txtConsecutivo.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.txtConsecutivo.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtSolicitante
             // 
@@ -102,8 +98,6 @@
             this.txtSolicitante.Name = "txtSolicitante";
             this.txtSolicitante.Size = new System.Drawing.Size(346, 20);
             this.txtSolicitante.TabIndex = 2;
-            this.txtSolicitante.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.txtSolicitante.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtDescripcion
             // 
@@ -113,8 +107,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(346, 60);
             this.txtDescripcion.TabIndex = 6;
-            this.txtDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.txtDescripcion.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // txtObservaciones
             // 
@@ -157,8 +149,6 @@
             this.cbServicio.Size = new System.Drawing.Size(121, 21);
             this.cbServicio.TabIndex = 3;
             this.cbServicio.ValueMember = "id_servicio";
-            this.cbServicio.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.cbServicio.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // sERVICIOSBindingSource
             // 
@@ -181,8 +171,6 @@
             this.cbArea.Size = new System.Drawing.Size(121, 21);
             this.cbArea.TabIndex = 4;
             this.cbArea.ValueMember = "id_area";
-            this.cbArea.Validating += new System.ComponentModel.CancelEventHandler(this.Control_Validating);
-            this.cbArea.Validated += new System.EventHandler(this.Control_Validated);
             // 
             // aREASBindingSource
             // 

@@ -130,15 +130,30 @@ namespace PrototipoOT
         private void button1_Click(object sender, EventArgs e)
         {
             int returnValue;
+            string errorMsg = String.Empty;
 
+            //Pendiente de borrar este if
             if (this.ValidateChildren())
             {
-                if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)
+
+                //VALIDACIONES
+                if (dtpFecha.Value > DateTime.Now)
+                { errorMsg = "No puede establecerse una fecha en el futuro como fecha de inicio de la orden de trabajo."; dtpFecha.Focus(); }
+                else if (txtConsecutivo.Text.Trim() == String.Empty)
+                { errorMsg = "Introduzca un consecutivo."; txtConsecutivo.Focus(); }
+                else if (txtSolicitante.Text.Trim() == String.Empty)
+                { errorMsg = "Introduzca solicitante."; txtSolicitante.Focus(); }
+                else if (txtDescripcion.Text.Trim() == String.Empty)
+                { errorMsg = "Introduzca descripción."; txtDescripcion.Focus(); }
+                else if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)
+                { errorMsg = "Esta Orden de Trabajo no puede marcarse como entregada sin asignar un responsable"; cbResponsable.Focus(); }
+
+                if (errorMsg != String.Empty)
                 {
-                    MessageBox.Show("Esta Orden de Trabajo no puede marcarse como entregada sin asignar un responsable");
+                    MessageBox.Show(errorMsg);
                     return;
                 }
-                
+         
                 if (titulo.Equals("Nueva")) returnValue = insertarOrden();
                 else returnValue = modificarOrden();
 
@@ -238,33 +253,12 @@ namespace PrototipoOT
         private void dtpFecha_Validating(object sender, CancelEventArgs e)
         {
 
-            if (dtpFecha.Value > DateTime.Now)
-            {
-                // Cancel the event and select the text to be corrected by the user.
-                e.Cancel = true;
-                dtpFecha.Select();
-
-                // Set the ErrorProvider error with the text to display. 
-                ErrorProviderExtensions.SetErrorWithCount(errorProvider1, dtpFecha, "No se puede establecer una fecha en el futuro como fecha de inicio");
-                //this.errorProvider1.SetError(dtpFecha, "No se puede establecer una fecha en el futuro como fecha de inicio");
-            }
         }
 
         //Evento Validating para TODOS los TextBoxs
         private void Control_Validating(object sender, CancelEventArgs e)
         {
-            string errorMsg;
-            Control txtBox = (Control)sender;
-   
-            if (!validateString(txtBox.Text, out errorMsg))
-            {
-                // Cancel the event and select the text to be corrected by the user.
-                e.Cancel = true;
-                txtBox.Select();
 
-                // Set the ErrorProvider error with the text to display. 
-                ErrorProviderExtensions.SetErrorWithCount(errorProvider1, txtBox, errorMsg);
-            }
         }
 
 

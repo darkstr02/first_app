@@ -40,49 +40,27 @@ namespace PrototipoOT
             string errorMsg = String.Empty;
 
             if (this.cUENTAS_DE_USUARIOTableAdapter.ExistsAccountName(txtNombre.Text.Trim()) == 1 && editing == true)
-            {
                 errorMsg = "El nombre de usuario ya existe, favor de elegir otro.";
-            }
             else if(cbEstado.Text == "BAJA" && txtNombre.Text.Trim() == CredencialUsuario.Nombre)
-            {
                 errorMsg = "Error: No puede dar de baja su propia cuenta mientras está en sesión.";
-            }
             else if (txtContrasena.Text != txtConfContrasena.Text || (txtConfContrasena.Text == String.Empty && txtContrasena.Text == String.Empty))
-            {
                 errorMsg = "Escriba y confirme la contraseña de la cuenta.";
-            }
             else if (txtNombre.Text == "")
-            {
                 errorMsg = "Introduzca nombre";
-            }
             else if (txtEmail.Text == "")
-            {
                 errorMsg = "Introduzca teléfono";
-            }
             else if (!validateEmail(txtEmail.Text, out errorMsg))
-            {
                 errorMsg = "E-mail inválido";
-            }
             else if (txtTelefono.Text == "")
-            {
                 errorMsg = "Introduzca teléfono";
-            }
             else if (!validateTelephone(txtTelefono.Text, out errorMsg))
-            {
                 errorMsg = "Teléfono inválido";
-            }
             else if (txtDireccion.Text == "")
-            {
                 errorMsg = "Introduzca dirección";
-            }
             else if (cbEstado.Text == "")
-            {
                 errorMsg = "Especifique el estado de la cuenta";
-            }
             else if (cbPermisos.Text == "")
-            {
                 errorMsg = "Especifique los permisos de la cuenta";
-            }
 
             if (errorMsg != String.Empty)
             {
