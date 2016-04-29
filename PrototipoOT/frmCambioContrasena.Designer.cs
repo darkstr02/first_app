@@ -76,7 +76,7 @@
             this.cmdAceptar.Location = new System.Drawing.Point(91, 124);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(81, 41);
-            this.cmdAceptar.TabIndex = 3;
+            this.cmdAceptar.TabIndex = 4;
             this.cmdAceptar.Text = "Aceptar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.button1_Click);
@@ -87,7 +87,7 @@
             this.cmdCancelar.Location = new System.Drawing.Point(217, 124);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(81, 41);
-            this.cmdCancelar.TabIndex = 4;
+            this.cmdCancelar.TabIndex = 5;
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = true;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
@@ -96,22 +96,25 @@
             // 
             this.txtContraActual.Location = new System.Drawing.Point(155, 27);
             this.txtContraActual.Name = "txtContraActual";
+            this.txtContraActual.PasswordChar = '*';
             this.txtContraActual.Size = new System.Drawing.Size(195, 20);
-            this.txtContraActual.TabIndex = 5;
+            this.txtContraActual.TabIndex = 1;
             // 
             // txtContraNueva
             // 
             this.txtContraNueva.Location = new System.Drawing.Point(155, 62);
             this.txtContraNueva.Name = "txtContraNueva";
+            this.txtContraNueva.PasswordChar = '*';
             this.txtContraNueva.Size = new System.Drawing.Size(195, 20);
-            this.txtContraNueva.TabIndex = 6;
+            this.txtContraNueva.TabIndex = 2;
             // 
             // txtConfContraNueva
             // 
             this.txtConfContraNueva.Location = new System.Drawing.Point(155, 98);
             this.txtConfContraNueva.Name = "txtConfContraNueva";
+            this.txtConfContraNueva.PasswordChar = '*';
             this.txtConfContraNueva.Size = new System.Drawing.Size(195, 20);
-            this.txtConfContraNueva.TabIndex = 7;
+            this.txtConfContraNueva.TabIndex = 3;
             // 
             // sistemaOTDataSet
             // 
