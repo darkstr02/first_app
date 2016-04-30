@@ -37,6 +37,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +74,12 @@
     </Compile>
     <Compile Include="frmBuscar.Designer.cs">
       <DependentUpon>frmBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambiarServidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarServidor.Designer.cs">
+      <DependentUpon>frmCambiarServidor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCambioContrasena.cs">
       <SubType>Form</SubType>
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscar.resx">
       <DependentUpon>frmBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarServidor.resx">
+      <DependentUpon>frmCambiarServidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCambioContrasena.resx">
       <DependentUpon>frmCambioContrasena.cs</DependentUpon>

@@ -46,5 +46,11 @@ namespace PrototipoOT
             this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
             
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmCambiarServidor frm = new frmCambiarServidor();
+            frm.ShowDialog();
+        }
     }
 }
