@@ -285,23 +285,6 @@ WHERE        (id_servicio &lt;&gt; 0)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_nombreresponsablesTableAdapter" GeneratorDataComponentClassName="vw_nombreresponsablesTableAdapter" Name="vw_nombreresponsables" UserDataComponentName="vw_nombreresponsablesTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectName="SistemaOT.dbo.vw_nombreresponsables" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id_responsable, Responsable FROM dbo.vw_nombreresponsables</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id_responsable" DataSetColumn="id_responsable" />
-              <Mapping SourceColumn="Responsable" DataSetColumn="Responsable" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ORDENES_DE_TRABAJOTableAdapter" GeneratorDataComponentClassName="ORDENES_DE_TRABAJOTableAdapter" Name="ORDENES_DE_TRABAJO" UserDataComponentName="ORDENES_DE_TRABAJOTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectName="SistemaOT.dbo.ORDENES_DE_TRABAJO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -543,7 +526,7 @@ WHERE        (nombre = @Original_nombre)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExistsAccount" Modifier="Public" Name="ExistsAccount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ExistsAccount">
+              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExistsAccount" Modifier="Public" Name="ExistsAccount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ExistsAccount">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -556,7 +539,7 @@ WHERE        (nombre = @nombre) AND (passwd = @passwd) AND id_cat_cuenta = 1</Co
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExistsAccountName" Modifier="Public" Name="ExistsAccountName" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="ExistsAccountName">
+              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExistsAccountName" Modifier="Public" Name="ExistsAccountName" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="ExistsAccountName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM CUENTAS_DE_USUARIO WHERE nombre = @nombre</CommandText>
@@ -599,6 +582,23 @@ WHERE        (nombre = @nombre)</CommandText>
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
               <Mapping SourceColumn="Tipo de Cuenta" DataSetColumn="Tipo de Cuenta" />
               <Mapping SourceColumn="Último Acceso" DataSetColumn="Último Acceso" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_nombreresponsablesTableAdapter" GeneratorDataComponentClassName="vw_nombreresponsablesTableAdapter" Name="vw_nombreresponsables" UserDataComponentName="vw_nombreresponsablesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SistemaOTConnectionString (Settings)" DbObjectName="SistemaOT.dbo.vw_nombreresponsables" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id_responsable, Responsable FROM dbo.vw_nombreresponsables</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_responsable" DataSetColumn="id_responsable" />
+              <Mapping SourceColumn="Responsable" DataSetColumn="Responsable" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -752,20 +752,6 @@ WHERE        (nombre = @nombre)</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="vw_nombreresponsables" msprop:Generator_TableClassName="vw_nombreresponsablesDataTable" msprop:Generator_TableVarName="tablevw_nombreresponsables" msprop:Generator_RowChangedName="vw_nombreresponsablesRowChanged" msprop:Generator_TablePropName="vw_nombreresponsables" msprop:Generator_RowDeletingName="vw_nombreresponsablesRowDeleting" msprop:Generator_RowChangingName="vw_nombreresponsablesRowChanging" msprop:Generator_RowEvHandlerName="vw_nombreresponsablesRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_nombreresponsablesRowDeleted" msprop:Generator_RowClassName="vw_nombreresponsablesRow" msprop:Generator_UserTableName="vw_nombreresponsables" msprop:Generator_RowEvArgName="vw_nombreresponsablesRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id_responsable" msprop:Generator_ColumnVarNameInTable="columnid_responsable" msprop:Generator_ColumnPropNameInRow="id_responsable" msprop:Generator_ColumnPropNameInTable="id_responsableColumn" msprop:Generator_UserColumnName="id_responsable" type="xs:int" />
-              <xs:element name="Responsable" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="92" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -960,6 +946,20 @@ WHERE        (nombre = @nombre)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="vw_nombreresponsables" msprop:Generator_TableClassName="vw_nombreresponsablesDataTable" msprop:Generator_TableVarName="tablevw_nombreresponsables" msprop:Generator_TablePropName="vw_nombreresponsables" msprop:Generator_RowDeletingName="vw_nombreresponsablesRowDeleting" msprop:Generator_RowChangingName="vw_nombreresponsablesRowChanging" msprop:Generator_RowEvHandlerName="vw_nombreresponsablesRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_nombreresponsablesRowDeleted" msprop:Generator_UserTableName="vw_nombreresponsables" msprop:Generator_RowChangedName="vw_nombreresponsablesRowChanged" msprop:Generator_RowEvArgName="vw_nombreresponsablesRowChangeEvent" msprop:Generator_RowClassName="vw_nombreresponsablesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_responsable" msprop:Generator_ColumnVarNameInTable="columnid_responsable" msprop:Generator_ColumnPropNameInRow="id_responsable" msprop:Generator_ColumnPropNameInTable="id_responsableColumn" msprop:Generator_UserColumnName="id_responsable" type="xs:int" />
+              <xs:element name="Responsable" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="61" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -977,10 +977,6 @@ WHERE        (nombre = @nombre)</CommandText>
     <xs:unique name="vw_responsables_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:vw_responsables" />
       <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="vw_nombreresponsables_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:vw_nombreresponsables" />
-      <xs:field xpath="mstns:id_responsable" />
     </xs:unique>
     <xs:unique name="ORDENES_DE_TRABAJO_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ORDENES_DE_TRABAJO" />
@@ -1001,6 +997,10 @@ WHERE        (nombre = @nombre)</CommandText>
     <xs:unique name="vw_cuentas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:vw_cuentas" />
       <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="vw_nombreresponsables_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vw_nombreresponsables" />
+      <xs:field xpath="mstns:id_responsable" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

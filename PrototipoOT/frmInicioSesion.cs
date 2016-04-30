@@ -20,6 +20,7 @@ namespace PrototipoOT
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             if ((int) this.cUENTAS_DE_USUARIOTableAdapter.ExistsAccount(txtNombre.Text, txtContraseña.Text) == 1)
             {
                 int permiso = (int) this.cUENTAS_DE_USUARIOTableAdapter.FetchPermiso(txtNombre.Text);
@@ -43,7 +44,7 @@ namespace PrototipoOT
         {
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.CUENTAS_DE_USUARIO' Puede moverla o quitarla según sea necesario.
             this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
-
+            
         }
     }
 }
