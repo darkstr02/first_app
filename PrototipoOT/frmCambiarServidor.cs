@@ -24,6 +24,8 @@ namespace PrototipoOT
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
+            SaveData(new string[] { cbServidor.Text, txtUsuario.Text,txtContrasena.Text,cbBaseDatos.Text });
+
             this.Close();
         }
 
@@ -46,20 +48,23 @@ namespace PrototipoOT
 
         }
 
-
-
         private DataTable FetchServers()
         {
             SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
             return instance.GetDataSources();
         }
 
-        private void SaveData(DataTable tabla)
+        private void SaveData(string[] parametros)
         {
-            //Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            //config.ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString = textBox1.Text;
-            //config.Save(ConfigurationSaveMode.Modified, true);
-            //ConfigurationManager.RefreshSection("connectionStrings");
+            string connString = "Data Source="+parametros[0];
+            connString += ";Initial Catalog=" + parametros[3];
+            connString += ";User ID=" + parametros[1];
+            connString += ";Password=" + parametros[2];
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString = connString;
+            config.Save(ConfigurationSaveMode.Modified, true);
+            ConfigurationManager.RefreshSection("connectionStrings");
         }
 
         private List<DBName> FetchDatabases(string SelectedServer, string user, string passwd)
