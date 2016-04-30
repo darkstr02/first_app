@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbBaseDatos = new System.Windows.Forms.ComboBox();
+            this.cbServidor = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,8 +39,6 @@
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.cmdCancelar = new System.Windows.Forms.Button();
-            this.cbServidor = new System.Windows.Forms.ComboBox();
-            this.cbBaseDatos = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credenciales SQL Server";
             // 
+            // cbBaseDatos
+            // 
+            this.cbBaseDatos.FormattingEnabled = true;
+            this.cbBaseDatos.Location = new System.Drawing.Point(123, 125);
+            this.cbBaseDatos.Name = "cbBaseDatos";
+            this.cbBaseDatos.Size = new System.Drawing.Size(168, 21);
+            this.cbBaseDatos.TabIndex = 4;
+            this.cbBaseDatos.DropDown += new System.EventHandler(this.cbBaseDatos_SelectedIndexChanged);
+            // 
+            // cbServidor
+            // 
+            this.cbServidor.FormattingEnabled = true;
+            this.cbServidor.Location = new System.Drawing.Point(123, 19);
+            this.cbServidor.Name = "cbServidor";
+            this.cbServidor.Size = new System.Drawing.Size(169, 21);
+            this.cbServidor.TabIndex = 1;
+            this.cbServidor.DropDown += new System.EventHandler(this.cbServidor_SelectedIndexChanged);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -73,7 +91,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(123, 46);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(169, 20);
-            this.txtUsuario.TabIndex = 6;
+            this.txtUsuario.TabIndex = 2;
             // 
             // label3
             // 
@@ -108,48 +126,36 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(169, 20);
-            this.txtContrasena.TabIndex = 2;
+            this.txtContrasena.TabIndex = 3;
             // 
             // cmdAceptar
             // 
+            this.cmdAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdAceptar.Location = new System.Drawing.Point(68, 183);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(75, 37);
-            this.cmdAceptar.TabIndex = 1;
+            this.cmdAceptar.TabIndex = 5;
             this.cmdAceptar.Text = "Aceptar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // cmdCancelar
             // 
+            this.cmdCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancelar.Location = new System.Drawing.Point(229, 183);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(75, 37);
-            this.cmdCancelar.TabIndex = 2;
+            this.cmdCancelar.TabIndex = 6;
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = true;
-            // 
-            // cbServidor
-            // 
-            this.cbServidor.FormattingEnabled = true;
-            this.cbServidor.Location = new System.Drawing.Point(123, 19);
-            this.cbServidor.Name = "cbServidor";
-            this.cbServidor.Size = new System.Drawing.Size(169, 21);
-            this.cbServidor.TabIndex = 8;
-            // 
-            // cbBaseDatos
-            // 
-            this.cbBaseDatos.FormattingEnabled = true;
-            this.cbBaseDatos.Location = new System.Drawing.Point(123, 125);
-            this.cbBaseDatos.Name = "cbBaseDatos";
-            this.cbBaseDatos.Size = new System.Drawing.Size(168, 21);
-            this.cbBaseDatos.TabIndex = 9;
-            this.cbBaseDatos.DropDown += new System.EventHandler(this.cbBaseDatos_SelectedIndexChanged);
+            this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // frmCambiarServidor
             // 
+            this.AcceptButton = this.cmdAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdCancelar;
             this.ClientSize = new System.Drawing.Size(360, 232);
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdAceptar);

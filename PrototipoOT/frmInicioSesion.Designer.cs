@@ -67,14 +67,14 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(174, 20);
-            this.txtContraseña.TabIndex = 3;
+            this.txtContraseña.TabIndex = 2;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(111, 47);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(174, 20);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -99,7 +99,7 @@
             this.cmdIniciarSesion.Location = new System.Drawing.Point(199, 204);
             this.cmdIniciarSesion.Name = "cmdIniciarSesion";
             this.cmdIniciarSesion.Size = new System.Drawing.Size(104, 44);
-            this.cmdIniciarSesion.TabIndex = 1;
+            this.cmdIniciarSesion.TabIndex = 4;
             this.cmdIniciarSesion.Text = "Iniciar Sesión";
             this.cmdIniciarSesion.UseVisualStyleBackColor = true;
             this.cmdIniciarSesion.Click += new System.EventHandler(this.button1_Click);
@@ -110,7 +110,7 @@
             this.cmdCancelar.Location = new System.Drawing.Point(401, 204);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(110, 44);
-            this.cmdCancelar.TabIndex = 2;
+            this.cmdCancelar.TabIndex = 5;
             this.cmdCancelar.Text = "Salir";
             this.cmdCancelar.UseVisualStyleBackColor = true;
             // 
@@ -133,7 +133,7 @@
             this.button1.Location = new System.Drawing.Point(202, 142);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 26);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Avanzado...";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -159,6 +159,7 @@
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdIniciarSesion);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmInicioSesion";

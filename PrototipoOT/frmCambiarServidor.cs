@@ -15,6 +15,8 @@ namespace PrototipoOT
 {
     public partial class frmCambiarServidor : Form
     {
+        bool serversFetched = false;
+
         public frmCambiarServidor()
         {
             InitializeComponent();
@@ -27,10 +29,24 @@ namespace PrototipoOT
 
         private void frmCambiarServidor_Load(object sender, EventArgs e)
         {
-            DataTable dt = FetchServers();
-            foreach(DataRow dr in dt.Rows)
-                cbServidor.Items.Add(dr["ServerName"]);
+            string connStringApp = System.Configuration.ConfigurationManager.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+            string[] lista = connStringApp.Split(';');
+            List<string> param = new List<string>();
+
+            foreach(string str in lista)
+            {
+                string[] partes = str.Split('=');
+                param.Add(partes[1]);
+            }
+
+            cbServidor.Text = param[0];
+            txtUsuario.Text = param[2];
+            txtContrasena.Text = param[3];
+            cbBaseDatos.Text = param[1];
+
         }
+
+
 
         private DataTable FetchServers()
         {
@@ -64,7 +80,8 @@ namespace PrototipoOT
             SqlConnection sqlConn = new SqlConnection(strConn);
 
             //open connection
-            sqlConn.Open();
+            try { sqlConn.Open(); }
+            catch (Exception e) { MessageBox.Show(e.Message); return null; }
 
             //get databases
             DataTable tblDatabases = sqlConn.GetSchema("Databases");
@@ -83,13 +100,16 @@ namespace PrototipoOT
 
         private void cbBaseDatos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<DBName> dt = FetchDatabases(cbServidor.SelectedItem.ToString(), txtUsuario.Text.Trim(), txtContrasena.Text);
-            cbBaseDatos.DataSource = dt;
-            cbBaseDatos.DisplayMember = "Name";
-            cbBaseDatos.ValueMember = "Name";
+            List<DBName> dt = FetchDatabases(cbServidor.Text, txtUsuario.Text.Trim(), txtContrasena.Text);
+            if (dt == null)
+                return;
+            else
+            {
+                cbBaseDatos.DataSource = dt;
+                cbBaseDatos.DisplayMember = "Name";
+                cbBaseDatos.ValueMember = "Name";
+            }
         }
-
-
 
         public class DBName
         {
@@ -98,6 +118,23 @@ namespace PrototipoOT
             {
                 Name = _name;
             }
+        }
+
+        private void cbServidor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!serversFetched)
+            {
+                DataTable dt = FetchServers();
+                foreach (DataRow dr in dt.Rows)
+                    cbServidor.Items.Add(dr["ServerName"]);
+            }
+            serversFetched = true;
+
+        }
+
+        private void cmdCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
