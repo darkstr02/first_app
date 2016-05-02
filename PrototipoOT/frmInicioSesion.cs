@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -30,8 +31,15 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //if (ex.HResult == -2146232060)
+               //     MessageBox.Show("La base de datos seleccionada es inválida. Por favor, seleccione la base de datos correcta en la ventana 'Cambiar Servidor...'.");
+                //else
+                if(ex.Message == "Invalid object name 'dbo.CUENTAS_DE_USUARIO'.")
+                    MessageBox.Show("La base de datos seleccionada es inválida. Por favor, seleccione la base de datos correcta en la ventana 'Cambiar Servidor...'.");
+                else
+                    MessageBox.Show(ex.Message);
                 f.Close();
+                
                 return;
             }
 
@@ -64,7 +72,12 @@ namespace PrototipoOT
         private void button1_Click_1(object sender, EventArgs e)
         {
             frmCambiarServidor frm = new frmCambiarServidor();
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                this.cUENTAS_DE_USUARIOTableAdapter.Connection.ConnectionString = config.ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+               
+            }
         }
     }
 }

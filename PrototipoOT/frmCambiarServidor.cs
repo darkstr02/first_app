@@ -26,6 +26,7 @@ namespace PrototipoOT
         {
 
             SaveData(new string[] { cbServidor.Text, txtUsuario.Text,txtContrasena.Text,cbBaseDatos.Text });
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
@@ -107,7 +108,11 @@ namespace PrototipoOT
         {
             List<DBName> dt = FetchDatabases(cbServidor.Text, txtUsuario.Text.Trim(), txtContrasena.Text);
             if (dt == null)
+            {
+                cbBaseDatos.DataSource = null;
+                cbBaseDatos.Items.Clear();
                 return;
+            }
             else
             {
                 cbBaseDatos.DataSource = dt;
