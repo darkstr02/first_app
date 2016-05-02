@@ -72,12 +72,9 @@ namespace PrototipoOT
         private void button1_Click_1(object sender, EventArgs e)
         {
             frmCambiarServidor frm = new frmCambiarServidor();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                this.cUENTAS_DE_USUARIOTableAdapter.Connection.ConnectionString = config.ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
-               
-            }
+            if (frm.ShowDialog() == DialogResult.OK)               
+                this.cUENTAS_DE_USUARIOTableAdapter.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;    
+            
         }
     }
 }

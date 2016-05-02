@@ -71,6 +71,7 @@ namespace PrototipoOT
         private List<DBName> FetchDatabases(string SelectedServer, string user, string passwd)
         {
             List<DBName> databases = new List<DBName>();
+            DataTable tblDatabases;
 
             SqlConnectionStringBuilder connection = new SqlConnectionStringBuilder();
 
@@ -86,11 +87,11 @@ namespace PrototipoOT
             SqlConnection sqlConn = new SqlConnection(strConn);
 
             //open connection
-            try { sqlConn.Open(); }
+            try { sqlConn.Open(); tblDatabases = sqlConn.GetSchema("Databases"); }
             catch (Exception e) { MessageBox.Show(e.Message); return null; }
 
             //get databases
-            DataTable tblDatabases = sqlConn.GetSchema("Databases");
+            
 
             //close connection
             sqlConn.Close();
@@ -135,16 +136,10 @@ namespace PrototipoOT
 
             if (!serversFetched)
             {
-                frmCargando f = new frmCargando();
-                f.Show();
-                Application.DoEvents();
-
                 cbServidor.Items.Clear();
                 DataTable dt = FetchServers();
                 foreach (DataRow dr in dt.Rows)
                     cbServidor.Items.Add(dr["ServerName"]);
-
-                f.Close();
             }
             serversFetched = true;
 
