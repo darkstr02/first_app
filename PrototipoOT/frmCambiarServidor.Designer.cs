@@ -160,7 +160,11 @@
             this.Controls.Add(this.cmdCancelar);
             this.Controls.Add(this.cmdAceptar);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCambiarServidor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración de Conexión al Servidor";
             this.Load += new System.EventHandler(this.frmCambiarServidor_Load);
             this.groupBox1.ResumeLayout(false);

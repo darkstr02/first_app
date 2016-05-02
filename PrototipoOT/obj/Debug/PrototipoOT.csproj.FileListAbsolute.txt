@@ -22,3 +22,4 @@ C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\RdlCompile.compiled
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmInicioSesion.resources
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmCambiarServidor.resources
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmCargando.resources

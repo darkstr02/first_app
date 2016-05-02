@@ -20,7 +20,20 @@ namespace PrototipoOT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
+            frmCargando f = new frmCargando();
+            f.Show();
+            Application.DoEvents();
+            try
+            {                         
+                this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
+                f.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                f.Close();
+                return;
+            }
 
             if ((int) this.cUENTAS_DE_USUARIOTableAdapter.ExistsAccount(txtNombre.Text, txtContraseña.Text) == 1)
             {

@@ -24,8 +24,8 @@ namespace PrototipoOT
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
-            SaveData(new string[] { cbServidor.Text, txtUsuario.Text,txtContrasena.Text,cbBaseDatos.Text });
 
+            SaveData(new string[] { cbServidor.Text, txtUsuario.Text,txtContrasena.Text,cbBaseDatos.Text });
             this.Close();
         }
 
@@ -127,13 +127,22 @@ namespace PrototipoOT
 
         private void cbServidor_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (!serversFetched)
             {
+                frmCargando f = new frmCargando();
+                f.Show();
+                Application.DoEvents();
+
+                cbServidor.Items.Clear();
                 DataTable dt = FetchServers();
                 foreach (DataRow dr in dt.Rows)
                     cbServidor.Items.Add(dr["ServerName"]);
+
+                f.Close();
             }
             serversFetched = true;
+
 
         }
 

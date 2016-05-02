@@ -267,9 +267,11 @@ namespace PrototipoOT
         private void Form1_Load(object sender, EventArgs e)
         {
             frmInicioSesion frm = new frmInicioSesion();
+            
             if (frm.ShowDialog() != DialogResult.OK)
             {
                 this.Close();
+                return;
             }
 
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.

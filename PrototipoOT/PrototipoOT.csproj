@@ -87,6 +87,12 @@
     <Compile Include="frmCambioContrasena.Designer.cs">
       <DependentUpon>frmCambioContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCargando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCargando.Designer.cs">
+      <DependentUpon>frmCargando.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFiltrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     <EmbeddedResource Include="frmCambioContrasena.resx">
       <DependentUpon>frmCambioContrasena.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCargando.resx">
+      <DependentUpon>frmCargando.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFiltrar.resx">
       <DependentUpon>frmFiltrar.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,7 +237,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\New-file-icon.png" />
@@ -256,6 +267,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logoipn %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\iconoCargando.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
