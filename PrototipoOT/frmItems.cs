@@ -88,6 +88,12 @@ namespace PrototipoOT
 
         private void cmdBorrarServicio_Click(object sender, EventArgs e)
         {
+            if (lbServicios.Items.Count == 0)
+            {
+                MessageBox.Show("No existen registros en la lista.");
+                return;
+            }
+
             if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 DataRowView borrar = (DataRowView) lbServicios.SelectedItem;
@@ -95,14 +101,18 @@ namespace PrototipoOT
                 DataRow[] resultado = this.sistemaOTDataSet.SERVICIOS.Select("descripcion = '" + borrarString+"'");
                 DataRow viejo = resultado[0];
                 viejo.Delete();
-                //this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS); 
             }
-            //PENDIENTE LA VALIDACION
-            
+
         }
 
         private void cmdBorrarArea_Click(object sender, EventArgs e)
         {
+
+            if (lbAreas.Items.Count == 0)
+            {
+                MessageBox.Show("No existen registros en la lista.");
+                return;
+            }
 
             if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -112,9 +122,7 @@ namespace PrototipoOT
                 DataRow viejo = resultado[0];
                 viejo.Delete();
             }
-            //this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
 
-            //PENDIENTE LA VALIDACION
         }
 
         private void cmdAceptar_Click(object sender, EventArgs e)

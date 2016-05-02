@@ -67,11 +67,12 @@ namespace PrototipoOT
                 MessageBox.Show(errorMsg);
                 return;
             }
-                     
+
+            this.Validate();
             this.bindingSource1.EndEdit();
-            this.sistemaOTDataSet.AcceptChanges();
             this.cUENTAS_DE_USUARIOTableAdapter.Update(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
             
+
             txtNombre.Focus();
             if (!bindingNavigatorMovePreviousItem.Enabled && editing)
                 bindingNavigatorMovePreviousItem.Enabled = true;

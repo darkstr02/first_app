@@ -124,9 +124,9 @@ namespace PrototipoOT
             {
                 this.sERVICIOSTableAdapter.FillBy(this.sistemaOTDataSet.SERVICIOS);
                 this.aREASTableAdapter.FillBy(this.sistemaOTDataSet1.AREAS);
-                if (!cbArea.Items.Contains(cbArea.SelectedItem))
+                if ((cbArea.SelectedItem != null) ? !cbArea.Items.Contains(cbArea.SelectedItem) : false)
                     cbArea.SelectedIndex = 0;
-                if (!cbServicio.Items.Contains(cbServicio.SelectedItem))
+                if ((cbServicio.SelectedItem != null) ? !cbServicio.Items.Contains(cbServicio.SelectedItem) : false)
                     cbServicio.SelectedIndex = 0;
             }
         }
