@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            PresentationControls.CheckBoxProperties checkBoxProperties4 = new PresentationControls.CheckBoxProperties();
             PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
             PresentationControls.CheckBoxProperties checkBoxProperties2 = new PresentationControls.CheckBoxProperties();
-            PresentationControls.CheckBoxProperties checkBoxProperties3 = new PresentationControls.CheckBoxProperties();
             this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.label1 = new System.Windows.Forms.Label();
@@ -108,13 +108,13 @@
             // 
             // dtpFechaInicio
             // 
+            this.dtpFechaInicio.Checked = false;
             this.dtpFechaInicio.CustomFormat = "";
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaInicio.Location = new System.Drawing.Point(51, 28);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(102, 20);
             this.dtpFechaInicio.TabIndex = 8;
-            this.dtpFechaInicio.Value = new System.DateTime(2016, 4, 16, 0, 0, 0, 0);
             // 
             // groupBox1
             // 
@@ -140,13 +140,13 @@
             // 
             // dtpFechaFinal
             // 
+            this.dtpFechaFinal.Checked = false;
             this.dtpFechaFinal.CustomFormat = "";
             this.dtpFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaFinal.Location = new System.Drawing.Point(204, 29);
             this.dtpFechaFinal.Name = "dtpFechaFinal";
             this.dtpFechaFinal.Size = new System.Drawing.Size(102, 20);
             this.dtpFechaFinal.TabIndex = 10;
-            this.dtpFechaFinal.Value = new System.DateTime(2016, 4, 16, 12, 49, 9, 0);
             // 
             // chkEntregado
             // 
@@ -190,8 +190,8 @@
             // 
             // cbResponsable
             // 
-            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbResponsable.CheckBoxProperties = checkBoxProperties1;
+            checkBoxProperties4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbResponsable.CheckBoxProperties = checkBoxProperties4;
             this.cbResponsable.DisplayMemberSingleItem = "";
             this.cbResponsable.FormattingEnabled = true;
             this.cbResponsable.Location = new System.Drawing.Point(113, 135);
@@ -201,8 +201,8 @@
             // 
             // cbArea
             // 
-            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbArea.CheckBoxProperties = checkBoxProperties2;
+            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbArea.CheckBoxProperties = checkBoxProperties1;
             this.cbArea.DisplayMemberSingleItem = "";
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(113, 108);
@@ -212,8 +212,8 @@
             // 
             // cbServicio
             // 
-            checkBoxProperties3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbServicio.CheckBoxProperties = checkBoxProperties3;
+            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbServicio.CheckBoxProperties = checkBoxProperties2;
             this.cbServicio.DisplayMemberSingleItem = "descripcion";
             this.cbServicio.FormattingEnabled = true;
             this.cbServicio.Location = new System.Drawing.Point(113, 81);

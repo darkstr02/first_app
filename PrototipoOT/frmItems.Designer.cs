@@ -57,14 +57,14 @@
             this.txtServicio.Location = new System.Drawing.Point(70, 22);
             this.txtServicio.Name = "txtServicio";
             this.txtServicio.Size = new System.Drawing.Size(100, 20);
-            this.txtServicio.TabIndex = 0;
+            this.txtServicio.TabIndex = 1;
             // 
             // txtArea
             // 
             this.txtArea.Location = new System.Drawing.Point(243, 22);
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(100, 20);
-            this.txtArea.TabIndex = 1;
+            this.txtArea.TabIndex = 5;
             // 
             // cmdAñadirServicio
             // 
@@ -81,7 +81,7 @@
             this.cmdAñadirArea.Location = new System.Drawing.Point(257, 48);
             this.cmdAñadirArea.Name = "cmdAñadirArea";
             this.cmdAñadirArea.Size = new System.Drawing.Size(75, 23);
-            this.cmdAñadirArea.TabIndex = 3;
+            this.cmdAñadirArea.TabIndex = 6;
             this.cmdAñadirArea.Text = "Añadir";
             this.cmdAñadirArea.UseVisualStyleBackColor = true;
             this.cmdAñadirArea.Click += new System.EventHandler(this.cmdAñadirArea_Click);
@@ -94,7 +94,7 @@
             this.lbServicios.Location = new System.Drawing.Point(56, 77);
             this.lbServicios.Name = "lbServicios";
             this.lbServicios.Size = new System.Drawing.Size(128, 95);
-            this.lbServicios.TabIndex = 4;
+            this.lbServicios.TabIndex = 3;
             this.lbServicios.ValueMember = "id_servicio";
             // 
             // sERVICIOSBindingSource
@@ -115,7 +115,7 @@
             this.lbAreas.Location = new System.Drawing.Point(234, 77);
             this.lbAreas.Name = "lbAreas";
             this.lbAreas.Size = new System.Drawing.Size(120, 95);
-            this.lbAreas.TabIndex = 5;
+            this.lbAreas.TabIndex = 7;
             this.lbAreas.ValueMember = "id_area";
             // 
             // aREASBindingSource
@@ -125,20 +125,20 @@
             // 
             // cmdAceptar
             // 
-            this.cmdAceptar.Location = new System.Drawing.Point(83, 241);
+            this.cmdAceptar.Location = new System.Drawing.Point(81, 241);
             this.cmdAceptar.Name = "cmdAceptar";
             this.cmdAceptar.Size = new System.Drawing.Size(81, 41);
-            this.cmdAceptar.TabIndex = 6;
+            this.cmdAceptar.TabIndex = 9;
             this.cmdAceptar.Text = "Aceptar";
             this.cmdAceptar.UseVisualStyleBackColor = true;
             this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // cmdCancelar
             // 
-            this.cmdCancelar.Location = new System.Drawing.Point(254, 241);
+            this.cmdCancelar.Location = new System.Drawing.Point(252, 241);
             this.cmdCancelar.Name = "cmdCancelar";
             this.cmdCancelar.Size = new System.Drawing.Size(81, 41);
-            this.cmdCancelar.TabIndex = 7;
+            this.cmdCancelar.TabIndex = 10;
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = true;
             this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
@@ -156,7 +156,7 @@
             this.cmdBorrarServicio.Location = new System.Drawing.Point(83, 178);
             this.cmdBorrarServicio.Name = "cmdBorrarServicio";
             this.cmdBorrarServicio.Size = new System.Drawing.Size(75, 23);
-            this.cmdBorrarServicio.TabIndex = 8;
+            this.cmdBorrarServicio.TabIndex = 4;
             this.cmdBorrarServicio.Text = "Borrar";
             this.cmdBorrarServicio.UseVisualStyleBackColor = true;
             this.cmdBorrarServicio.Click += new System.EventHandler(this.cmdBorrarServicio_Click);
@@ -166,7 +166,7 @@
             this.cmdBorrarArea.Location = new System.Drawing.Point(254, 178);
             this.cmdBorrarArea.Name = "cmdBorrarArea";
             this.cmdBorrarArea.Size = new System.Drawing.Size(75, 23);
-            this.cmdBorrarArea.TabIndex = 9;
+            this.cmdBorrarArea.TabIndex = 8;
             this.cmdBorrarArea.Text = "Borrar";
             this.cmdBorrarArea.UseVisualStyleBackColor = true;
             this.cmdBorrarArea.Click += new System.EventHandler(this.cmdBorrarArea_Click);

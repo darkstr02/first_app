@@ -117,9 +117,6 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                if(ex.HResult == -2146232022)
-                    MessageBox.Show("Consecutivo ya existe");
-                else    
                     MessageBox.Show("No existen registros de ordenes de trabajo");
             }
         }

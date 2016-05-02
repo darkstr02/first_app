@@ -30,6 +30,12 @@ namespace PrototipoOT
 
         private void cmdAñadirServicio_Click(object sender, EventArgs e)
         {
+            if (txtServicio.Text == String.Empty)
+            {
+                MessageBox.Show("Introduzca un nuevo servicio en el campo correspondiente.");
+                return;
+            }
+
             string[] param = new string[1];
             param[0] = txtServicio.Text;
 
@@ -55,6 +61,12 @@ namespace PrototipoOT
         {
             string area = txtArea.Text;
 
+            if (area == String.Empty)
+            {
+                MessageBox.Show("Introduzca una nueva área en el campo correspondiente.");
+                return;
+            }
+
             DataRow nuevo = this.sistemaOTDataSet.AREAS.NewRow();
             nuevo["descripcion"] = area;
 
@@ -76,24 +88,30 @@ namespace PrototipoOT
 
         private void cmdBorrarServicio_Click(object sender, EventArgs e)
         {
-            DataRowView borrar = (DataRowView) lbServicios.SelectedItem;
-            string borrarString = borrar.Row["descripcion"].ToString();
-            DataRow[] resultado = this.sistemaOTDataSet.SERVICIOS.Select("descripcion = '" + borrarString+"'");
-            DataRow viejo = resultado[0];
-            viejo.Delete();
-            //this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS); 
-
+            if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DataRowView borrar = (DataRowView) lbServicios.SelectedItem;
+                string borrarString = borrar.Row["descripcion"].ToString();
+                DataRow[] resultado = this.sistemaOTDataSet.SERVICIOS.Select("descripcion = '" + borrarString+"'");
+                DataRow viejo = resultado[0];
+                viejo.Delete();
+                //this.sERVICIOSTableAdapter.Update(this.sistemaOTDataSet.SERVICIOS); 
+            }
             //PENDIENTE LA VALIDACION
             
         }
 
         private void cmdBorrarArea_Click(object sender, EventArgs e)
         {
-            DataRowView borrar = (DataRowView)lbAreas.SelectedItem;
-            string borrarString = borrar.Row["descripcion"].ToString();
-            DataRow[] resultado = this.sistemaOTDataSet.AREAS.Select("descripcion = '" + borrarString + "'");
-            DataRow viejo = resultado[0];
-            viejo.Delete();
+
+            if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DataRowView borrar = (DataRowView)lbAreas.SelectedItem;
+                string borrarString = borrar.Row["descripcion"].ToString();
+                DataRow[] resultado = this.sistemaOTDataSet.AREAS.Select("descripcion = '" + borrarString + "'");
+                DataRow viejo = resultado[0];
+                viejo.Delete();
+            }
             //this.aREASTableAdapter.Update(this.sistemaOTDataSet.AREAS);
 
             //PENDIENTE LA VALIDACION

@@ -124,6 +124,10 @@ namespace PrototipoOT
             {
                 this.sERVICIOSTableAdapter.FillBy(this.sistemaOTDataSet.SERVICIOS);
                 this.aREASTableAdapter.FillBy(this.sistemaOTDataSet1.AREAS);
+                if (!cbArea.Items.Contains(cbArea.SelectedItem))
+                    cbArea.SelectedIndex = 0;
+                if (!cbServicio.Items.Contains(cbServicio.SelectedItem))
+                    cbServicio.SelectedIndex = 0;
             }
         }
 
@@ -210,13 +214,15 @@ namespace PrototipoOT
             catch (Exception ex)
             {
                 MessageBox.Show("Consecutivo ya existe!");
+                txtConsecutivo.Focus();
                 return -1;
             }
         }
 
         private int modificarOrden()
         {
-            modifyRow["consecutivo"] = txtConsecutivo.Text.ToUpper();
+            try { modifyRow["consecutivo"] = txtConsecutivo.Text.ToUpper(); }
+            catch (Exception e) { MessageBox.Show("Consecutivo ya existe!"); txtConsecutivo.Focus(); return -1; }
             modifyRow["solicitante"] = txtSolicitante.Text;
 
             DataRowView serv = (DataRowView)cbServicio.SelectedItem;

@@ -35,6 +35,12 @@ namespace PrototipoOT
             frmReportViewer rv;
             Reporte rp;
 
+            if (dtpFechaInicio.Value.Date > dtpFechaFinal.Value.Date)
+            {
+                MessageBox.Show("La fecha inicial no puede ser mayor a la fecha final.");
+                return;
+            }
+
             if (radResponsable.Checked)
             {
                 if (cbArea.SelectedItem != null && cbServicio.SelectedItem != null)
@@ -87,7 +93,7 @@ namespace PrototipoOT
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error: se ha elegido un tipo de reporte, pero su lista correspondiente no ha sido seleccionada.");
             }      
         }
 
