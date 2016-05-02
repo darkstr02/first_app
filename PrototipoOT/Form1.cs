@@ -39,7 +39,8 @@ namespace PrototipoOT
             string[] parametros = { "Servicio", "Área", "Responsable" };
             string resultado = "";
 
-            cadenas.Add("(Fecha_Inicio >= #" + filtro_fechainicio.ToString("yyyy-MM-dd") + "# AND Fecha_Inicio <= #" + filtro_fechafin.ToString("yyyy-MM-dd") + "#)");
+            if (filtro_fechainicio < filtro_fechafin)
+                cadenas.Add("(Fecha_Inicio >= #" + filtro_fechainicio.ToString("yyyy-MM-dd") + "# AND Fecha_Inicio <= #" + filtro_fechafin.ToString("yyyy-MM-dd") + "#)");
 
             if (chkstatus != CheckState.Indeterminate)
                 cadenas.Add( "entregado = " + ((chkstatus == CheckState.Checked) ? "TRUE " : "FALSE "));
@@ -62,18 +63,20 @@ namespace PrototipoOT
                 paramIndx++;
             }
 
- 
 
-            string last = cadenas[cadenas.Count-1];
-            foreach(string str in cadenas)
+            if (cadenas.Count != 0)
             {
-                resultado += str;
-                if(str != last)
-                    resultado += " AND ";
+                string last = cadenas[cadenas.Count - 1];
+                foreach (string str in cadenas)
+                {
+                    resultado += str;
+                    if (str != last)
+                        resultado += " AND ";
+                }
+                return resultado;
             }
-           
 
-            return resultado;
+            return null;
         }
 
         private void órdenesDeTrabajoToolStripMenuItem_Click(object sender, EventArgs e)
