@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicioSesion));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.cmdIniciarSesion = new System.Windows.Forms.Button();
             this.cmdCancelar = new System.Windows.Forms.Button();
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
@@ -59,16 +60,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credenciales";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(401, 157);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 26);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Cambiar Servidor...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // txtContraseña
             // 
@@ -102,6 +93,16 @@
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de Usuario:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(401, 157);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 26);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Cambiar Servidor...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // cmdIniciarSesion
             // 
@@ -160,6 +161,7 @@
             this.Controls.Add(this.cmdIniciarSesion);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmInicioSesion";

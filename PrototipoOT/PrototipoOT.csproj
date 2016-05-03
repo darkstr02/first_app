@@ -56,7 +56,6 @@
     <Compile Include="Acercade.Designer.cs">
       <DependentUpon>Acercade.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseDeDatos.cs" />
     <Compile Include="CodeFile1.cs" />
     <Compile Include="CredencialUsuario.cs" />
     <Compile Include="DataSetReportes.cs">
@@ -245,6 +244,7 @@
       <DependentUpon>SistemaOTDataSet.xsd</DependentUpon>
     </None>
     <None Include="images\limpiar.gif" />
+    <None Include="images\CECLogo.png" />
     <Content Include="User Manual.chm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

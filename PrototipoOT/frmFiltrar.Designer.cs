@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            PresentationControls.CheckBoxProperties checkBoxProperties4 = new PresentationControls.CheckBoxProperties();
             PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
             PresentationControls.CheckBoxProperties checkBoxProperties2 = new PresentationControls.CheckBoxProperties();
+            PresentationControls.CheckBoxProperties checkBoxProperties3 = new PresentationControls.CheckBoxProperties();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFiltrar));
             this.sERVICIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.label1 = new System.Windows.Forms.Label();
@@ -190,8 +191,8 @@
             // 
             // cbResponsable
             // 
-            checkBoxProperties4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbResponsable.CheckBoxProperties = checkBoxProperties4;
+            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbResponsable.CheckBoxProperties = checkBoxProperties1;
             this.cbResponsable.DisplayMemberSingleItem = "";
             this.cbResponsable.FormattingEnabled = true;
             this.cbResponsable.Location = new System.Drawing.Point(113, 135);
@@ -201,8 +202,8 @@
             // 
             // cbArea
             // 
-            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbArea.CheckBoxProperties = checkBoxProperties1;
+            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbArea.CheckBoxProperties = checkBoxProperties2;
             this.cbArea.DisplayMemberSingleItem = "";
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(113, 108);
@@ -212,8 +213,8 @@
             // 
             // cbServicio
             // 
-            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbServicio.CheckBoxProperties = checkBoxProperties2;
+            checkBoxProperties3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbServicio.CheckBoxProperties = checkBoxProperties3;
             this.cbServicio.DisplayMemberSingleItem = "descripcion";
             this.cbServicio.FormattingEnabled = true;
             this.cbServicio.Location = new System.Drawing.Point(113, 81);
@@ -258,6 +259,7 @@
             this.Controls.Add(this.cbArea);
             this.Controls.Add(this.cbServicio);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFiltrar";

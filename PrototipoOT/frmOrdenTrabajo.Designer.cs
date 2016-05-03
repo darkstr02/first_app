@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdenTrabajo));
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.txtConsecutivo = new System.Windows.Forms.TextBox();
             this.txtSolicitante = new System.Windows.Forms.TextBox();
@@ -383,6 +384,7 @@
             this.Controls.Add(this.txtConsecutivo);
             this.Controls.Add(this.dtpFecha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmOrdenTrabajo";

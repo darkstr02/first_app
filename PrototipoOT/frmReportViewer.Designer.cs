@@ -30,13 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportViewer));
             this.ORDENES_DE_TRABAJOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSetReportes = new PrototipoOT.DataSetReportes();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ORDENES_DE_TRABAJOTableAdapter = new PrototipoOT.DataSetReportesTableAdapters.ORDENES_DE_TRABAJOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ORDENES_DE_TRABAJOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetReportes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ORDENES_DE_TRABAJOBindingSource
+            // 
+            this.ORDENES_DE_TRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
+            this.ORDENES_DE_TRABAJOBindingSource.DataSource = this.DataSetReportes;
+            // 
+            // DataSetReportes
+            // 
+            this.DataSetReportes.DataSetName = "DataSetReportes";
+            this.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,16 +61,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(718, 312);
             this.reportViewer1.TabIndex = 0;
             // 
-            // ORDENES_DE_TRABAJOBindingSource
-            // 
-            this.ORDENES_DE_TRABAJOBindingSource.DataMember = "ORDENES_DE_TRABAJO";
-            this.ORDENES_DE_TRABAJOBindingSource.DataSource = this.DataSetReportes;
-            // 
-            // DataSetReportes
-            // 
-            this.DataSetReportes.DataSetName = "DataSetReportes";
-            this.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // ORDENES_DE_TRABAJOTableAdapter
             // 
             this.ORDENES_DE_TRABAJOTableAdapter.ClearBeforeFill = true;
@@ -70,8 +71,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 312);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportViewer";
-            this.Text = "frmReportViewer";
+            this.Text = "Reporte";
             this.Load += new System.EventHandler(this.frmReportViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ORDENES_DE_TRABAJOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetReportes)).EndInit();
