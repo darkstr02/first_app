@@ -12,8 +12,6 @@ namespace PrototipoOT
 {
     public partial class frmItems : Form
     {
-
-        BaseDeDatos bd;
         public frmItems()
         {
             InitializeComponent();
@@ -25,7 +23,7 @@ namespace PrototipoOT
             this.aREASTableAdapter.FillBy(this.sistemaOTDataSet.AREAS);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.SERVICIOS' Puede moverla o quitarla según sea necesario.
             this.sERVICIOSTableAdapter.FillBy(this.sistemaOTDataSet.SERVICIOS);
-            bd = new BaseDeDatos();
+
         }
 
         private void cmdAñadirServicio_Click(object sender, EventArgs e)
