@@ -133,11 +133,11 @@
             // 
             // cmdResponsable
             // 
+            this.cmdResponsable.Image = global::PrototipoOT.Properties.Resources.limpiar;
             this.cmdResponsable.Location = new System.Drawing.Point(220, 90);
             this.cmdResponsable.Name = "cmdResponsable";
             this.cmdResponsable.Size = new System.Drawing.Size(36, 23);
             this.cmdResponsable.TabIndex = 8;
-            this.cmdResponsable.Text = "L";
             this.cmdResponsable.UseVisualStyleBackColor = true;
             this.cmdResponsable.Click += new System.EventHandler(this.cmdResponsable_Click);
             // 
@@ -156,21 +156,21 @@
             // 
             // cmbArea
             // 
+            this.cmbArea.Image = global::PrototipoOT.Properties.Resources.limpiar;
             this.cmbArea.Location = new System.Drawing.Point(220, 55);
             this.cmbArea.Name = "cmbArea";
             this.cmbArea.Size = new System.Drawing.Size(36, 23);
             this.cmbArea.TabIndex = 7;
-            this.cmbArea.Text = "L";
             this.cmbArea.UseVisualStyleBackColor = true;
             this.cmbArea.Click += new System.EventHandler(this.cmbArea_Click);
             // 
             // cmdServicio
             // 
+            this.cmdServicio.Image = global::PrototipoOT.Properties.Resources.limpiar;
             this.cmdServicio.Location = new System.Drawing.Point(220, 20);
             this.cmdServicio.Name = "cmdServicio";
-            this.cmdServicio.Size = new System.Drawing.Size(36, 23);
+            this.cmdServicio.Size = new System.Drawing.Size(36, 29);
             this.cmdServicio.TabIndex = 6;
-            this.cmdServicio.Text = "L";
             this.cmdServicio.UseVisualStyleBackColor = true;
             this.cmdServicio.Click += new System.EventHandler(this.cmdServicio_Click);
             // 

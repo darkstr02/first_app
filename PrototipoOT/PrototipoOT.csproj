@@ -244,6 +244,7 @@
     <None Include="SistemaOTDataSet.xss">
       <DependentUpon>SistemaOTDataSet.xsd</DependentUpon>
     </None>
+    <None Include="images\limpiar.gif" />
     <Content Include="User Manual.chm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
