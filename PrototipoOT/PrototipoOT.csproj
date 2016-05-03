@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acercade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acercade.Designer.cs">
+      <DependentUpon>Acercade.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseDeDatos.cs" />
     <Compile Include="CodeFile1.cs" />
     <Compile Include="CredencialUsuario.cs" />
@@ -152,6 +158,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SistemaOTDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Acercade.resx">
+      <DependentUpon>Acercade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +244,9 @@
     <None Include="SistemaOTDataSet.xss">
       <DependentUpon>SistemaOTDataSet.xsd</DependentUpon>
     </None>
+    <Content Include="User Manual.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

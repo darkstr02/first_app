@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,7 +87,7 @@ namespace PrototipoOT
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            showMyHelp();
         }
 
         //NUEVA ORDEN TOOL STRIP
@@ -392,5 +393,29 @@ namespace PrototipoOT
                 MessageBox.Show("No ha seleccionado un registro o no existen registros de Órdenes de Trabajo.");
             }
         }
+
+        //AYUDA
+        private void showMyHelp()
+        {
+            string path = Path.GetDirectoryName(Application.ExecutablePath);
+            path = "file://" + Path.Combine(path, "User Manual.chm");
+            Help.ShowHelp(this, path);
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                showMyHelp();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAcercaDe frm = new frmAcercaDe();
+            frm.ShowDialog();
+        }
+
     }
 }
