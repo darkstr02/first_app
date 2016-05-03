@@ -147,6 +147,10 @@ namespace PrototipoOT
                 { errorMsg = "Introduzca un consecutivo."; txtConsecutivo.Focus(); }
                 else if (txtSolicitante.Text.Trim() == String.Empty)
                 { errorMsg = "Introduzca solicitante."; txtSolicitante.Focus(); }
+                else if (cbArea.Text == String.Empty)
+                { errorMsg = "Seleccione un área"; }
+                else if (cbServicio.Text == String.Empty)
+                { errorMsg = "Seleccione un servicio."; }
                 else if (txtDescripcion.Text.Trim() == String.Empty)
                 { errorMsg = "Introduzca descripción."; txtDescripcion.Focus(); }
                 else if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)

@@ -87,7 +87,7 @@ namespace PrototipoOT
             dataGridView1.Enabled = true;
             
 
-            MessageBox.Show("Registro actualizado con éxito.");
+            MessageBox.Show("Registro(s) actualizado con éxito.");
             editing = false;
         }
 

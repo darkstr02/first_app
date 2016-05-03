@@ -58,6 +58,7 @@
             this.txtServicio.Name = "txtServicio";
             this.txtServicio.Size = new System.Drawing.Size(100, 20);
             this.txtServicio.TabIndex = 1;
+            this.txtServicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtServicio_KeyPress);
             // 
             // txtArea
             // 
@@ -65,6 +66,7 @@
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(100, 20);
             this.txtArea.TabIndex = 5;
+            this.txtArea.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtArea_KeyPress);
             // 
             // cmdAñadirServicio
             // 

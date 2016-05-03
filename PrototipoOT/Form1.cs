@@ -284,6 +284,7 @@ namespace PrototipoOT
             if (CredencialUsuario.Permiso != "Administrador")
             {
                 administrarUsuariosToolStripMenuItem.Enabled = false;
+                administrarResponsablesToolStripMenuItem.Enabled = false;
             }
 
         }

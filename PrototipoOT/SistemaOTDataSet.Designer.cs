@@ -8660,7 +8660,7 @@ SELECT id_cuenta, nombre, e_mail, direccion, telefono, id_estado, passwd, id_cat
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            CUENTAS_DE_USUARIO\r\nWHERE       " +
-                " (nombre = @nombre) AND (passwd = @passwd) AND id_cat_cuenta = 1";
+                " (nombre = @nombre) AND (passwd = @passwd) AND id_estado = 1";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@passwd", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

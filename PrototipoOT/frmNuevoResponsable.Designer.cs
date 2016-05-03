@@ -353,6 +353,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -438,6 +439,7 @@
             this.BindingNavigatorSaveItem.Name = "BindingNavigatorSaveItem";
             this.BindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.BindingNavigatorSaveItem.Text = "Guardar datos";
+            this.BindingNavigatorSaveItem.Click += new System.EventHandler(this.BindingNavigatorSaveItem_Click);
             // 
             // frmNuevoResponsable
             // 

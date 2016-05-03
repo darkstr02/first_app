@@ -78,6 +78,10 @@ namespace PrototipoOT
             {
                 errorMsg = "Introduzca nombre";
             }
+            else if (txtDireccion.Text == "")
+            {
+                errorMsg = "Introduzca dirección";
+            }
             else if (txtTelefono.Text == "")
             {
                 errorMsg = "Introduzca teléfono";
@@ -85,10 +89,6 @@ namespace PrototipoOT
             else if (!validateTelephone(txtTelefono.Text, out errorMsg))
             {
                 errorMsg = "Teléfono inválido";
-            }
-            else if (txtDireccion.Text == "")
-            {
-                errorMsg = "Introduzca dirección";
             }
             else if (cbEstado.Text == "")
             {
@@ -112,7 +112,8 @@ namespace PrototipoOT
                 bindingNavigatorMoveFirstItem.Enabled = true;
             dataGridView1.Enabled = true;
 
-            MessageBox.Show("Registro actualizado con éxito.");
+            MessageBox.Show("Registro(s) actualizado con éxito.");
+            editing = false;
         }
 
         private bool validateTelephone(string str, out string err)

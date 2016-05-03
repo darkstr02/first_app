@@ -55,6 +55,7 @@ namespace PrototipoOT
             }
             this.sistemaOTDataSet.SERVICIOS.Rows.Add(nuevo);
             txtServicio.Clear();
+            txtServicio.Focus();
         }
 
         private void cmdAñadirArea_Click(object sender, EventArgs e)
@@ -84,6 +85,7 @@ namespace PrototipoOT
 
             this.sistemaOTDataSet.AREAS.Rows.Add(nuevo);
             txtArea.Clear();
+            txtArea.Focus();
         }
 
         private void cmdBorrarServicio_Click(object sender, EventArgs e)
@@ -139,6 +141,23 @@ namespace PrototipoOT
             this.sistemaOTDataSet.SERVICIOS.RejectChanges();
             this.sistemaOTDataSet.AREAS.RejectChanges();
             this.Close();
+        }
+
+
+        private void txtArea_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                cmdAñadirArea.Focus();
+            }
+        }
+
+        private void txtServicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                cmdAñadirServicio.Focus();
+            }
         }
     }
 }
