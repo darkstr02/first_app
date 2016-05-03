@@ -50,6 +50,11 @@ namespace PrototipoOT
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(dtpFechaInicio.Value.Date > dtpFechaFinal.Value.Date)
+            {   
+                MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha final.", "Advertencia", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                return;
+            }
             this.DialogResult = DialogResult.OK;
 
             List<string> serv = new List<string>();

@@ -30,7 +30,7 @@ namespace PrototipoOT
         {
             if (txtServicio.Text == String.Empty)
             {
-                MessageBox.Show("Introduzca un nuevo servicio en el campo correspondiente.");
+                MessageBox.Show("Introduzca un nuevo servicio en el campo correspondiente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -46,7 +46,7 @@ namespace PrototipoOT
 
                 if (indx["descripcion"].ToString() == txtServicio.Text.Trim())
                 {
-                    MessageBox.Show("Este servicio ya existe");
+                    MessageBox.Show("Este servicio ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtServicio.Clear();
                     return;
                 }
@@ -62,7 +62,7 @@ namespace PrototipoOT
 
             if (area == String.Empty)
             {
-                MessageBox.Show("Introduzca una nueva área en el campo correspondiente.");
+                MessageBox.Show("Introduzca una nueva área en el campo correspondiente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -75,7 +75,7 @@ namespace PrototipoOT
  
                 if (indx["descripcion"].ToString() == txtArea.Text.Trim())
                 {
-                    MessageBox.Show("Esta área ya existe");
+                    MessageBox.Show("Esta área ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtArea.Clear();
                     return;
                 }
@@ -90,11 +90,11 @@ namespace PrototipoOT
         {
             if (lbServicios.Items.Count == 0)
             {
-                MessageBox.Show("No existen registros en la lista.");
+                MessageBox.Show("No existen registros en la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 DataRowView borrar = (DataRowView) lbServicios.SelectedItem;
                 string borrarString = borrar.Row["descripcion"].ToString();
@@ -110,11 +110,11 @@ namespace PrototipoOT
 
             if (lbAreas.Items.Count == 0)
             {
-                MessageBox.Show("No existen registros en la lista.");
+                MessageBox.Show("No existen registros en la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 DataRowView borrar = (DataRowView)lbAreas.SelectedItem;
                 string borrarString = borrar.Row["descripcion"].ToString();

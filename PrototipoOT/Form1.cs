@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -27,6 +28,15 @@ namespace PrototipoOT
 
         public Form1()
         {
+            frmInicioSesion frm = new frmInicioSesion();
+
+            if (frm.ShowDialog() != DialogResult.OK)
+            {
+                this.Close();
+                return;
+            }
+            MessageBox.Show(global::PrototipoOT.Properties.Settings.Default.SistemaOTConnectionString);
+
             InitializeComponent();
             this.sistemaOTDataSet.EnforceConstraints = false;
         }
@@ -121,7 +131,7 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                    MessageBox.Show("No existen registros de ordenes de trabajo");
+                    MessageBox.Show("No existen registros de ordenes de trabajo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -139,7 +149,7 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                 MessageBox.Show("No existen registros de ordenes de trabajo");
+                MessageBox.Show("No existen registros de ordenes de trabajo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
         }
@@ -178,7 +188,7 @@ namespace PrototipoOT
                 
                 if(dtgIndex != -1)
                     dataGridView1.Rows[dtgIndex].Selected = false;
-                MessageBox.Show("El registro no existe");
+                MessageBox.Show("El registro no existe", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgIndex = -1;
             }
                
@@ -204,7 +214,7 @@ namespace PrototipoOT
 
                 if (dtgIndex != -1)
                     dataGridView1.Rows[dtgIndex].Selected = false;
-                MessageBox.Show("El registro no existe");
+                MessageBox.Show("El registro no existe", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgIndex = -1;
             }
         }
@@ -267,14 +277,8 @@ namespace PrototipoOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            frmInicioSesion frm = new frmInicioSesion();
-            
-            if (frm.ShowDialog() != DialogResult.OK)
-            {
-                this.Close();
-                return;
-            }
-
+            this.vw_ordenesTableAdapter.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+            this.oRDENES_DE_TRABAJOTableAdapter.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.
             this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
             this.oRDENES_DE_TRABAJOTableAdapter.Fill(this.sistemaOTDataSet.ORDENES_DE_TRABAJO);
@@ -292,12 +296,6 @@ namespace PrototipoOT
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            //DataRow indexDataRow = ((DataRowView)dataGridView1.SelectedCells[0].OwningRow.DataBoundItem).Row;
-            //int index = Int32.Parse(indexDataRow["ID"].ToString());
-
-            //frmOrdenTrabajo frm = new frmOrdenTrabajo("Modificar", index);
-            //if (frm.ShowDialog() == DialogResult.OK)
-            //    this.vw_ordenesTableAdapter.Fill(this.sistemaOTDataSet.vw_ordenes);
 
             try
             {
@@ -310,10 +308,7 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                if (ex.HResult == -2146232022)
-                    MessageBox.Show("Consecutivo ya existe");
-                else
-                    MessageBox.Show("No existen registros de ordenes de trabajo");
+                    MessageBox.Show("No existen registros de ordenes de trabajo","Advertencia",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -338,7 +333,7 @@ namespace PrototipoOT
                     }
                 }
 
-                if (MessageBox.Show("¿Está seguro que desea borrar este registro?","Confirmación de Borrado",MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     selectedRow.Delete();
 
@@ -348,7 +343,7 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No ha seleccionado un registro o no existen registros de Órdenes de Trabajo.");
+                MessageBox.Show("No ha seleccionado un registro o no existen registros de órdenes de trabajo.", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
             
         }
@@ -380,7 +375,7 @@ namespace PrototipoOT
                     }
                 }
 
-                if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea borrar este registro?", "Confirmación de Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     selectedRow.Delete();
 
@@ -390,7 +385,7 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No ha seleccionado un registro o no existen registros de Órdenes de Trabajo.");
+                MessageBox.Show("No ha seleccionado un registro o no existen registros de órdenes de trabajo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

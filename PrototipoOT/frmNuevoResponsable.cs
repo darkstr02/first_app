@@ -60,19 +60,22 @@ namespace PrototipoOT
 
         private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+            if (editing == false && dataGridView1.RowCount == 0)
+            {
+                MessageBox.Show("Haga clic en el botón 'añadir datos' antes de capturar el responsable", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             this.Validate();
 
             string errorMsg = String.Empty;
 
             if (txtApPaterno.Text == "")
             {
-                MessageBox.Show("Introduzca apellido paterno");
-                return;
+                errorMsg = "Introduzca apellido paterno";
             }
             else if (txtApMaterno.Text == "")
             {
-                MessageBox.Show("Introduzca apellido materno");
-                return;
+                errorMsg = "Introduzca apellido materno";
             }
             else if (txtNombre.Text == "")
             {
@@ -97,7 +100,7 @@ namespace PrototipoOT
 
             if (errorMsg != String.Empty)
             {
-                MessageBox.Show(errorMsg);
+                MessageBox.Show(errorMsg, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
       

@@ -66,6 +66,10 @@ namespace PrototipoOT
             config.ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString = connString;
             config.Save(ConfigurationSaveMode.Modified, true);
             ConfigurationManager.RefreshSection("connectionStrings");
+
+            //PrototipoOT.Properties.Settings.Default.SistemaOTConnectionString = connString;
+
+
         }
 
         private List<DBName> FetchDatabases(string SelectedServer, string user, string passwd)
@@ -88,7 +92,7 @@ namespace PrototipoOT
 
             //open connection
             try { sqlConn.Open(); tblDatabases = sqlConn.GetSchema("Databases"); }
-            catch (Exception e) { MessageBox.Show(e.Message); return null; }
+            catch (Exception e) { MessageBox.Show(e.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error); return null; }
 
             //get databases
             

@@ -25,3 +25,7 @@ C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmCargando.resources
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\User Manual.chm
 C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.frmAcercaDe.resources
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\PrototipoOT.exe.manifest
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\bin\Debug\PrototipoOT.application
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.exe.manifest
+C:\Users\Francisco\documents\visual studio 2012\Projects\PrototipoOT\PrototipoOT\obj\Debug\PrototipoOT.application

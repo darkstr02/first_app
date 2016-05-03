@@ -35,9 +35,9 @@ namespace PrototipoOT
                //     MessageBox.Show("La base de datos seleccionada es inválida. Por favor, seleccione la base de datos correcta en la ventana 'Cambiar Servidor...'.");
                 //else
                 if(ex.Message == "Invalid object name 'dbo.CUENTAS_DE_USUARIO'.")
-                    MessageBox.Show("La base de datos seleccionada es inválida. Por favor, seleccione la base de datos correcta en la ventana 'Cambiar Servidor...'.");
+                    MessageBox.Show("La base de datos seleccionada es inválida. Por favor, seleccione la base de datos correcta en la ventana 'Cambiar Servidor...'.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 else
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 f.Close();
                 
                 return;
@@ -48,15 +48,17 @@ namespace PrototipoOT
                 int permiso = (int) this.cUENTAS_DE_USUARIOTableAdapter.FetchPermiso(txtNombre.Text);
        
                 CredencialUsuario.SubscribirCuenta(txtNombre.Text, (permiso == 1) ? "Administrador" : "Registrado", txtContraseña.Text);
-                this.cUENTAS_DE_USUARIOTableAdapter.actualizarUltimoAcceso(DateTime.Now, txtNombre.Text);       
+                this.cUENTAS_DE_USUARIOTableAdapter.actualizarUltimoAcceso(DateTime.Now, txtNombre.Text);
+                
 
-                MessageBox.Show("Bienvenido/a, " + txtNombre.Text + ": " + CredencialUsuario.Permiso);
+
+                MessageBox.Show("Bienvenido/a, " + txtNombre.Text + ": " + CredencialUsuario.Permiso,"Información",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Combinación errónea de nombre de usuario y contraseña. Por favor, inténtelo de nuevo.");
+                MessageBox.Show("Combinación errónea de nombre de usuario y contraseña. Por favor, inténtelo de nuevo.", "Advertencia", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
 
         }

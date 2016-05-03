@@ -37,7 +37,7 @@ namespace PrototipoOT
 
             if (dtpFechaInicio.Value.Date > dtpFechaFinal.Value.Date)
             {
-                MessageBox.Show("La fecha inicial no puede ser mayor a la fecha final.");
+                MessageBox.Show("La fecha inicial no puede ser mayor a la fecha final.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace PrototipoOT
             }
             else
             {
-                MessageBox.Show("Error: se ha elegido un tipo de reporte, pero su lista correspondiente no ha sido seleccionada.");
+                MessageBox.Show("Se ha elegido un tipo de reporte, pero su lista correspondiente no ha sido seleccionada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }      
         }
 

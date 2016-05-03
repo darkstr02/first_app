@@ -112,7 +112,7 @@ namespace PrototipoOT
             }
             catch (System.Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -137,46 +137,38 @@ namespace PrototipoOT
             string errorMsg = String.Empty;
 
             //Pendiente de borrar este if
-            if (this.ValidateChildren())
+           
+            //VALIDACIONES
+            if (dtpFecha.Value > DateTime.Now)
+            { errorMsg = "No puede establecerse una fecha en el futuro como fecha de inicio de la orden de trabajo."; dtpFecha.Focus(); }
+            else if (txtConsecutivo.Text.Trim() == String.Empty)
+            { errorMsg = "Introduzca un consecutivo."; txtConsecutivo.Focus(); }
+            else if (txtSolicitante.Text.Trim() == String.Empty)
+            { errorMsg = "Introduzca solicitante."; txtSolicitante.Focus(); }
+            else if (cbArea.Text == String.Empty)
+            { errorMsg = "Seleccione un área"; }
+            else if (cbServicio.Text == String.Empty)
+            { errorMsg = "Seleccione un servicio."; }
+            else if (txtDescripcion.Text.Trim() == String.Empty)
+            { errorMsg = "Introduzca descripción."; txtDescripcion.Focus(); }
+            else if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)
+            { errorMsg = "Esta Orden de Trabajo no puede marcarse como entregada sin asignar un responsable"; cbResponsable.Focus(); }
+
+            if (errorMsg != String.Empty)
             {
-
-                //VALIDACIONES
-                if (dtpFecha.Value > DateTime.Now)
-                { errorMsg = "No puede establecerse una fecha en el futuro como fecha de inicio de la orden de trabajo."; dtpFecha.Focus(); }
-                else if (txtConsecutivo.Text.Trim() == String.Empty)
-                { errorMsg = "Introduzca un consecutivo."; txtConsecutivo.Focus(); }
-                else if (txtSolicitante.Text.Trim() == String.Empty)
-                { errorMsg = "Introduzca solicitante."; txtSolicitante.Focus(); }
-                else if (cbArea.Text == String.Empty)
-                { errorMsg = "Seleccione un área"; }
-                else if (cbServicio.Text == String.Empty)
-                { errorMsg = "Seleccione un servicio."; }
-                else if (txtDescripcion.Text.Trim() == String.Empty)
-                { errorMsg = "Introduzca descripción."; txtDescripcion.Focus(); }
-                else if (rbEntregadoSi.Checked && cbResponsable.SelectedItem == null)
-                { errorMsg = "Esta Orden de Trabajo no puede marcarse como entregada sin asignar un responsable"; cbResponsable.Focus(); }
-
-                if (errorMsg != String.Empty)
-                {
-                    MessageBox.Show(errorMsg);
-                    return;
-                }
-         
-                if (titulo.Equals("Nueva")) returnValue = insertarOrden();
-                else returnValue = modificarOrden();
-
-                if (returnValue != 0) return;
-                else MessageBox.Show("Operación realizada con éxito!");
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Faltan uno o más campor por llenar.");
+                MessageBox.Show(errorMsg, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+         
+            if (titulo.Equals("Nueva")) returnValue = insertarOrden();
+            else returnValue = modificarOrden();
+
+            if (returnValue != 0) return;
+            else MessageBox.Show("Operación realizada con éxito!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+                  
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -217,7 +209,7 @@ namespace PrototipoOT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Consecutivo ya existe!");
+                MessageBox.Show("Consecutivo ya existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtConsecutivo.Focus();
                 return -1;
             }
@@ -226,7 +218,7 @@ namespace PrototipoOT
         private int modificarOrden()
         {
             try { modifyRow["consecutivo"] = txtConsecutivo.Text.ToUpper(); }
-            catch (Exception e) { MessageBox.Show("Consecutivo ya existe!"); txtConsecutivo.Focus(); return -1; }
+            catch (Exception e) { MessageBox.Show("Consecutivo ya existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); txtConsecutivo.Focus(); return -1; }
             modifyRow["solicitante"] = txtSolicitante.Text;
 
             DataRowView serv = (DataRowView)cbServicio.SelectedItem;

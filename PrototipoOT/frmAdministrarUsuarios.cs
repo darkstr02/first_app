@@ -70,7 +70,7 @@ namespace PrototipoOT
 
             if (errorMsg != String.Empty)
             {
-                MessageBox.Show(errorMsg);
+                MessageBox.Show(errorMsg,"Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -87,7 +87,7 @@ namespace PrototipoOT
             dataGridView1.Enabled = true;
             
 
-            MessageBox.Show("Registro(s) actualizado con éxito.");
+            MessageBox.Show("Registro(s) actualizado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             editing = false;
         }
 

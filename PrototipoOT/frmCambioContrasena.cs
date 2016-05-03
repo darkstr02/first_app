@@ -29,7 +29,7 @@ namespace PrototipoOT
             if (txtConfContraNueva.Text == txtContraNueva.Text && txtContraActual.Text == CredencialUsuario.Contrasena)
             {
                 this.cUENTAS_DE_USUARIOTableAdapter.actualizarContrasena(txtContraNueva.Text, CredencialUsuario.Nombre);
-                MessageBox.Show("La contraseña se ha acutalizado con éxito.");
+                MessageBox.Show("La contraseña se ha acutalizado con éxito.", "Información", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 CredencialUsuario.Contrasena = txtContraNueva.Text;
 
                 this.DialogResult = DialogResult.OK;
@@ -37,11 +37,11 @@ namespace PrototipoOT
             }
             else if (txtConfContraNueva.Text != txtContraNueva.Text)
             {
-                MessageBox.Show("Las contraseñas no coinciden. Por favor, confirme correctamente la contraseña");
+                MessageBox.Show("Las contraseñas no coinciden. Por favor, confirme correctamente la contraseña.", "Advertencia", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show("Contraseña actual errónea. Favor de intentarlo de nuevo.");
+                MessageBox.Show("Contraseña actual errónea. Favor de intentarlo de nuevo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
