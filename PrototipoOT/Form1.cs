@@ -268,6 +268,7 @@ namespace PrototipoOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Abre el formulario de inicio de sesión antes de accesar al sistema.
             frmInicioSesion frm = new frmInicioSesion();
 
             if (frm.ShowDialog() != DialogResult.OK)
@@ -276,7 +277,7 @@ namespace PrototipoOT
                 return;
             }
 
-
+            //Actualiza las conexiones de los TableAdapters con la configuración escogida en el inicio de sesión;
             this.vw_ordenesTableAdapter.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
             this.oRDENES_DE_TRABAJOTableAdapter.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.

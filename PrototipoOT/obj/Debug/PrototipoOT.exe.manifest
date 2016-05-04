@@ -228,14 +228,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PrototipoOT.exe" size="6576128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PrototipoOT.exe" size="6575104">
       <assemblyIdentity name="PrototipoOT" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PtiLvoaP6fG6ZQsfdGkg3yzsGCJY+u5qYSvqmu6yrCI=</dsig:DigestValue>
+        <dsig:DigestValue>My8V+zVcbd/gZfZo5FtedsaLlTLPW2Diu2RGBiCN2Ek=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

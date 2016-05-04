@@ -32,15 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrarUsuarios));
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idestadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idcatcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ultimoaccesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sistemaOTDataSet = new PrototipoOT.SistemaOTDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -78,6 +69,12 @@
             this.cUENTAS_DE_USUARIOTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CUENTAS_DE_USUARIOTableAdapter();
             this.eSTADOSTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.ESTADOSTableAdapter();
             this.cAT_CUENTASTableAdapter = new PrototipoOT.SistemaOTDataSetTableAdapters.CAT_CUENTASTableAdapter();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ultimoaccesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaOTDataSet)).BeginInit();
@@ -106,14 +103,11 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idcuentaDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.direccionDataGridViewTextBoxColumn,
             this.telefonoDataGridViewTextBoxColumn,
-            this.idestadoDataGridViewTextBoxColumn,
             this.passwdDataGridViewTextBoxColumn,
-            this.idcatcuentaDataGridViewTextBoxColumn,
             this.ultimoaccesoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -123,69 +117,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(271, 267);
             this.dataGridView1.TabIndex = 43;
-            // 
-            // idcuentaDataGridViewTextBoxColumn
-            // 
-            this.idcuentaDataGridViewTextBoxColumn.DataPropertyName = "id_cuenta";
-            this.idcuentaDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idcuentaDataGridViewTextBoxColumn.Name = "idcuentaDataGridViewTextBoxColumn";
-            this.idcuentaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "e_mail";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "E-mail";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // direccionDataGridViewTextBoxColumn
-            // 
-            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
-            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
-            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "telefono";
-            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Teléfono";
-            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idestadoDataGridViewTextBoxColumn
-            // 
-            this.idestadoDataGridViewTextBoxColumn.DataPropertyName = "id_estado";
-            this.idestadoDataGridViewTextBoxColumn.HeaderText = "Estado";
-            this.idestadoDataGridViewTextBoxColumn.Name = "idestadoDataGridViewTextBoxColumn";
-            this.idestadoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwdDataGridViewTextBoxColumn
-            // 
-            this.passwdDataGridViewTextBoxColumn.DataPropertyName = "passwd";
-            this.passwdDataGridViewTextBoxColumn.HeaderText = "Contraseña";
-            this.passwdDataGridViewTextBoxColumn.Name = "passwdDataGridViewTextBoxColumn";
-            this.passwdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idcatcuentaDataGridViewTextBoxColumn
-            // 
-            this.idcatcuentaDataGridViewTextBoxColumn.DataPropertyName = "id_cat_cuenta";
-            this.idcatcuentaDataGridViewTextBoxColumn.HeaderText = "Permiso";
-            this.idcatcuentaDataGridViewTextBoxColumn.Name = "idcatcuentaDataGridViewTextBoxColumn";
-            this.idcatcuentaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ultimoaccesoDataGridViewTextBoxColumn
-            // 
-            this.ultimoaccesoDataGridViewTextBoxColumn.DataPropertyName = "ultimo_acceso";
-            this.ultimoaccesoDataGridViewTextBoxColumn.HeaderText = "Último Acceso";
-            this.ultimoaccesoDataGridViewTextBoxColumn.Name = "ultimoaccesoDataGridViewTextBoxColumn";
-            this.ultimoaccesoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bindingSource1
             // 
@@ -526,6 +457,49 @@
             // 
             this.cAT_CUENTASTableAdapter.ClearBeforeFill = true;
             // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "e_mail";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "E-mail";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Teléfono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwdDataGridViewTextBoxColumn
+            // 
+            this.passwdDataGridViewTextBoxColumn.DataPropertyName = "passwd";
+            this.passwdDataGridViewTextBoxColumn.HeaderText = "Contraseña";
+            this.passwdDataGridViewTextBoxColumn.Name = "passwdDataGridViewTextBoxColumn";
+            this.passwdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ultimoaccesoDataGridViewTextBoxColumn
+            // 
+            this.ultimoaccesoDataGridViewTextBoxColumn.DataPropertyName = "ultimo_acceso";
+            this.ultimoaccesoDataGridViewTextBoxColumn.HeaderText = "Último Acceso";
+            this.ultimoaccesoDataGridViewTextBoxColumn.Name = "ultimoaccesoDataGridViewTextBoxColumn";
+            this.ultimoaccesoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ultimoaccesoDataGridViewTextBoxColumn.Width = 200;
+            // 
             // frmAdministrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,14 +577,11 @@
         private System.Windows.Forms.BindingSource cATCUENTASBindingSource;
         private SistemaOTDataSetTableAdapters.CAT_CUENTASTableAdapter cAT_CUENTASTableAdapter;
         private System.Windows.Forms.ToolStripButton BindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idcuentaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idestadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idcatcuentaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ultimoaccesoDataGridViewTextBoxColumn;
 
     }

@@ -16,7 +16,7 @@ namespace PrototipoOT
         public frmBuscar()
         {
             InitializeComponent();
-
+            //Actualiza las conexiones de los TableAdapters con la configuración escogida en el inicio de sesión;
             string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
 
             this.rESPONSABLESTableAdapter.Connection.ConnectionString = connString;

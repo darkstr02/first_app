@@ -19,7 +19,7 @@ namespace PrototipoOT
         public frmInicioSesion()
         {
             InitializeComponent();
-
+            //Actualiza las conexiones de los TableAdapters con la configuración escogida en el inicio de sesión;
             tableAdapterManager = new TableAdapterManager();
             tableAdapterManager.CUENTAS_DE_USUARIOTableAdapter = this.cUENTAS_DE_USUARIOTableAdapter;
 

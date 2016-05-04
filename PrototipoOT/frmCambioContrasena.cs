@@ -16,7 +16,7 @@ namespace PrototipoOT
         public frmCambioContrasena()
         {
             InitializeComponent();
-
+            //Actualiza las conexiones de los TableAdapters con la configuración escogida en el inicio de sesión;
             string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
             this.cUENTAS_DE_USUARIOTableAdapter.Connection.ConnectionString = connString;
         }

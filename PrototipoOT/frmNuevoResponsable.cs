@@ -18,6 +18,7 @@ namespace PrototipoOT
         public frmNuevoResponsable()
         {
             InitializeComponent();
+            ///Actualiza las conexiones de los TableAdapters con la configuración escogida en el inicio de sesión;
             string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
 
             this.eSTADOSTableAdapter.Connection.ConnectionString = connString;
@@ -48,7 +49,7 @@ namespace PrototipoOT
         {
             if (editing == false && dataGridView1.RowCount == 0)
             {
-                MessageBox.Show("Haga clic en el botón 'añadir datos' antes de capturar el responsable", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Haga clic en el botón 'agregar nuevo' antes de capturar el responsable", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             this.Validate();
