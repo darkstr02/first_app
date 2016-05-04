@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace PrototipoOT
 {
@@ -20,6 +21,13 @@ namespace PrototipoOT
         public frmAdministrarUsuarios()
         {
             InitializeComponent();
+
+            string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+
+            this.cAT_CUENTASTableAdapter.Connection.ConnectionString = connString;
+            this.eSTADOSTableAdapter.Connection.ConnectionString = connString;
+            this.cUENTAS_DE_USUARIOTableAdapter.Connection.ConnectionString = connString;
+
         }
 
         private void frmNuevoUsuario_Load(object sender, EventArgs e)
@@ -35,7 +43,7 @@ namespace PrototipoOT
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.ESTADOS' Puede moverla o quitarla según sea necesario.
             //this.eSTADOSTableAdapter.Fill(this.sistemaOTDataSet.ESTADOS);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.CUENTAS_DE_USUARIO' Puede moverla o quitarla según sea necesario.
-            this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
+            //this.cUENTAS_DE_USUARIOTableAdapter.Fill(this.sistemaOTDataSet.CUENTAS_DE_USUARIO);
 
             editing = false;
 

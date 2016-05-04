@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace PrototipoOT
 {
@@ -17,6 +18,11 @@ namespace PrototipoOT
         public frmNuevoResponsable()
         {
             InitializeComponent();
+            string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+
+            this.eSTADOSTableAdapter.Connection.ConnectionString = connString;
+            this.rESPONSABLESTableAdapter.Connection.ConnectionString = connString;
+
         }
 
         private void frmNuevoResponsable_Load(object sender, EventArgs e)
@@ -24,15 +30,8 @@ namespace PrototipoOT
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.ESTADOS' Puede moverla o quitarla según sea necesario.
             this.eSTADOSTableAdapter.Fill(this.sistemaOTDataSet.ESTADOS);
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.RESPONSABLES' Puede moverla o quitarla según sea necesario.
-            this.rESPONSABLESTableAdapter.Fill(this.sistemaOTDataSet.RESPONSABLES);
-            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.ESTADOS' Puede moverla o quitarla según sea necesario.
-            //this.eSTADOSTableAdapter.Fill(this.sistemaOTDataSet.ESTADOS);
-            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.RESPONSABLES' Puede moverla o quitarla según sea necesario.
             this.rESPONSABLESTableAdapter.FillBy(this.sistemaOTDataSet.RESPONSABLES);
-            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_responsables' Puede moverla o quitarla según sea necesario.
-            //this.vw_responsablesTableAdapter.Fill(this.sistemaOTDataSet.vw_responsables);
-            // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.RESPONSABLES' Puede moverla o quitarla según sea necesario.
-            //this.rESPONSABLESTableAdapter.Fill(this.sistemaOTDataSet.RESPONSABLES);
+
             editing = false;
         }
 
@@ -43,19 +42,6 @@ namespace PrototipoOT
             this.bindingSource1.CancelEdit();
             this.rESPONSABLESTableAdapter.Update(this.sistemaOTDataSet.RESPONSABLES);
             this.Close();
-        }
-
-
-        public int insertarResponsable()
-        {
-
-            return 0;
-        }
-
-        public int modificarResponsable()
-        {
-            
-            return 0;
         }
 
         private void BindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -122,7 +108,6 @@ namespace PrototipoOT
         private bool validateTelephone(string str, out string err)
         {
             long result = 0;
-            //bool value = Regex.Match(str, @"^(\+[0-9]{9})$").Success;
             bool value = Int64.TryParse(str, out result);
             err = (value) ? "" : "Teléfono inválido.";
             return value;

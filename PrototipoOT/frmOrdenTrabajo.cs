@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrototipoOT.SistemaOTDataSetTableAdapters;
+using System.Configuration;
 
 namespace PrototipoOT
 {
     public partial class frmOrdenTrabajo : Form
     {
+
         string titulo;
         DataRow modifyRow;
         int indice;
@@ -19,6 +22,23 @@ namespace PrototipoOT
         public frmOrdenTrabajo(String title, int idx = 0)
         {
             InitializeComponent();
+
+            //Actualiza las conexiones de los TableAdapters con la configuración escogida en el inicio de sesión;
+            string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+
+            this.oRDENES_DE_TRABAJOTableAdapter.Connection.ConnectionString = connString;
+            this.vw_nombreresponsablesTableAdapter.Connection.ConnectionString = connString;
+            this.rESPONSABLESTableAdapter.Connection.ConnectionString = connString;
+            this.aREASTableAdapter.Connection.ConnectionString = connString;
+            this.sERVICIOSTableAdapter.Connection.ConnectionString = connString;
+
+            //tableAdapterManager.ORDENES_DE_TRABAJOTableAdapter = this.oRDENES_DE_TRABAJOTableAdapter;
+            //tableAdapterManager.RESPONSABLESTableAdapter = this.rESPONSABLESTableAdapter;
+            //tableAdapterManager.AREASTableAdapter = this.aREASTableAdapter;
+            //tableAdapterManager.SERVICIOSTableAdapter = this.sERVICIOSTableAdapter;
+
+            //tableAdapterManager.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+
             this.Text = title + " Órden de Trabajo";
             titulo = title;
             indice = idx;

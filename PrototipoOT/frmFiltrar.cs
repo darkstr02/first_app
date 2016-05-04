@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PresentationControls;
+using System.Configuration;
 
 namespace PrototipoOT
 {
@@ -16,6 +17,12 @@ namespace PrototipoOT
         public frmFiltrar()
         {
             InitializeComponent();
+
+            string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+
+            this.vw_nombreresponsablesTableAdapter.Connection.ConnectionString = connString;
+            this.aREASTableAdapter.Connection.ConnectionString = connString;
+            this.sERVICIOSTableAdapter.Connection.ConnectionString = connString;
         }
 
         private void frmFiltrar_Load(object sender, EventArgs e)

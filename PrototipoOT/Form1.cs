@@ -28,15 +28,6 @@ namespace PrototipoOT
 
         public Form1()
         {
-            frmInicioSesion frm = new frmInicioSesion();
-
-            if (frm.ShowDialog() != DialogResult.OK)
-            {
-                this.Close();
-                return;
-            }
-            MessageBox.Show(global::PrototipoOT.Properties.Settings.Default.SistemaOTConnectionString);
-
             InitializeComponent();
             this.sistemaOTDataSet.EnforceConstraints = false;
         }
@@ -277,6 +268,15 @@ namespace PrototipoOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            frmInicioSesion frm = new frmInicioSesion();
+
+            if (frm.ShowDialog() != DialogResult.OK)
+            {
+                this.Close();
+                return;
+            }
+
+
             this.vw_ordenesTableAdapter.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
             this.oRDENES_DE_TRABAJOTableAdapter.Connection.ConnectionString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
             // TODO: esta línea de código carga datos en la tabla 'sistemaOTDataSet.vw_ordenes' Puede moverla o quitarla según sea necesario.

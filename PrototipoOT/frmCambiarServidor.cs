@@ -67,8 +67,6 @@ namespace PrototipoOT
             config.Save(ConfigurationSaveMode.Modified, true);
             ConfigurationManager.RefreshSection("connectionStrings");
 
-            //PrototipoOT.Properties.Settings.Default.SistemaOTConnectionString = connString;
-
 
         }
 

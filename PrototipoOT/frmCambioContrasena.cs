@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace PrototipoOT
 {
@@ -15,6 +16,9 @@ namespace PrototipoOT
         public frmCambioContrasena()
         {
             InitializeComponent();
+
+            string connString = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).ConnectionStrings.ConnectionStrings["PrototipoOT.Properties.Settings.SistemaOTConnectionString"].ConnectionString;
+            this.cUENTAS_DE_USUARIOTableAdapter.Connection.ConnectionString = connString;
         }
 
         private void frmCambioContrasena_Load(object sender, EventArgs e)
